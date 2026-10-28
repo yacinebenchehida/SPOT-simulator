@@ -49,7 +49,7 @@ for i, r in enumerate(Qs):
     ne = float(r['NF']) * {'haploid': 1, 'diploid': 2, 'haplodiploid': 1.5}[r['system']]
     for j, t in enumerate([{'haplodiploid': 'haplodipl.'}.get(r['system'], r['system']), f"Ne {ne:,.0f}", f"n = {int(r['n_slim']):,}"]):
         F.text(d.X(i), d.y + d.h + 14 + 12 * j, esc(t), 10, 'middle', COL['ink'] if j < 2 else COL['muted'])
-F.text(70, 395, 'Same scenarios simulated by SPOT and by SLiM 5.2 (2,000 replicate populations each; d: up to 8,000 SLiM neutral replicates, SPOT threshold from 20,000). '
+F.text(70, 395, 'Same scenarios simulated by SPOT and by SLiM 5.2 (2,000 replicate populations each; d: 8,000 SLiM neutral replicates, SPOT threshold from 20,000). '
        'Sampling at generations 0, 20, 40 and 90,', 11, color=COL['muted'])
 F.text(70, 411, '20/20/20/40 females, perfect genotypes. a, b: allele frequency among breeding females after selection at generations 20, 40 and 90. '
        'c, d: bars show ±2 standard errors.', 11, color=COL['muted'])

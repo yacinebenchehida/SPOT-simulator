@@ -36,7 +36,7 @@ SPOT simulated the same scenarios with the same number of replicates, using its 
 
 - **Allele frequencies.** The mean and SD across replicates at generations 20, 40 and 90, and a two-sample Kolmogorov–Smirnov test of the whole distribution at generation 90.
 - **Power.** The trend test across the four dates, with each simulator's drift-aware threshold (the 95% quantile of its own neutral replicates), as in SPOT.
-- **False-positive rate.** SPOT's threshold applied to SLiM's neutral populations. This is the most direct check: if SPOT simulates drift correctly, about 5% of SLiM's neutral populations should exceed SPOT's threshold. For this check, SPOT's threshold comes from 20,000 neutral replicates. The three neutral scenarios with the largest deviations in a first comparison (diploid Ne = 1,000 and 200, haplodiploid Ne = 750) were rerun with 8,000 SLiM replicates instead of 2,000.
+- **False-positive rate.** SPOT's threshold applied to SLiM's neutral populations. This is the most direct check: if SPOT simulates drift correctly, about 5% of SLiM's neutral populations should exceed SPOT's threshold. For this check, SPOT's threshold comes from 20,000 neutral replicates. Each of the five neutral scenarios was simulated with 8,000 SLiM replicates (four runs of 2,000 with different seeds), so that the false-positive rate is estimated with the same precision in all of them.
 
 ## Results
 
@@ -61,9 +61,9 @@ SPOT simulated the same scenarios with the same number of replicates, using its 
 |---|---|---|
 | diploid, Ne 1,000 | 8,000 | 5.9% (± 0.24) |
 | diploid, Ne 200 | 8,000 | 5.3% (± 0.24) |
-| haploid, Ne 1,000 | 2,000 | 4.9% (± 0.49) |
+| haploid, Ne 1,000 | 8,000 | 5.1% (± 0.24) |
 | haplodiploid, Ne 750 | 8,000 | 5.6% (± 0.24) |
-| haplodiploid, Ne 1,500, p₀ = 0.01 | 2,000 | 4.7% (± 0.49) |
+| haplodiploid, Ne 1,500, p₀ = 0.01 | 8,000 | 4.9% (± 0.24) |
 
 ## Interpretation
 
