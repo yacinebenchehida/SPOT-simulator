@@ -2,7 +2,7 @@
 # =====================================================================================================
 # Runs the SLiM side of the SLiM comparison (validation/slim.md).
 # Requires SLiM 5 (https://messerlab.org/slim/; tested with SLiM 5.2). Run from the repository root:
-#     bash validation/slim_runs.sh            (about 20 minutes; the largest runs need about 3 GB of memory each)
+#     bash validation/slim_runs.sh            (about 30 minutes; the largest runs need about 3 GB of memory each)
 # then compare with SPOT:
 #     node validation/slim_compare.js         (writes validation/slim_results.tsv, slim_power.tsv, slim_fpr.tsv)
 #     python3 validation/slim_figure.py       (writes validation/slim_check.svg)
@@ -14,8 +14,8 @@
 #   NF, NM : breeding females and males per generation (haploid: NF individuals; NM unused)
 #   P0     : starting frequency of the selected allele
 #   S, H   : selection coefficient and dominance (S = 0 gives the neutral runs used to set the threshold)
-#   seed   : random seed (default 12345); the extra neutral runs (_b, _c, _d) only add replicates for a more
-#            precise check of the false-positive rate (see slim.md)
+#   seed   : random seed (default 12345); the extra neutral runs (_b, _c, _d) bring every neutral scenario to 8,000
+#            replicates, for a precise check of the false-positive rate (see slim.md)
 # All runs share the design of the default page: sampling at generations 0, 20, 40 and 90 (one generation
 # per year, 1935/1955/1975/2025), 20/20/20/40 females per sampling date, perfect genotypes.
 # =====================================================================================================
@@ -46,6 +46,12 @@ diploid_N200_neutral_d      diploid       100  100  0.1   0     0.5  4
 haplodiploid_N1000_neutral_b haplodiploid 500  500  0.1   0     0.5  2
 haplodiploid_N1000_neutral_c haplodiploid 500  500  0.1   0     0.5  3
 haplodiploid_N1000_neutral_d haplodiploid 500  500  0.1   0     0.5  4
+haploid_N1000_neutral_b     haploid       1000 0    0.05  0     0.5  2
+haploid_N1000_neutral_c     haploid       1000 0    0.05  0     0.5  3
+haploid_N1000_neutral_d     haploid       1000 0    0.05  0     0.5  4
+haplodiploid_N2000_neutral_b haplodiploid 1000 1000 0.01  0     0.5  2
+haplodiploid_N2000_neutral_c haplodiploid 1000 1000 0.01  0     0.5  3
+haplodiploid_N2000_neutral_d haplodiploid 1000 1000 0.01  0     0.5  4
 "
 
 run_one() {   # arguments: name system NF NM P0 S H [seed]
