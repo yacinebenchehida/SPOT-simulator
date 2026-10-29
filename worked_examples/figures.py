@@ -87,3 +87,28 @@ F.text(75, 392, 'a: diploid, generation time 20 years, samples 1880/1950/2020 (2
 F.text(75, 408, 'b: haploid, 100 generations per year, N = 100,000, samples 1850/1900/1950/2000/2020; p₀ = 0.05.', 11, color=COL['muted'])
 F.text(75, 424, 'Example scenarios of the page; 1,000 (a) and 500 (b) replicates under selection per point.', 11, color=COL['muted'])
 print('contrasts.svg', F.save('worked_examples/contrasts.svg'))
+
+# ---------- Figure 3: human ancient DNA ----------
+F = Fig(1000, 440)
+D = rd('human_depth.tsv')
+g = Ax(F, 75, 50, 340, 290, (0.0008, 0.025), (0, 1), xlog=True, title='Human aDNA: depth of the ancient samples', label='a')
+g.frame([0.001, 0.002, 0.005, 0.01, 0.02], [0, .2, .4, .6, .8, 1], 'selection coefficient s (per generation)', 'power (trend test)', yfmt=pct)
+g.hline(0.8, COL['muted'])
+deps = ['1', '2', '5', '10', 'perfect']
+for k, dp in enumerate(deps):
+    r = [x for x in D if x['ancient_depth'] == dp]
+    xs = [fl(x['s']) for x in r]
+    g.line(xs, [fl(x['power_trend']) for x in r], pal[k]); g.points(xs, [fl(x['power_trend']) for x in r], pal[k])
+g.legend([((dp + '×') if dp != 'perfect' else 'perfect genotypes', pal[k], 'o-') for k, dp in enumerate(deps)], g.x + 10, g.y + 18)
+Bg = rd('human_budget.tsv')
+h2 = Ax(F, 570, 50, 340, 290, (8, 125), (0, 1), xlog=True, title='Human aDNA: 100 reads per ancient sampling date', label='b')
+h2.frame([10, 20, 25, 50, 100], [0, .2, .4, .6, .8, 1], 'individuals per ancient date (depth = 100 / individuals)', 'power (trend test)', yfmt=pct)
+for k, s in enumerate(['0.005', '0.0075']):
+    r = [x for x in Bg if x['s'] == s]
+    xs = [fl(x['individuals_per_ancient_date']) for x in r]
+    h2.line(xs, [fl(x['power_trend']) for x in r], pal[k]); h2.points(xs, [fl(x['power_trend']) for x in r], pal[k])
+h2.legend([(f's = {s}', pal[k], 'o-') for k, s in enumerate(['0.005', '0.0075'])], h2.x + 10, h2.y + 18)
+F.text(75, 392, 'Diploid, generation time 28 years, samples at 7000, 5000, 3000 and 1000 BCE and 1000 and 2000 CE; Ne 10,000; p₀ = 0.1; present-day sample: 100 individuals at 20×.', 11, color=COL['muted'])
+F.text(75, 408, 'a: 50 individuals per ancient date; b: the same 100 reads per ancient date spread over 100 individuals at 1× to 10 individuals at 10× (5,000 simulations with selection).', 11, color=COL['muted'])
+F.text(75, 424, 'Neutral-simulation threshold; per-read error rate 0.01, minimum depth 1 read.', 11, color=COL['muted'])
+print('human_adna.svg', F.save('worked_examples/human_adna.svg'))
