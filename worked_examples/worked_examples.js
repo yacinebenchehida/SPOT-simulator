@@ -5,6 +5,8 @@
 //   C: bumblebees, power against Ne for 1x, 2x and 5x the sample sizes
 //   D: long-lived mammal, power with and without a bottleneck between sampling dates
 //   E: bacterial pathogen (haploid, many generations, rescaled), power against s
+//   F: human ancient DNA, power against s for several depths of the ancient samples
+//   G: human ancient DNA, same number of reads per ancient date spread over more or fewer individuals
 const S = require('../sim.js');
 const BEE = {system: 'haplodiploid', neByBlock: false, neBlocks: null, genTime: 1, Nf: 1000, Nm: 1000, noDrift: false,
   p0: 0.01, s: 0.05, h: 0.5, onset: 1935, years: [1935, 1955, 1975, 2025], n: [20, 20, 20, 40], perfect: false,
@@ -15,6 +17,11 @@ const MAMMAL = Object.assign({}, BEE, {system: 'diploid', genTime: 20, Nf: 2500,
   p0: 0.1, s: 0.2, onset: 1880, years: [1880, 1950, 2020], n: [20, 20, 40], depthEarly: 4, depthLast: 15});
 const PATHOGEN = Object.assign({}, BEE, {system: 'haploid', genTime: 0.01, Nf: 100000, Nm: 100000, p0: 0.05, s: 0.0002,
   onset: 1850, years: [1850, 1900, 1950, 2000, 2020], n: [10, 10, 15, 20, 40], depthEarly: 10, depthLast: 30});
+const HUMAN = Object.assign({}, BEE, {system: 'diploid', genTime: 28, Nf: 5000, Nm: 5000, p0: 0.1, s: 0.005, onset: -7000,
+  years: [-7000, -5000, -3000, -1000, 1000, 2000], n: [50, 50, 50, 50, 50, 100], depthEarly: 2, depthLast: 20, err: 0.01, minDP: 1});
+const runQ = (P, extra) => { const r = S.runPower(Object.assign({}, P, extra));
+  return [r.trend.powerEmp.toFixed(4), r.trend.fprNaive.toFixed(4), r.two.powerEmp.toFixed(4), r.missRate.toFixed(4), r.hetAcc.toFixed(4)]; };
+const HQ = ['power_trend', 'fpr_naive', 'power_first_vs_last', 'share_missing', 'het_called_correctly'];
 
 const run = (P, extra) => { const r = S.runPower(Object.assign({}, P, extra));
   return [r.trend.powerEmp.toFixed(4), r.trend.powerNaive.toFixed(4), r.trend.fprNaive.toFixed(4), r.two.powerEmp.toFixed(4)]; };
@@ -53,4 +60,16 @@ if (part === 'D') {
 if (part === 'E') {
   console.log(['s_per_generation', 's_per_year', ...H].join('\t'));
   for (const s of [0.00002, 0.00005, 0.0001, 0.0002, 0.0005]) { console.log([s, (s * 100).toPrecision(2), ...run(PATHOGEN, {s, reps: 500})].join('\t')); log('E ' + s); }
+}
+if (part === 'F') { // human aDNA: depth of the five ancient samples (present-day sample stays at 20x); minimum depth 1 read
+  console.log(['ancient_depth', 's', ...HQ].join('\t'));
+  for (const dep of [1, 2, 5, 10, 'perfect']) { for (const s of [0.001, 0.002, 0.003, 0.005, 0.0075, 0.01, 0.02]) {
+    const o = dep === 'perfect' ? {perfect: true, s} : {depthEarly: dep, s};
+    console.log([dep, s, ...runQ(HUMAN, o)].join('\t')); } log('F ' + dep); }
+}
+if (part === 'G') { // human aDNA: 100 reads per ancient date, spread over more or fewer individuals (5,000 replicates)
+  console.log(['individuals_per_ancient_date', 'ancient_depth', 's', ...HQ].join('\t'));
+  for (const s of [0.005, 0.0075]) for (const [n, dep] of [[100, 1], [50, 2], [25, 4], [20, 5], [10, 10]]) {
+    const P = Object.assign({}, HUMAN, {n: [n, n, n, n, n, 100], depthEarly: dep, s, reps: 5000});
+    console.log([n, dep, s, ...runQ(P)].join('\t')); log('G ' + n + ' ' + s); }
 }
