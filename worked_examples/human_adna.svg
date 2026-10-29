@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" font-family="Helvetica,Arial,sans-serif">
+<defs><g id="m0"><circle r="4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m1"><circle r="4" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m2"><circle r="4" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m3"><circle r="4" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m4"><circle r="4" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m5"><circle r="3.5" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m6"><circle r="3.5" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m7"><circle r="3.5" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m8"><circle r="3.5" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m9"><circle r="3.5" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g></defs>
+<rect width="1000" height="440" fill="#fff"/>
+<text x="75.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Human aDNA: depth of the ancient samples</text>
+<text x="23.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">a</text>
+<line x1="75" x2="415" y1="340.0" y2="340.0" stroke="#E1E5EF"/>
+<text x="69" y="344.0" font-size="11" text-anchor="end" fill="#5A6480">0%</text>
+<line x1="75" x2="415" y1="282.0" y2="282.0" stroke="#E1E5EF"/>
+<text x="69" y="286.0" font-size="11" text-anchor="end" fill="#5A6480">20%</text>
+<line x1="75" x2="415" y1="224.0" y2="224.0" stroke="#E1E5EF"/>
+<text x="69" y="228.0" font-size="11" text-anchor="end" fill="#5A6480">40%</text>
+<line x1="75" x2="415" y1="166.0" y2="166.0" stroke="#E1E5EF"/>
+<text x="69" y="170.0" font-size="11" text-anchor="end" fill="#5A6480">60%</text>
+<line x1="75" x2="415" y1="108.0" y2="108.0" stroke="#E1E5EF"/>
+<text x="69" y="112.0" font-size="11" text-anchor="end" fill="#5A6480">80%</text>
+<line x1="75" x2="415" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
+<text x="69" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">100%</text>
+<line x1="97.0" x2="97.0" y1="340" y2="344" stroke="#5A6480"/>
+<text x="97.0" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.001</text>
+<line x1="165.5" x2="165.5" y1="340" y2="344" stroke="#5A6480"/>
+<text x="165.5" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.002</text>
+<line x1="256.0" x2="256.0" y1="340" y2="344" stroke="#5A6480"/>
+<text x="256.0" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.005</text>
+<line x1="324.5" x2="324.5" y1="340" y2="344" stroke="#5A6480"/>
+<text x="324.5" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.01</text>
+<line x1="393.0" x2="393.0" y1="340" y2="344" stroke="#5A6480"/>
+<text x="393.0" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.02</text>
+<rect x="75" y="50" width="340" height="290" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="245.0" y="376.0" font-size="12" text-anchor="middle" fill="#0F1730">selection coefficient s (per generation)</text>
+<text x="31.0" y="195.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 195.0)">power (trend test)</text>
+<path d="M75.0 108.0L415.0 108.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
+<path d="M97.0 317.4L165.5 298.8L205.6 276.5L256.0 212.4L296.1 128.3L324.5 69.7L393.0 50.0" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m0" x="97.0" y="317.4"/>
+<use href="#m0" x="165.5" y="298.8"/>
+<use href="#m0" x="205.6" y="276.5"/>
+<use href="#m0" x="256.0" y="212.4"/>
+<use href="#m0" x="296.1" y="128.3"/>
+<use href="#m0" x="324.5" y="69.7"/>
+<use href="#m0" x="393.0" y="50.0"/>
+<path d="M97.0 318.8L165.5 300.9L205.6 276.8L256.0 211.8L296.1 118.4L324.5 62.8L393.0 50.0" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m1" x="97.0" y="318.8"/>
+<use href="#m1" x="165.5" y="300.9"/>
+<use href="#m1" x="205.6" y="276.8"/>
+<use href="#m1" x="256.0" y="211.8"/>
+<use href="#m1" x="296.1" y="118.4"/>
+<use href="#m1" x="324.5" y="62.8"/>
+<use href="#m1" x="393.0" y="50.0"/>
+<path d="M97.0 317.1L165.5 299.4L205.6 270.1L256.0 197.0L296.1 105.4L324.5 59.0L393.0 50.0" fill="none" stroke="#C27A12" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m2" x="97.0" y="317.1"/>
+<use href="#m2" x="165.5" y="299.4"/>
+<use href="#m2" x="205.6" y="270.1"/>
+<use href="#m2" x="256.0" y="197.0"/>
+<use href="#m2" x="296.1" y="105.4"/>
+<use href="#m2" x="324.5" y="59.0"/>
+<use href="#m2" x="393.0" y="50.0"/>
+<path d="M97.0 317.7L165.5 296.2L205.6 262.9L256.0 190.9L296.1 97.0L324.5 58.1L393.0 50.0" fill="none" stroke="#8B4FD6" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m3" x="97.0" y="317.7"/>
+<use href="#m3" x="165.5" y="296.2"/>
+<use href="#m3" x="205.6" y="262.9"/>
+<use href="#m3" x="256.0" y="190.9"/>
+<use href="#m3" x="296.1" y="97.0"/>
+<use href="#m3" x="324.5" y="58.1"/>
+<use href="#m3" x="393.0" y="50.0"/>
+<path d="M97.0 314.8L165.5 297.1L205.6 274.5L256.0 201.1L296.1 103.7L324.5 59.0L393.0 50.0" fill="none" stroke="#D9363E" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m4" x="97.0" y="314.8"/>
+<use href="#m4" x="165.5" y="297.1"/>
+<use href="#m4" x="205.6" y="274.5"/>
+<use href="#m4" x="256.0" y="201.1"/>
+<use href="#m4" x="296.1" y="103.7"/>
+<use href="#m4" x="324.5" y="59.0"/>
+<use href="#m4" x="393.0" y="50.0"/>
+<line x1="85" x2="105" y1="64" y2="64" stroke="#2B59D9" stroke-width="2"/>
+<use href="#m5" x="95.0" y="64.0"/>
+<text x="112.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">1×</text>
+<line x1="85" x2="105" y1="81" y2="81" stroke="#0E9F6E" stroke-width="2"/>
+<use href="#m6" x="95.0" y="81.0"/>
+<text x="112.0" y="85.0" font-size="11" text-anchor="start" fill="#0F1730">2×</text>
+<line x1="85" x2="105" y1="98" y2="98" stroke="#C27A12" stroke-width="2"/>
+<use href="#m7" x="95.0" y="98.0"/>
+<text x="112.0" y="102.0" font-size="11" text-anchor="start" fill="#0F1730">5×</text>
+<line x1="85" x2="105" y1="115" y2="115" stroke="#8B4FD6" stroke-width="2"/>
+<use href="#m8" x="95.0" y="115.0"/>
+<text x="112.0" y="119.0" font-size="11" text-anchor="start" fill="#0F1730">10×</text>
+<line x1="85" x2="105" y1="132" y2="132" stroke="#D9363E" stroke-width="2"/>
+<use href="#m9" x="95.0" y="132.0"/>
+<text x="112.0" y="136.0" font-size="11" text-anchor="start" fill="#0F1730">perfect genotypes</text>
+<text x="570.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Human aDNA: 100 reads per ancient sampling date</text>
+<text x="518.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">b</text>
+<line x1="570" x2="910" y1="340.0" y2="340.0" stroke="#E1E5EF"/>
+<text x="564" y="344.0" font-size="11" text-anchor="end" fill="#5A6480">0%</text>
+<line x1="570" x2="910" y1="282.0" y2="282.0" stroke="#E1E5EF"/>
+<text x="564" y="286.0" font-size="11" text-anchor="end" fill="#5A6480">20%</text>
+<line x1="570" x2="910" y1="224.0" y2="224.0" stroke="#E1E5EF"/>
+<text x="564" y="228.0" font-size="11" text-anchor="end" fill="#5A6480">40%</text>
+<line x1="570" x2="910" y1="166.0" y2="166.0" stroke="#E1E5EF"/>
+<text x="564" y="170.0" font-size="11" text-anchor="end" fill="#5A6480">60%</text>
+<line x1="570" x2="910" y1="108.0" y2="108.0" stroke="#E1E5EF"/>
+<text x="564" y="112.0" font-size="11" text-anchor="end" fill="#5A6480">80%</text>
+<line x1="570" x2="910" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
+<text x="564" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">100%</text>
+<line x1="597.6" x2="597.6" y1="340" y2="344" stroke="#5A6480"/>
+<text x="597.6" y="357" font-size="11" text-anchor="middle" fill="#5A6480">10</text>
+<line x1="683.3" x2="683.3" y1="340" y2="344" stroke="#5A6480"/>
+<text x="683.3" y="357" font-size="11" text-anchor="middle" fill="#5A6480">20</text>
+<line x1="710.9" x2="710.9" y1="340" y2="344" stroke="#5A6480"/>
+<text x="710.9" y="357" font-size="11" text-anchor="middle" fill="#5A6480">25</text>
+<line x1="796.7" x2="796.7" y1="340" y2="344" stroke="#5A6480"/>
+<text x="796.7" y="357" font-size="11" text-anchor="middle" fill="#5A6480">50</text>
+<line x1="882.4" x2="882.4" y1="340" y2="344" stroke="#5A6480"/>
+<text x="882.4" y="357" font-size="11" text-anchor="middle" fill="#5A6480">100</text>
+<rect x="570" y="50" width="340" height="290" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="740.0" y="376.0" font-size="12" text-anchor="middle" fill="#0F1730">individuals per ancient date (depth = 100 / individuals)</text>
+<text x="526.0" y="195.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 526.0 195.0)">power (trend test)</text>
+<path d="M882.4 201.9L796.7 204.3L710.9 210.7L683.3 216.5L597.6 232.3" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m0" x="882.4" y="201.9"/>
+<use href="#m0" x="796.7" y="204.3"/>
+<use href="#m0" x="710.9" y="210.7"/>
+<use href="#m0" x="683.3" y="216.5"/>
+<use href="#m0" x="597.6" y="232.3"/>
+<path d="M882.4 110.6L796.7 114.5L710.9 119.3L683.3 127.7L597.6 147.4" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m1" x="882.4" y="110.6"/>
+<use href="#m1" x="796.7" y="114.5"/>
+<use href="#m1" x="710.9" y="119.3"/>
+<use href="#m1" x="683.3" y="127.7"/>
+<use href="#m1" x="597.6" y="147.4"/>
+<line x1="580" x2="600" y1="64" y2="64" stroke="#2B59D9" stroke-width="2"/>
+<use href="#m5" x="590.0" y="64.0"/>
+<text x="607.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">s = 0.005</text>
+<line x1="580" x2="600" y1="81" y2="81" stroke="#0E9F6E" stroke-width="2"/>
+<use href="#m6" x="590.0" y="81.0"/>
+<text x="607.0" y="85.0" font-size="11" text-anchor="start" fill="#0F1730">s = 0.0075</text>
+<text x="75.0" y="392.0" font-size="11" text-anchor="start" fill="#5A6480">Diploid, generation time 28 years, samples at 7000, 5000, 3000 and 1000 BCE and 1000 and 2000 CE; Ne 10,000; p₀ = 0.1; present-day sample: 100 individuals at 20×.</text>
+<text x="75.0" y="408.0" font-size="11" text-anchor="start" fill="#5A6480">a: 50 individuals per ancient date; b: the same 100 reads per ancient date spread over 100 individuals at 1× to 10 individuals at 10× (5,000 simulations with selection).</text>
+<text x="75.0" y="424.0" font-size="11" text-anchor="start" fill="#5A6480">Neutral-simulation threshold; per-read error rate 0.01, minimum depth 1 read.</text>
+</svg>

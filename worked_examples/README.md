@@ -1,6 +1,6 @@
 # Worked examples
 
-These examples show what SPOT tells a user who is planning a study. The main example uses the bumblebee scenario of the page; two shorter examples show different situations: a long-lived mammal, and a bacterial pathogen sampled over many generations. They are written so they can be adapted for the application section of the paper.
+These examples show what SPOT tells a user who is planning a study. The main example uses the bumblebee scenario of the page; three shorter examples show different situations: a long-lived mammal, a bacterial pathogen sampled over many generations, and human ancient DNA sequenced at low depth. They are written so they can be adapted for the application section of the paper.
 
 All results use the drift-aware trend test across all sampling dates at α = 0.05 (one locus), unless stated. Each power value comes from 1,000 replicates under selection (5,000 for panel d, 500 for the pathogen), so values vary between runs by about 1.5 percentage points (see [`../validation/monte_carlo_precision.md`](../validation/monte_carlo_precision.md)). Differences of 1–3 points are therefore within noise.
 
@@ -62,19 +62,33 @@ With strong drift, extra effort gains at most 6 points: the population's own ran
 
 **Interpretation.** Selection that is very weak per generation becomes detectable over thousands of generations, so pathogen time series can reveal selection far weaker than in animals sampled over the same period.
 
+## 4. Human ancient DNA: depth against number of individuals
+
+**Why.** Ancient DNA is often sequenced at 1–2×. With a fixed sequencing effort, is it better to sequence many individuals at low depth or fewer at higher depth?
+
+**Design.** The "Human ancient DNA" example scenario of the page: diploid, 28 years per generation, samples at 7000, 5000, 3000 and 1000 BCE and 1000 and 2000 CE (321 generations), 50 individuals per ancient date at 2× and 100 present-day individuals at 20×, Ne = 10,000, p₀ = 0.1, per-read error rate 0.01, minimum depth 1 read.
+
+![Human ancient DNA](human_adna.svg)
+
+**Results.** (a) The depth of the ancient samples changes power little: at s = 0.005, power is 44% at 1× and 2×, 49% at 5× and 51% at 10× (48% with perfect genotypes); about s = 0.0075–0.01 is needed for 80% power at all depths. (b) With the same 100 reads per ancient date, more individuals at lower depth give more power: at s = 0.0075, 66% with 10 individuals at 10×, 76% with 25 at 4× and 79% with 100 at 1× (5,000 replicates under selection). The naive test rejects 14% of neutral loci with 100 individuals at 1× and 6% with 10 at 10×.
+
+**Interpretation.** For a design like this one, sampling error (number of individuals) limits power more than genotype-call error, so spreading reads over more individuals pays off. SPOT calls diploid genotypes by maximum likelihood; pseudo-haploid calls (one random read per individual), common in human aDNA, are not modelled.
+
 ## Files and how to reproduce
 
 | File | Content |
 |---|---|
-| `worked_examples.js` | All simulations (parts A–E); uses `../sim.js`, the same code as the page. |
+| `worked_examples.js` | All simulations (parts A–G); uses `../sim.js`, the same code as the page. |
 | `bee_s_p0.tsv` | Bumblebees: power against s for four starting frequencies (A). |
 | `bee_allocation.tsv` | Bumblebees: where to add samples, at Ne = 1,500 and Ne = 100,000 (B, 5,000 replicates). |
 | `bee_ne.tsv` | Bumblebees: power and naive false-positive rate against Ne for 1×, 2× and 5× the samples, with the heterozygosity retained (C). |
 | `mammal.tsv` | Long-lived mammal with and without bottleneck (D). |
 | `pathogen.tsv` | Bacterial pathogen (E). |
-| `figures.py` | Draws `bumblebees.svg` and `contrasts.svg` (Python standard library; uses `../validation/svgplot.py`). |
+| `human_depth.tsv` | Human ancient DNA: power against s for several depths of the ancient samples (F). |
+| `human_budget.tsv` | Human ancient DNA: 100 reads per ancient date over 10 to 100 individuals (G, 5,000 replicates). |
+| `figures.py` | Draws `bumblebees.svg`, `contrasts.svg` and `human_adna.svg` (Python standard library; uses `../validation/svgplot.py`). |
 
-Run from the repository root (about 2 minutes in total):
+Run from the repository root (about 3 minutes in total):
 
 ```
 node worked_examples/worked_examples.js A > worked_examples/bee_s_p0.tsv
@@ -82,6 +96,8 @@ node worked_examples/worked_examples.js B > worked_examples/bee_allocation.tsv
 node worked_examples/worked_examples.js C > worked_examples/bee_ne.tsv
 node worked_examples/worked_examples.js D > worked_examples/mammal.tsv
 node worked_examples/worked_examples.js E > worked_examples/pathogen.tsv
+node worked_examples/worked_examples.js F > worked_examples/human_depth.tsv
+node worked_examples/worked_examples.js G > worked_examples/human_budget.tsv
 python3 worked_examples/figures.py
 ```
 
