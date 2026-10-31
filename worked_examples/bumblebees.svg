@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="836" viewBox="0 0 1250 836" font-family="Helvetica,Arial,sans-serif">
-<defs><g id="m0"><circle r="4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m1"><circle r="4" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m2"><circle r="4" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m3"><circle r="4" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m4"><circle r="3.5" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m5"><circle r="3.5" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m6"><circle r="3.5" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m7"><circle r="3.5" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m8"><circle r="4.5" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m9"><circle r="4.5" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m10"><circle r="4.5" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m11"><circle r="4.5" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m12"><circle r="4.5" fill="#fff" stroke="#0E9F6E" stroke-width="1.5"/></g><g id="m13"><circle r="4.5" fill="#fff" stroke="#C27A12" stroke-width="1.5"/></g><g id="m14"><circle r="4" fill="#5A6480" stroke="#fff" stroke-width="0.6"/></g><g id="m15"><circle r="4" fill="#fff" stroke="#5A6480" stroke-width="1.5"/></g></defs>
-<rect width="1250" height="836" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="1250" viewBox="0 0 1250 1250" font-family="Helvetica,Arial,sans-serif">
+<defs><g id="m0"><circle r="4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m1"><circle r="4" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m2"><circle r="4" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m3"><circle r="4" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m4"><circle r="3.5" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m5"><circle r="3.5" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m6"><circle r="3.5" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m7"><circle r="3.5" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m8"><circle r="4.5" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m9"><circle r="4.5" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m10"><circle r="4.5" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m11"><circle r="4.5" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m12"><circle r="4.5" fill="#fff" stroke="#0E9F6E" stroke-width="1.5"/></g><g id="m13"><circle r="4.5" fill="#fff" stroke="#C27A12" stroke-width="1.5"/></g><g id="m14"><circle r="4" fill="#5A6480" stroke="#fff" stroke-width="0.6"/></g><g id="m15"><circle r="4" fill="#fff" stroke="#5A6480" stroke-width="1.5"/></g><g id="m16"><path d="M0 -5.5L5.5 0L0 5.5L-5.5 0Z" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m17"><rect x="-4.2" y="-4.2" width="8.4" height="8.4" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m18"><path d="M0 -5.2L4.7 3.7H-4.7Z" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m19"><path d="M0 -5.5L5.5 0L0 5.5L-5.5 0Z" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m20"><rect x="-4.2" y="-4.2" width="8.4" height="8.4" fill="#fff" stroke="#0E9F6E" stroke-width="1.5"/></g><g id="m21"><path d="M0 -5.2L4.7 3.7H-4.7Z" fill="#fff" stroke="#0E9F6E" stroke-width="1.5"/></g><g id="m22"><rect x="-4" y="-4" width="8" height="8" fill="#fff" stroke="#5A6480" stroke-width="1.5"/></g><g id="m23"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#fff" stroke="#5A6480" stroke-width="1.5"/></g><g id="m24"><path d="M0 -5L5 0L0 5L-5 0Z" fill="#5A6480" stroke="#fff" stroke-width="0.6"/></g></defs>
+<rect width="1250" height="1250" fill="#fff"/>
 <text x="75.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Power against selection</text>
 <text x="23.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">a</text>
 <line x1="75" x2="405" y1="340.0" y2="340.0" stroke="#E1E5EF"/>
@@ -29,7 +29,7 @@
 <text x="387.2" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.2</text>
 <rect x="75" y="50" width="330" height="290" fill="none" stroke="#0F1730" stroke-width=".8"/>
 <text x="240.0" y="376.0" font-size="12" text-anchor="middle" fill="#0F1730">selection coefficient s</text>
-<text x="31.0" y="195.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 195.0)">power (drift-aware trend test)</text>
+<text x="31.0" y="195.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 195.0)">power (trend test)</text>
 <path d="M75.0 108.0L405.0 108.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
 <path d="M92.8 321.4L148.1 307.2L203.4 284.9L235.8 245.2L276.6 151.5L308.9 80.4L331.9 60.2L364.2 51.4L387.2 50.6" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
 <use href="#m0" x="92.8" y="321.4"/>
@@ -107,9 +107,9 @@
 <text x="783.2" y="357" font-size="11" text-anchor="middle" fill="#5A6480">10<tspan dy="-5" font-size="8">5</tspan></text>
 <rect x="520" y="50" width="290" height="290" fill="none" stroke="#0F1730" stroke-width=".8"/>
 <text x="665.0" y="376.0" font-size="12" text-anchor="middle" fill="#0F1730">effective population size Ne</text>
-<text x="476.0" y="195.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 476.0 195.0)">power (drift-aware trend test)</text>
+<text x="476.0" y="195.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 476.0 195.0)">power (trend test)</text>
 <path d="M520.0 108.0L810.0 108.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
-<text x="920.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">False positives of the naive test</text>
+<text x="920.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">False positives of the sampling-only threshold</text>
 <text x="868.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">c</text>
 <line x1="920" x2="1210" y1="340.0" y2="340.0" stroke="#E1E5EF"/>
 <text x="914" y="344.0" font-size="11" text-anchor="end" fill="#5A6480">0%</text>
@@ -135,7 +135,7 @@
 <text x="1183.2" y="357" font-size="11" text-anchor="middle" fill="#5A6480">10<tspan dy="-5" font-size="8">5</tspan></text>
 <rect x="920" y="50" width="290" height="290" fill="none" stroke="#0F1730" stroke-width=".8"/>
 <text x="1065.0" y="376.0" font-size="12" text-anchor="middle" fill="#0F1730">effective population size Ne</text>
-<text x="876.0" y="195.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 876.0 195.0)">false-positive rate (nominal 5%)</text>
+<text x="876.0" y="195.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 876.0 195.0)">false-positive rate (intended 5%)</text>
 <path d="M920.0 291.7L1210.0 291.7" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
 <path d="M532.0 155.0L558.8 100.2L574.4 71.8L594.2 54.4L621.0 50.0L647.7 50.0L683.1 50.0L736.7 50.0L798.9 50.0" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
 <use href="#m0" x="532.0" y="155.0"/>
@@ -276,7 +276,73 @@
 <text x="797.0" y="519.0" font-size="11" text-anchor="start" fill="#0F1730">filled: Ne = 1,500 (strong drift)</text>
 <use href="#m15" x="780.0" y="532.0"/>
 <text x="797.0" y="536.0" font-size="11" text-anchor="start" fill="#0F1730">hollow: Ne = 100,000 (weak drift)</text>
-<text x="75.0" y="790.0" font-size="11" text-anchor="start" fill="#5A6480">Bumblebee scenario of the page: haplodiploid, Nf = Nm = 1,000 (Ne = 1,500), samples 1935/1955/1975/2025, 20/20/20/40 females, depth 10×/15×, α = 0.05. 1,000 replicates under selection per point; Monte Carlo SD about 1.5 points.</text>
-<text x="75.0" y="806.0" font-size="11" text-anchor="start" fill="#5A6480">b, c: breeding numbers varied (Ne shown) with 1×, 2× and 5× the reference sample sizes. d: each option adds 60 individuals, doubles historical depth, or moves the same 100 individuals to the first and last dates;</text>
-<text x="75.0" y="822.0" font-size="11" text-anchor="start" fill="#5A6480">s chosen so that the reference design has 55–67% power; 5,000 replicates under selection per point (SD of a difference about 1 point).</text>
+<text x="330.0" y="830.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Sequencing depth at all dates (s = 0.02, p₀ = 0.1)</text>
+<text x="278.0" y="830.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">e</text>
+<line x1="330" x2="750" y1="1110.0" y2="1110.0" stroke="#E1E5EF"/>
+<text x="324" y="1114.0" font-size="11" text-anchor="end" fill="#5A6480">0%</text>
+<line x1="330" x2="750" y1="1056.0" y2="1056.0" stroke="#E1E5EF"/>
+<text x="324" y="1060.0" font-size="11" text-anchor="end" fill="#5A6480">20%</text>
+<line x1="330" x2="750" y1="1002.0" y2="1002.0" stroke="#E1E5EF"/>
+<text x="324" y="1006.0" font-size="11" text-anchor="end" fill="#5A6480">40%</text>
+<line x1="330" x2="750" y1="948.0" y2="948.0" stroke="#E1E5EF"/>
+<text x="324" y="952.0" font-size="11" text-anchor="end" fill="#5A6480">60%</text>
+<line x1="330" x2="750" y1="894.0" y2="894.0" stroke="#E1E5EF"/>
+<text x="324" y="898.0" font-size="11" text-anchor="end" fill="#5A6480">80%</text>
+<line x1="330" x2="750" y1="840.0" y2="840.0" stroke="#E1E5EF"/>
+<text x="324" y="844.0" font-size="11" text-anchor="end" fill="#5A6480">100%</text>
+<line x1="350.4" x2="350.4" y1="1110" y2="1114" stroke="#5A6480"/>
+<text x="350.4" y="1127" font-size="11" text-anchor="middle" fill="#5A6480">1×</text>
+<line x1="413.6" x2="413.6" y1="1110" y2="1114" stroke="#5A6480"/>
+<text x="413.6" y="1127" font-size="11" text-anchor="middle" fill="#5A6480">2×</text>
+<line x1="497.1" x2="497.1" y1="1110" y2="1114" stroke="#5A6480"/>
+<text x="497.1" y="1127" font-size="11" text-anchor="middle" fill="#5A6480">5×</text>
+<line x1="560.4" x2="560.4" y1="1110" y2="1114" stroke="#5A6480"/>
+<text x="560.4" y="1127" font-size="11" text-anchor="middle" fill="#5A6480">10×</text>
+<line x1="660.5" x2="660.5" y1="1110" y2="1114" stroke="#5A6480"/>
+<text x="660.5" y="1127" font-size="11" text-anchor="middle" fill="#5A6480">30×</text>
+<line x1="723.8" x2="723.8" y1="1110" y2="1114" stroke="#5A6480"/>
+<text x="723.8" y="1127" font-size="11" text-anchor="middle" fill="#5A6480">perfect</text>
+<rect x="330" y="840" width="420" height="270" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="540.0" y="1146.0" font-size="12" text-anchor="middle" fill="#0F1730">mean depth at every sampling date</text>
+<text x="286.0" y="975.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 286.0 975.0)">power (trend test)</text>
+<path d="M350.4 1010.0L413.6 985.6L497.1 970.3L560.4 959.7L660.5 953.9" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m0" x="350.4" y="1010.0"/>
+<use href="#m0" x="413.6" y="985.6"/>
+<use href="#m0" x="497.1" y="970.3"/>
+<use href="#m0" x="560.4" y="959.7"/>
+<use href="#m0" x="660.5" y="953.9"/>
+<use href="#m16" x="723.8" y="959.1"/>
+<use href="#m17" x="350.4" y="1012.3"/>
+<use href="#m17" x="413.6" y="988.2"/>
+<use href="#m18" x="350.4" y="1018.0"/>
+<use href="#m18" x="413.6" y="1004.7"/>
+<path d="M350.4 990.9L413.6 944.2L497.1 907.5L560.4 894.4L660.5 889.0" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m1" x="350.4" y="990.9"/>
+<use href="#m1" x="413.6" y="944.2"/>
+<use href="#m1" x="497.1" y="907.5"/>
+<use href="#m1" x="560.4" y="894.4"/>
+<use href="#m1" x="660.5" y="889.0"/>
+<use href="#m19" x="723.8" y="887.7"/>
+<use href="#m20" x="350.4" y="993.5"/>
+<use href="#m20" x="413.6" y="957.3"/>
+<use href="#m21" x="350.4" y="1009.3"/>
+<use href="#m21" x="413.6" y="976.2"/>
+<line x1="770" x2="790" y1="854" y2="854" stroke="#2B59D9" stroke-width="2"/>
+<use href="#m4" x="780.0" y="854.0"/>
+<text x="797.0" y="858.0" font-size="11" text-anchor="start" fill="#0F1730">Ne = 1,500 (strong drift)</text>
+<line x1="770" x2="790" y1="871" y2="871" stroke="#0E9F6E" stroke-width="2"/>
+<use href="#m5" x="780.0" y="871.0"/>
+<text x="797.0" y="875.0" font-size="11" text-anchor="start" fill="#0F1730">Ne = 100,000 (weak drift)</text>
+<use href="#m14" x="780.0" y="888.0"/>
+<text x="797.0" y="892.0" font-size="11" text-anchor="start" fill="#0F1730">per-read error 0.005</text>
+<use href="#m22" x="780.0" y="905.0"/>
+<text x="797.0" y="909.0" font-size="11" text-anchor="start" fill="#0F1730">error 0.02 (damage)</text>
+<use href="#m23" x="780.0" y="922.0"/>
+<text x="797.0" y="926.0" font-size="11" text-anchor="start" fill="#0F1730">error 0.05 (damage)</text>
+<use href="#m24" x="780.0" y="939.0"/>
+<text x="797.0" y="943.0" font-size="11" text-anchor="start" fill="#0F1730">perfect genotypes</text>
+<text x="75.0" y="1170.0" font-size="11" text-anchor="start" fill="#5A6480">Reference case (museum insect): haplodiploid, Nf = Nm = 1,000 (Ne = 1,500), samples 1935/1955/1975/2025, 20/20/20/40 females, depth 10×/15×, α = 0.05. 1,000 selection simulations per point; SD about 1.5 points.</text>
+<text x="75.0" y="1186.0" font-size="11" text-anchor="start" fill="#5A6480">b, c: breeding numbers varied (Ne shown) with 1×, 2× and 5× the reference sample sizes. d: each option adds 60 individuals, doubles historical depth, or moves the same 100 individuals to the first and last dates;</text>
+<text x="75.0" y="1202.0" font-size="11" text-anchor="start" fill="#5A6480">s chosen so that the reference design has 55–67% power; 5,000 selection simulations per point (SD of a difference about 1 point).</text>
+<text x="75.0" y="1218.0" font-size="11" text-anchor="start" fill="#5A6480">e: the same mean depth at every date, minimum depth 1 read; Ne = 1,500 and 100,000; 5,000 selection and 10,000 neutral simulations per point (depth_case.js).</text>
 </svg>
