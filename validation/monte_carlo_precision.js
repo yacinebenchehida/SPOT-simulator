@@ -15,7 +15,7 @@ const SC = [
   ['Bacterial pathogen', Object.assign({}, D, {system: 'haploid', genTime: 0.01, Nf: 100000, Nm: 100000, p0: 0.05, s: 0.0002, onset: 1850, years: [1850, 1900, 1950, 2000, 2020], n: [10, 10, 15, 20, 40], depthEarly: 10, depthLast: 30})],
   ['Large diploid population', Object.assign({}, D, {system: 'diploid', genTime: 1, Nf: 1e6, Nm: 1e6, p0: 0.05, s: 0.02, onset: 1900, years: [1900, 1950, 2000, 2020], n: [30, 30, 30, 60]})],
 ];
-const SEEDS = 40, REPS = [500, 1000, 2000, 5000];
+const SEEDS = 50, REPS = [500, 1000, 2000, 5000];
 const sd = a => { const m = a.reduce((x, y) => x + y, 0) / a.length; return Math.sqrt(a.reduce((x, y) => x + (y - m) ** 2, 0) / (a.length - 1)); };
 const all = {};
 console.log(['scenario', 'replicates', 'statistic', 'mean_power', 'sd_power', 'sd_binomial_only', 'sd_ratio', 'min', 'max', 'seeds'].join('\t'));

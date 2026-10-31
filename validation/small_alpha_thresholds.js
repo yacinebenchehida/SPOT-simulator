@@ -10,8 +10,14 @@ const BASE = {system: 'haplodiploid', neByBlock: false, neBlocks: null, genTime:
   p0: 0.1, s: 0, h: 0.5, onset: 1935, years: [1935, 1955, 1975, 2025], n: [20, 20, 20, 40], perfect: false,
   depthEarly: 10, depthLast: 15, err: 0.005, minDP: 3, alpha: 0.05, m: 1, sMale: 1, decline: 1, mig: 0, pMig: -1,
   kSib: 1, maleFrac: 0, reps: 1000, seed: 1};
-const neutral = (P, n, seed) => { const r = S.runPower(Object.assign({}, P, {s: 0, reps: Math.ceil(n / 3), seed}));
-  return {trend: Float64Array.from([...r.sel.trend, ...r.neu.trend]).sort(), two: Float64Array.from([...r.sel.two, ...r.neu.two]).sort()}; };
+function trendZ(x, n, t, idx) { let N = 0, X = 0, T = 0; for (const i of idx) { N += n[i]; X += x[i]; T += n[i] * t[i]; } if (N === 0) return 0;
+  const pb = X / N, tb = T / N; if (pb <= 0 || pb >= 1) return 0; let a = 0, b = 0;
+  for (const i of idx) { a += x[i] * (t[i] - tb); b += n[i] * (t[i] - tb) ** 2; } return b <= 0 ? 0 : a / Math.sqrt(pb * (1 - pb) * b); }
+const neutral = (P, n, seed) => {   // exactly n neutral simulations, SPOT's own simulation code; sorted Z values
+  const sc = S.rescale(Object.assign({}, P, {s: 0})), Q = S.prep(sc.P), R = S.makeRng(seed), t = S.gensOf(sc.P), K = t.length;
+  const ALL = t.map((_, i) => i), TWO = [0, K - 1], tr = new Float64Array(n), tw = new Float64Array(n);
+  for (let i = 0; i < n; i++) { const o = S.simulateRep(Q, 0, R, false); tr[i] = trendZ(o.x, o.n, t, ALL); tw[i] = trendZ(o.x, o.n, t, TWO); }
+  return {trend: tr.sort(), two: tw.sort()}; };
 const empirical = (z, a) => z[Math.min(z.length - 1, Math.ceil((1 - a) * z.length) - 1)];
 function gaussian(z, a) { let m = 0, v = 0; for (const x of z) m += x; m /= z.length; for (const x of z) v += (x - m) ** 2; v /= z.length - 1; return m + Math.sqrt(v) * S.qnorm(1 - a); }
 function expTail(z, a) { const u = empirical(z, 0.05); let s = 0, k = 0; for (const x of z) if (x > u) { s += x - u; k++; }

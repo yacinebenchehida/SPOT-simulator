@@ -21,12 +21,22 @@ function withNe(P, system, Ne) {
   return Q;
 }
 
-// independent neutral Z values: every replicate of a run with s = 0 is neutral (1 + 2 per "rep")
+// independent neutral Z values: exactly nWanted neutral simulations (s = 0), drawn with SPOT's own simulation code
 function neutralZ(P, nWanted, seed) {
-  const r = S.runPower(Object.assign({}, P, {s: 0, reps: Math.ceil(nWanted / 3), seed, alpha: 0.05, m: 1}));
-  const out = {};
-  for (const k of ['trend', 'two']) out[k] = Float64Array.from([...r.sel[k], ...r.neu[k]]);
+  const sc = S.rescale(Object.assign({}, P, {s: 0})), Q = S.prep(sc.P), R = S.makeRng(seed);
+  const t = S.gensOf(sc.P), K = t.length, ALL = t.map((_, i) => i), TWO = [0, K - 1];
+  const out = {trend: new Float64Array(nWanted), two: new Float64Array(nWanted)};
+  for (let i = 0; i < nWanted; i++) { const o = S.simulateRep(Q, 0, R, false); out.trend[i] = trendZ(o.x, o.n, t, ALL); out.two[i] = trendZ(o.x, o.n, t, TWO); }
   return out;
+}
+function trendZ(x, n, t, idx) {   // Cochran-Armitage trend statistic, as trendZ() in sim.js
+  let N = 0, X = 0, T = 0;
+  for (const i of idx) { N += n[i]; X += x[i]; T += n[i] * t[i]; }
+  if (N === 0) return 0;
+  const pb = X / N, tb = T / N; if (pb <= 0 || pb >= 1) return 0;
+  let num = 0, den = 0;
+  for (const i of idx) { num += x[i] * (t[i] - tb); den += n[i] * (t[i] - tb) ** 2; }
+  return den <= 0 ? 0 : num / Math.sqrt(pb * (1 - pb) * den);
 }
 
 function evaluate(label, P, nTest) {
@@ -60,7 +70,7 @@ const emit = rows => { for (const r of rows) console.log(r.join('\t')); console.
 if (part === 'A') { // effective size x inheritance system
   for (const system of ['haploid', 'diploid', 'haplodiploid'])
     for (const Ne of [100, 300, 1000, 3000, 10000, 30000, 100000, 1000000])
-      emit(evaluate(`A ${system} Ne=${Ne}`, withNe(BASE, system, Ne), 60000));
+      emit(evaluate(`A ${system} Ne=${Ne}`, withNe(BASE, system, Ne), 100000));
 }
 if (part === 'B') { // one design factor at a time, haplodiploid, Ne = 1,500 (1,000 breeding females and males)
   const ten = [1935, 1945, 1955, 1965, 1975, 1985, 1995, 2005, 2015, 2025];
@@ -78,12 +88,20 @@ if (part === 'B') { // one design factor at a time, haplodiploid, Ne = 1,500 (1,
     ['migration 1% per generation', {mig: 0.01}],
     ['200 individuals per point', {n: [200, 200, 200, 200]}],
   ];
-  for (const [lab, o] of V) emit(evaluate('B ' + lab, Object.assign({}, BASE, o), 60000));
+  for (const [lab, o] of V) emit(evaluate('B ' + lab, Object.assign({}, BASE, o), 100000));
 }
 if (part === 'C') { // small per-locus alpha (Bonferroni): SPOT raises the number of neutral replicates (neutralReps in sim.js)
   const D = [['haplodiploid Ne=300', withNe(BASE, 'haplodiploid', 300)], ['haplodiploid Ne=1500', BASE],
     ['haplodiploid Ne=100000', withNe(BASE, 'haplodiploid', 100000)], ['haplodiploid Ne=1500, p0=0.01', Object.assign({}, BASE, {p0: 0.01})]];
   const pick = process.argv[3] ? process.argv[3].split(',').map(Number) : D.map((_, i) => i);   // optional subset of designs, e.g. 0,1
   for (const [lab, P] of pick.map(i => D[i])) for (const m of [1, 10, 100, 1000])
-    emit(evaluate(`C ${lab} m=${m}`, Object.assign({}, P, {m}), m >= 100 ? 1000000 : 120000));
+    emit(evaluate(`C ${lab} m=${m}`, Object.assign({}, P, {m}), m >= 100 ? 1000000 : 100000));
+}
+if (part === 'G') { // comparison: threshold from a normal distribution fitted to 2,000 neutral simulations (neutralMax = 2,000),
+                    // i.e. without the extra neutral simulations of part C (Gaussian fit as soon as alpha' x 2,000 < 10)
+  const D = [['haplodiploid Ne=300', withNe(BASE, 'haplodiploid', 300)], ['haplodiploid Ne=1500', BASE],
+    ['haplodiploid Ne=100000', withNe(BASE, 'haplodiploid', 100000)], ['haplodiploid Ne=1500, p0=0.01', Object.assign({}, BASE, {p0: 0.01})]];
+  const pick = process.argv[3] ? process.argv[3].split(',').map(Number) : D.map((_, i) => i);
+  for (const [lab, P] of pick.map(i => D[i])) for (const m of [1, 10, 100, 1000])
+    emit(evaluate(`G ${lab} m=${m}`, Object.assign({}, P, {m, neutralMax: 2000}), m >= 100 ? 1000000 : 100000));
 }
