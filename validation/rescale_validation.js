@@ -9,7 +9,7 @@ function finalFreq(P,s,reps,seed){ const Q=S.prep(Object.assign({},P,{n:P.n.map(
 const stats=a=>{let m=0;for(const x of a)m+=x;m/=a.length;let v=0;for(const x of a)v+=(x-m)*(x-m);v/=a.length-1;let lost=0,fix=0;for(const x of a){if(x<=0)lost++;if(x>=1)fix++}return {mean:m,sd:Math.sqrt(v),lost:lost/a.length,fixed:fix/a.length}};
 const rows=[['G','system','N','s','p0','lambda','scaled_s','scaled_N','power_exact','power_rescaled','two_exact','two_rescaled','crit_exact','crit_rescaled','naiveFPR_exact','naiveFPR_rescaled','meanFinal_exact','meanFinal_rescaled','sdFinal_exact','sdFinal_rescaled','neutralSD_exact','neutralSD_rescaled','neutralSD_theory','ms_exact','ms_rescaled']];
 const t0=Date.now();
-for(const G of [5000,20000,60000]) for(const system of ['haploid','diploid']) for(const N of [1e3,1e4,1e5]) for(const s of [0.0001,0.0005,0.002]) for(const p0 of [0.01,0.1]){
+for(const G of [5000,20000,60000]) for(const system of ['haploid','diploid','haplodiploid']) for(const N of [1e3,1e4,1e5]) for(const s of [0.0001,0.0005,0.002]) for(const p0 of [0.01,0.1]){
   if(G===60000&&(N<1e4||s>0.0005||p0<0.1)) continue; // long runs: a subset, to keep the exact simulations affordable
   const P=Object.assign({},base,designFor(G),{system,Nf:N,Nm:N,s,p0});
   const sc=S.rescale(P); if(sc.lambda===1) continue;
