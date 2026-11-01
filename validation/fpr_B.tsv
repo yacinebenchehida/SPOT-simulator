@@ -1,25 +1,25 @@
 label	statistic	system	Ne	p0	points	generations	alpha_per_locus	threshold_method	fpr_drift_aware_mean	fpr_drift_aware_sd	fpr_drift_aware_min	fpr_drift_aware_max	fpr_naive	n_test	threshold_mean	threshold_naive	share_Z_zero
-B base: 4 points, 20/20/20/40, 10x/15x, p0 = 0.1	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9988e-2	4.688e-3	3.977e-2	6.228e-2	1.0330e-1	100000	2.187	1.645	0.0034
-B base: 4 points, 20/20/20/40, 10x/15x, p0 = 0.1	two	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9612e-2	5.362e-3	4.142e-2	5.622e-2	8.1490e-2	100000	1.948	1.645	0.0615
-B 2 points (1935, 2025)	trend	haplodiploid	1500	0.1	2	90	0.05	empirical	4.9375e-2	4.924e-3	4.086e-2	6.117e-2	8.1980e-2	100000	1.949	1.645	0.0616
-B 2 points (1935, 2025)	two	haplodiploid	1500	0.1	2	90	0.05	empirical	4.9375e-2	4.924e-3	4.086e-2	6.117e-2	8.1980e-2	100000	1.949	1.645	0.0616
-B 10 points, 20 each	trend	haplodiploid	1500	0.1	10	90	0.05	empirical	5.0849e-2	5.529e-3	4.155e-2	6.272e-2	1.2030e-1	100000	2.350	1.645	0.0047
-B 10 points, 20 each	two	haplodiploid	1500	0.1	10	90	0.05	empirical	4.8038e-2	4.223e-3	3.966e-2	5.456e-2	8.3630e-2	100000	1.969	1.645	0.1119
-B p0 = 0.01	trend	haplodiploid	1500	0.01	4	90	0.05	empirical	4.5543e-2	3.903e-3	3.888e-2	5.532e-2	4.4870e-2	100000	1.660	1.645	0.1862
-B p0 = 0.01	two	haplodiploid	1500	0.01	4	90	0.05	empirical	4.2780e-2	8.698e-3	2.986e-2	4.860e-2	1.6900e-2	100000	1.305	1.645	0.4017
-B p0 = 0.5	trend	haplodiploid	1500	0.5	4	90	0.05	empirical	5.1727e-2	6.478e-3	3.995e-2	6.728e-2	1.2492e-1	100000	2.338	1.645	0.0020
-B p0 = 0.5	two	haplodiploid	1500	0.5	4	90	0.05	empirical	5.0896e-2	7.043e-3	4.318e-2	7.258e-2	1.1570e-1	100000	2.237	1.645	0.0359
+B base: 4 points, 20/20/20/40, 10x/15x, p0 = 0.1	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9984e-2	4.686e-3	3.977e-2	6.228e-2	1.0330e-1	100000	2.187	1.645	0.0034
+B base: 4 points, 20/20/20/40, 10x/15x, p0 = 0.1	two	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0866e-2	5.035e-3	4.256e-2	5.900e-2	8.1490e-2	100000	1.948	1.645	0.0615
+B 2 points (1935, 2025)	trend	haplodiploid	1500	0.1	2	90	0.05	empirical	5.0830e-2	4.841e-3	4.118e-2	6.167e-2	8.1980e-2	100000	1.949	1.645	0.0616
+B 2 points (1935, 2025)	two	haplodiploid	1500	0.1	2	90	0.05	empirical	5.0830e-2	4.841e-3	4.118e-2	6.167e-2	8.1980e-2	100000	1.949	1.645	0.0616
+B 10 points, 20 each	trend	haplodiploid	1500	0.1	10	90	0.05	empirical	5.0851e-2	5.530e-3	4.155e-2	6.272e-2	1.2030e-1	100000	2.350	1.645	0.0047
+B 10 points, 20 each	two	haplodiploid	1500	0.1	10	90	0.05	empirical	4.9866e-2	4.411e-3	4.100e-2	5.884e-2	8.3630e-2	100000	1.969	1.645	0.1119
+B p0 = 0.01	trend	haplodiploid	1500	0.01	4	90	0.05	empirical	4.9175e-2	5.517e-3	3.891e-2	5.880e-2	4.4870e-2	100000	1.660	1.645	0.1862
+B p0 = 0.01	two	haplodiploid	1500	0.01	4	90	0.05	empirical	5.0028e-2	4.970e-3	4.327e-2	5.956e-2	1.6900e-2	100000	1.305	1.645	0.4017
+B p0 = 0.5	trend	haplodiploid	1500	0.5	4	90	0.05	empirical	5.1731e-2	6.475e-3	3.995e-2	6.728e-2	1.2492e-1	100000	2.338	1.645	0.0020
+B p0 = 0.5	two	haplodiploid	1500	0.5	4	90	0.05	empirical	5.1227e-2	6.934e-3	4.341e-2	7.258e-2	1.1570e-1	100000	2.237	1.645	0.0359
 B depth 2x at all points	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0076e-2	5.842e-3	4.212e-2	6.211e-2	1.2782e-1	100000	2.423	1.645	0.0004
-B depth 2x at all points	two	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0494e-2	5.605e-3	4.200e-2	5.841e-2	1.1521e-1	100000	2.160	1.645	0.0099
-B perfect genotypes	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0648e-2	3.922e-3	4.373e-2	5.726e-2	1.0999e-1	100000	2.227	1.645	0.0040
-B perfect genotypes	two	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9690e-2	3.342e-3	4.422e-2	5.622e-2	8.5170e-2	100000	1.968	1.645	0.0646
-B siblings: 4 per family	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9781e-2	4.717e-3	4.098e-2	5.836e-2	1.9446e-1	100000	3.215	1.645	0.0049
-B siblings: 4 per family	two	haplodiploid	1500	0.1	4	90	0.05	empirical	4.8038e-2	4.888e-3	3.545e-2	5.254e-2	1.9646e-1	100000	2.773	1.645	0.0608
-B decline to 10% by the last point	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9984e-2	4.753e-3	4.124e-2	5.877e-2	1.8738e-1	100000	3.498	1.645	0.0016
-B decline to 10% by the last point	two	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0509e-2	4.000e-3	4.456e-2	5.905e-2	1.5097e-1	100000	2.734	1.645	0.0401
+B depth 2x at all points	two	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0487e-2	5.603e-3	4.200e-2	5.841e-2	1.1521e-1	100000	2.160	1.645	0.0099
+B perfect genotypes	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0668e-2	3.909e-3	4.378e-2	5.726e-2	1.0999e-1	100000	2.227	1.645	0.0040
+B perfect genotypes	two	haplodiploid	1500	0.1	4	90	0.05	empirical	5.1167e-2	3.262e-3	4.510e-2	5.666e-2	8.5170e-2	100000	1.968	1.645	0.0646
+B siblings: 4 per family	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9790e-2	4.720e-3	4.098e-2	5.836e-2	1.9446e-1	100000	3.215	1.645	0.0049
+B siblings: 4 per family	two	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9409e-2	5.269e-3	3.951e-2	5.788e-2	1.9646e-1	100000	2.773	1.645	0.0608
+B decline to 10% by the last point	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9982e-2	4.754e-3	4.124e-2	5.877e-2	1.8738e-1	100000	3.498	1.645	0.0016
+B decline to 10% by the last point	two	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0896e-2	4.046e-3	4.456e-2	5.905e-2	1.5097e-1	100000	2.734	1.645	0.0401
 B bottleneck: Ne 1,500 / 100 / 1,500	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9878e-2	5.189e-3	3.649e-2	6.015e-2	1.7418e-1	100000	3.245	1.645	0.0020
-B bottleneck: Ne 1,500 / 100 / 1,500	two	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9835e-2	6.303e-3	3.452e-2	6.109e-2	1.5414e-1	100000	2.795	1.645	0.0390
-B migration 1% per generation	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	5.2534e-2	4.402e-3	4.524e-2	6.050e-2	8.0560e-2	100000	1.905	1.645	0.0037
-B migration 1% per generation	two	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0987e-2	5.817e-3	3.828e-2	6.040e-2	6.0400e-2	100000	1.750	1.645	0.0712
+B bottleneck: Ne 1,500 / 100 / 1,500	two	haplodiploid	1500	0.1	4	90	0.05	empirical	4.9991e-2	6.284e-3	3.452e-2	6.152e-2	1.5414e-1	100000	2.795	1.645	0.0390
+B migration 1% per generation	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	5.2559e-2	4.422e-3	4.524e-2	6.050e-2	8.0560e-2	100000	1.905	1.645	0.0037
+B migration 1% per generation	two	haplodiploid	1500	0.1	4	90	0.05	empirical	5.2515e-2	5.494e-3	4.114e-2	6.396e-2	6.0400e-2	100000	1.750	1.645	0.0712
 B 200 individuals per point	trend	haplodiploid	1500	0.1	4	90	0.05	empirical	5.1347e-2	6.243e-3	3.886e-2	5.886e-2	2.3276e-1	100000	4.309	1.645	0.0001
-B 200 individuals per point	two	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0606e-2	6.787e-3	3.857e-2	6.456e-2	2.2369e-1	100000	3.966	1.645	0.0096
+B 200 individuals per point	two	haplodiploid	1500	0.1	4	90	0.05	empirical	5.0604e-2	6.786e-3	3.857e-2	6.456e-2	2.2369e-1	100000	3.966	1.645	0.0096

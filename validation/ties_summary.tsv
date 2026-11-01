@@ -1,0 +1,117 @@
+quantity	old	new	changed	script	where_in_manuscript
+3.1 FPR mean of 20 thresholds, trend (36 cases), %	4.55–5.27	4.83–5.27	yes	false_positive_rate.js A, B	Results 3.1; Table 4; Tables S1, S2
+3.1 FPR single thresholds, trend, %	3.6–6.7	3.6–6.7	no	false_positive_rate.js A, B	Results 3.1
+3.1 FPR mean of 20 thresholds, first-vs-last (36 cases), %	3.69–5.11	4.84–5.25	yes	false_positive_rate.js A, B	Results 3.1; Table 4; Tables S1, S2
+3.1 FPR single thresholds, first-vs-last, %	2.8–7.3	3.5–7.3	yes	false_positive_rate.js A, B	Results 3.1
+"3.1 FPR B ""p0 = 0.01"" trend, mean %"	4.55	4.92	yes	false_positive_rate.js B	Figure 2b; Table S2
+"3.1 FPR B ""p0 = 0.01"" two, mean %"	4.28	5.00	yes	false_positive_rate.js B	Figure 2b; Table S2
+3.1 many loci: realised/intended, trend (all m)	0.91–1.22	0.96–1.22	yes	false_positive_rate.js C	Results 3.1; Figure 2c; Table S3
+3.1 many loci: realised/intended, two (all m)	0.67–1.16	0.98–1.18	yes	false_positive_rate.js C	Results 3.1; Figure 2c; Table S3
+3.1 normal fit to 2,000, m = 100 and 1,000: realised/intended, trend	0.47–8.31	0.47–8.31	no	false_positive_rate.js G	Results 3.1; Figure 2c
+3.1 normal fit to 2,000, m = 100 and 1,000: realised/intended, two	0.00–0.74	0.00–0.74	no	false_positive_rate.js G	Results 3.1; Figure 2c
+3.2 mean power difference SPOT − SLiM, points	-0.9 to +1.0	-0.9 to +1.0	no	slim_compare_v2.js	Results 3.2; Table S5
+3.2 max |difference| / SE	1.83	1.81	yes	slim_compare_v2.js	"Results 3.2 (""never more than two SE"")"
+3.2 SD of power between runs (both programs), points	1.3–2.4	1.3–2.4	no	slim_compare_v2.js	Results 3.2; Table S5
+3.2 power diploid_N1000_s0.02 SPOT / SLiM, %	31.8 / 32.1	31.8 / 32.1	no	slim_compare_v2.js	Table S5
+3.2 power diploid_N1000_s0.05_rec SPOT / SLiM, %	25.2 / 24.8	25.2 / 24.8	no	slim_compare_v2.js	Table S5
+3.2 power diploid_N200_s0.05 SPOT / SLiM, %	53.4 / 52.9	53.4 / 52.9	no	slim_compare_v2.js	Table S5
+3.2 power haploid_N1000_s0.02 SPOT / SLiM, %	43.8 / 42.7	43.8 / 42.8	yes	slim_compare_v2.js	Table S5
+3.2 power haplodiploid_N1000_s0.02 SPOT / SLiM, %	43.1 / 43.5	43.1 / 43.5	no	slim_compare_v2.js	Table S5
+3.2 power haplodiploid_N2000_s0.05 SPOT / SLiM, %	66.2 / 67.1	66.3 / 67.2	yes	slim_compare_v2.js	Table S5
+3.2 FPR of SPOT threshold on SLiM, %	4.9–5.5	4.9–5.5	no	slim_compare_v2.js	Results 3.2; Table S6
+3.2 FPR of SPOT threshold on SPOT, %	4.9–5.7	4.9–5.7	no	slim_compare_v2.js	Results 3.2; Table S6
+3.2 FPR sampling-only (both programs), %	5.4–19.7	5.4–19.7	no	slim_compare_v2.js	Results 3.2
+3.2 power with SPOT threshold, SLiM − SPOT populations, points	-0.3 to +0.3 (SPOT − SLiM: -0.3 to +0.3)	-0.3 to +0.4 (SPOT − SLiM: -0.4 to +0.3)	yes	slim_power_spot_threshold.js	Results 3.2; Table S5
+S4 regression panel a: slope [95% CI], intercept, R²	0.992 [0.980, 1.004], 0.0007, 0.9990	0.992 [0.980, 1.004], 0.0007, 0.9990	no	slim_regression.py	Supporting Information S4
+S4 regression panel b: slope [95% CI], intercept, R²	1.018 [0.956, 1.080], -0.0085, 0.9981	1.017 [0.957, 1.078], -0.0082, 0.9982	yes	slim_regression.py	Supporting Information S4
+S4 regression panel c: slope [95% CI], intercept, R²	1.011 [0.975, 1.048], -0.0005, 0.9980	1.012 [0.976, 1.047], -0.0005, 0.9981	yes	slim_regression.py	Supporting Information S4
+3.3 SD of power, trend, 1000 selection simulations, points	1.5–2.2	1.5–2.2	no	monte_carlo_precision.js	Results 3.3; Table S7
+3.3 SD of power, trend, 5000 selection simulations, points	0.6–1.1	0.6–1.1	no	monte_carlo_precision.js	Results 3.3; Table S7
+3.3 SD of power, two, 1000 selection simulations, points	1.5–3.1	1.4–3.1	yes	monte_carlo_precision.js	Results 3.3; Table S7
+3.3 SD of power, two, 5000 selection simulations, points	0.6–1.5	0.6–1.5	no	monte_carlo_precision.js	Results 3.3; Table S7
+3.3 max distance of single estimates from mean, trend, 1,000, points	5.8	5.8	no	monte_carlo_precision.js	Results 3.3
+3.3 Bumblebees trend 1,000: mean (min–max), %	66.4 (63.1–69.6)	66.6 (63.2–69.7)	yes	monte_carlo_precision.js	Results 3.3; Table S7
+3.3 Long-lived mammal trend 1,000: mean (min–max), %	24.7 (20.3–30.5)	24.7 (20.3–30.5)	no	monte_carlo_precision.js	Results 3.3; Table S7
+3.3 Human ancient DNA trend 1,000: mean (min–max), %	47.5 (43.1–51.2)	47.5 (43.1–51.2)	no	monte_carlo_precision.js	Results 3.3; Table S7
+3.3 Bacterial pathogen trend 1,000: mean (min–max), %	72.6 (69.7–76.3)	72.6 (69.7–76.3)	no	monte_carlo_precision.js	Results 3.3; Table S7
+3.3 Large diploid population trend 1,000: mean (min–max), %	73.3 (70.2–77.7)	73.3 (70.2–77.7)	no	monte_carlo_precision.js	Results 3.3; Table S7
+3.3 rescaling (trend): both 100% / others / higher / lower	13 / 107 / 50 / 52	13 / 107 / 50 / 53	yes	rescale_validation.js	Results 3.3; Table S8
+3.3 rescaling (trend): SD of differences (without largest), largest, points	2.3 (1.8), +14.7	2.4 (1.9), +14.7	yes	rescale_validation.js	Results 3.3
+3.3 rescaling (trend): differences > 2 SE	8	7	yes	rescale_validation.js	Results 3.3
+3.3 rescaling (first-vs-last): both 100% / others / higher / lower	13 / 107 / 57 / 47	13 / 107 / 53 / 53	yes	rescale_validation.js	Results 3.3; Table S8
+3.3 rescaling (first-vs-last): SD of differences (without largest), largest, points	2.1 (1.7), +13.4	2.2 (2.1), -7.5	yes	rescale_validation.js	Results 3.3
+3.3 rescaling (first-vs-last): differences > 2 SE	12	12	no	rescale_validation.js	Results 3.3
+3.3 rescaling: FPR of rescaled thresholds, %	4.7–5.2	4.7–5.2	no	rescale_fpr.js	Results 3.3
+3.4 s for 80% power, p0 = 0.01/0.05/0.1/0.3 (trend)	0.065 / 0.037 / 0.027 / 0.022	0.065 / 0.037 / 0.027 / 0.022	no	worked_examples.js A	Results 3.4; Figure 3a
+3.4 s for 80% power, p0 = 0.01/0.05/0.1/0.3 (first-vs-last)	0.067 / 0.039 / 0.028 / 0.023	0.066 / 0.039 / 0.028 / 0.023	yes	worked_examples.js A	Results 3.4; Figure 3a
+3.4 power at Ne 150 / 300 / 750 (x1), and Ne 150 x5, %	63.8 / 82.7 / 98.5; 66.7	63.8 / 82.7 / 98.5; 66.7	no	worked_examples.js C	Results 3.4; Figure 3b
+3.4 sampling-only FPR at Ne 150, x1 / x5, %	18.7 / 23.8	18.7 / 23.8	no	worked_examples.js C	Results 3.4; Figure 3c
+3.4 allocation Ne 1500, historical: change in power (trend), points	+2.0 to +4.6	+1.7 to +4.6	yes	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 1500, modern: change in power (trend), points	+2.2 to +5.6	+2.1 to +5.6	yes	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 1500, first+last: change in power (trend), points	-0.3 to +6.4	-0.5 to +6.5	yes	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 100000, historical: change in power (trend), points	+11.1 to +11.5	+11.1 to +11.5	no	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 100000, modern: change in power (trend), points	+13.3 to +21.5	+13.3 to +21.5	no	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 100000, first+last: change in power (trend), points	+12.4 to +15.5	+12.4 to +15.7	yes	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 1500, historical: change in power (first-vs-last), points	-1.2 to +6.1	-0.5 to +6.2	yes	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 1500, modern: change in power (first-vs-last), points	+0.2 to +3.5	+0.5 to +3.4	yes	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 1500, first+last: change in power (first-vs-last), points	-0.5 to +9.5	-0.5 to +9.5	no	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 100000, historical: change in power (first-vs-last), points	-4.1 to +14.3	-3.5 to +14.2	yes	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 100000, modern: change in power (first-vs-last), points	+8.0 to +10.8	+7.8 to +10.7	yes	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 allocation Ne 100000, first+last: change in power (first-vs-last), points	+4.3 to +22.1	+4.1 to +22.1	yes	worked_examples.js B	Results 3.4; Figure 3d; Table S9
+3.4 depth Ne 1500, s 0.02: 30x/10x/5x/2x/1x, %	57.8 / 55.7 / 51.7 / 46.1 / 37.0	57.8 / 55.7 / 51.7 / 46.1 / 37.0	no	depth_case.js	Results 3.4; Figure 3e
+3.4 depth Ne 1500, s 0.02: 1x error 0.05; 1x and 2x min depth 3, %	34.1; 18.1, 32.5	34.1; 18.1, 32.5	no	depth_case.js	Results 3.4
+3.4 depth Ne 100000, s 0.02: 30x/10x/5x/2x/1x, %	81.9 / 79.8 / 75.0 / 61.4 / 44.1	81.9 / 79.8 / 75.0 / 61.4 / 44.1	no	depth_case.js	Results 3.4; Figure 3e
+3.4 depth Ne 100000, s 0.02: 1x error 0.05; 1x and 2x min depth 3, %	37.3; 18.4, 37.9	37.3; 18.4, 37.9	no	depth_case.js	Results 3.4
+3.4 human aDNA s 0.0075: 1x / 10x / perfect, %	73.0 / 83.8 / 81.5	73.0 / 83.8 / 81.5	no	worked_examples.js F	Results 3.4; Figure S5a
+3.4 human aDNA s 0.005: 1x / 10x, %	44.0 / 51.4	44.0 / 51.4	no	worked_examples.js F	Results 3.4; Figure S5a
+3.4 human budget s 0.005: 100x1 / 50x2 / 25x4 / 20x5 / 10x10, % (trend)	47.6 / 46.8 / 44.6 / 42.6 / 37.1	47.6 / 46.8 / 44.6 / 42.6 / 37.1	no	worked_examples.js G	Results 3.4; Figure S5b; Table S10
+3.4 human budget s 0.005: same, % (first-vs-last)	43.1 / 40.8 / 38.8 / 35.1 / 29.6	43.1 / 40.8 / 38.8 / 35.3 / 29.6	yes	worked_examples.js G	Table S10
+3.4 human budget s 0.0075: 100x1 / 50x2 / 25x4 / 20x5 / 10x10, % (trend)	79.1 / 77.8 / 76.1 / 73.2 / 66.4	79.1 / 77.8 / 76.1 / 73.2 / 66.4	no	worked_examples.js G	Results 3.4; Figure S5b; Table S10
+3.4 human budget s 0.0075: same, % (first-vs-last)	74.1 / 71.2 / 68.0 / 64.1 / 53.1	74.1 / 71.2 / 68.0 / 64.2 / 53.1	yes	worked_examples.js G	Table S10
+S6 pathogen: s for 80% power (trend), per generation	0.00029	0.00029	no	worked_examples.js E	Discussion; Supporting Information S6
+S7 mammal bottleneck: Ne 5,000 then 200, s 0.02: trend / first-vs-last, %	6.0 / 6.5	6.0 / 6.5	no	worked_examples.js D	Supporting Information S7
+S7 mammal bottleneck: Ne 5,000 then 200, s 0.05: trend / first-vs-last, %	8.5 / 8.5	8.5 / 8.5	no	worked_examples.js D	Supporting Information S7
+S7 mammal bottleneck: Ne 5,000 then 200, s 0.1: trend / first-vs-last, %	11.7 / 11.1	11.7 / 11.1	no	worked_examples.js D	Supporting Information S7
+S7 mammal bottleneck: Ne 5,000 then 200, s 0.15: trend / first-vs-last, %	19.6 / 18.6	19.6 / 18.6	no	worked_examples.js D	Supporting Information S7
+S7 mammal bottleneck: Ne 5,000 then 200, s 0.2: trend / first-vs-last, %	27.0 / 24.9	27.0 / 24.9	no	worked_examples.js D	Supporting Information S7
+S7 mammal bottleneck: Ne 5,000 then 200, s 0.3: trend / first-vs-last, %	45.1 / 43.4	45.1 / 43.4	no	worked_examples.js D	Supporting Information S7
+S7 mammal bottleneck: Ne 5,000 then 200, s 0.5: trend / first-vs-last, %	82.1 / 80.1	82.1 / 80.2	yes	worked_examples.js D	Supporting Information S7
+S7 mammal constant Ne 5,000, s 0.02: trend / first-vs-last, %	6.9 / 7.2	6.9 / 7.5	yes	worked_examples.js D	Supporting Information S7
+S7 mammal constant Ne 5,000, s 0.05: trend / first-vs-last, %	8.6 / 8.7	8.6 / 8.9	yes	worked_examples.js D	Supporting Information S7
+S7 mammal constant Ne 5,000, s 0.1: trend / first-vs-last, %	13.2 / 13.5	13.2 / 13.5	no	worked_examples.js D	Supporting Information S7
+S7 mammal constant Ne 5,000, s 0.15: trend / first-vs-last, %	20.0 / 20.0	20.0 / 20.1	yes	worked_examples.js D	Supporting Information S7
+S7 mammal constant Ne 5,000, s 0.2: trend / first-vs-last, %	27.5 / 27.1	27.5 / 27.1	no	worked_examples.js D	Supporting Information S7
+S7 mammal constant Ne 5,000, s 0.3: trend / first-vs-last, %	50.1 / 47.6	50.1 / 47.6	no	worked_examples.js D	Supporting Information S7
+S7 mammal constant Ne 5,000, s 0.5: trend / first-vs-last, %	86.1 / 85.2	86.1 / 85.2	no	worked_examples.js D	Supporting Information S7
+S7 mammal severe bottleneck: Ne 5,000 then 50, s 0.02: trend / first-vs-last, %	5.7 / 5.0	5.7 / 5.0	no	worked_examples.js D	Supporting Information S7
+S7 mammal severe bottleneck: Ne 5,000 then 50, s 0.05: trend / first-vs-last, %	6.6 / 6.5	6.6 / 6.5	no	worked_examples.js D	Supporting Information S7
+S7 mammal severe bottleneck: Ne 5,000 then 50, s 0.1: trend / first-vs-last, %	10.1 / 9.4	10.1 / 9.4	no	worked_examples.js D	Supporting Information S7
+S7 mammal severe bottleneck: Ne 5,000 then 50, s 0.15: trend / first-vs-last, %	14.3 / 14.0	14.3 / 14.0	no	worked_examples.js D	Supporting Information S7
+S7 mammal severe bottleneck: Ne 5,000 then 50, s 0.2: trend / first-vs-last, %	19.2 / 19.7	19.2 / 19.7	no	worked_examples.js D	Supporting Information S7
+S7 mammal severe bottleneck: Ne 5,000 then 50, s 0.3: trend / first-vs-last, %	31.8 / 34.3	31.8 / 34.4	yes	worked_examples.js D	Supporting Information S7
+S7 mammal severe bottleneck: Ne 5,000 then 50, s 0.5: trend / first-vs-last, %	63.7 / 67.9	63.7 / 67.9	no	worked_examples.js D	Supporting Information S7
+No-drift example: FPR of neutral-simulation threshold / power, %	1.65 / 76.80	4.85 / 77.02	yes	nodrift_example.js	Results 3.1 (no-drift example)
+S normal fit haploid p0 0.01 m 2000 trend: power normal fit / empirical	0.592 / 0.473	0.592 / 0.473	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haploid p0 0.01 m 2000 two: power normal fit / empirical	0.516 / 0.446	0.516 / 0.462	yes	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haploid p0 0.01 m 10000 trend: power normal fit / empirical	0.582 / 0.401	0.582 / 0.402	yes	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haploid p0 0.01 m 10000 two: power normal fit / empirical	0.466 / 0.386	0.466 / 0.404	yes	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haploid p0 0.1 m 2000 trend: power normal fit / empirical	0.920 / 0.952	0.920 / 0.952	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haploid p0 0.1 m 2000 two: power normal fit / empirical	0.827 / 0.962	0.827 / 0.962	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haploid p0 0.1 m 10000 trend: power normal fit / empirical	0.798 / 0.889	0.798 / 0.889	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haploid p0 0.1 m 10000 two: power normal fit / empirical	0.646 / 0.923	0.646 / 0.923	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit diploid p0 0.01 m 2000 trend: power normal fit / empirical	0.099 / 0.040	0.099 / 0.040	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit diploid p0 0.01 m 2000 two: power normal fit / empirical	0.019 / 0.053	0.019 / 0.056	yes	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit diploid p0 0.01 m 10000 trend: power normal fit / empirical	0.065 / 0.032	0.065 / 0.032	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit diploid p0 0.01 m 10000 two: power normal fit / empirical	0.008 / 0.032	0.008 / 0.032	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit diploid p0 0.1 m 2000 trend: power normal fit / empirical	0.398 / 0.451	0.398 / 0.451	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit diploid p0 0.1 m 2000 two: power normal fit / empirical	0.159 / 0.460	0.159 / 0.462	yes	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit diploid p0 0.1 m 10000 trend: power normal fit / empirical	0.250 / 0.363	0.250 / 0.363	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit diploid p0 0.1 m 10000 two: power normal fit / empirical	0.071 / 0.350	0.071 / 0.350	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haplodiploid p0 0.01 m 2000 trend: power normal fit / empirical	0.306 / 0.207	0.306 / 0.207	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haplodiploid p0 0.01 m 2000 two: power normal fit / empirical	0.119 / 0.235	0.119 / 0.238	yes	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haplodiploid p0 0.01 m 10000 trend: power normal fit / empirical	0.250 / 0.157	0.250 / 0.157	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haplodiploid p0 0.01 m 10000 two: power normal fit / empirical	0.071 / 0.148	0.071 / 0.157	yes	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haplodiploid p0 0.1 m 2000 trend: power normal fit / empirical	0.868 / 0.877	0.868 / 0.877	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haplodiploid p0 0.1 m 2000 two: power normal fit / empirical	0.661 / 0.882	0.661 / 0.882	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haplodiploid p0 0.1 m 10000 trend: power normal fit / empirical	0.757 / 0.814	0.757 / 0.814	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)
+S normal fit haplodiploid p0 0.1 m 10000 two: power normal fit / empirical	0.516 / 0.809	0.516 / 0.809	no	normal_fit_rare.js	Supporting Information (normal fit beyond 1,000 loci)

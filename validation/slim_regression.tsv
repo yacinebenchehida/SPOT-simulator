@@ -1,4 +1,4 @@
 panel	quantity	n	slope	slope_95lo	slope_95hi	intercept	intercept_95lo	intercept_95hi	R2	max_abs_residual
 a	mean frequency at generations 20, 40, 90 (11 scenarios)	33	0.9920	0.9804	1.0036	0.0007	-0.0009	0.0024	0.9990	0.0061
-b	mean power over 20 runs (6 scenarios with selection)	6	1.0180	0.9559	1.0800	-0.0085	-0.0370	0.0200	0.9981	0.0096
-c	false-positive rate, both thresholds (5 neutral scenarios)	10	1.0114	0.9748	1.0480	-0.0005	-0.0042	0.0033	0.9980	0.0039
+b	mean power over 20 runs (6 scenarios with selection)	6	1.0172	0.9566	1.0777	-0.0082	-0.0361	0.0196	0.9982	0.0094
+c	false-positive rate, both thresholds (5 neutral scenarios)	10	1.0115	0.9756	1.0473	-0.0005	-0.0042	0.0032	0.9981	0.0039
