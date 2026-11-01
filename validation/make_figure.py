@@ -4,7 +4,7 @@
 import csv, math
 
 rows = list(csv.DictReader(open('validation/rescale_results.tsv'), delimiter='\t'))
-COL = {'haploid': '#2B59D9', 'diploid': '#0E9F6E'}
+COL = {'haploid': '#2B59D9', 'diploid': '#0E9F6E', 'haplodiploid': '#C27A12'}
 GENS = [5000, 20000, 60000]
 PW, PH, TOP, LEFT, GAP = 330, 330, 70, 75, 130   # plot size and placement
 W, H = LEFT + 2 * PW + GAP + 30, TOP + PH + 70
@@ -44,11 +44,11 @@ lim2 = math.ceil(max(max(float(r['neutralSD_exact']), float(r['neutralSD_rescale
 out += panel(LEFT, 'power_exact', 'power_rescaled', 'Power, trend test', 1.0, 0.2, True)
 out += panel(LEFT + PW + GAP, 'neutralSD_exact', 'neutralSD_rescaled', 'SD of neutral allele frequency at the last point', lim2, 0.05, False)
 # legend inside the first panel
-lx, ly = LEFT + PW - 150, TOP + PH - 112
+lx, ly = LEFT + PW - 150, TOP + PH - 130
 for i, (k, c) in enumerate(COL.items()):
     out += [marker(lx, ly + 18 * i, 0, c), f'<text x="{lx+12}" y="{ly+18*i+4}">{k}</text>']
 for i, g in enumerate(GENS):
-    out += [marker(lx, ly + 36 + 18 * i, i, '#444'), f'<text x="{lx+12}" y="{ly+36+18*i+4}">{g:,} generations</text>']
+    out += [marker(lx, ly + 18 * len(COL) + 18 * i, i, '#444'), f'<text x="{lx+12}" y="{ly+18*len(COL)+18*i+4}">{g:,} generations</text>']
 out.append('</svg>')
 open('validation/rescale_validation.svg', 'w').write('\n'.join(out) + '\n')
 
