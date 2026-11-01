@@ -111,8 +111,8 @@ print('contrasts.svg', F.save('worked_examples/contrasts.svg'))
 # ---------- Figure 3: human ancient DNA ----------
 F = Fig(1000, 440)
 D = rd('human_depth.tsv')
-g = Ax(F, 75, 50, 340, 290, (0.0008, 0.025), (0, 1), xlog=True, title='Human aDNA: depth of the ancient samples', label='a')
-g.frame([0.001, 0.002, 0.005, 0.01, 0.02], [0, .2, .4, .6, .8, 1], 'selection coefficient s (per generation)', 'power (trend test)', yfmt=pct)
+g = Ax(F, 75, 50, 340, 290, (0.0008, 0.13), (0, 1), xlog=True, title='Human aDNA: depth of the ancient samples', label='a')
+g.frame([0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1], [0, .2, .4, .6, .8, 1], 'selection coefficient s (per generation)', 'power (trend test)', yfmt=pct)
 g.hline(0.8, COL['muted'])
 deps = ['1', '2', '5', '10', 'perfect']
 for k, dp in enumerate(deps):

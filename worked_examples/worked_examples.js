@@ -63,7 +63,7 @@ if (part === 'E') {
 }
 if (part === 'F') { // human aDNA: depth of the five ancient samples (present-day sample stays at 20x); minimum depth 1 read
   console.log(['ancient_depth', 's', ...HQ].join('\t'));
-  for (const dep of [1, 2, 5, 10, 'perfect']) { for (const s of [0.001, 0.002, 0.003, 0.005, 0.0075, 0.01, 0.02]) {
+  for (const dep of [1, 2, 5, 10, 'perfect']) { for (const s of [0.001, 0.002, 0.003, 0.005, 0.0075, 0.01, 0.02, 0.05, 0.1]) {
     const o = dep === 'perfect' ? {perfect: true, s} : {depthEarly: dep, s};
     console.log([dep, s, ...runQ(HUMAN, o)].join('\t')); } log('F ' + dep); }
 }
