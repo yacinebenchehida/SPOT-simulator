@@ -38,7 +38,7 @@ b.legend([(labs[s], pal[k], 'o-') for k, s in enumerate(['1', '2', '5'])], b.X(1
 c.legend([(labs[s], pal[k], 'o-') for k, s in enumerate(['1', '2', '5'])], c.X(3000), c.Y(0.29))
 
 B = rd('bee_allocation.tsv')
-designs = list(dict.fromkeys(x['design'] for x in B))[1:]
+designs = [x for x in list(dict.fromkeys(x['design'] for x in B))[1:] if '20x' not in x]  # historical 20x dropped: depth is in panel e
 d = Ax(F, 330, 450, 420, 290, (-5, 25), (len(designs) - 0.5, -0.5), title='Gain from extra effort over the reference design', label='d')
 d.frame([-5, 0, 5, 10, 15, 20, 25], [], 'change in power (percentage points)', '', grid=False)
 d.line([0, 0], [len(designs) - 0.5, -0.5], COL['muted'], 1.2, '5 4')

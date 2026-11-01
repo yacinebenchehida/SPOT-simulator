@@ -234,38 +234,30 @@
 <rect x="330" y="450" width="420" height="290" fill="none" stroke="#0F1730" stroke-width=".8"/>
 <text x="540.0" y="776.0" font-size="12" text-anchor="middle" fill="#0F1730">change in power (percentage points)</text>
 <path d="M400.0 740.0L400.0 450.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
-<line x1="330" x2="750" y1="486.2" y2="486.2" stroke="#E1E5EF"/>
-<text x="322.0" y="490.2" font-size="11" text-anchor="end" fill="#0F1730">+60 historical: 40/40/40/40</text>
-<use href="#m8" x="427.7" y="473.9"/>
-<use href="#m9" x="464.4" y="473.9"/>
-<use href="#m10" x="430.5" y="473.9"/>
-<use href="#m11" x="555.1" y="498.6"/>
-<use href="#m12" x="560.7" y="498.6"/>
-<use href="#m13" x="556.5" y="498.6"/>
-<line x1="330" x2="750" y1="558.8" y2="558.8" stroke="#E1E5EF"/>
-<text x="322.0" y="562.8" font-size="11" text-anchor="end" fill="#0F1730">+60 modern: 20/20/20/100</text>
-<use href="#m8" x="430.2" y="546.4"/>
-<use href="#m9" x="479.0" y="546.4"/>
-<use href="#m10" x="467.2" y="546.4"/>
-<use href="#m11" x="701.0" y="571.1"/>
-<use href="#m12" x="624.8" y="571.1"/>
-<use href="#m13" x="585.6" y="571.1"/>
-<line x1="330" x2="750" y1="631.2" y2="631.2" stroke="#E1E5EF"/>
-<text x="322.0" y="635.2" font-size="11" text-anchor="end" fill="#0F1730">historical depth 20x (instead of 10x)</text>
-<use href="#m8" x="388.2" y="618.9"/>
-<use href="#m9" x="404.5" y="618.9"/>
-<use href="#m10" x="377.6" y="618.9"/>
-<use href="#m11" x="432.8" y="643.6"/>
-<use href="#m12" x="404.2" y="643.6"/>
-<use href="#m13" x="393.0" y="643.6"/>
-<line x1="330" x2="750" y1="703.8" y2="703.8" stroke="#E1E5EF"/>
-<text x="322.0" y="707.8" font-size="11" text-anchor="end" fill="#0F1730">first and last only: 50/50 (same total)</text>
-<use href="#m8" x="395.2" y="691.4"/>
-<use href="#m9" x="474.5" y="691.4"/>
-<use href="#m10" x="490.2" y="691.4"/>
-<use href="#m11" x="616.7" y="716.1"/>
-<use href="#m12" x="573.0" y="716.1"/>
-<use href="#m13" x="593.2" y="716.1"/>
+<line x1="330" x2="750" y1="498.3" y2="498.3" stroke="#E1E5EF"/>
+<text x="322.0" y="502.3" font-size="11" text-anchor="end" fill="#0F1730">+60 historical: 40/40/40/40</text>
+<use href="#m8" x="427.7" y="481.9"/>
+<use href="#m9" x="464.4" y="481.9"/>
+<use href="#m10" x="430.5" y="481.9"/>
+<use href="#m11" x="555.1" y="514.8"/>
+<use href="#m12" x="560.7" y="514.8"/>
+<use href="#m13" x="556.5" y="514.8"/>
+<line x1="330" x2="750" y1="595.0" y2="595.0" stroke="#E1E5EF"/>
+<text x="322.0" y="599.0" font-size="11" text-anchor="end" fill="#0F1730">+60 modern: 20/20/20/100</text>
+<use href="#m8" x="430.2" y="578.6"/>
+<use href="#m9" x="479.0" y="578.6"/>
+<use href="#m10" x="467.2" y="578.6"/>
+<use href="#m11" x="701.0" y="611.4"/>
+<use href="#m12" x="624.8" y="611.4"/>
+<use href="#m13" x="585.6" y="611.4"/>
+<line x1="330" x2="750" y1="691.7" y2="691.7" stroke="#E1E5EF"/>
+<text x="322.0" y="695.7" font-size="11" text-anchor="end" fill="#0F1730">first and last only: 50/50 (same total)</text>
+<use href="#m8" x="395.2" y="675.2"/>
+<use href="#m9" x="474.5" y="675.2"/>
+<use href="#m10" x="490.2" y="675.2"/>
+<use href="#m11" x="616.7" y="708.1"/>
+<use href="#m12" x="573.0" y="708.1"/>
+<use href="#m13" x="593.2" y="708.1"/>
 <use href="#m0" x="780.0" y="464.0"/>
 <text x="797.0" y="468.0" font-size="11" text-anchor="start" fill="#0F1730">p₀ = 0.01</text>
 <use href="#m1" x="780.0" y="481.0"/>
