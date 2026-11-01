@@ -18,13 +18,13 @@ const t0 = Date.now();
 for (const G of [5000, 20000, 60000]) for (const system of ['haploid', 'diploid', 'haplodiploid']) {
   const P = Object.assign({}, base, {system, years: [0, Math.round(G / 3), Math.round(2 * G / 3), G]});
   const lambda = S.rescale(P).lambda;
-  const crit = []; for (let i = 0; i < N_THRESHOLDS; i++) crit.push(S.runPower(Object.assign({}, P, {seed: 1000 + i})).trend.crit);
+  const crit = []; for (let i = 0; i < N_THRESHOLDS; i++) crit.push(S.runPower(Object.assign({}, P, {seed: 1000 + i})).trend);   // {crit, gamma}
   const Q = S.prep(Object.assign({}, P, {noRescale: true})), R = S.makeRng(99991), t = S.gensOf(Q), ALL = t.map((_, i) => i);
   const z = new Float64Array(N_TEST); for (let i = 0; i < N_TEST; i++) { const o = S.simulateRep(Q, 0, R, false); z[i] = trendZ(o.x, o.n, t, ALL); }
-  const f = crit.map(c => { let k = 0; for (const v of z) if (v > c) k++; return k / N_TEST; });
+  const f = crit.map(c => { let k = 0; for (const v of z) k += S.exceed(v, c.crit, c.gamma); return k / N_TEST; });   // ties count with weight gamma
   const m = f.reduce((a, b) => a + b, 0) / f.length, sd = Math.sqrt(f.reduce((a, b) => a + (b - m) ** 2, 0) / (f.length - 1));
   const zc = S.qnorm(0.95); let naive = 0; for (const v of z) if (v > zc) naive++;
   console.log([G, system, Math.round(S.neFor(P)), lambda, m.toFixed(4), sd.toFixed(4), Math.min(...f).toFixed(4), Math.max(...f).toFixed(4),
-    (naive / N_TEST).toFixed(4), (crit.reduce((a, b) => a + b, 0) / crit.length).toFixed(3), N_TEST].join('\t'));
+    (naive / N_TEST).toFixed(4), (crit.reduce((a, b) => a + b.crit, 0) / crit.length).toFixed(3), N_TEST].join('\t'));
   console.error(G, system, 'lambda', lambda, 'FPR', m.toFixed(4), ((Date.now() - t0) / 1000).toFixed(0) + 's');
 }

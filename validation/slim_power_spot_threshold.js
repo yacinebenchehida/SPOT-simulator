@@ -47,7 +47,8 @@ function trendZ(x, n) {    // Cochran-Armitage trend statistic, as trendZ() in s
   for (let i = 0; i < x.length; i++) { num += x[i] * (GENS[i] - tb); den += n[i] * (GENS[i] - tb) ** 2; }
   return num / Math.sqrt(pb * (1 - pb) * den);
 }
-const quant95 = z => { const a = [...z].sort((p, q) => p - q); return a[Math.min(a.length - 1, Math.ceil(0.95 * a.length) - 1)]; };
+// 95% quantile with SPOT's rule for ties at the threshold (empiricalThreshold in sim.js): {crit, gamma, ties}
+const quant95 = z => S.empiricalThreshold(z, 0.05);
 const mean = a => a.reduce((p, q) => p + q, 0) / a.length;
 const sd = a => { const m = mean(a); return Math.sqrt(a.reduce((p, q) => p + (q - m) ** 2, 0) / (a.length - 1)); };
 function ks(a, b) {        // two-sample Kolmogorov-Smirnov statistic D and asymptotic p-value
@@ -66,7 +67,8 @@ function ks(a, b) {        // two-sample Kolmogorov-Smirnov statistic D and asym
 
 
 const Z = rs => rs.map(r => trendZ(r.x, r.n));
-const above = (z, c) => mean(z.map(v => v > c ? 1 : 0));
+// share of Z above a threshold: SPOT threshold {crit, gamma} (ties count with weight gamma), or a fixed number (sampling-only)
+const above = (z, c) => typeof c === 'number' ? mean(z.map(v => v > c ? 1 : 0)) : mean(z.map(v => S.exceed(v, c.crit, c.gamma)));
 const slimFile = (name, k) => k === 1 ? name : `power/${name}_r${k}`;
 
 
@@ -80,7 +82,7 @@ SC.forEach(([sel, neu, system, Nf, Nm, p0, s, h], j) => {
     pl.push(above(zl, c));
   }
   const d = mean(ps) - mean(pl), se = Math.sqrt(sd(ps) ** 2 / RUNS + sd(pl) ** 2 / RUNS);
-  rows.push([sel, c.toFixed(3), RUNS, mean(ps).toFixed(4), sd(ps).toFixed(4), mean(pl).toFixed(4), sd(pl).toFixed(4), d.toFixed(4), se.toFixed(4), (d / se).toFixed(2)]);
-  console.error(sel, 'SPOT threshold', c.toFixed(3), 'power on SPOT', mean(ps).toFixed(3), 'on SLiM', mean(pl).toFixed(3), 'z', (d / se).toFixed(2));
+  rows.push([sel, c.crit.toFixed(3), RUNS, mean(ps).toFixed(4), sd(ps).toFixed(4), mean(pl).toFixed(4), sd(pl).toFixed(4), d.toFixed(4), se.toFixed(4), (d / se).toFixed(2)]);
+  console.error(sel, 'SPOT threshold', c.crit.toFixed(3), 'power on SPOT', mean(ps).toFixed(3), 'on SLiM', mean(pl).toFixed(3), 'z', (d / se).toFixed(2));
 });
 require('fs').writeFileSync('validation/slim_power_spot_threshold.tsv', rows.map(r => r.join('\t')).join('\n') + '\n');

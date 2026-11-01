@@ -22,9 +22,9 @@ for (const [system, Nf, Nm] of SYS) for (const p0 of [0.01, 0.1]) {
   for (const m of MS) {
     const r = S.runPower(Object.assign({}, base, {m, seed: ++seed})), a = 0.05 / m;
     for (const k of ['trend', 'two']) {
-      const c = r[k].crit, ce = sorted[k][Math.ceil((1 - a) * NT) - 1];
-      let f = 0; for (const z of test[k]) if (z > c) f++;
-      let pe = 0; for (const z of r.sel[k]) if (z > ce) pe++;
+      const c = r[k].crit, E = S.empiricalThreshold(sorted[k], a), ce = E.crit;   // empirical threshold of the 2e6 simulations, ties as in SPOT
+      let f = 0; for (const z of test[k]) f += S.exceed(z, c, r[k].gamma);
+      let pe = 0; for (const z of r.sel[k]) pe += S.exceed(z, ce, E.gamma);
       console.log([system, p0, m, a.toExponential(1), k, c.toFixed(3), ce.toFixed(3), (f / NT).toExponential(2), ((f / NT) / a).toFixed(1),
         r[k].powerEmp.toFixed(3), (pe / r.sel[k].length).toFixed(3), r.nNeutral, NT].join('\t'));
     }
