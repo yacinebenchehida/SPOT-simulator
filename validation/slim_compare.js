@@ -62,7 +62,9 @@ function trendZ(x, n) {    // Cochran-Armitage trend statistic, as trendZ() in s
   for (let i = 0; i < x.length; i++) { num += x[i] * (GENS[i] - tb); den += n[i] * (GENS[i] - tb) ** 2; }
   return num / Math.sqrt(pb * (1 - pb) * den);
 }
-const quant95 = z => { const a = [...z].sort((p, q) => p - q); return a[Math.min(a.length - 1, Math.ceil(0.95 * a.length) - 1)]; };
+// 95% quantile with SPOT's rule for ties at the threshold (empiricalThreshold in sim.js): {crit, gamma, ties}
+const quant95 = z => S.empiricalThreshold(z, 0.05);
+const over = (z, c) => S.exceed(z, c.crit, c.gamma);   // 1 above, gamma when tied, 0 below
 const mean = a => a.reduce((p, q) => p + q, 0) / a.length;
 const sd = a => { const m = mean(a); return Math.sqrt(a.reduce((p, q) => p + (q - m) ** 2, 0) / (a.length - 1)); };
 function ks(a, b) {        // two-sample Kolmogorov-Smirnov statistic D and asymptotic p-value
@@ -103,10 +105,10 @@ SC.forEach(([sel, neu, system, Nf, Nm, p0, s, h], k) => {
   const Z = rs => rs.map(r => trendZ(r.x, r.n));
   const [zSelSlim, zSelSpot, zNeuSlim, zNeuSpot] = [Z(runs.sel[0]), Z(runs.sel[1]), Z(runs.neu[0]), Z(runs.neu[1])];
   const cSpot = quant95(zNeuSpot), cSlim = quant95(zNeuSlim);
-  const pSpot = mean(zSelSpot.map(z => z > cSpot ? 1 : 0)), pSlim = mean(zSelSlim.map(z => z > cSlim ? 1 : 0));
+  const pSpot = mean(zSelSpot.map(z => over(z, cSpot))), pSlim = mean(zSelSlim.map(z => over(z, cSlim)));
   const se = Math.sqrt(pSpot * (1 - pSpot) / R + pSlim * (1 - pSlim) / R);
-  const fpr = mean(zNeuSlim.map(z => z > cSpot ? 1 : 0));
-  prow.push([sel, system, Nf, Nm, p0, s, h, cSpot.toFixed(3), cSlim.toFixed(3), pSpot.toFixed(4), pSlim.toFixed(4),
+  const fpr = mean(zNeuSlim.map(z => over(z, cSpot)));
+  prow.push([sel, system, Nf, Nm, p0, s, h, cSpot.crit.toFixed(3), cSlim.crit.toFixed(3), pSpot.toFixed(4), pSlim.toFixed(4),
     se.toFixed(4), ((pSpot - pSlim) / se).toFixed(2), fpr.toFixed(4)]);
   console.error(sel, 'power SPOT', pSpot.toFixed(3), 'SLiM', pSlim.toFixed(3), 'FPR of SPOT threshold on SLiM neutral', fpr.toFixed(3));
 });
@@ -123,9 +125,9 @@ for (const [neu, [system, Nf, Nm, p0, h]] of neutralSpec) {
   const big = []; for (let j = 0; j < 10; j++) big.push(...runSpot(system, Nf, Nm, p0, 0, h, 500 + 10 * k2 + j));
   const zSpot = big.map(r => trendZ(r.x, r.n)), c = quant95(zSpot);
   const test = []; for (let j = 0; j < 4; j++) test.push(...runSpot(system, Nf, Nm, p0, 0, h, 900 + 10 * k2 + j));
-  const fprSpot = mean(test.map(r => trendZ(r.x, r.n) > c ? 1 : 0));
-  const fpr = mean(zSlim.map(z => z > c ? 1 : 0)), se = Math.sqrt(0.05 * 0.95 / zSlim.length);
-  frow.push([neu, system, Nf, Nm, p0, c.toFixed(3), zSlim.length, fpr.toFixed(4), se.toFixed(4), ((fpr - 0.05) / se).toFixed(2),
+  const fprSpot = mean(test.map(r => over(trendZ(r.x, r.n), c)));
+  const fpr = mean(zSlim.map(z => over(z, c))), se = Math.sqrt(0.05 * 0.95 / zSlim.length);
+  frow.push([neu, system, Nf, Nm, p0, c.crit.toFixed(3), zSlim.length, fpr.toFixed(4), se.toFixed(4), ((fpr - 0.05) / se).toFixed(2),
     sd(zSpot).toFixed(3), sd(zSlim).toFixed(3), fprSpot.toFixed(4)]);
   console.error(neu, 'SLiM neutral replicates', zSlim.length, 'FPR of SPOT threshold', fpr.toFixed(4), '(SPOT on itself', fprSpot.toFixed(4) + ')');
   k2++;
