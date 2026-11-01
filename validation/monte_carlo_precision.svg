@@ -23,31 +23,31 @@
 <text x="240.0" y="386.0" font-size="12" text-anchor="middle" fill="#0F1730">replicates under selection (2× as many neutral)</text>
 <text x="31.0" y="200.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 200.0)">SD of power (percentage points)</text>
 <path d="M75.0 132.3L405.0 297.9" fill="none" stroke="#9AA3B8" stroke-width="1.4" stroke-dasharray="5 4" stroke-opacity="1"/>
-<path d="M101.4 160.0L183.5 191.4L265.5 222.5L373.9 283.5" fill="none" stroke="#C27A12" stroke-width="1.6" stroke-opacity="1"/>
-<use href="#m0" x="101.4" y="160.0"/>
+<path d="M101.4 152.5L183.5 191.4L265.5 227.7L373.9 278.5" fill="none" stroke="#C27A12" stroke-width="1.6" stroke-opacity="1"/>
+<use href="#m0" x="101.4" y="152.5"/>
 <use href="#m0" x="183.5" y="191.4"/>
-<use href="#m0" x="265.5" y="222.5"/>
-<use href="#m0" x="373.9" y="283.5"/>
-<path d="M101.4 89.0L183.5 144.8L265.5 200.4L373.9 240.0" fill="none" stroke="#8B4FD6" stroke-width="1.6" stroke-opacity="1"/>
-<use href="#m1" x="101.4" y="89.0"/>
-<use href="#m1" x="183.5" y="144.8"/>
+<use href="#m0" x="265.5" y="227.7"/>
+<use href="#m0" x="373.9" y="278.5"/>
+<path d="M101.4 93.0L183.5 147.5L265.5 200.4L373.9 242.4" fill="none" stroke="#8B4FD6" stroke-width="1.6" stroke-opacity="1"/>
+<use href="#m1" x="101.4" y="93.0"/>
+<use href="#m1" x="183.5" y="147.5"/>
 <use href="#m1" x="265.5" y="200.4"/>
-<use href="#m1" x="373.9" y="240.0"/>
-<path d="M101.4 124.1L183.5 168.1L265.5 193.0L373.9 232.0" fill="none" stroke="#2B59D9" stroke-width="1.6" stroke-opacity="1"/>
-<use href="#m2" x="101.4" y="124.1"/>
-<use href="#m2" x="183.5" y="168.1"/>
-<use href="#m2" x="265.5" y="193.0"/>
-<use href="#m2" x="373.9" y="232.0"/>
-<path d="M101.4 143.3L183.5 199.5L265.5 255.0L373.9 314.4" fill="none" stroke="#D9363E" stroke-width="1.6" stroke-opacity="1"/>
-<use href="#m3" x="101.4" y="143.3"/>
-<use href="#m3" x="183.5" y="199.5"/>
-<use href="#m3" x="265.5" y="255.0"/>
-<use href="#m3" x="373.9" y="314.4"/>
-<path d="M101.4 119.7L183.5 178.8L265.5 205.5L373.9 283.5" fill="none" stroke="#0E9F6E" stroke-width="1.6" stroke-opacity="1"/>
-<use href="#m4" x="101.4" y="119.7"/>
-<use href="#m4" x="183.5" y="178.8"/>
-<use href="#m4" x="265.5" y="205.5"/>
-<use href="#m4" x="373.9" y="283.5"/>
+<use href="#m1" x="373.9" y="242.4"/>
+<path d="M101.4 126.8L183.5 158.8L265.5 197.9L373.9 229.8" fill="none" stroke="#2B59D9" stroke-width="1.6" stroke-opacity="1"/>
+<use href="#m2" x="101.4" y="126.8"/>
+<use href="#m2" x="183.5" y="158.8"/>
+<use href="#m2" x="265.5" y="197.9"/>
+<use href="#m2" x="373.9" y="229.8"/>
+<path d="M101.4 141.2L183.5 189.1L265.5 244.8L373.9 305.9" fill="none" stroke="#D9363E" stroke-width="1.6" stroke-opacity="1"/>
+<use href="#m3" x="101.4" y="141.2"/>
+<use href="#m3" x="183.5" y="189.1"/>
+<use href="#m3" x="265.5" y="244.8"/>
+<use href="#m3" x="373.9" y="305.9"/>
+<path d="M101.4 126.3L183.5 180.3L265.5 210.0L373.9 272.2" fill="none" stroke="#0E9F6E" stroke-width="1.6" stroke-opacity="1"/>
+<use href="#m4" x="101.4" y="126.3"/>
+<use href="#m4" x="183.5" y="180.3"/>
+<use href="#m4" x="265.5" y="210.0"/>
+<use href="#m4" x="373.9" y="272.2"/>
 <line x1="218.9731279268388" x2="238.9731279268388" y1="62.0" y2="62.0" stroke="#C27A12" stroke-width="2"/>
 <use href="#m5" x="229.0" y="62.0"/>
 <text x="246.0" y="66.0" font-size="11" text-anchor="start" fill="#0F1730">Bumblebees</text>
@@ -82,49 +82,59 @@
 <rect x="520" y="50" width="500" height="300" fill="none" stroke="#0F1730" stroke-width=".8"/>
 <text x="476.0" y="200.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 476.0 200.0)">power (trend test, drift-aware)</text>
 <use href="#m10" x="545.0" y="150.2"/>
-<use href="#m10" x="575.9" y="152.9"/>
+<use href="#m10" x="575.9" y="152.8"/>
 <use href="#m10" x="556.8" y="145.7"/>
 <use href="#m10" x="587.7" y="149.3"/>
-<use href="#m10" x="568.6" y="159.5"/>
-<use href="#m10" x="549.5" y="144.2"/>
-<use href="#m10" x="580.4" y="152.0"/>
-<use href="#m10" x="561.3" y="160.7"/>
-<use href="#m10" x="592.2" y="158.9"/>
+<use href="#m10" x="568.6" y="156.7"/>
+<use href="#m10" x="549.5" y="142.5"/>
+<use href="#m10" x="580.4" y="150.5"/>
+<use href="#m10" x="561.3" y="160.4"/>
+<use href="#m10" x="592.2" y="158.0"/>
 <use href="#m10" x="573.1" y="152.0"/>
-<use href="#m10" x="554.0" y="154.1"/>
-<use href="#m10" x="584.9" y="150.2"/>
+<use href="#m10" x="554.0" y="152.4"/>
+<use href="#m10" x="584.9" y="149.8"/>
 <use href="#m10" x="565.8" y="149.0"/>
-<use href="#m10" x="546.7" y="147.5"/>
+<use href="#m10" x="546.7" y="146.6"/>
 <use href="#m10" x="577.6" y="148.7"/>
-<use href="#m10" x="558.5" y="156.5"/>
+<use href="#m10" x="558.5" y="155.3"/>
 <use href="#m10" x="589.4" y="143.6"/>
-<use href="#m10" x="570.3" y="144.2"/>
-<use href="#m10" x="551.2" y="147.8"/>
-<use href="#m10" x="582.1" y="147.2"/>
-<use href="#m10" x="563.0" y="143.9"/>
-<use href="#m10" x="593.9" y="151.4"/>
-<use href="#m10" x="574.8" y="147.2"/>
-<use href="#m10" x="555.7" y="145.7"/>
+<use href="#m10" x="570.3" y="143.8"/>
+<use href="#m10" x="551.2" y="147.5"/>
+<use href="#m10" x="582.1" y="146.3"/>
+<use href="#m10" x="563.0" y="143.2"/>
+<use href="#m10" x="593.9" y="150.1"/>
+<use href="#m10" x="574.8" y="147.0"/>
+<use href="#m10" x="555.7" y="145.5"/>
 <use href="#m10" x="586.6" y="147.8"/>
 <use href="#m10" x="567.5" y="151.4"/>
-<use href="#m10" x="548.4" y="150.2"/>
-<use href="#m10" x="579.3" y="145.1"/>
+<use href="#m10" x="548.4" y="149.6"/>
+<use href="#m10" x="579.3" y="145.0"/>
 <use href="#m10" x="560.2" y="146.3"/>
-<use href="#m10" x="591.1" y="153.2"/>
-<use href="#m10" x="572.0" y="156.8"/>
-<use href="#m10" x="552.9" y="152.9"/>
-<use href="#m10" x="583.8" y="155.6"/>
+<use href="#m10" x="591.1" y="153.1"/>
+<use href="#m10" x="572.0" y="156.6"/>
+<use href="#m10" x="552.9" y="151.6"/>
+<use href="#m10" x="583.8" y="154.6"/>
 <use href="#m10" x="564.7" y="156.2"/>
-<use href="#m10" x="545.6" y="146.9"/>
-<use href="#m10" x="576.5" y="155.6"/>
-<use href="#m10" x="557.4" y="150.8"/>
+<use href="#m10" x="545.6" y="146.7"/>
+<use href="#m10" x="576.5" y="155.4"/>
+<use href="#m10" x="557.4" y="150.3"/>
 <use href="#m10" x="588.3" y="150.2"/>
-<use href="#m10" x="569.2" y="152.9"/>
-<use href="#m10" x="550.1" y="155.0"/>
-<path d="M538.0 150.7L602.0 150.7" fill="none" stroke="#0F1730" stroke-width="2" stroke-opacity="1"/>
-<line x1="608.0" x2="608.0" y1="159.8" y2="141.6" stroke="#0F1730" stroke-width="1.6"/>
+<use href="#m10" x="569.2" y="152.2"/>
+<use href="#m10" x="550.1" y="150.7"/>
+<use href="#m10" x="581.0" y="154.1"/>
+<use href="#m10" x="561.9" y="141.1"/>
+<use href="#m10" x="592.8" y="147.7"/>
+<use href="#m10" x="573.7" y="153.1"/>
+<use href="#m10" x="554.6" y="144.9"/>
+<use href="#m10" x="585.5" y="153.5"/>
+<use href="#m10" x="566.4" y="159.0"/>
+<use href="#m10" x="547.3" y="144.5"/>
+<use href="#m10" x="578.2" y="152.9"/>
+<use href="#m10" x="559.1" y="153.6"/>
+<path d="M538.0 150.2L602.0 150.2" fill="none" stroke="#0F1730" stroke-width="2" stroke-opacity="1"/>
+<line x1="608.0" x2="608.0" y1="159.3" y2="141.1" stroke="#0F1730" stroke-width="1.6"/>
 <text x="570.0" y="368.0" font-size="11" text-anchor="middle" fill="#0F1730">Bumblebees</text>
-<text x="570.0" y="383.0" font-size="11" text-anchor="middle" fill="#5A6480">66.4% ± 1.5</text>
+<text x="570.0" y="383.0" font-size="11" text-anchor="middle" fill="#5A6480">66.6% ± 1.5</text>
 <use href="#m11" x="645.0" y="282.8"/>
 <use href="#m11" x="675.9" y="283.4"/>
 <use href="#m11" x="656.8" y="280.7"/>
@@ -165,10 +175,20 @@
 <use href="#m11" x="688.3" y="279.5"/>
 <use href="#m11" x="669.2" y="282.2"/>
 <use href="#m11" x="650.1" y="271.4"/>
-<path d="M638.0 275.7L702.0 275.7" fill="none" stroke="#0F1730" stroke-width="2" stroke-opacity="1"/>
-<line x1="708.0" x2="708.0" y1="289.3" y2="262.2" stroke="#0F1730" stroke-width="1.6"/>
+<use href="#m11" x="681.0" y="264.8"/>
+<use href="#m11" x="661.9" y="279.2"/>
+<use href="#m11" x="692.8" y="281.9"/>
+<use href="#m11" x="673.7" y="272.3"/>
+<use href="#m11" x="654.6" y="275.3"/>
+<use href="#m11" x="685.5" y="272.0"/>
+<use href="#m11" x="666.4" y="272.6"/>
+<use href="#m11" x="647.3" y="282.5"/>
+<use href="#m11" x="678.2" y="277.7"/>
+<use href="#m11" x="659.1" y="285.2"/>
+<path d="M638.0 275.9L702.0 275.9" fill="none" stroke="#0F1730" stroke-width="2" stroke-opacity="1"/>
+<line x1="708.0" x2="708.0" y1="289.0" y2="262.7" stroke="#0F1730" stroke-width="1.6"/>
 <text x="670.0" y="368.0" font-size="11" text-anchor="middle" fill="#0F1730">Mammal</text>
-<text x="670.0" y="383.0" font-size="11" text-anchor="middle" fill="#5A6480">24.8% ± 2.3</text>
+<text x="670.0" y="383.0" font-size="11" text-anchor="middle" fill="#5A6480">24.7% ± 2.2</text>
 <use href="#m12" x="745.0" y="203.6"/>
 <use href="#m12" x="775.9" y="203.0"/>
 <use href="#m12" x="756.8" y="209.3"/>
@@ -209,16 +229,26 @@
 <use href="#m12" x="788.3" y="214.1"/>
 <use href="#m12" x="769.2" y="205.7"/>
 <use href="#m12" x="750.1" y="212.9"/>
-<path d="M738.0 208.1L802.0 208.1" fill="none" stroke="#0F1730" stroke-width="2" stroke-opacity="1"/>
-<line x1="808.0" x2="808.0" y1="219.2" y2="197.0" stroke="#0F1730" stroke-width="1.6"/>
+<use href="#m12" x="781.0" y="212.6"/>
+<use href="#m12" x="761.9" y="199.1"/>
+<use href="#m12" x="792.8" y="198.5"/>
+<use href="#m12" x="773.7" y="212.6"/>
+<use href="#m12" x="754.6" y="201.2"/>
+<use href="#m12" x="785.5" y="204.5"/>
+<use href="#m12" x="766.4" y="199.7"/>
+<use href="#m12" x="747.3" y="217.1"/>
+<use href="#m12" x="778.2" y="211.1"/>
+<use href="#m12" x="759.1" y="196.4"/>
+<path d="M738.0 207.5L802.0 207.5" fill="none" stroke="#0F1730" stroke-width="2" stroke-opacity="1"/>
+<line x1="808.0" x2="808.0" y1="219.5" y2="195.6" stroke="#0F1730" stroke-width="1.6"/>
 <text x="770.0" y="368.0" font-size="11" text-anchor="middle" fill="#0F1730">Human aDNA</text>
-<text x="770.0" y="383.0" font-size="11" text-anchor="middle" fill="#5A6480">47.3% ± 1.9</text>
+<text x="770.0" y="383.0" font-size="11" text-anchor="middle" fill="#5A6480">47.5% ± 2.0</text>
 <use href="#m13" x="845.0" y="132.2"/>
 <use href="#m13" x="875.9" y="132.5"/>
 <use href="#m13" x="856.8" y="127.1"/>
 <use href="#m13" x="887.7" y="121.7"/>
 <use href="#m13" x="868.6" y="131.3"/>
-<use href="#m13" x="849.5" y="127.4"/>
+<use href="#m13" x="849.5" y="127.2"/>
 <use href="#m13" x="880.4" y="134.0"/>
 <use href="#m13" x="861.3" y="131.3"/>
 <use href="#m13" x="892.2" y="137.6"/>
@@ -253,10 +283,20 @@
 <use href="#m13" x="888.3" y="140.9"/>
 <use href="#m13" x="869.2" y="133.4"/>
 <use href="#m13" x="850.1" y="130.7"/>
-<path d="M838.0 131.8L902.0 131.8" fill="none" stroke="#0F1730" stroke-width="2" stroke-opacity="1"/>
-<line x1="908.0" x2="908.0" y1="140.3" y2="123.2" stroke="#0F1730" stroke-width="1.6"/>
+<use href="#m13" x="881.0" y="140.3"/>
+<use href="#m13" x="861.9" y="128.0"/>
+<use href="#m13" x="892.8" y="135.2"/>
+<use href="#m13" x="873.7" y="129.8"/>
+<use href="#m13" x="854.6" y="121.1"/>
+<use href="#m13" x="885.5" y="132.2"/>
+<use href="#m13" x="866.4" y="137.0"/>
+<use href="#m13" x="847.3" y="140.6"/>
+<use href="#m13" x="878.2" y="134.6"/>
+<use href="#m13" x="859.1" y="135.8"/>
+<path d="M838.0 132.1L902.0 132.1" fill="none" stroke="#0F1730" stroke-width="2" stroke-opacity="1"/>
+<line x1="908.0" x2="908.0" y1="141.4" y2="122.8" stroke="#0F1730" stroke-width="1.6"/>
 <text x="870.0" y="368.0" font-size="11" text-anchor="middle" fill="#0F1730">Pathogen</text>
-<text x="870.0" y="383.0" font-size="11" text-anchor="middle" fill="#5A6480">72.7% ± 1.4</text>
+<text x="870.0" y="383.0" font-size="11" text-anchor="middle" fill="#5A6480">72.6% ± 1.5</text>
 <use href="#m14" x="945.0" y="139.4"/>
 <use href="#m14" x="975.9" y="135.5"/>
 <use href="#m14" x="956.8" y="138.5"/>
@@ -297,8 +337,18 @@
 <use href="#m14" x="988.3" y="122.6"/>
 <use href="#m14" x="969.2" y="132.8"/>
 <use href="#m14" x="950.1" y="131.9"/>
-<path d="M938.0 130.2L1002.0 130.2" fill="none" stroke="#0F1730" stroke-width="2" stroke-opacity="1"/>
-<line x1="1008.0" x2="1008.0" y1="140.3" y2="120.0" stroke="#0F1730" stroke-width="1.6"/>
+<use href="#m14" x="981.0" y="125.6"/>
+<use href="#m14" x="961.9" y="137.6"/>
+<use href="#m14" x="992.8" y="129.5"/>
+<use href="#m14" x="973.7" y="129.5"/>
+<use href="#m14" x="954.6" y="127.7"/>
+<use href="#m14" x="985.5" y="134.6"/>
+<use href="#m14" x="966.4" y="127.4"/>
+<use href="#m14" x="947.3" y="119.9"/>
+<use href="#m14" x="978.2" y="133.1"/>
+<use href="#m14" x="959.1" y="129.8"/>
+<path d="M938.0 130.0L1002.0 130.0" fill="none" stroke="#0F1730" stroke-width="2" stroke-opacity="1"/>
+<line x1="1008.0" x2="1008.0" y1="140.0" y2="120.0" stroke="#0F1730" stroke-width="1.6"/>
 <text x="970.0" y="368.0" font-size="11" text-anchor="middle" fill="#0F1730">Large diploid</text>
 <text x="970.0" y="383.0" font-size="11" text-anchor="middle" fill="#5A6480">73.3% ± 1.7</text>
 <text x="75.0" y="418.0" font-size="11" text-anchor="start" fill="#5A6480">Example scenarios of the page, 40 random seeds each. a: dashed line, binomial standard deviation √(p(1−p)/R) at p = 0.5, the largest possible. b: black bar = mean, whisker = ±2 SD; numbers = mean ± SD.</text>

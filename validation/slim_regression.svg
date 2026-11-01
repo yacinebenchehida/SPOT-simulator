@@ -98,10 +98,10 @@
 <use href="#m0" x="494.4" y="219.8"/>
 <use href="#m0" x="478.0" y="238.0"/>
 <use href="#m0" x="548.6" y="167.7"/>
-<use href="#m2" x="524.4" y="193.2"/>
+<use href="#m2" x="524.5" y="193.1"/>
 <use href="#m4" x="522.8" y="191.2"/>
-<use href="#m4" x="580.5" y="132.2"/>
-<text x="423.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">slope 1.018, R² 0.998</text>
+<use href="#m4" x="580.9" y="132.0"/>
+<text x="423.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">slope 1.017, R² 0.998</text>
 <text x="755.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">False-positive rate</text>
 <text x="703.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">c</text>
 <line x1="755" x2="1005" y1="300.0" y2="300.0" stroke="#E1E5EF"/>
@@ -132,11 +132,11 @@
 <text x="880.0" y="336.0" font-size="12" text-anchor="middle" fill="#0F1730">SPOT</text>
 <text x="711.0" y="175.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 711.0 175.0)">SLiM</text>
 <path d="M755.0 300.0L1005.0 50.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
-<use href="#m0" x="804.6" y="246.5"/>
+<use href="#m0" x="804.9" y="246.4"/>
 <use href="#m0" x="804.0" y="250.6"/>
-<use href="#m2" x="809.3" y="247.5"/>
+<use href="#m2" x="809.7" y="246.9"/>
 <use href="#m4" x="811.5" y="245.3"/>
-<use href="#m4" x="804.3" y="250.4"/>
+<use href="#m4" x="804.5" y="250.2"/>
 <use href="#m6" x="885.2" y="164.9"/>
 <use href="#m6" x="951.6" y="102.8"/>
 <use href="#m7" x="859.4" y="198.4"/>

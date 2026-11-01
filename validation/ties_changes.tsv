@@ -1,0 +1,845 @@
+file	script	row	column	old	new	difference
+validation/rescale_hd_repeat.txt	rescale_hd_repeat.js	job=rescaled, s=0.0001, seed=504	power_trend	0.192	0.1925	+0.0005
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100, statistic=trend	fpr_drift_aware_mean	5.2701e-2	5.2703e-2	+2e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100, statistic=trend	fpr_drift_aware_sd	4.054e-3	4.053e-3	-1e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100, statistic=two	fpr_drift_aware_mean	5.1081e-2	5.1434e-2	+0.000353
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100, statistic=two	fpr_drift_aware_sd	3.915e-3	3.805e-3	-0.00011
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100, statistic=two	fpr_drift_aware_min	4.352e-2	4.423e-2	+0.00071
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=300, statistic=trend	fpr_drift_aware_mean	4.9507e-2	4.9511e-2	+4e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=300, statistic=trend	fpr_drift_aware_sd	5.448e-3	5.446e-3	-2e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=300, statistic=two	fpr_drift_aware_mean	4.8342e-2	4.8805e-2	+0.000463
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=300, statistic=two	fpr_drift_aware_sd	4.350e-3	4.233e-3	-0.000117
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=300, statistic=two	fpr_drift_aware_min	4.250e-2	4.306e-2	+0.00056
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000, statistic=trend	fpr_drift_aware_mean	4.8248e-2	4.8272e-2	+2.4e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000, statistic=trend	fpr_drift_aware_sd	3.517e-3	3.511e-3	-6e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000, statistic=two	fpr_drift_aware_mean	4.6323e-2	4.8726e-2	+0.002403
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000, statistic=two	fpr_drift_aware_sd	4.493e-3	4.313e-3	-0.00018
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000, statistic=two	fpr_drift_aware_min	3.810e-2	4.222e-2	+0.00412
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000, statistic=two	fpr_drift_aware_max	5.152e-2	5.588e-2	+0.00436
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=3000, statistic=trend	fpr_drift_aware_mean	5.0246e-2	5.0284e-2	+3.8e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=3000, statistic=trend	fpr_drift_aware_sd	4.064e-3	4.062e-3	-2e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=3000, statistic=trend	fpr_drift_aware_max	5.538e-2	5.557e-2	+0.00019
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=3000, statistic=two	fpr_drift_aware_mean	4.7004e-2	5.0601e-2	+0.003597
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=3000, statistic=two	fpr_drift_aware_sd	6.591e-3	5.287e-3	-0.001304
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=3000, statistic=two	fpr_drift_aware_min	3.551e-2	4.208e-2	+0.00657
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=3000, statistic=two	fpr_drift_aware_max	5.639e-2	6.253e-2	+0.00614
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=10000, statistic=trend	fpr_drift_aware_mean	4.8329e-2	4.8502e-2	+0.000173
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=10000, statistic=trend	fpr_drift_aware_sd	5.016e-3	4.952e-3	-6.4e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=10000, statistic=trend	fpr_drift_aware_min	3.872e-2	3.898e-2	+0.00026
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=10000, statistic=two	fpr_drift_aware_mean	4.0123e-2	4.9505e-2	+0.009382
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=10000, statistic=two	fpr_drift_aware_sd	6.642e-3	3.912e-3	-0.00273
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=10000, statistic=two	fpr_drift_aware_min	3.741e-2	4.583e-2	+0.00842
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=10000, statistic=two	fpr_drift_aware_max	5.632e-2	6.092e-2	+0.0046
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=30000, statistic=trend	fpr_drift_aware_mean	4.9624e-2	4.9815e-2	+0.000191
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=30000, statistic=trend	fpr_drift_aware_sd	4.542e-3	4.641e-3	+9.9e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=30000, statistic=two	fpr_drift_aware_mean	3.6878e-2	4.8912e-2	+0.012034
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=30000, statistic=two	fpr_drift_aware_sd	9.578e-3	3.787e-3	-0.005791
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=30000, statistic=two	fpr_drift_aware_min	3.158e-2	4.400e-2	+0.01242
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=30000, statistic=two	fpr_drift_aware_max	5.950e-2	5.973e-2	+0.00023
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100000, statistic=trend	fpr_drift_aware_mean	5.0216e-2	5.0490e-2	+0.000274
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100000, statistic=trend	fpr_drift_aware_sd	4.739e-3	4.700e-3	-3.9e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100000, statistic=trend	fpr_drift_aware_max	5.626e-2	5.672e-2	+0.00046
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100000, statistic=two	fpr_drift_aware_mean	4.2444e-2	4.9568e-2	+0.007124
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100000, statistic=two	fpr_drift_aware_sd	1.108e-2	3.851e-3	-0.007229
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100000, statistic=two	fpr_drift_aware_min	2.957e-2	4.485e-2	+0.01528
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=100000, statistic=two	fpr_drift_aware_max	5.796e-2	5.967e-2	+0.00171
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000000, statistic=trend	fpr_drift_aware_mean	4.9542e-2	4.9916e-2	+0.000374
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000000, statistic=trend	fpr_drift_aware_sd	4.595e-3	4.556e-3	-3.9e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000000, statistic=two	fpr_drift_aware_mean	4.3592e-2	4.9698e-2	+0.006106
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000000, statistic=two	fpr_drift_aware_sd	1.058e-2	3.668e-3	-0.006912
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000000, statistic=two	fpr_drift_aware_min	2.831e-2	4.594e-2	+0.01763
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haploid Ne=1000000, statistic=two	fpr_drift_aware_max	5.717e-2	5.939e-2	+0.00222
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100, statistic=two	fpr_drift_aware_mean	4.9071e-2	4.9234e-2	+0.000163
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100, statistic=two	fpr_drift_aware_sd	4.551e-3	4.520e-3	-3.1e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100, statistic=two	fpr_drift_aware_min	4.235e-2	4.273e-2	+0.00038
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100, statistic=two	fpr_drift_aware_max	5.801e-2	5.831e-2	+0.0003
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=300, statistic=two	fpr_drift_aware_mean	4.9288e-2	4.9601e-2	+0.000313
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=300, statistic=two	fpr_drift_aware_sd	4.503e-3	4.530e-3	+2.7e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=300, statistic=two	fpr_drift_aware_max	5.466e-2	5.536e-2	+0.0007
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000, statistic=trend	fpr_drift_aware_mean	5.0064e-2	5.0074e-2	+1e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000, statistic=trend	fpr_drift_aware_sd	4.712e-3	4.708e-3	-4e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000, statistic=two	fpr_drift_aware_mean	4.9472e-2	5.0007e-2	+0.000535
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000, statistic=two	fpr_drift_aware_sd	4.471e-3	4.455e-3	-1.6e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000, statistic=two	fpr_drift_aware_min	3.939e-2	4.025e-2	+0.00086
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000, statistic=two	fpr_drift_aware_max	5.715e-2	5.929e-2	+0.00214
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=3000, statistic=trend	fpr_drift_aware_mean	5.1674e-2	5.1679e-2	+5e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=3000, statistic=trend	fpr_drift_aware_sd	3.164e-3	3.171e-3	+7e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=3000, statistic=two	fpr_drift_aware_mean	5.0309e-2	5.2061e-2	+0.001752
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=3000, statistic=two	fpr_drift_aware_sd	5.178e-3	5.344e-3	+0.000166
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=3000, statistic=two	fpr_drift_aware_min	3.817e-2	3.862e-2	+0.00045
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=3000, statistic=two	fpr_drift_aware_max	5.960e-2	6.051e-2	+0.00091
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=10000, statistic=trend	fpr_drift_aware_mean	5.1313e-2	5.1348e-2	+3.5e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=10000, statistic=trend	fpr_drift_aware_sd	4.430e-3	4.423e-3	-7e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=10000, statistic=two	fpr_drift_aware_mean	4.9765e-2	5.2282e-2	+0.002517
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=10000, statistic=two	fpr_drift_aware_sd	5.392e-3	4.757e-3	-0.000635
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=10000, statistic=two	fpr_drift_aware_min	3.860e-2	4.220e-2	+0.0036
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=10000, statistic=two	fpr_drift_aware_max	5.439e-2	5.866e-2	+0.00427
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=30000, statistic=trend	fpr_drift_aware_mean	5.1884e-2	5.1960e-2	+7.6e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=30000, statistic=trend	fpr_drift_aware_sd	4.164e-3	4.188e-3	+2.4e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=30000, statistic=two	fpr_drift_aware_mean	4.9725e-2	5.2130e-2	+0.002405
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=30000, statistic=two	fpr_drift_aware_sd	6.249e-3	6.130e-3	-0.000119
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=30000, statistic=two	fpr_drift_aware_max	5.806e-2	5.991e-2	+0.00185
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100000, statistic=trend	fpr_drift_aware_mean	5.1390e-2	5.1458e-2	+6.8e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100000, statistic=trend	fpr_drift_aware_sd	4.800e-3	4.840e-3	+4e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100000, statistic=trend	fpr_drift_aware_max	6.181e-2	6.199e-2	+0.00018
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100000, statistic=two	fpr_drift_aware_mean	4.9742e-2	5.1877e-2	+0.002135
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100000, statistic=two	fpr_drift_aware_sd	6.975e-3	5.869e-3	-0.001106
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100000, statistic=two	fpr_drift_aware_min	3.833e-2	3.984e-2	+0.00151
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=100000, statistic=two	fpr_drift_aware_max	5.901e-2	6.001e-2	+0.001
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000000, statistic=trend	fpr_drift_aware_mean	5.1433e-2	5.1498e-2	+6.5e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000000, statistic=trend	fpr_drift_aware_sd	5.017e-3	4.991e-3	-2.6e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000000, statistic=trend	fpr_drift_aware_min	4.270e-2	4.309e-2	+0.00039
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000000, statistic=two	fpr_drift_aware_mean	4.9480e-2	5.1699e-2	+0.002219
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000000, statistic=two	fpr_drift_aware_sd	7.275e-3	6.106e-3	-0.001169
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000000, statistic=two	fpr_drift_aware_min	3.781e-2	3.972e-2	+0.00191
+validation/fpr_A.tsv	false_positive_rate.js A	label=A diploid Ne=1000000, statistic=two	fpr_drift_aware_max	5.841e-2	6.121e-2	+0.0028
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=100, statistic=trend	fpr_drift_aware_mean	5.0188e-2	5.0187e-2	-1e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=100, statistic=two	fpr_drift_aware_mean	4.8385e-2	4.8428e-2	+4.3e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=100, statistic=two	fpr_drift_aware_sd	5.996e-3	5.963e-3	-3.3e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=100, statistic=two	fpr_drift_aware_min	3.785e-2	3.807e-2	+0.00022
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=300, statistic=trend	fpr_drift_aware_sd	3.062e-3	3.063e-3	+1e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=300, statistic=two	fpr_drift_aware_mean	4.9574e-2	4.9845e-2	+0.000271
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=300, statistic=two	fpr_drift_aware_sd	4.173e-3	4.070e-3	-0.000103
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=300, statistic=two	fpr_drift_aware_min	4.232e-2	4.315e-2	+0.00083
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000, statistic=trend	fpr_drift_aware_sd	5.392e-3	5.389e-3	-3e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000, statistic=two	fpr_drift_aware_mean	5.0813e-2	5.1691e-2	+0.000878
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000, statistic=two	fpr_drift_aware_sd	5.311e-3	5.092e-3	-0.000219
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000, statistic=two	fpr_drift_aware_max	5.863e-2	5.996e-2	+0.00133
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=3000, statistic=trend	fpr_drift_aware_mean	5.0776e-2	5.0791e-2	+1.5e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=3000, statistic=trend	fpr_drift_aware_sd	3.782e-3	3.783e-3	+1e-06
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=3000, statistic=trend	fpr_drift_aware_min	4.261e-2	4.259e-2	-2e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=3000, statistic=two	fpr_drift_aware_mean	5.0257e-2	5.1568e-2	+0.001311
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=3000, statistic=two	fpr_drift_aware_sd	5.206e-3	5.409e-3	+0.000203
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=3000, statistic=two	fpr_drift_aware_min	3.652e-2	3.719e-2	+0.00067
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=3000, statistic=two	fpr_drift_aware_max	5.957e-2	6.002e-2	+0.00045
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=10000, statistic=trend	fpr_drift_aware_mean	5.1754e-2	5.1813e-2	+5.9e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=10000, statistic=trend	fpr_drift_aware_sd	4.663e-3	4.698e-3	+3.5e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=10000, statistic=trend	fpr_drift_aware_max	5.895e-2	5.930e-2	+0.00035
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=10000, statistic=two	fpr_drift_aware_mean	4.9348e-2	5.2292e-2	+0.002944
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=10000, statistic=two	fpr_drift_aware_sd	5.338e-3	4.659e-3	-0.000679
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=10000, statistic=two	fpr_drift_aware_min	3.859e-2	4.221e-2	+0.00362
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=10000, statistic=two	fpr_drift_aware_max	5.439e-2	5.843e-2	+0.00404
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=30000, statistic=trend	fpr_drift_aware_mean	5.1968e-2	5.1989e-2	+2.1e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=30000, statistic=trend	fpr_drift_aware_sd	4.152e-3	4.171e-3	+1.9e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=30000, statistic=two	fpr_drift_aware_mean	5.0493e-2	5.2470e-2	+0.001977
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=30000, statistic=two	fpr_drift_aware_sd	6.678e-3	6.032e-3	-0.000646
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=30000, statistic=two	fpr_drift_aware_min	3.985e-2	4.105e-2	+0.0012
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=30000, statistic=two	fpr_drift_aware_max	5.821e-2	5.980e-2	+0.00159
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=100000, statistic=trend	fpr_drift_aware_mean	5.1504e-2	5.1538e-2	+3.4e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=100000, statistic=trend	fpr_drift_aware_sd	4.295e-3	4.279e-3	-1.6e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=100000, statistic=trend	fpr_drift_aware_min	4.377e-2	4.391e-2	+0.00014
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=100000, statistic=two	fpr_drift_aware_mean	4.9944e-2	5.2058e-2	+0.002114
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=100000, statistic=two	fpr_drift_aware_sd	7.310e-3	5.983e-3	-0.001327
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=100000, statistic=two	fpr_drift_aware_min	3.821e-2	3.991e-2	+0.0017
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000000, statistic=trend	fpr_drift_aware_mean	5.1331e-2	5.1427e-2	+9.6e-05
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000000, statistic=trend	fpr_drift_aware_min	4.263e-2	4.283e-2	+0.0002
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000000, statistic=trend	fpr_drift_aware_max	6.512e-2	6.525e-2	+0.00013
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000000, statistic=two	fpr_drift_aware_mean	4.9442e-2	5.1825e-2	+0.002383
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000000, statistic=two	fpr_drift_aware_sd	7.312e-3	6.182e-3	-0.00113
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000000, statistic=two	fpr_drift_aware_min	3.777e-2	3.968e-2	+0.00191
+validation/fpr_A.tsv	false_positive_rate.js A	label=A haplodiploid Ne=1000000, statistic=two	fpr_drift_aware_max	5.842e-2	6.157e-2	+0.00315
+validation/fpr_B.tsv	false_positive_rate.js B	label=B base: 4 points, 20/20/20/40, 10x/15x, p0 = 0.1, statistic=trend	fpr_drift_aware_mean	4.9988e-2	4.9984e-2	-4e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B base: 4 points, 20/20/20/40, 10x/15x, p0 = 0.1, statistic=trend	fpr_drift_aware_sd	4.688e-3	4.686e-3	-2e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B base: 4 points, 20/20/20/40, 10x/15x, p0 = 0.1, statistic=two	fpr_drift_aware_mean	4.9612e-2	5.0866e-2	+0.001254
+validation/fpr_B.tsv	false_positive_rate.js B	label=B base: 4 points, 20/20/20/40, 10x/15x, p0 = 0.1, statistic=two	fpr_drift_aware_sd	5.362e-3	5.035e-3	-0.000327
+validation/fpr_B.tsv	false_positive_rate.js B	label=B base: 4 points, 20/20/20/40, 10x/15x, p0 = 0.1, statistic=two	fpr_drift_aware_min	4.142e-2	4.256e-2	+0.00114
+validation/fpr_B.tsv	false_positive_rate.js B	label=B base: 4 points, 20/20/20/40, 10x/15x, p0 = 0.1, statistic=two	fpr_drift_aware_max	5.622e-2	5.900e-2	+0.00278
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 2 points (1935, 2025), statistic=trend	fpr_drift_aware_mean	4.9375e-2	5.0830e-2	+0.001455
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 2 points (1935, 2025), statistic=trend	fpr_drift_aware_sd	4.924e-3	4.841e-3	-8.3e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 2 points (1935, 2025), statistic=trend	fpr_drift_aware_min	4.086e-2	4.118e-2	+0.00032
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 2 points (1935, 2025), statistic=trend	fpr_drift_aware_max	6.117e-2	6.167e-2	+0.0005
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 2 points (1935, 2025), statistic=two	fpr_drift_aware_mean	4.9375e-2	5.0830e-2	+0.001455
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 2 points (1935, 2025), statistic=two	fpr_drift_aware_sd	4.924e-3	4.841e-3	-8.3e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 2 points (1935, 2025), statistic=two	fpr_drift_aware_min	4.086e-2	4.118e-2	+0.00032
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 2 points (1935, 2025), statistic=two	fpr_drift_aware_max	6.117e-2	6.167e-2	+0.0005
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 10 points, 20 each, statistic=trend	fpr_drift_aware_mean	5.0849e-2	5.0851e-2	+2e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 10 points, 20 each, statistic=trend	fpr_drift_aware_sd	5.529e-3	5.530e-3	+1e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 10 points, 20 each, statistic=two	fpr_drift_aware_mean	4.8038e-2	4.9866e-2	+0.001828
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 10 points, 20 each, statistic=two	fpr_drift_aware_sd	4.223e-3	4.411e-3	+0.000188
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 10 points, 20 each, statistic=two	fpr_drift_aware_min	3.966e-2	4.100e-2	+0.00134
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 10 points, 20 each, statistic=two	fpr_drift_aware_max	5.456e-2	5.884e-2	+0.00428
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.01, statistic=trend	fpr_drift_aware_mean	4.5543e-2	4.9175e-2	+0.003632
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.01, statistic=trend	fpr_drift_aware_sd	3.903e-3	5.517e-3	+0.001614
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.01, statistic=trend	fpr_drift_aware_min	3.888e-2	3.891e-2	+3e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.01, statistic=trend	fpr_drift_aware_max	5.532e-2	5.880e-2	+0.00348
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.01, statistic=two	fpr_drift_aware_mean	4.2780e-2	5.0028e-2	+0.007248
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.01, statistic=two	fpr_drift_aware_sd	8.698e-3	4.970e-3	-0.003728
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.01, statistic=two	fpr_drift_aware_min	2.986e-2	4.327e-2	+0.01341
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.01, statistic=two	fpr_drift_aware_max	4.860e-2	5.956e-2	+0.01096
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.5, statistic=trend	fpr_drift_aware_mean	5.1727e-2	5.1731e-2	+4e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.5, statistic=trend	fpr_drift_aware_sd	6.478e-3	6.475e-3	-3e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.5, statistic=two	fpr_drift_aware_mean	5.0896e-2	5.1227e-2	+0.000331
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.5, statistic=two	fpr_drift_aware_sd	7.043e-3	6.934e-3	-0.000109
+validation/fpr_B.tsv	false_positive_rate.js B	label=B p0 = 0.5, statistic=two	fpr_drift_aware_min	4.318e-2	4.341e-2	+0.00023
+validation/fpr_B.tsv	false_positive_rate.js B	label=B depth 2x at all points, statistic=two	fpr_drift_aware_mean	5.0494e-2	5.0487e-2	-7e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B depth 2x at all points, statistic=two	fpr_drift_aware_sd	5.605e-3	5.603e-3	-2e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B perfect genotypes, statistic=trend	fpr_drift_aware_mean	5.0648e-2	5.0668e-2	+2e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B perfect genotypes, statistic=trend	fpr_drift_aware_sd	3.922e-3	3.909e-3	-1.3e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B perfect genotypes, statistic=trend	fpr_drift_aware_min	4.373e-2	4.378e-2	+5e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B perfect genotypes, statistic=two	fpr_drift_aware_mean	4.9690e-2	5.1167e-2	+0.001477
+validation/fpr_B.tsv	false_positive_rate.js B	label=B perfect genotypes, statistic=two	fpr_drift_aware_sd	3.342e-3	3.262e-3	-8e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B perfect genotypes, statistic=two	fpr_drift_aware_min	4.422e-2	4.510e-2	+0.00088
+validation/fpr_B.tsv	false_positive_rate.js B	label=B perfect genotypes, statistic=two	fpr_drift_aware_max	5.622e-2	5.666e-2	+0.00044
+validation/fpr_B.tsv	false_positive_rate.js B	label=B siblings: 4 per family, statistic=trend	fpr_drift_aware_mean	4.9781e-2	4.9790e-2	+9e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B siblings: 4 per family, statistic=trend	fpr_drift_aware_sd	4.717e-3	4.720e-3	+3e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B siblings: 4 per family, statistic=two	fpr_drift_aware_mean	4.8038e-2	4.9409e-2	+0.001371
+validation/fpr_B.tsv	false_positive_rate.js B	label=B siblings: 4 per family, statistic=two	fpr_drift_aware_sd	4.888e-3	5.269e-3	+0.000381
+validation/fpr_B.tsv	false_positive_rate.js B	label=B siblings: 4 per family, statistic=two	fpr_drift_aware_min	3.545e-2	3.951e-2	+0.00406
+validation/fpr_B.tsv	false_positive_rate.js B	label=B siblings: 4 per family, statistic=two	fpr_drift_aware_max	5.254e-2	5.788e-2	+0.00534
+validation/fpr_B.tsv	false_positive_rate.js B	label=B decline to 10% by the last point, statistic=trend	fpr_drift_aware_mean	4.9984e-2	4.9982e-2	-2e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B decline to 10% by the last point, statistic=trend	fpr_drift_aware_sd	4.753e-3	4.754e-3	+1e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B decline to 10% by the last point, statistic=two	fpr_drift_aware_mean	5.0509e-2	5.0896e-2	+0.000387
+validation/fpr_B.tsv	false_positive_rate.js B	label=B decline to 10% by the last point, statistic=two	fpr_drift_aware_sd	4.000e-3	4.046e-3	+4.6e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B bottleneck: Ne 1,500 / 100 / 1,500, statistic=two	fpr_drift_aware_mean	4.9835e-2	4.9991e-2	+0.000156
+validation/fpr_B.tsv	false_positive_rate.js B	label=B bottleneck: Ne 1,500 / 100 / 1,500, statistic=two	fpr_drift_aware_sd	6.303e-3	6.284e-3	-1.9e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B bottleneck: Ne 1,500 / 100 / 1,500, statistic=two	fpr_drift_aware_max	6.109e-2	6.152e-2	+0.00043
+validation/fpr_B.tsv	false_positive_rate.js B	label=B migration 1% per generation, statistic=trend	fpr_drift_aware_mean	5.2534e-2	5.2559e-2	+2.5e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B migration 1% per generation, statistic=trend	fpr_drift_aware_sd	4.402e-3	4.422e-3	+2e-05
+validation/fpr_B.tsv	false_positive_rate.js B	label=B migration 1% per generation, statistic=two	fpr_drift_aware_mean	5.0987e-2	5.2515e-2	+0.001528
+validation/fpr_B.tsv	false_positive_rate.js B	label=B migration 1% per generation, statistic=two	fpr_drift_aware_sd	5.817e-3	5.494e-3	-0.000323
+validation/fpr_B.tsv	false_positive_rate.js B	label=B migration 1% per generation, statistic=two	fpr_drift_aware_min	3.828e-2	4.114e-2	+0.00286
+validation/fpr_B.tsv	false_positive_rate.js B	label=B migration 1% per generation, statistic=two	fpr_drift_aware_max	6.040e-2	6.396e-2	+0.00356
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 200 individuals per point, statistic=two	fpr_drift_aware_mean	5.0606e-2	5.0604e-2	-2e-06
+validation/fpr_B.tsv	false_positive_rate.js B	label=B 200 individuals per point, statistic=two	fpr_drift_aware_sd	6.787e-3	6.786e-3	-1e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=1, statistic=trend	fpr_drift_aware_sd	3.062e-3	3.063e-3	+1e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=1, statistic=two	fpr_drift_aware_mean	4.9574e-2	4.9845e-2	+0.000271
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=1, statistic=two	fpr_drift_aware_sd	4.173e-3	4.070e-3	-0.000103
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=1, statistic=two	fpr_drift_aware_min	4.232e-2	4.315e-2	+0.00083
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=10, statistic=trend	fpr_drift_aware_mean	4.8200e-3	4.8195e-3	-5e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=10, statistic=trend	fpr_drift_aware_sd	9.365e-4	9.371e-4	+6e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=10, statistic=two	fpr_drift_aware_mean	4.9830e-3	4.9927e-3	+9.7e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=100, statistic=trend	fpr_drift_aware_mean	5.5625e-4	5.5630e-4	+5e-08
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=100, statistic=two	fpr_drift_aware_mean	5.2330e-4	5.2590e-4	+2.6e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=100, statistic=two	fpr_drift_aware_sd	1.486e-4	1.474e-4	-1.2e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=1000, statistic=trend	fpr_drift_aware_mean	5.2950e-5	5.2900e-5	-5e-08
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=1000, statistic=trend	fpr_drift_aware_sd	1.312e-5	1.305e-5	-7e-08
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=1000, statistic=two	fpr_drift_aware_mean	5.4150e-5	5.4817e-5	+6.67e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=1000, statistic=two	fpr_drift_aware_sd	1.466e-5	1.430e-5	-3.6e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=300 m=1000, statistic=two	fpr_drift_aware_min	2.600e-5	2.733e-5	+1.33e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1, statistic=trend	fpr_drift_aware_mean	4.9988e-2	4.9984e-2	-4e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1, statistic=trend	fpr_drift_aware_sd	4.688e-3	4.686e-3	-2e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1, statistic=two	fpr_drift_aware_mean	4.9612e-2	5.0866e-2	+0.001254
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1, statistic=two	fpr_drift_aware_sd	5.362e-3	5.035e-3	-0.000327
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1, statistic=two	fpr_drift_aware_min	4.142e-2	4.256e-2	+0.00114
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1, statistic=two	fpr_drift_aware_max	5.622e-2	5.900e-2	+0.00278
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=10, statistic=trend	fpr_drift_aware_mean	6.1055e-3	6.1050e-3	-5e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=10, statistic=trend	fpr_drift_aware_sd	2.036e-3	2.037e-3	+1e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=10, statistic=two	fpr_drift_aware_mean	5.8125e-3	5.8862e-3	+7.37e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=10, statistic=two	fpr_drift_aware_sd	1.780e-3	1.793e-3	+1.3e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=10, statistic=two	fpr_drift_aware_max	8.490e-3	8.760e-3	+0.00027
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=100, statistic=trend	fpr_drift_aware_mean	5.9410e-4	5.9388e-4	-2.2e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=100, statistic=trend	fpr_drift_aware_sd	2.407e-4	2.409e-4	+2e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=100, statistic=two	fpr_drift_aware_mean	5.2650e-4	5.4136e-4	+1.486e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=100, statistic=two	fpr_drift_aware_sd	9.926e-5	1.026e-4	+3.34e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=100, statistic=two	fpr_drift_aware_min	3.050e-4	3.325e-4	+2.75e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=100, statistic=two	fpr_drift_aware_max	6.860e-4	7.560e-4	+7e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1000, statistic=trend	fpr_drift_aware_mean	5.2600e-5	5.2550e-5	-5e-08
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1000, statistic=trend	fpr_drift_aware_sd	1.526e-5	1.530e-5	+4e-08
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1000, statistic=two	fpr_drift_aware_mean	5.1650e-5	5.2896e-5	+1.246e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1000, statistic=two	fpr_drift_aware_sd	1.125e-5	1.134e-5	+9e-08
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500 m=1000, statistic=two	fpr_drift_aware_max	6.700e-5	7.167e-5	+4.67e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1, statistic=trend	fpr_drift_aware_mean	5.1504e-2	5.1538e-2	+3.4e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1, statistic=trend	fpr_drift_aware_sd	4.295e-3	4.279e-3	-1.6e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1, statistic=trend	fpr_drift_aware_min	4.377e-2	4.391e-2	+0.00014
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1, statistic=two	fpr_drift_aware_mean	4.9944e-2	5.2058e-2	+0.002114
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1, statistic=two	fpr_drift_aware_sd	7.310e-3	5.983e-3	-0.001327
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1, statistic=two	fpr_drift_aware_min	3.821e-2	3.991e-2	+0.0017
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=10, statistic=trend	fpr_drift_aware_mean	6.0915e-3	6.0955e-3	+4e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=10, statistic=trend	fpr_drift_aware_sd	1.838e-3	1.837e-3	-1e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=10, statistic=two	fpr_drift_aware_mean	4.6420e-3	5.0452e-3	+0.0004032
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=10, statistic=two	fpr_drift_aware_sd	1.473e-3	1.426e-3	-4.7e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=10, statistic=two	fpr_drift_aware_min	2.450e-3	2.855e-3	+0.000405
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=10, statistic=two	fpr_drift_aware_max	6.160e-3	7.207e-3	+0.001047
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=100, statistic=trend	fpr_drift_aware_mean	5.6115e-4	5.6095e-4	-2e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=100, statistic=trend	fpr_drift_aware_sd	1.944e-4	1.940e-4	-4e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=100, statistic=trend	fpr_drift_aware_max	9.080e-4	9.040e-4	-4e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=100, statistic=two	fpr_drift_aware_mean	4.5000e-4	5.2869e-4	+7.869e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=100, statistic=two	fpr_drift_aware_sd	1.457e-4	1.473e-4	+1.6e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=100, statistic=two	fpr_drift_aware_min	2.060e-4	2.373e-4	+3.13e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=100, statistic=two	fpr_drift_aware_max	5.920e-4	7.745e-4	+0.0001825
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1000, statistic=trend	fpr_drift_aware_mean	4.9000e-5	4.9175e-5	+1.75e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1000, statistic=trend	fpr_drift_aware_sd	1.349e-5	1.360e-5	+1.1e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1000, statistic=two	fpr_drift_aware_mean	3.3300e-5	5.1226e-5	+1.7926e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1000, statistic=two	fpr_drift_aware_sd	1.239e-5	1.494e-5	+2.55e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=100000 m=1000, statistic=two	fpr_drift_aware_min	1.100e-5	2.675e-5	+1.575e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1, statistic=trend	fpr_drift_aware_mean	4.5543e-2	4.9175e-2	+0.003632
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1, statistic=trend	fpr_drift_aware_sd	3.903e-3	5.517e-3	+0.001614
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1, statistic=trend	fpr_drift_aware_min	3.888e-2	3.891e-2	+3e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1, statistic=trend	fpr_drift_aware_max	5.532e-2	5.880e-2	+0.00348
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1, statistic=two	fpr_drift_aware_mean	4.2780e-2	5.0028e-2	+0.007248
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1, statistic=two	fpr_drift_aware_sd	8.698e-3	4.970e-3	-0.003728
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1, statistic=two	fpr_drift_aware_min	2.986e-2	4.327e-2	+0.01341
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1, statistic=two	fpr_drift_aware_max	4.860e-2	5.956e-2	+0.01096
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=10, statistic=trend	fpr_drift_aware_mean	5.2555e-3	5.3208e-3	+6.53e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=10, statistic=trend	fpr_drift_aware_sd	1.750e-3	1.809e-3	+5.9e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=10, statistic=trend	fpr_drift_aware_min	2.340e-3	2.565e-3	+0.000225
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=10, statistic=trend	fpr_drift_aware_max	7.750e-3	8.414e-3	+0.000664
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=10, statistic=two	fpr_drift_aware_mean	4.9620e-3	5.8353e-3	+0.0008733
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=10, statistic=two	fpr_drift_aware_sd	1.678e-3	1.652e-3	-2.6e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=10, statistic=two	fpr_drift_aware_max	6.420e-3	8.767e-3	+0.002347
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=100, statistic=trend	fpr_drift_aware_mean	4.9220e-4	4.9977e-4	+7.57e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=100, statistic=trend	fpr_drift_aware_sd	1.247e-4	1.280e-4	+3.3e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=100, statistic=trend	fpr_drift_aware_max	7.240e-4	7.747e-4	+5.07e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=100, statistic=two	fpr_drift_aware_mean	4.2900e-4	4.9147e-4	+6.247e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=100, statistic=two	fpr_drift_aware_sd	1.124e-4	1.256e-4	+1.32e-05
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=100, statistic=two	fpr_drift_aware_min	2.430e-4	3.518e-4	+0.0001088
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=100, statistic=two	fpr_drift_aware_max	7.190e-4	8.667e-4	+0.0001477
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1000, statistic=trend	fpr_drift_aware_mean	5.1950e-5	5.2742e-5	+7.92e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1000, statistic=trend	fpr_drift_aware_sd	1.182e-5	1.196e-5	+1.4e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1000, statistic=trend	fpr_drift_aware_min	2.800e-5	2.850e-5	+5e-07
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1000, statistic=trend	fpr_drift_aware_max	7.300e-5	7.633e-5	+3.33e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1000, statistic=two	fpr_drift_aware_mean	4.2100e-5	5.1213e-5	+9.113e-06
+validation/fpr_C.tsv	false_positive_rate.js C	label=C haplodiploid Ne=1500, p0=0.01 m=1000, statistic=two	fpr_drift_aware_sd	1.262e-5	1.263e-5	+1e-08
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=300 m=1, statistic=trend	fpr_drift_aware_sd	3.062e-3	3.063e-3	+1e-06
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=300 m=1, statistic=two	fpr_drift_aware_mean	4.9574e-2	4.9845e-2	+0.000271
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=300 m=1, statistic=two	fpr_drift_aware_sd	4.173e-3	4.070e-3	-0.000103
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=300 m=1, statistic=two	fpr_drift_aware_min	4.232e-2	4.315e-2	+0.00083
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=300 m=10, statistic=trend	fpr_drift_aware_mean	4.8200e-3	4.8195e-3	-5e-07
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=300 m=10, statistic=trend	fpr_drift_aware_sd	9.365e-4	9.371e-4	+6e-07
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=300 m=10, statistic=two	fpr_drift_aware_mean	4.9830e-3	4.9927e-3	+9.7e-06
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=1, statistic=trend	fpr_drift_aware_mean	4.9988e-2	4.9984e-2	-4e-06
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=1, statistic=trend	fpr_drift_aware_sd	4.688e-3	4.686e-3	-2e-06
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=1, statistic=two	fpr_drift_aware_mean	4.9612e-2	5.0866e-2	+0.001254
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=1, statistic=two	fpr_drift_aware_sd	5.362e-3	5.035e-3	-0.000327
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=1, statistic=two	fpr_drift_aware_min	4.142e-2	4.256e-2	+0.00114
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=1, statistic=two	fpr_drift_aware_max	5.622e-2	5.900e-2	+0.00278
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=10, statistic=trend	fpr_drift_aware_mean	6.1055e-3	6.1050e-3	-5e-07
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=10, statistic=trend	fpr_drift_aware_sd	2.036e-3	2.037e-3	+1e-06
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=10, statistic=two	fpr_drift_aware_mean	5.8125e-3	5.8862e-3	+7.37e-05
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=10, statistic=two	fpr_drift_aware_sd	1.780e-3	1.793e-3	+1.3e-05
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500 m=10, statistic=two	fpr_drift_aware_max	8.490e-3	8.760e-3	+0.00027
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=1, statistic=trend	fpr_drift_aware_mean	5.1504e-2	5.1538e-2	+3.4e-05
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=1, statistic=trend	fpr_drift_aware_sd	4.295e-3	4.279e-3	-1.6e-05
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=1, statistic=trend	fpr_drift_aware_min	4.377e-2	4.391e-2	+0.00014
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=1, statistic=two	fpr_drift_aware_mean	4.9944e-2	5.2058e-2	+0.002114
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=1, statistic=two	fpr_drift_aware_sd	7.310e-3	5.983e-3	-0.001327
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=1, statistic=two	fpr_drift_aware_min	3.821e-2	3.991e-2	+0.0017
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=10, statistic=trend	fpr_drift_aware_mean	6.0915e-3	6.0955e-3	+4e-06
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=10, statistic=trend	fpr_drift_aware_sd	1.838e-3	1.837e-3	-1e-06
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=10, statistic=two	fpr_drift_aware_mean	4.6420e-3	5.0452e-3	+0.0004032
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=10, statistic=two	fpr_drift_aware_sd	1.473e-3	1.426e-3	-4.7e-05
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=10, statistic=two	fpr_drift_aware_min	2.450e-3	2.855e-3	+0.000405
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=100000 m=10, statistic=two	fpr_drift_aware_max	6.160e-3	7.207e-3	+0.001047
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=1, statistic=trend	fpr_drift_aware_mean	4.5543e-2	4.9175e-2	+0.003632
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=1, statistic=trend	fpr_drift_aware_sd	3.903e-3	5.517e-3	+0.001614
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=1, statistic=trend	fpr_drift_aware_min	3.888e-2	3.891e-2	+3e-05
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=1, statistic=trend	fpr_drift_aware_max	5.532e-2	5.880e-2	+0.00348
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=1, statistic=two	fpr_drift_aware_mean	4.2780e-2	5.0028e-2	+0.007248
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=1, statistic=two	fpr_drift_aware_sd	8.698e-3	4.970e-3	-0.003728
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=1, statistic=two	fpr_drift_aware_min	2.986e-2	4.327e-2	+0.01341
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=1, statistic=two	fpr_drift_aware_max	4.860e-2	5.956e-2	+0.01096
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=10, statistic=trend	fpr_drift_aware_mean	5.2555e-3	5.3208e-3	+6.53e-05
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=10, statistic=trend	fpr_drift_aware_sd	1.750e-3	1.809e-3	+5.9e-05
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=10, statistic=trend	fpr_drift_aware_min	2.340e-3	2.565e-3	+0.000225
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=10, statistic=trend	fpr_drift_aware_max	7.750e-3	8.414e-3	+0.000664
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=10, statistic=two	fpr_drift_aware_mean	4.9620e-3	5.8353e-3	+0.0008733
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=10, statistic=two	fpr_drift_aware_sd	1.678e-3	1.652e-3	-2.6e-05
+validation/fpr_C_gaussian.tsv	false_positive_rate.js G	label=G haplodiploid Ne=1500, p0=0.01 m=10, statistic=two	fpr_drift_aware_max	6.420e-3	8.767e-3	+0.002347
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=diploid_N1000_s0.02, run=7	power_spot	0.3270	0.3272	+0.0002
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=diploid_N1000_s0.02, run=7	power_slim	0.3655	0.3660	+0.0005
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=diploid_N1000_s0.05_rec, run=11	power_slim	0.2625	0.2627	+0.0002
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=2	power_slim	0.3980	0.3987	+0.0007
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=6	power_spot	0.4400	0.4402	+0.0002
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=7	power_spot	0.4405	0.4422	+0.0017
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=7	power_slim	0.4380	0.4382	+0.0002
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=8	power_spot	0.4545	0.4552	+0.0007
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=8	power_slim	0.4245	0.4255	+0.001
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=10	power_slim	0.4215	0.4221	+0.0006
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=11	power_spot	0.4560	0.4562	+0.0002
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=11	power_slim	0.4445	0.4457	+0.0012
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=14	power_slim	0.4040	0.4050	+0.001
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=15	power_slim	0.4390	0.4413	+0.0023
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=16	power_spot	0.4830	0.4840	+0.001
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=16	power_slim	0.4490	0.4497	+0.0007
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=19	power_slim	0.4405	0.4409	+0.0004
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02, run=20	power_slim	0.4225	0.4228	+0.0003
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N1000_s0.02, run=7	power_slim	0.4095	0.4098	+0.0003
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N1000_s0.02, run=15	power_spot	0.4405	0.4407	+0.0002
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N1000_s0.02, run=16	power_spot	0.4155	0.4160	+0.0005
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N1000_s0.02, run=17	power_spot	0.4190	0.4193	+0.0003
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=2	power_spot	0.6790	0.6811	+0.0021
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=2	power_slim	0.6310	0.6364	+0.0054
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=3	power_spot	0.6575	0.6580	+0.0005
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=3	power_slim	0.7005	0.7019	+0.0014
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=4	power_spot	0.6575	0.6577	+0.0002
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=4	power_slim	0.6670	0.6683	+0.0013
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=5	power_spot	0.6535	0.6548	+0.0013
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=5	power_slim	0.6495	0.6496	+0.0001
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=6	power_spot	0.6385	0.6405	+0.002
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=7	power_spot	0.6330	0.6406	+0.0076
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=9	power_spot	0.6925	0.6936	+0.0011
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=10	power_slim	0.6655	0.6665	+0.001
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=11	power_spot	0.6695	0.6703	+0.0008
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=11	power_slim	0.6580	0.6585	+0.0005
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=12	power_spot	0.6530	0.6551	+0.0021
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=12	power_slim	0.6775	0.6780	+0.0005
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=13	power_spot	0.6820	0.6823	+0.0003
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=14	power_spot	0.6815	0.6836	+0.0021
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=15	power_spot	0.6460	0.6492	+0.0032
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=15	power_slim	0.6605	0.6614	+0.0009
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=16	power_slim	0.6870	0.6904	+0.0034
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=17	power_spot	0.6450	0.6462	+0.0012
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=19	power_spot	0.6635	0.6645	+0.001
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=19	power_slim	0.6810	0.6846	+0.0036
+validation/slim_power_runs.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05, run=20	power_spot	0.6605	0.6613	+0.0008
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=diploid_N1000_s0.02	sd_power_slim	0.0190	0.0191	+0.0001
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02	mean_power_spot	0.4376	0.4378	+0.0002
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02	sd_power_spot	0.0188	0.0190	+0.0002
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02	mean_power_slim	0.4273	0.4277	+0.0004
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02	difference	0.0103	0.0101	-0.0002
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02	se_difference	0.0060	0.0061	+0.0001
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haploid_N1000_s0.02	z	1.71	1.66	-0.05
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N1000_s0.02	mean_power_spot	0.4310	0.4311	+0.0001
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N1000_s0.02	sd_power_spot	0.0171	0.0170	-0.0001
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N1000_s0.02	difference	-0.0040	-0.0039	+0.0001
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N1000_s0.02	z	-0.61	-0.60	+0.01
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05	mean_power_spot	0.6621	0.6634	+0.0013
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05	sd_power_spot	0.0165	0.0158	-0.0007
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05	mean_power_slim	0.6711	0.6720	+0.0009
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05	sd_power_slim	0.0147	0.0144	-0.0003
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05	difference	-0.0090	-0.0086	+0.0004
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05	se_difference	0.0049	0.0048	-0.0001
+validation/slim_power_v2.tsv	slim_compare_v2.js	scenario=haplodiploid_N2000_s0.05	z	-1.83	-1.81	+0.02
+validation/slim_fpr_v2.tsv	slim_compare_v2.js		fpr_spot_threshold_on_slim	0.0535	0.0536	+0.0001
+validation/slim_fpr_v2.tsv	slim_compare_v2.js		fpr_spot_threshold_on_spot	0.0496	0.0499	+0.0003
+validation/slim_fpr_v2.tsv	slim_compare_v2.js		fpr_spot_threshold_on_slim	0.0525	0.0531	+0.0006
+validation/slim_fpr_v2.tsv	slim_compare_v2.js		fpr_spot_threshold_on_spot	0.0543	0.0547	+0.0004
+validation/slim_fpr_v2.tsv	slim_compare_v2.js		fpr_spot_threshold_on_slim	0.0496	0.0498	+0.0002
+validation/slim_fpr_v2.tsv	slim_compare_v2.js		fpr_spot_threshold_on_spot	0.0493	0.0495	+0.0002
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=diploid_N1000_s0.05_rec	mean_power_on_spot	0.2424	0.2425	+0.0001
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=diploid_N1000_s0.05_rec	mean_power_on_slim	0.2407	0.2408	+0.0001
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=diploid_N1000_s0.05_rec	z	0.62	0.63	+0.01
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haploid_N1000_s0.02	mean_power_on_spot	0.4210	0.4219	+0.0009
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haploid_N1000_s0.02	sd_power_on_spot	0.0117	0.0116	-0.0001
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haploid_N1000_s0.02	mean_power_on_slim	0.4188	0.4197	+0.0009
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haploid_N1000_s0.02	sd_power_on_slim	0.0115	0.0114	-0.0001
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haploid_N1000_s0.02	se_difference	0.0037	0.0036	-0.0001
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haplodiploid_N2000_s0.05	mean_power_on_spot	0.6695	0.6714	+0.0019
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haplodiploid_N2000_s0.05	sd_power_on_spot	0.0106	0.0107	+0.0001
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haplodiploid_N2000_s0.05	mean_power_on_slim	0.6729	0.6749	+0.002
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haplodiploid_N2000_s0.05	sd_power_on_slim	0.0105	0.0107	+0.0002
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haplodiploid_N2000_s0.05	difference	-0.0034	-0.0035	-0.0001
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haplodiploid_N2000_s0.05	se_difference	0.0033	0.0034	+0.0001
+validation/slim_power_spot_threshold.tsv	slim_power_spot_threshold.js	scenario=haplodiploid_N2000_s0.05	z	-1.01	-1.05	-0.04
+validation/slim_power.tsv	slim_compare.js	scenario=haplodiploid_N2000_s0.05	power_spot	0.6830	0.6850	+0.002
+validation/slim_power.tsv	slim_compare.js	scenario=haplodiploid_N2000_s0.05	z_power	0.00	0.14	+0.14
+validation/slim_power.tsv	slim_compare.js	scenario=haplodiploid_N2000_s0.05	fpr_spot_threshold_on_slim_neutral	0.0465	0.0475	+0.001
+validation/slim_fpr.tsv	slim_compare.js	neutral_scenario=diploid_N1000_neutral	fpr_on_independent_spot	0.0509	0.0510	+0.0001
+validation/slim_fpr.tsv	slim_compare.js	neutral_scenario=haploid_N1000_neutral	fpr_on_slim	0.0505	0.0507	+0.0002
+validation/slim_fpr.tsv	slim_compare.js	neutral_scenario=haploid_N1000_neutral	z_vs_5pc	0.21	0.28	+0.07
+validation/slim_fpr.tsv	slim_compare.js	neutral_scenario=haplodiploid_N2000_neutral	fpr_on_slim	0.0489	0.0505	+0.0016
+validation/slim_fpr.tsv	slim_compare.js	neutral_scenario=haplodiploid_N2000_neutral	z_vs_5pc	-0.46	0.20	+0.66
+validation/slim_fpr.tsv	slim_compare.js	neutral_scenario=haplodiploid_N2000_neutral	fpr_on_independent_spot	0.0517	0.0538	+0.0021
+validation/slim_regression.tsv	slim_regression.py	panel=b, quantity=mean power over 20 runs (6 scenarios with selection)	slope	1.0180	1.0172	-0.0008
+validation/slim_regression.tsv	slim_regression.py	panel=b, quantity=mean power over 20 runs (6 scenarios with selection)	slope_95lo	0.9559	0.9566	+0.0007
+validation/slim_regression.tsv	slim_regression.py	panel=b, quantity=mean power over 20 runs (6 scenarios with selection)	slope_95hi	1.0800	1.0777	-0.0023
+validation/slim_regression.tsv	slim_regression.py	panel=b, quantity=mean power over 20 runs (6 scenarios with selection)	intercept	-0.0085	-0.0082	+0.0003
+validation/slim_regression.tsv	slim_regression.py	panel=b, quantity=mean power over 20 runs (6 scenarios with selection)	intercept_95lo	-0.0370	-0.0361	+0.0009
+validation/slim_regression.tsv	slim_regression.py	panel=b, quantity=mean power over 20 runs (6 scenarios with selection)	intercept_95hi	0.0200	0.0196	-0.0004
+validation/slim_regression.tsv	slim_regression.py	panel=b, quantity=mean power over 20 runs (6 scenarios with selection)	R2	0.9981	0.9982	+0.0001
+validation/slim_regression.tsv	slim_regression.py	panel=b, quantity=mean power over 20 runs (6 scenarios with selection)	max_abs_residual	0.0096	0.0094	-0.0002
+validation/slim_regression.tsv	slim_regression.py	panel=c, quantity=false-positive rate, both thresholds (5 neutral scenarios)	slope	1.0114	1.0115	+0.0001
+validation/slim_regression.tsv	slim_regression.py	panel=c, quantity=false-positive rate, both thresholds (5 neutral scenarios)	slope_95lo	0.9748	0.9756	+0.0008
+validation/slim_regression.tsv	slim_regression.py	panel=c, quantity=false-positive rate, both thresholds (5 neutral scenarios)	slope_95hi	1.0480	1.0473	-0.0007
+validation/slim_regression.tsv	slim_regression.py	panel=c, quantity=false-positive rate, both thresholds (5 neutral scenarios)	intercept_95hi	0.0033	0.0032	-0.0001
+validation/slim_regression.tsv	slim_regression.py	panel=c, quantity=false-positive rate, both thresholds (5 neutral scenarios)	R2	0.9980	0.9981	+0.0001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=500, statistic=trend	mean_power	0.6632	0.6645	+0.0013
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=500, statistic=two	mean_power	0.6547	0.6606	+0.0059
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=500, statistic=two	sd_power	0.0236	0.0210	-0.0026
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=500, statistic=two	sd_binomial_only	0.0213	0.0212	-0.0001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=500, statistic=two	sd_ratio	1.11	0.99	-0.12
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=500, statistic=two	min	0.612	0.616	+0.004
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=500, statistic=two	max	0.700	0.705	+0.005
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=1000, statistic=trend	mean_power	0.6642	0.6661	+0.0019
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=1000, statistic=trend	sd_power	0.0158	0.0152	-0.0006
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=1000, statistic=trend	sd_ratio	1.06	1.02	-0.04
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=1000, statistic=trend	min	0.631	0.632	+0.001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=1000, statistic=trend	max	0.696	0.697	+0.001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=1000, statistic=two	mean_power	0.6556	0.6605	+0.0049
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=1000, statistic=two	sd_power	0.0161	0.0144	-0.0017
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=1000, statistic=two	sd_ratio	1.07	0.96	-0.11
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=1000, statistic=two	min	0.623	0.637	+0.014
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=1000, statistic=two	max	0.691	0.699	+0.008
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=trend	mean_power	0.6645	0.6663	+0.0018
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=trend	sd_power	0.0114	0.0112	-0.0002
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=trend	sd_binomial_only	0.0106	0.0105	-0.0001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=trend	sd_ratio	1.08	1.06	-0.02
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=trend	min	0.639	0.640	+0.001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=trend	max	0.683	0.685	+0.002
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=two	mean_power	0.6541	0.6586	+0.0045
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=two	sd_power	0.0160	0.0131	-0.0029
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=two	sd_ratio	1.51	1.24	-0.27
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=two	min	0.620	0.629	+0.009
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=2000, statistic=two	max	0.682	0.684	+0.002
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=5000, statistic=trend	mean_power	0.6634	0.6651	+0.0017
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=5000, statistic=trend	min	0.645	0.646	+0.001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=5000, statistic=two	mean_power	0.6545	0.6581	+0.0036
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=5000, statistic=two	sd_power	0.0136	0.0102	-0.0034
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=5000, statistic=two	sd_ratio	2.02	1.52	-0.5
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bumblebees, replicates=5000, statistic=two	min	0.615	0.633	+0.018
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=500, statistic=two	mean_power	0.2466	0.2468	+0.0002
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=1000, statistic=two	mean_power	0.2431	0.2436	+0.0005
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=1000, statistic=two	max	0.294	0.296	+0.002
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=2000, statistic=two	mean_power	0.2393	0.2397	+0.0004
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=2000, statistic=two	sd_power	0.0138	0.0136	-0.0002
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=2000, statistic=two	sd_ratio	1.44	1.42	-0.02
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=2000, statistic=two	min	0.204	0.207	+0.003
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=5000, statistic=two	mean_power	0.2385	0.2389	+0.0004
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=5000, statistic=two	sd_power	0.0102	0.0101	-0.0001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=5000, statistic=two	sd_ratio	1.70	1.68	-0.02
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Long-lived mammal, replicates=5000, statistic=two	max	0.264	0.265	+0.001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=500, statistic=two	mean_power	0.7108	0.7160	+0.0052
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=500, statistic=two	sd_power	0.0216	0.0211	-0.0005
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=500, statistic=two	sd_binomial_only	0.0203	0.0202	-0.0001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=500, statistic=two	sd_ratio	1.07	1.05	-0.02
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=500, statistic=two	min	0.672	0.681	+0.009
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=500, statistic=two	max	0.772	0.777	+0.005
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=1000, statistic=trend	sd_power	0.0154	0.0155	+0.0001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=1000, statistic=two	mean_power	0.7126	0.7180	+0.0054
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=1000, statistic=two	sd_binomial_only	0.0143	0.0142	-0.0001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=1000, statistic=two	min	0.674	0.689	+0.015
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=1000, statistic=two	max	0.746	0.751	+0.005
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=2000, statistic=two	mean_power	0.7097	0.7142	+0.0045
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=2000, statistic=two	sd_power	0.0105	0.0106	+0.0001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=2000, statistic=two	sd_ratio	1.03	1.05	+0.02
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=2000, statistic=two	min	0.684	0.694	+0.01
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=2000, statistic=two	max	0.733	0.742	+0.009
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=5000, statistic=two	mean_power	0.7112	0.7151	+0.0039
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=5000, statistic=two	sd_power	0.0063	0.0058	-0.0005
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=5000, statistic=two	sd_ratio	0.99	0.92	-0.07
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=5000, statistic=two	min	0.697	0.705	+0.008
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Bacterial pathogen, replicates=5000, statistic=two	max	0.724	0.728	+0.004
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Large diploid population, replicates=500, statistic=two	mean_power	0.6625	0.6629	+0.0004
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Large diploid population, replicates=500, statistic=two	sd_power	0.0374	0.0373	-0.0001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Large diploid population, replicates=500, statistic=two	sd_ratio	1.77	1.76	-0.01
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Large diploid population, replicates=500, statistic=two	min	0.584	0.585	+0.001
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Large diploid population, replicates=1000, statistic=two	mean_power	0.6632	0.6638	+0.0006
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Large diploid population, replicates=2000, statistic=two	mean_power	0.6668	0.6675	+0.0007
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Large diploid population, replicates=5000, statistic=two	mean_power	0.6621	0.6633	+0.0012
+validation/mc_precision.tsv	monte_carlo_precision.js	scenario=Large diploid population, replicates=5000, statistic=two	sd_ratio	2.28	2.29	+0.01
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0001, p0=0.01	power_exact	0.008	0.049448828606659084	+0.0414488
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0001, p0=0.01	power_rescaled	0.01	0.04924590163934479	+0.0392459
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0001, p0=0.01	two_exact	0.008	0.04965276073619617	+0.0416528
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0001, p0=0.01	two_rescaled	0.011	0.050219787100814824	+0.0392198
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0001, p0=0.1	power_rescaled	0.054	0.05495238095238095	+0.000952381
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0001, p0=0.1	two_exact	0.042	0.06155555555555559	+0.0195556
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0001, p0=0.1	two_rescaled	0.039	0.05376923076923076	+0.0147692
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0005, p0=0.01	power_exact	0.013	0.054999999999999535	+0.042
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0005, p0=0.01	power_rescaled	0.01	0.050302457466919206	+0.0403025
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0005, p0=0.01	two_exact	0.013	0.05497424892703874	+0.0419742
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0005, p0=0.01	two_rescaled	0.01	0.05022027534417982	+0.0402203
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0005, p0=0.1	power_rescaled	0.081	0.0824	+0.0014
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0005, p0=0.1	two_exact	0.058	0.08274999999999998	+0.02475
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.0005, p0=0.1	two_rescaled	0.064	0.08156862745098035	+0.0175686
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.002, p0=0.01	power_exact	0.041	0.0810591497227363	+0.0400591
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.002, p0=0.01	power_rescaled	0.029	0.06988376500315842	+0.0408838
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.002, p0=0.01	two_exact	0.041	0.0810441176470587	+0.0400441
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.002, p0=0.01	two_rescaled	0.029	0.06960163111668839	+0.0406016
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.002, p0=0.1	two_exact	0.116	0.17879245283018916	+0.0627925
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=1000, s=0.002, p0=0.1	two_rescaled	0.118	0.16162962962962973	+0.0436296
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.0001, p0=0.01	power_exact	0.046	0.06127266666666562	+0.0152727
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.0001, p0=0.01	power_rescaled	0.048	0.056851485148515	+0.00885149
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.0001, p0=0.01	two_exact	0.045	0.061384321223710195	+0.0163843
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.0001, p0=0.01	two_rescaled	0.047	0.05490954773869406	+0.00790955
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.0001, p0=0.1	two_exact	0.102	0.10280000000000002	+0.0008
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.0001, p0=0.1	two_rescaled	0.093	0.0946	+0.0016
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.0005, p0=0.01	power_exact	0.107	0.12230805056553354	+0.0153081
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.0005, p0=0.01	power_rescaled	0.113	0.12142147117296302	+0.00842147
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.0005, p0=0.01	two_exact	0.107	0.12300635324015502	+0.0160064
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.0005, p0=0.01	two_rescaled	0.114	0.12362554790231507	+0.00962555
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.002, p0=0.01	power_exact	0.338	0.3495115511551179	+0.0115116
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.002, p0=0.01	power_rescaled	0.339	0.34507223326706155	+0.00607223
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.002, p0=0.01	two_exact	0.338	0.35002643171806563	+0.0120264
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=10000, s=0.002, p0=0.01	two_rescaled	0.339	0.34544067796610006	+0.00644068
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0001, p0=0.01	power_exact	0.081	0.08683333333333333	+0.00583333
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0001, p0=0.01	power_rescaled	0.071	0.07988888888888887	+0.00888889
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0001, p0=0.01	two_exact	0.072	0.08649295774647887	+0.014493
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0001, p0=0.01	two_rescaled	0.073	0.08924000000000001	+0.01624
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0001, p0=0.1	power_rescaled	0.145	0.14525	+0.00025
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0001, p0=0.1	two_rescaled	0.14	0.14133333333333337	+0.00133333
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0005, p0=0.01	power_exact	0.425	0.42842857142857144	+0.00342857
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0005, p0=0.01	power_rescaled	0.439	0.441	+0.002
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0005, p0=0.01	two_exact	0.422	0.43443243243243207	+0.0124324
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0005, p0=0.01	two_rescaled	0.408	0.4276202531645574	+0.0196203
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haploid, N=100000, s=0.0005, p0=0.1	two_exact	0.924	0.9243333333333332	+0.000333333
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=1000, s=0.0001, p0=0.01	power_exact	0.048	0.0485	+0.0005
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=1000, s=0.0001, p0=0.01	power_rescaled	0.042	0.04328571428571428	+0.00128571
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=1000, s=0.0001, p0=0.01	two_exact	0.027	0.05004109589041093	+0.0230411
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=1000, s=0.0001, p0=0.01	two_rescaled	0.021	0.0402	+0.0192
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=1000, s=0.0005, p0=0.01	power_rescaled	0.054	0.056142857142857154	+0.00214286
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=1000, s=0.0005, p0=0.01	two_exact	0.04	0.06706666666666666	+0.0270667
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=1000, s=0.0005, p0=0.01	two_rescaled	0.028	0.05163076923076921	+0.0236308
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=1000, s=0.002, p0=0.01	two_exact	0.068	0.10032876712328774	+0.0323288
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=1000, s=0.002, p0=0.01	two_rescaled	0.086	0.10731147540983607	+0.0213115
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=10000, s=0.0001, p0=0.01	two_exact	0.057	0.057086956521739125	+8.69565e-05
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=10000, s=0.0001, p0=0.01	two_rescaled	0.035	0.03633333333333333	+0.00133333
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=10000, s=0.0001, p0=0.1	two_exact	0.067	0.0685	+0.0015
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=10000, s=0.0001, p0=0.1	two_rescaled	0.075	0.07766666666666666	+0.00266667
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=10000, s=0.0005, p0=0.01	two_exact	0.136	0.1375	+0.0015
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=10000, s=0.0005, p0=0.01	two_rescaled	0.124	0.1294	+0.0054
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=10000, s=0.0005, p0=0.1	two_exact	0.318	0.3185	+0.0005
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=10000, s=0.0005, p0=0.1	two_rescaled	0.341	0.3411666666666666	+0.000166667
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=10000, s=0.002, p0=0.01	two_exact	0.524	0.5242105263157895	+0.000210526
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=10000, s=0.002, p0=0.01	two_rescaled	0.535	0.5358888888888889	+0.000888889
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=100000, s=0.0001, p0=0.01	power_exact	0.047	0.053296296296296314	+0.0062963
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=100000, s=0.0001, p0=0.01	power_rescaled	0.058	0.0653125	+0.0073125
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=100000, s=0.0001, p0=0.01	two_exact	0.042	0.06538461538461536	+0.0233846
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=100000, s=0.0001, p0=0.01	two_rescaled	0.046	0.06248192771084339	+0.0164819
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=100000, s=0.0001, p0=0.1	two_rescaled	0.083	0.08633333333333335	+0.00333333
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=100000, s=0.0005, p0=0.01	power_exact	0.225	0.2335000000000001	+0.0085
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=100000, s=0.0005, p0=0.01	power_rescaled	0.209	0.21116666666666667	+0.00216667
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=100000, s=0.0005, p0=0.01	two_exact	0.211	0.2462923076923074	+0.0352923
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=100000, s=0.0005, p0=0.01	two_rescaled	0.195	0.22323529411764695	+0.0282353
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=diploid, N=100000, s=0.0005, p0=0.1	two_rescaled	0.615	0.6183333333333334	+0.00333333
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.0001, p0=0.01	power_exact	0.059	0.059300000000000005	+0.0003
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.0001, p0=0.01	power_rescaled	0.06	0.06100000000000001	+0.001
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.0001, p0=0.01	two_exact	0.021	0.057364864864864896	+0.0363649
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.0001, p0=0.01	two_rescaled	0.049	0.053121996303141746	+0.004122
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.0005, p0=0.01	power_exact	0.054	0.054400000000000004	+0.0004
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.0005, p0=0.01	two_exact	0.025	0.05483783783783787	+0.0298378
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.0005, p0=0.01	two_rescaled	0.058	0.06167873723305364	+0.00367874
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.002, p0=0.01	power_exact	0.098	0.09836363636363636	+0.000363636
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.002, p0=0.01	power_rescaled	0.112	0.11253488372093014	+0.000534884
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.002, p0=0.01	two_exact	0.071	0.09888732394366202	+0.0278873
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=1000, s=0.002, p0=0.01	two_rescaled	0.1	0.10425510204081556	+0.0042551
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=10000, s=0.0001, p0=0.1	two_rescaled	0.089	0.08966666666666666	+0.000666667
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=10000, s=0.0005, p0=0.01	two_exact	0.151	0.15366666666666667	+0.00266667
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=10000, s=0.0005, p0=0.1	two_exact	0.416	0.4165	+0.0005
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=10000, s=0.002, p0=0.01	power_rescaled	0.527	0.5275	+0.0005
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=10000, s=0.002, p0=0.01	two_rescaled	0.527	0.5270833333333332	+8.33333e-05
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=100000, s=0.0001, p0=0.01	power_exact	0.066	0.07405263157894736	+0.00805263
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=100000, s=0.0001, p0=0.01	power_rescaled	0.084	0.09375	+0.00975
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=100000, s=0.0001, p0=0.01	two_exact	0.066	0.08022641509433959	+0.0142264
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=100000, s=0.0001, p0=0.01	two_rescaled	0.07	0.10154716981132084	+0.0315472
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=100000, s=0.0001, p0=0.1	two_rescaled	0.108	0.1092	+0.0012
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=100000, s=0.0005, p0=0.01	power_exact	0.339	0.3452857142857142	+0.00628571
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=100000, s=0.0005, p0=0.01	power_rescaled	0.347	0.35899999999999993	+0.012
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=100000, s=0.0005, p0=0.01	two_exact	0.336	0.36550819672131135	+0.0295082
+validation/rescale_results.tsv	rescale_validation.js	G=5000, system=haplodiploid, N=100000, s=0.0005, p0=0.01	two_rescaled	0.35	0.38518518518518496	+0.0351852
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0001, p0=0.01	power_exact	0.009	0.05030642201834782	+0.0413064
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0001, p0=0.01	power_rescaled	0.007	0.04909029066172006	+0.0420903
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0001, p0=0.01	two_exact	0.009	0.05030642201834782	+0.0413064
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0001, p0=0.01	two_rescaled	0.007	0.049064276885042585	+0.0420643
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0001, p0=0.1	power_rescaled	0.047	0.050240740740740725	+0.00324074
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0001, p0=0.1	two_rescaled	0.046	0.05026315789473682	+0.00426316
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0005, p0=0.01	power_exact	0.023	0.06412607099143115	+0.0411261
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0005, p0=0.01	power_rescaled	0.023	0.062457459926017825	+0.0394575
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0005, p0=0.01	two_exact	0.023	0.06412607099143115	+0.0411261
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0005, p0=0.01	two_rescaled	0.023	0.06248243992606311	+0.0394824
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0005, p0=0.1	power_exact	0.091	0.092	+0.001
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0005, p0=0.1	power_rescaled	0.058	0.06174999999999995	+0.00375
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0005, p0=0.1	two_exact	0.053	0.09202439024390238	+0.0390244
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.0005, p0=0.1	two_rescaled	0.056	0.06115254237288134	+0.00515254
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.002, p0=0.01	power_exact	0.037	0.07789541284403699	+0.0408954
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.002, p0=0.01	power_rescaled	0.042	0.08145817958179631	+0.0394582
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.002, p0=0.01	two_exact	0.037	0.07789541284403699	+0.0408954
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.002, p0=0.01	two_rescaled	0.042	0.08143392747387826	+0.0394339
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.002, p0=0.1	power_exact	0.213	0.215	+0.002
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.002, p0=0.1	power_rescaled	0.132	0.14155555555555577	+0.00955556
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.002, p0=0.1	two_exact	0.128	0.21488095238095267	+0.086881
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=1000, s=0.002, p0=0.1	two_rescaled	0.127	0.13991228070175446	+0.0129123
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0001, p0=0.01	power_exact	0.021	0.059571783716594905	+0.0385718
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0001, p0=0.01	power_rescaled	0.023	0.060759797724400016	+0.0377598
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0001, p0=0.01	two_exact	0.021	0.05985714285714391	+0.0388571
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0001, p0=0.01	two_rescaled	0.023	0.060429643527203925	+0.0374296
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0001, p0=0.1	two_exact	0.114	0.12625806451612898	+0.0122581
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0001, p0=0.1	two_rescaled	0.121	0.12795454545454543	+0.00695455
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0005, p0=0.01	power_exact	0.092	0.12669975186104412	+0.0346998
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0005, p0=0.01	power_rescaled	0.095	0.13093552465233982	+0.0359355
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0005, p0=0.01	two_exact	0.092	0.12667580743449305	+0.0346758
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0005, p0=0.01	two_rescaled	0.095	0.13021826141338416	+0.0352183
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0005, p0=0.1	two_exact	0.42	0.4827096774193544	+0.0627097
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.0005, p0=0.1	two_rescaled	0.41	0.45172727272727387	+0.0417273
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.002, p0=0.01	power_exact	0.313	0.33979306071871224	+0.0267931
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.002, p0=0.01	power_rescaled	0.338	0.36433984867590985	+0.0263398
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.002, p0=0.01	two_exact	0.313	0.3396827040194864	+0.0266827
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.002, p0=0.01	two_rescaled	0.338	0.363729088639202	+0.0257291
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.002, p0=0.1	two_exact	0.678	0.783096774193551	+0.105097
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=10000, s=0.002, p0=0.1	two_rescaled	0.667	0.7187894736842091	+0.0517895
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=100000, s=0.0001, p0=0.01	power_exact	0.15	0.15075	+0.00075
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=100000, s=0.0001, p0=0.01	two_exact	0.151	0.15157142857142855	+0.000571429
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=100000, s=0.0001, p0=0.01	two_rescaled	0.156	0.16253333333333334	+0.00653333
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haploid, N=100000, s=0.0001, p0=0.1	two_exact	0.45	0.453	+0.003
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0001, p0=0.01	power_exact	0.056	0.057384615384615444	+0.00138462
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0001, p0=0.01	power_rescaled	0.064	0.06533018867924535	+0.00133019
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0001, p0=0.01	two_exact	0.049	0.057300751879699824	+0.00830075
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0001, p0=0.01	two_rescaled	0.059	0.06721530249110254	+0.0082153
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0001, p0=0.1	two_exact	0.047	0.058000000000000024	+0.011
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0001, p0=0.1	two_rescaled	0.058	0.06966666666666668	+0.0116667
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0005, p0=0.01	power_exact	0.078	0.0813146067415729	+0.00331461
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0005, p0=0.01	power_rescaled	0.069	0.06997142857142856	+0.000971429
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0005, p0=0.01	two_exact	0.069	0.07800845070422628	+0.00900845
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0005, p0=0.01	two_rescaled	0.058	0.06746564195298307	+0.00946564
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0005, p0=0.1	two_exact	0.068	0.0796666666666667	+0.0116667
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.0005, p0=0.1	two_rescaled	0.076	0.1087096774193549	+0.0327097
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.002, p0=0.01	power_exact	0.112	0.11250574712643671	+0.000505747
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.002, p0=0.01	power_rescaled	0.107	0.10833018867924521	+0.00133019
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.002, p0=0.01	two_exact	0.107	0.11386145146088511	+0.00686145
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.002, p0=0.01	two_rescaled	0.102	0.11053026196928542	+0.00853026
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.002, p0=0.1	two_exact	0.202	0.24102272727272686	+0.0390227
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=1000, s=0.002, p0=0.1	two_rescaled	0.224	0.2965806451612907	+0.0725806
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.0001, p0=0.01	power_exact	0.066	0.06733333333333333	+0.00133333
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.0001, p0=0.01	two_exact	0.052	0.06254000000000007	+0.01054
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.0001, p0=0.01	two_rescaled	0.061	0.08409803921568633	+0.023098
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.0005, p0=0.01	power_exact	0.157	0.17734375	+0.0203437
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.0005, p0=0.01	power_rescaled	0.191	0.19175	+0.00075
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.0005, p0=0.01	two_exact	0.157	0.16585245901639342	+0.00885246
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.0005, p0=0.01	two_rescaled	0.172	0.18477777777777765	+0.0127778
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.002, p0=0.01	power_exact	0.548	0.560277777777778	+0.0122778
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.002, p0=0.01	power_rescaled	0.531	0.5416944444444446	+0.0106944
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.002, p0=0.01	two_exact	0.548	0.5553846153846155	+0.00738462
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=10000, s=0.002, p0=0.01	two_rescaled	0.531	0.5382115384615384	+0.00721154
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=100000, s=0.0001, p0=0.01	two_exact	0.127	0.14659259259259255	+0.0195926
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=100000, s=0.0001, p0=0.01	two_rescaled	0.141	0.147	+0.006
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=100000, s=0.0001, p0=0.1	two_rescaled	0.338	0.34	+0.002
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=100000, s=0.0005, p0=0.01	two_exact	0.829	0.8313703703703704	+0.00237037
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=diploid, N=100000, s=0.0005, p0=0.01	two_rescaled	0.81	0.811	+0.001
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0001, p0=0.01	power_exact	0.059	0.06020430107526888	+0.0012043
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0001, p0=0.01	power_rescaled	0.046	0.04685714285714286	+0.000857143
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0001, p0=0.01	two_exact	0.053	0.06016417910447782	+0.00716418
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0001, p0=0.01	two_rescaled	0.05	0.04900910746812411	-0.000990893
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0001, p0=0.1	power_exact	0.066	0.067	+0.001
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0001, p0=0.1	power_rescaled	0.065	0.06888888888888889	+0.00388889
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0001, p0=0.1	two_exact	0.057	0.0695	+0.0125
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0001, p0=0.1	two_rescaled	0.054	0.07448780487804879	+0.0204878
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0005, p0=0.01	power_exact	0.059	0.05947777777777784	+0.000477778
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0005, p0=0.01	power_rescaled	0.054	0.057857142857142864	+0.00385714
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0005, p0=0.01	two_exact	0.053	0.06082819794584498	+0.0078282
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0005, p0=0.01	two_rescaled	0.058	0.0579972652689149	-2.73473e-06
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0005, p0=0.1	power_rescaled	0.088	0.10023529411764703	+0.0122353
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0005, p0=0.1	two_exact	0.08	0.09588235294117638	+0.0158824
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.0005, p0=0.1	two_rescaled	0.069	0.10938461538461539	+0.0403846
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.002, p0=0.01	power_exact	0.107	0.10966304347826077	+0.00266304
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.002, p0=0.01	power_rescaled	0.113	0.11375	+0.00075
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.002, p0=0.01	two_exact	0.104	0.1130028037383184	+0.0090028
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.002, p0=0.01	two_rescaled	0.115	0.11491945701357613	-8.0543e-05
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.002, p0=0.1	power_rescaled	0.242	0.2664999999999999	+0.0245
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.002, p0=0.1	two_exact	0.216	0.253941176470588	+0.0379412
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=1000, s=0.002, p0=0.1	two_rescaled	0.232	0.31360000000000016	+0.0816
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=10000, s=0.0001, p0=0.01	two_exact	0.052	0.07916071428571425	+0.0271607
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=10000, s=0.0001, p0=0.01	two_rescaled	0.051	0.07141666666666667	+0.0204167
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=10000, s=0.0001, p0=0.1	two_exact	0.152	0.1525	+0.0005
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=10000, s=0.0005, p0=0.01	power_rescaled	0.199	0.1995	+0.0005
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=10000, s=0.0005, p0=0.01	two_exact	0.174	0.18961290322580646	+0.0156129
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=10000, s=0.0005, p0=0.01	two_rescaled	0.179	0.19373684210526312	+0.0147368
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=10000, s=0.002, p0=0.01	two_exact	0.525	0.5390163934426226	+0.0140164
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=10000, s=0.002, p0=0.01	two_rescaled	0.571	0.5809841269841267	+0.00998413
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=100000, s=0.0001, p0=0.01	two_exact	0.143	0.15946666666666662	+0.0164667
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=100000, s=0.0001, p0=0.01	two_rescaled	0.183	0.18946153846153846	+0.00646154
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=100000, s=0.0001, p0=0.1	two_exact	0.484	0.4868	+0.0028
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=100000, s=0.0001, p0=0.1	two_rescaled	0.453	0.4586	+0.0056
+validation/rescale_results.tsv	rescale_validation.js	G=20000, system=haplodiploid, N=100000, s=0.0005, p0=0.01	two_rescaled	0.847	0.8473846153846154	+0.000384615
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haploid, N=10000, s=0.0001, p0=0.1	power_rescaled	0.099	0.11455555555555551	+0.0155556
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haploid, N=10000, s=0.0001, p0=0.1	two_exact	0.079	0.10252941176470602	+0.0235294
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haploid, N=10000, s=0.0001, p0=0.1	two_rescaled	0.07	0.11639999999999989	+0.0464
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haploid, N=10000, s=0.0005, p0=0.1	power_exact	0.263	0.2662666666666662	+0.00326667
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haploid, N=10000, s=0.0005, p0=0.1	power_rescaled	0.262	0.3039999999999995	+0.042
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haploid, N=10000, s=0.0005, p0=0.1	two_exact	0.254	0.3207058823529411	+0.0667059
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haploid, N=10000, s=0.0005, p0=0.1	two_rescaled	0.251	0.37277083333333405	+0.121771
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=diploid, N=10000, s=0.0005, p0=0.1	two_rescaled	0.831	0.835	+0.004
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haplodiploid, N=10000, s=0.0001, p0=0.1	two_exact	0.159	0.175695652173913	+0.0166957
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haplodiploid, N=10000, s=0.0001, p0=0.1	two_rescaled	0.205	0.2184615384615385	+0.0134615
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haplodiploid, N=10000, s=0.0005, p0=0.1	two_exact	0.524	0.617869565217392	+0.0938696
+validation/rescale_results.tsv	rescale_validation.js	G=60000, system=haplodiploid, N=10000, s=0.0005, p0=0.1	two_rescaled	0.658	0.6883333333333332	+0.0303333
+validation/depth_case.tsv	depth_case.js	Ne=1500, s=0.015, design=30x all dates	power	0.3616	0.3619	+0.0003
+validation/depth_case.tsv	depth_case.js	Ne=1500, s=0.02, design=10x all dates	power	0.5566	0.5567	+0.0001
+validation/depth_case.tsv	depth_case.js	Ne=1500, s=0.03, design=1x all dates, minimum depth 3	power	0.2818	0.2819	+0.0001
+validation/depth_case.tsv	depth_case.js	Ne=100000, s=0.02, design=30x earlier, 2x last	power	0.6938	0.6936	-0.0002
+validation/normal_fit_rare.tsv	normal_fit_rare.js	system=haploid, p0=0.01, m=2000, test=two	power_empirical	0.446	0.462	+0.016
+validation/normal_fit_rare.tsv	normal_fit_rare.js	system=haploid, p0=0.01, m=10000, test=trend	power_empirical	0.401	0.402	+0.001
+validation/normal_fit_rare.tsv	normal_fit_rare.js	system=haploid, p0=0.01, m=10000, test=two	power_empirical	0.386	0.404	+0.018
+validation/normal_fit_rare.tsv	normal_fit_rare.js	system=diploid, p0=0.01, m=2000, test=two	power_empirical	0.053	0.056	+0.003
+validation/normal_fit_rare.tsv	normal_fit_rare.js	system=diploid, p0=0.1, m=2000, test=two	power_empirical	0.460	0.462	+0.002
+validation/normal_fit_rare.tsv	normal_fit_rare.js	system=haplodiploid, p0=0.01, m=2000, test=two	power_empirical	0.235	0.238	+0.003
+validation/normal_fit_rare.tsv	normal_fit_rare.js	system=haplodiploid, p0=0.01, m=10000, test=two	power_empirical	0.148	0.157	+0.009
+validation/nodrift_example.tsv	nodrift_example.js		n_ties_at_threshold		96	
+validation/nodrift_example.tsv	nodrift_example.js		gamma_ties		0.7500	
+validation/nodrift_example.tsv	nodrift_example.js		power_neutral_simulation_threshold	0.7680	0.7702	+0.0022
+validation/nodrift_example.tsv	nodrift_example.js		fpr_neutral_simulation_threshold	0.0165	0.0485	+0.032
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.005	power_trend	0.0640	0.0672	+0.0032
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.005	power_first_vs_last	0.0640	0.0647	+0.0007
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.01	power_trend	0.1130	0.1187	+0.0057
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.01	power_first_vs_last	0.1140	0.1160	+0.002
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.02	power_trend	0.1900	0.1912	+0.0012
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.02	power_first_vs_last	0.1380	0.1794	+0.0414
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.03	power_trend	0.3270	0.3300	+0.003
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.03	power_first_vs_last	0.3070	0.3140	+0.007
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.05	power_trend	0.6500	0.6517	+0.0017
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.05	power_first_vs_last	0.6170	0.6316	+0.0146
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.075	power_trend	0.8950	0.8953	+0.0003
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.01, s=0.075	power_first_vs_last	0.8810	0.8868	+0.0058
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.05, s=0.005	power_first_vs_last	0.0900	0.0931	+0.0031
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.05, s=0.01	power_trend	0.1220	0.1227	+0.0007
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.05, s=0.01	power_first_vs_last	0.1100	0.1180	+0.008
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.05, s=0.02	power_first_vs_last	0.3620	0.3693	+0.0073
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.05, s=0.03	power_first_vs_last	0.6640	0.6669	+0.0029
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.1, s=0.005	power_first_vs_last	0.1210	0.1238	+0.0028
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.1, s=0.01	power_first_vs_last	0.1980	0.1998	+0.0018
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.1, s=0.02	power_first_vs_last	0.5330	0.5366	+0.0036
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.1, s=0.03	power_first_vs_last	0.8570	0.8610	+0.004
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.3, s=0.005	power_first_vs_last	0.1330	0.1334	+0.0004
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.3, s=0.01	power_first_vs_last	0.2880	0.2884	+0.0004
+worked_examples/bee_s_p0.tsv	worked_examples.js A	p0=0.3, s=0.02	power_first_vs_last	0.7260	0.7264	+0.0004
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=reference: 20/20/20/40, p0=0.01, s=0.05	power_trend	0.6674	0.6702	+0.0028
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=reference: 20/20/20/40, p0=0.01, s=0.05	power_first_vs_last	0.6688	0.6708	+0.002
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=+60 historical: 40/40/40/40, p0=0.01, s=0.05	power_trend	0.6872	0.6876	+0.0004
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=+60 historical: 40/40/40/40, p0=0.01, s=0.05	power_first_vs_last	0.6564	0.6661	+0.0097
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=+60 modern: 20/20/20/100, p0=0.01, s=0.05	power_trend	0.6890	0.6913	+0.0023
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=+60 modern: 20/20/20/100, p0=0.01, s=0.05	power_first_vs_last	0.6710	0.6753	+0.0043
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=historical depth 20x (instead of 10x), p0=0.01, s=0.05	power_trend	0.6590	0.6606	+0.0016
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=historical depth 20x (instead of 10x), p0=0.01, s=0.05	power_first_vs_last	0.6352	0.6555	+0.0203
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=first and last only: 50/50 (same total), p0=0.01, s=0.05	power_trend	0.6640	0.6656	+0.0016
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=first and last only: 50/50 (same total), p0=0.01, s=0.05	power_first_vs_last	0.6640	0.6656	+0.0016
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=reference: 20/20/20/40, p0=0.1, s=0.02	power_trend	0.5526	0.5529	+0.0003
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=reference: 20/20/20/40, p0=0.1, s=0.02	power_first_vs_last	0.5142	0.5154	+0.0012
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=+60 historical: 40/40/40/40, p0=0.1, s=0.02	power_first_vs_last	0.5752	0.5774	+0.0022
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=historical depth 20x (instead of 10x), p0=0.1, s=0.02	power_trend	0.5558	0.5560	+0.0002
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=historical depth 20x (instead of 10x), p0=0.1, s=0.02	power_first_vs_last	0.5324	0.5347	+0.0023
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=first and last only: 50/50 (same total), p0=0.1, s=0.02	power_trend	0.6058	0.6061	+0.0003
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=first and last only: 50/50 (same total), p0=0.1, s=0.02	power_first_vs_last	0.6058	0.6061	+0.0003
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=reference: 20/20/20/40, p0=0.3, s=0.015	power_first_vs_last	0.5208	0.5213	+0.0005
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=+60 historical: 40/40/40/40, p0=0.3, s=0.015	power_trend	0.5732	0.5733	+0.0001
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=+60 historical: 40/40/40/40, p0=0.3, s=0.015	power_first_vs_last	0.5568	0.5579	+0.0011
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=historical depth 20x (instead of 10x), p0=0.3, s=0.015	power_first_vs_last	0.5096	0.5107	+0.0011
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=first and last only: 50/50 (same total), p0=0.3, s=0.015	power_trend	0.6158	0.6162	+0.0004
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=1500, design=first and last only: 50/50 (same total), p0=0.3, s=0.015	power_first_vs_last	0.6158	0.6162	+0.0004
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=reference: 20/20/20/40, p0=0.01, s=0.035	power_trend	0.6294	0.6295	+0.0001
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=reference: 20/20/20/40, p0=0.01, s=0.035	power_first_vs_last	0.7408	0.7453	+0.0045
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=+60 historical: 40/40/40/40, p0=0.01, s=0.035	power_trend	0.7402	0.7404	+0.0002
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=+60 historical: 40/40/40/40, p0=0.01, s=0.035	power_first_vs_last	0.7002	0.7101	+0.0099
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=+60 modern: 20/20/20/100, p0=0.01, s=0.035	power_first_vs_last	0.8236	0.8237	+0.0001
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=historical depth 20x (instead of 10x), p0=0.01, s=0.035	power_trend	0.6528	0.6577	+0.0049
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=historical depth 20x (instead of 10x), p0=0.01, s=0.035	power_first_vs_last	0.7702	0.7738	+0.0036
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=first and last only: 50/50 (same total), p0=0.01, s=0.035	power_trend	0.7842	0.7863	+0.0021
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=first and last only: 50/50 (same total), p0=0.01, s=0.035	power_first_vs_last	0.7842	0.7863	+0.0021
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=reference: 20/20/20/40, p0=0.1, s=0.015	power_first_vs_last	0.4616	0.4626	+0.001
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=+60 historical: 40/40/40/40, p0=0.1, s=0.015	power_first_vs_last	0.6038	0.6047	+0.0009
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=first and last only: 50/50 (same total), p0=0.1, s=0.015	power_trend	0.6830	0.6834	+0.0004
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=first and last only: 50/50 (same total), p0=0.1, s=0.015	power_first_vs_last	0.6830	0.6834	+0.0004
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=reference: 20/20/20/40, p0=0.3, s=0.012	power_first_vs_last	0.5544	0.5558	+0.0014
+worked_examples/bee_allocation.tsv	worked_examples.js B	Ne=100000, design=historical depth 20x (instead of 10x), p0=0.3, s=0.012	power_first_vs_last	0.5552	0.5556	+0.0004
+worked_examples/bee_ne.tsv	worked_examples.js C	N_breeding_each_sex=200, n_scale=1	power_first_vs_last	0.8180	0.8187	+0.0007
+worked_examples/mammal.tsv	worked_examples.js D	history=bottleneck: Ne 5,000 then 200, s=0.5	power_first_vs_last	0.8010	0.8015	+0.0005
+worked_examples/mammal.tsv	worked_examples.js D	history=constant Ne 5,000, s=0.02	power_first_vs_last	0.0720	0.0747	+0.0027
+worked_examples/mammal.tsv	worked_examples.js D	history=constant Ne 5,000, s=0.05	power_first_vs_last	0.0870	0.0890	+0.002
+worked_examples/mammal.tsv	worked_examples.js D	history=constant Ne 5,000, s=0.15	power_first_vs_last	0.2000	0.2013	+0.0013
+worked_examples/mammal.tsv	worked_examples.js D	history=severe bottleneck: Ne 5,000 then 50, s=0.3	power_first_vs_last	0.3430	0.3435	+0.0005
+worked_examples/pathogen.tsv	worked_examples.js E	s_per_generation=0.00002	power_first_vs_last	0.0580	0.0605	+0.0025
+worked_examples/pathogen.tsv	worked_examples.js E	s_per_generation=0.00005	power_first_vs_last	0.1180	0.1205	+0.0025
+worked_examples/pathogen.tsv	worked_examples.js E	s_per_generation=0.0001	power_first_vs_last	0.2580	0.2672	+0.0092
+worked_examples/pathogen.tsv	worked_examples.js E	s_per_generation=0.0002	power_first_vs_last	0.6820	0.6868	+0.0048
+worked_examples/human_depth.tsv	worked_examples.js F	ancient_depth=5, s=0.001	power_first_vs_last	0.0870	0.0877	+0.0007
+worked_examples/human_depth.tsv	worked_examples.js F	ancient_depth=5, s=0.002	power_first_vs_last	0.1420	0.1440	+0.002
+worked_examples/human_depth.tsv	worked_examples.js F	ancient_depth=5, s=0.003	power_first_vs_last	0.2220	0.2227	+0.0007
+worked_examples/human_depth.tsv	worked_examples.js F	ancient_depth=5, s=0.005	power_first_vs_last	0.4340	0.4367	+0.0027
+worked_examples/human_depth.tsv	worked_examples.js F	ancient_depth=perfect, s=0.003	power_first_vs_last	0.2060	0.2097	+0.0037
+worked_examples/human_depth.tsv	worked_examples.js F	ancient_depth=perfect, s=0.005	power_first_vs_last	0.4420	0.4435	+0.0015
+worked_examples/human_depth.tsv	worked_examples.js F	ancient_depth=perfect, s=0.0075	power_first_vs_last	0.7730	0.7745	+0.0015
+worked_examples/human_depth.tsv	worked_examples.js F	ancient_depth=perfect, s=0.01	power_first_vs_last	0.9460	0.9467	+0.0007
+worked_examples/human_budget.tsv	worked_examples.js G	individuals_per_ancient_date=20, ancient_depth=5, s=0.005	power_first_vs_last	0.3514	0.3534	+0.002
+worked_examples/human_budget.tsv	worked_examples.js G	individuals_per_ancient_date=10, ancient_depth=10, s=0.005	power_first_vs_last	0.2962	0.2964	+0.0002
+worked_examples/human_budget.tsv	worked_examples.js G	individuals_per_ancient_date=20, ancient_depth=5, s=0.0075	power_first_vs_last	0.6408	0.6417	+0.0009
+worked_examples/depth_case.tsv	depth_case.js	Ne=1500, s=0.015, design=30x all dates	power	0.3616	0.3619	+0.0003
+worked_examples/depth_case.tsv	depth_case.js	Ne=1500, s=0.02, design=10x all dates	power	0.5566	0.5567	+0.0001
+worked_examples/depth_case.tsv	depth_case.js	Ne=1500, s=0.03, design=1x all dates, minimum depth 3	power	0.2818	0.2819	+0.0001
+worked_examples/depth_case.tsv	depth_case.js	Ne=100000, s=0.02, design=30x earlier, 2x last	power	0.6938	0.6936	-0.0002

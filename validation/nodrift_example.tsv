@@ -1,2 +1,2 @@
-threshold_neutral_simulations	threshold_sampling_only	power_neutral_simulation_threshold	power_sampling_only	fpr_neutral_simulation_threshold	fpr_sampling_only	n_independent_neutral
-1.633	1.645	0.7680	0.7640	0.0165	0.0165	100000
+threshold_neutral_simulations	n_ties_at_threshold	gamma_ties	threshold_sampling_only	power_neutral_simulation_threshold	power_sampling_only	fpr_neutral_simulation_threshold	fpr_sampling_only	n_independent_neutral
+1.633	96	0.7500	1.645	0.7702	0.7640	0.0485	0.0165	100000

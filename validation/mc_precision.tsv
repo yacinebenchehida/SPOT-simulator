@@ -1,20 +1,20 @@
 scenario	replicates	statistic	mean_power	sd_power	sd_binomial_only	sd_ratio	min	max	seeds
-Bumblebees	500	trend	0.6632	0.0211	0.0211	1.00	0.594	0.710	50
-Bumblebees	500	two	0.6547	0.0236	0.0213	1.11	0.612	0.700	50
-Bumblebees	1000	trend	0.6642	0.0158	0.0149	1.06	0.631	0.696	50
-Bumblebees	1000	two	0.6556	0.0161	0.0150	1.07	0.623	0.691	50
-Bumblebees	2000	trend	0.6645	0.0114	0.0106	1.08	0.639	0.683	50
-Bumblebees	2000	two	0.6541	0.0160	0.0106	1.51	0.620	0.682	50
-Bumblebees	5000	trend	0.6634	0.0073	0.0067	1.09	0.645	0.678	50
-Bumblebees	5000	two	0.6545	0.0136	0.0067	2.02	0.615	0.676	50
+Bumblebees	500	trend	0.6645	0.0211	0.0211	1.00	0.594	0.710	50
+Bumblebees	500	two	0.6606	0.0210	0.0212	0.99	0.616	0.705	50
+Bumblebees	1000	trend	0.6661	0.0152	0.0149	1.02	0.632	0.697	50
+Bumblebees	1000	two	0.6605	0.0144	0.0150	0.96	0.637	0.699	50
+Bumblebees	2000	trend	0.6663	0.0112	0.0105	1.06	0.640	0.685	50
+Bumblebees	2000	two	0.6586	0.0131	0.0106	1.24	0.629	0.684	50
+Bumblebees	5000	trend	0.6651	0.0073	0.0067	1.09	0.646	0.678	50
+Bumblebees	5000	two	0.6581	0.0102	0.0067	1.52	0.633	0.676	50
 Long-lived mammal	500	trend	0.2485	0.0348	0.0193	1.80	0.184	0.334	50
-Long-lived mammal	500	two	0.2466	0.0304	0.0193	1.58	0.180	0.312	50
+Long-lived mammal	500	two	0.2468	0.0304	0.0193	1.58	0.180	0.312	50
 Long-lived mammal	1000	trend	0.2471	0.0220	0.0136	1.61	0.203	0.305	50
-Long-lived mammal	1000	two	0.2431	0.0219	0.0136	1.61	0.187	0.294	50
+Long-lived mammal	1000	two	0.2436	0.0219	0.0136	1.61	0.187	0.296	50
 Long-lived mammal	2000	trend	0.2451	0.0141	0.0096	1.47	0.215	0.275	50
-Long-lived mammal	2000	two	0.2393	0.0138	0.0095	1.44	0.204	0.267	50
+Long-lived mammal	2000	two	0.2397	0.0136	0.0095	1.42	0.207	0.267	50
 Long-lived mammal	5000	trend	0.2436	0.0099	0.0061	1.62	0.210	0.266	50
-Long-lived mammal	5000	two	0.2385	0.0102	0.0060	1.70	0.214	0.264	50
+Long-lived mammal	5000	two	0.2389	0.0101	0.0060	1.68	0.214	0.265	50
 Human ancient DNA	500	trend	0.4738	0.0262	0.0223	1.17	0.426	0.538	50
 Human ancient DNA	500	two	0.4230	0.0303	0.0221	1.37	0.344	0.492	50
 Human ancient DNA	1000	trend	0.4748	0.0200	0.0158	1.27	0.431	0.512	50
@@ -24,18 +24,18 @@ Human ancient DNA	2000	two	0.4186	0.0144	0.0110	1.31	0.381	0.445	50
 Human ancient DNA	5000	trend	0.4711	0.0110	0.0071	1.56	0.449	0.500	50
 Human ancient DNA	5000	two	0.4192	0.0101	0.0070	1.44	0.399	0.445	50
 Bacterial pathogen	500	trend	0.7259	0.0232	0.0199	1.16	0.684	0.786	50
-Bacterial pathogen	500	two	0.7108	0.0216	0.0203	1.07	0.672	0.772	50
-Bacterial pathogen	1000	trend	0.7263	0.0154	0.0141	1.10	0.697	0.763	50
-Bacterial pathogen	1000	two	0.7126	0.0151	0.0143	1.06	0.674	0.746	50
+Bacterial pathogen	500	two	0.7160	0.0211	0.0202	1.05	0.681	0.777	50
+Bacterial pathogen	1000	trend	0.7263	0.0155	0.0141	1.10	0.697	0.763	50
+Bacterial pathogen	1000	two	0.7180	0.0151	0.0142	1.06	0.689	0.751	50
 Bacterial pathogen	2000	trend	0.7237	0.0097	0.0100	0.97	0.702	0.743	50
-Bacterial pathogen	2000	two	0.7097	0.0105	0.0101	1.03	0.684	0.733	50
+Bacterial pathogen	2000	two	0.7142	0.0106	0.0101	1.05	0.694	0.742	50
 Bacterial pathogen	5000	trend	0.7252	0.0058	0.0063	0.92	0.713	0.739	50
-Bacterial pathogen	5000	two	0.7112	0.0063	0.0064	0.99	0.697	0.724	50
+Bacterial pathogen	5000	two	0.7151	0.0058	0.0064	0.92	0.705	0.728	50
 Large diploid population	500	trend	0.7320	0.0263	0.0198	1.33	0.668	0.790	50
-Large diploid population	500	two	0.6625	0.0374	0.0211	1.77	0.584	0.730	50
+Large diploid population	500	two	0.6629	0.0373	0.0211	1.76	0.585	0.730	50
 Large diploid population	1000	trend	0.7333	0.0167	0.0140	1.19	0.702	0.777	50
-Large diploid population	1000	two	0.6632	0.0307	0.0149	2.05	0.612	0.728	50
+Large diploid population	1000	two	0.6638	0.0307	0.0149	2.05	0.612	0.728	50
 Large diploid population	2000	trend	0.7347	0.0130	0.0099	1.31	0.701	0.760	50
-Large diploid population	2000	two	0.6668	0.0235	0.0105	2.23	0.629	0.716	50
+Large diploid population	2000	two	0.6675	0.0235	0.0105	2.23	0.629	0.716	50
 Large diploid population	5000	trend	0.7332	0.0077	0.0063	1.23	0.711	0.746	50
-Large diploid population	5000	two	0.6621	0.0153	0.0067	2.28	0.626	0.707	50
+Large diploid population	5000	two	0.6633	0.0153	0.0067	2.29	0.626	0.707	50
