@@ -15,60 +15,74 @@
 <text x="69" y="112.0" font-size="11" text-anchor="end" fill="#5A6480">80%</text>
 <line x1="75" x2="415" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
 <text x="69" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">100%</text>
-<line x1="97.0" x2="97.0" y1="340" y2="344" stroke="#5A6480"/>
-<text x="97.0" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.001</text>
-<line x1="165.5" x2="165.5" y1="340" y2="344" stroke="#5A6480"/>
-<text x="165.5" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.002</text>
-<line x1="256.0" x2="256.0" y1="340" y2="344" stroke="#5A6480"/>
-<text x="256.0" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.005</text>
-<line x1="324.5" x2="324.5" y1="340" y2="344" stroke="#5A6480"/>
-<text x="324.5" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.01</text>
-<line x1="393.0" x2="393.0" y1="340" y2="344" stroke="#5A6480"/>
-<text x="393.0" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.02</text>
+<line x1="89.9" x2="89.9" y1="340" y2="344" stroke="#5A6480"/>
+<text x="89.9" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.001</text>
+<line x1="136.2" x2="136.2" y1="340" y2="344" stroke="#5A6480"/>
+<text x="136.2" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.002</text>
+<line x1="197.4" x2="197.4" y1="340" y2="344" stroke="#5A6480"/>
+<text x="197.4" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.005</text>
+<line x1="243.7" x2="243.7" y1="340" y2="344" stroke="#5A6480"/>
+<text x="243.7" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.01</text>
+<line x1="290.0" x2="290.0" y1="340" y2="344" stroke="#5A6480"/>
+<text x="290.0" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.02</text>
+<line x1="351.2" x2="351.2" y1="340" y2="344" stroke="#5A6480"/>
+<text x="351.2" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.05</text>
+<line x1="397.5" x2="397.5" y1="340" y2="344" stroke="#5A6480"/>
+<text x="397.5" y="357" font-size="11" text-anchor="middle" fill="#5A6480">0.1</text>
 <rect x="75" y="50" width="340" height="290" fill="none" stroke="#0F1730" stroke-width=".8"/>
 <text x="245.0" y="376.0" font-size="12" text-anchor="middle" fill="#0F1730">selection coefficient s (per generation)</text>
 <text x="31.0" y="195.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 195.0)">power (trend test)</text>
 <path d="M75.0 108.0L415.0 108.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
-<path d="M97.0 317.4L165.5 298.8L205.6 276.5L256.0 212.4L296.1 128.3L324.5 69.7L393.0 50.0" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
-<use href="#m0" x="97.0" y="317.4"/>
-<use href="#m0" x="165.5" y="298.8"/>
-<use href="#m0" x="205.6" y="276.5"/>
-<use href="#m0" x="256.0" y="212.4"/>
-<use href="#m0" x="296.1" y="128.3"/>
-<use href="#m0" x="324.5" y="69.7"/>
-<use href="#m0" x="393.0" y="50.0"/>
-<path d="M97.0 318.8L165.5 300.9L205.6 276.8L256.0 211.8L296.1 118.4L324.5 62.8L393.0 50.0" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-opacity="1"/>
-<use href="#m1" x="97.0" y="318.8"/>
-<use href="#m1" x="165.5" y="300.9"/>
-<use href="#m1" x="205.6" y="276.8"/>
-<use href="#m1" x="256.0" y="211.8"/>
-<use href="#m1" x="296.1" y="118.4"/>
-<use href="#m1" x="324.5" y="62.8"/>
-<use href="#m1" x="393.0" y="50.0"/>
-<path d="M97.0 317.1L165.5 299.4L205.6 270.1L256.0 197.0L296.1 105.4L324.5 59.0L393.0 50.0" fill="none" stroke="#C27A12" stroke-width="1.8" stroke-opacity="1"/>
-<use href="#m2" x="97.0" y="317.1"/>
-<use href="#m2" x="165.5" y="299.4"/>
-<use href="#m2" x="205.6" y="270.1"/>
-<use href="#m2" x="256.0" y="197.0"/>
-<use href="#m2" x="296.1" y="105.4"/>
-<use href="#m2" x="324.5" y="59.0"/>
-<use href="#m2" x="393.0" y="50.0"/>
-<path d="M97.0 317.7L165.5 296.2L205.6 262.9L256.0 190.9L296.1 97.0L324.5 58.1L393.0 50.0" fill="none" stroke="#8B4FD6" stroke-width="1.8" stroke-opacity="1"/>
-<use href="#m3" x="97.0" y="317.7"/>
-<use href="#m3" x="165.5" y="296.2"/>
-<use href="#m3" x="205.6" y="262.9"/>
-<use href="#m3" x="256.0" y="190.9"/>
-<use href="#m3" x="296.1" y="97.0"/>
-<use href="#m3" x="324.5" y="58.1"/>
-<use href="#m3" x="393.0" y="50.0"/>
-<path d="M97.0 314.8L165.5 297.1L205.6 274.5L256.0 201.1L296.1 103.7L324.5 59.0L393.0 50.0" fill="none" stroke="#D9363E" stroke-width="1.8" stroke-opacity="1"/>
-<use href="#m4" x="97.0" y="314.8"/>
-<use href="#m4" x="165.5" y="297.1"/>
-<use href="#m4" x="205.6" y="274.5"/>
-<use href="#m4" x="256.0" y="201.1"/>
-<use href="#m4" x="296.1" y="103.7"/>
-<use href="#m4" x="324.5" y="59.0"/>
-<use href="#m4" x="393.0" y="50.0"/>
+<path d="M89.9 317.4L136.2 298.8L163.3 276.5L197.4 212.4L224.5 128.3L243.7 69.7L290.0 50.0L351.2 50.0L397.5 50.0" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m0" x="89.9" y="317.4"/>
+<use href="#m0" x="136.2" y="298.8"/>
+<use href="#m0" x="163.3" y="276.5"/>
+<use href="#m0" x="197.4" y="212.4"/>
+<use href="#m0" x="224.5" y="128.3"/>
+<use href="#m0" x="243.7" y="69.7"/>
+<use href="#m0" x="290.0" y="50.0"/>
+<use href="#m0" x="351.2" y="50.0"/>
+<use href="#m0" x="397.5" y="50.0"/>
+<path d="M89.9 318.8L136.2 300.9L163.3 276.8L197.4 211.8L224.5 118.4L243.7 62.8L290.0 50.0L351.2 50.0L397.5 50.0" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m1" x="89.9" y="318.8"/>
+<use href="#m1" x="136.2" y="300.9"/>
+<use href="#m1" x="163.3" y="276.8"/>
+<use href="#m1" x="197.4" y="211.8"/>
+<use href="#m1" x="224.5" y="118.4"/>
+<use href="#m1" x="243.7" y="62.8"/>
+<use href="#m1" x="290.0" y="50.0"/>
+<use href="#m1" x="351.2" y="50.0"/>
+<use href="#m1" x="397.5" y="50.0"/>
+<path d="M89.9 317.1L136.2 299.4L163.3 270.1L197.4 197.0L224.5 105.4L243.7 59.0L290.0 50.0L351.2 50.0L397.5 50.0" fill="none" stroke="#C27A12" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m2" x="89.9" y="317.1"/>
+<use href="#m2" x="136.2" y="299.4"/>
+<use href="#m2" x="163.3" y="270.1"/>
+<use href="#m2" x="197.4" y="197.0"/>
+<use href="#m2" x="224.5" y="105.4"/>
+<use href="#m2" x="243.7" y="59.0"/>
+<use href="#m2" x="290.0" y="50.0"/>
+<use href="#m2" x="351.2" y="50.0"/>
+<use href="#m2" x="397.5" y="50.0"/>
+<path d="M89.9 317.7L136.2 296.2L163.3 262.9L197.4 190.9L224.5 97.0L243.7 58.1L290.0 50.0L351.2 50.0L397.5 50.0" fill="none" stroke="#8B4FD6" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m3" x="89.9" y="317.7"/>
+<use href="#m3" x="136.2" y="296.2"/>
+<use href="#m3" x="163.3" y="262.9"/>
+<use href="#m3" x="197.4" y="190.9"/>
+<use href="#m3" x="224.5" y="97.0"/>
+<use href="#m3" x="243.7" y="58.1"/>
+<use href="#m3" x="290.0" y="50.0"/>
+<use href="#m3" x="351.2" y="50.0"/>
+<use href="#m3" x="397.5" y="50.0"/>
+<path d="M89.9 314.8L136.2 297.1L163.3 274.5L197.4 201.1L224.5 103.7L243.7 59.0L290.0 50.0L351.2 50.0L397.5 50.0" fill="none" stroke="#D9363E" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m4" x="89.9" y="314.8"/>
+<use href="#m4" x="136.2" y="297.1"/>
+<use href="#m4" x="163.3" y="274.5"/>
+<use href="#m4" x="197.4" y="201.1"/>
+<use href="#m4" x="224.5" y="103.7"/>
+<use href="#m4" x="243.7" y="59.0"/>
+<use href="#m4" x="290.0" y="50.0"/>
+<use href="#m4" x="351.2" y="50.0"/>
+<use href="#m4" x="397.5" y="50.0"/>
 <line x1="85" x2="105" y1="64" y2="64" stroke="#2B59D9" stroke-width="2"/>
 <use href="#m5" x="95.0" y="64.0"/>
 <text x="112.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">1×</text>
