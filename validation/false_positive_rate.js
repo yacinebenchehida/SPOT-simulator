@@ -47,7 +47,7 @@ function evaluate(label, P, nTest) {
   const rows = [];
   for (const k of ['trend', 'two']) {
     const z = test[k], nT = z.length;
-    const fpr = thr.map(r => { let c = 0; for (const v of z) if (v > r[k].crit) c++; return c / nT; });
+    const fpr = thr.map(r => { let c = 0; for (const v of z) c += S.exceed(v, r[k].crit, r[k].gamma); return c / nT;   // ties at the threshold count with weight gamma (sim.js) });
     let naive = 0; for (const v of z) if (v > zc) naive++;
     const mean = fpr.reduce((x, y) => x + y, 0) / fpr.length;
     const sd = Math.sqrt(fpr.reduce((x, y) => x + (y - mean) * (y - mean), 0) / (fpr.length - 1));

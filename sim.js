@@ -188,6 +188,10 @@ function prep(P){
    capped at NEUTRAL_MAX, beyond which a Gaussian fit to the neutral values is used (see validation/false_positive_rate.md) */
 const NEUTRAL_MAX=200000;
 function neutralReps(P){const a=P.alpha/P.m; return Math.max(2*P.reps, Math.min(P.neutralMax||NEUTRAL_MAX, Math.ceil(10/a)));}
+/* Weight of one Z value against the neutral-simulation threshold: 1 above it, gamma when tied with it (within TIE_TOL,
+   since Z is computed in floating point), 0 below. Evaluation scripts use the same rule. */
+const TIE_TOL=1e-12;
+function exceed(z,crit,gamma){return Math.abs(z-crit)<TIE_TOL?(gamma||0):(z>crit?1:0)}
 function runPower(P0,opt={}){
   const sc=rescale(P0), P=prep(sc.P), R=makeRng(P.seed), reps=P.reps, nn=neutralReps(P);
   const t=gensOf(P), K=t.length;
@@ -202,13 +206,19 @@ function runPower(P0,opt={}){
     hetAcc:P.perfect?1:(het?hetOk/het:NaN), missRate:P.perfect?0:miss/samp, hapAcc:hT?hO/hT:NaN};
   for(const k of ['trend','two']){
     const ns=Float64Array.from(neu[k]).sort();
-    let crit, method;
-    if(a*nn>=10){crit=ns[Math.min(nn-1,Math.ceil((1-a)*nn)-1)];method='empirical'}
+    let crit, method, gamma=0;
+    if(a*nn>=10){
+      crit=ns[Math.min(nn-1,Math.ceil((1-a)*nn)-1)];method='empirical';
+      // Ties at the threshold (Z is discrete): neutral values equal to crit count with weight gamma, chosen so that
+      // exactly a proportion a of the neutral simulations lies above the threshold: (A + gamma*B)/nn = a.
+      let A=0,B=0; for(const z of ns){if(Math.abs(z-crit)<TIE_TOL)B++;else if(z>crit)A++}
+      if(B>0) gamma=Math.min(Math.max((a*nn-A)/B,0),1-1e-12);
+    }
     else{let m=0,v=0;for(const z of ns)m+=z;m/=nn;for(const z of ns)v+=(z-m)*(z-m);v/=nn-1;crit=m+Math.sqrt(v)*zc;method='gaussian'}
     let pe=0,pn=0,fp=0;
-    for(const z of sel[k]){if(z>crit)pe++;if(z>zc)pn++}
+    for(const z of sel[k]){pe+=exceed(z,crit,gamma);if(z>zc)pn++}
     for(const z of neu[k]) if(z>zc) fp++;
-    res[k]={crit,method,powerEmp:pe/reps,powerNaive:pn/reps,fprNaive:fp/nn};
+    res[k]={crit,gamma,method,powerEmp:pe/reps,powerNaive:pn/reps,fprNaive:fp/nn};
   }
   return res;
 }
@@ -226,4 +236,4 @@ function hetRetained(P){
 }
 /* Ne: diploid 4NfNm/(Nf+Nm); haplodiploid 9NfNm/(4Nm+2Nf); haploid N (= Nf, number of breeding individuals) */
 function neFor(P){return P.system==='haploid'? P.Nf : P.system==='haplodiploid'? 9*P.Nf*P.Nm/(4*P.Nm+2*P.Nf) : 4*P.Nf*P.Nm/(P.Nf+P.Nm)}
-if(typeof module!=='undefined') module.exports={runPower,neutralReps,NEUTRAL_MAX,deterministic,neFor,hetRetained,simulateRep,makeRng,prep,qnorm,gensOf,genTimeOf,sizeFactor,rescale,YEARS};
+if(typeof module!=='undefined') module.exports={runPower,exceed,TIE_TOL,neutralReps,NEUTRAL_MAX,deterministic,neFor,hetRetained,simulateRep,makeRng,prep,qnorm,gensOf,genTimeOf,sizeFactor,rescale,YEARS};
