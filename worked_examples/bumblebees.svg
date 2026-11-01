@@ -334,7 +334,7 @@
 <use href="#m24" x="780.0" y="939.0"/>
 <text x="797.0" y="943.0" font-size="11" text-anchor="start" fill="#0F1730">perfect genotypes</text>
 <text x="75.0" y="1170.0" font-size="11" text-anchor="start" fill="#5A6480">Reference case (museum insect): haplodiploid, Nf = Nm = 1,000 (Ne = 1,500), samples 1935/1955/1975/2025, 20/20/20/40 females, depth 10×/15×, α = 0.05. 1,000 selection simulations per point; SD about 1.5 points.</text>
-<text x="75.0" y="1186.0" font-size="11" text-anchor="start" fill="#5A6480">b, c: breeding numbers varied (Ne shown) with 1×, 2× and 5× the reference sample sizes. d: each option adds 60 individuals, doubles historical depth, or moves the same 100 individuals to the first and last dates;</text>
+<text x="75.0" y="1186.0" font-size="11" text-anchor="start" fill="#5A6480">b, c: breeding numbers varied (Ne shown) with 1×, 2× and 5× the reference sample sizes. d: each option adds 60 individuals or moves the same 100 individuals to the first and last dates;</text>
 <text x="75.0" y="1202.0" font-size="11" text-anchor="start" fill="#5A6480">s chosen so that the reference design has 55–67% power; 5,000 selection simulations per point (SD of a difference about 1 point).</text>
 <text x="75.0" y="1218.0" font-size="11" text-anchor="start" fill="#5A6480">e: the same mean depth at every date, minimum depth 1 read; Ne = 1,500 and 100,000; 5,000 selection and 10,000 neutral simulations per point (depth_case.js).</text>
 </svg>

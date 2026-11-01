@@ -74,8 +74,8 @@ e.legend([('Ne = 1,500 (strong drift)', pal[0], 'o-'), ('Ne = 100,000 (weak drif
           ('perfect genotypes', COL['muted'], 'd')], e.x + e.w + 20, e.y + 18)
 F.text(75, 1170, 'Reference case (museum insect): haplodiploid, Nf = Nm = 1,000 (Ne = 1,500), samples 1935/1955/1975/2025, 20/20/20/40 females, depth 10×/15×, α = 0.05. '
        '1,000 selection simulations per point; SD about 1.5 points.', 11, color=COL['muted'])
-F.text(75, 1186, 'b, c: breeding numbers varied (Ne shown) with 1×, 2× and 5× the reference sample sizes. d: each option adds 60 individuals, '
-       'doubles historical depth, or moves the same 100 individuals to the first and last dates;', 11, color=COL['muted'])
+F.text(75, 1186, 'b, c: breeding numbers varied (Ne shown) with 1×, 2× and 5× the reference sample sizes. d: each option adds 60 individuals '
+       'or moves the same 100 individuals to the first and last dates;', 11, color=COL['muted'])
 F.text(75, 1202, 's chosen so that the reference design has 55–67% power; 5,000 selection simulations per point (SD of a difference about 1 point).', 11, color=COL['muted'])
 F.text(75, 1218, 'e: the same mean depth at every date, minimum depth 1 read; Ne = 1,500 and 100,000; 5,000 selection and 10,000 neutral simulations per point (depth_case.js).', 11, color=COL['muted'])
 print('bumblebees.svg', F.save('worked_examples/bumblebees.svg'))
