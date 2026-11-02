@@ -2,6 +2,25 @@
 
 Working checklist for the SPOT paper. Related literature is listed in [`RELATED_WORK.md`](RELATED_WORK.md).
 
+## 0. Plan for the next 5-15 days (in this order)
+
+1. [ ] **Finish the main text** (close to final) and **write the supplement** (S1-S8; still a lot of work). Build both as clean versions.
+2. [ ] **Adjust the app** (`index.html`, `sim.js` copy): tie rule (gamma, see `validation/ties_changes.md`), option names and wording to match the manuscript (neutral-simulation threshold, sampling-only threshold, first-versus-last test).
+3. [ ] **Run the simulations still needed**, including those listed below, then **correct the values, screenshots and option names** in the manuscript and supplement (old -> new values: `validation/ties_summary.tsv`).
+4. [ ] **Check all references** (and the "not verified" ones in `RELATED_WORK.md`).
+5. [ ] **GitHub and documentation**: README, `SIMULATION_GUIDE.md` (numbers from `examples/guide_examples.js`), `validation/*.md` (still quote old numbers), CITATION.cff.
+6. [ ] **Colleagues read** the paper, app and README.
+7. [ ] **Last steps**: AI-use declaration, acknowledgements, funding (NERC Poll-A-Gen, grant number), author contributions, conflict of interest, benefit-sharing statement, version 1.0.0 + Zenodo DOI, ORCIDs and affiliations, journal formatting and submission forms, cover letter, figure files at journal resolution.
+
+### Items to add to the steps above
+
+- [ ] **Figure 3a vs 3d colours**: p0 = 0.3 has a different colour in a (purple) and d (amber); in d colours are assigned by position in a 3-value list. Use the same colour for each p0 in both panels (`worked_examples/figures.py`, `pal[k]`).
+- [ ] **Figure 3b, 3c**: only p0 = 0.1 and s = 0.05 are shown, while a and d show several p0. Synchronise: add the other p0 (at least 0.01 and 0.3, with s adapted to each), rerun `worked_examples.js C`, update figure, caption and text.
+- [ ] **Tie rule** (done in `sim.js` and validation scripts on `validation-v2`; not in `index.html`): put the new numbers into the manuscript and supplement (`validation/ties_summary.tsv`).
+- [ ] **Theory check without drift** (`theory_spot.js`, `theory_check.py`): exact power uses a strict ">" at the threshold; apply the same tie weight so that it can be compared with SPOT.
+- [ ] Rerun `examples/guide_examples.js` and `validation/rescale_limits.js` with the new rule.
+- [ ] Merge `validation-v2` into `main` only after the app is updated and tested.
+
 ## 1. Software before submission
 
 - [x] **Rescaling for very many generations** (historical DNA of bacteria and viruses): done. λ chosen automatically (about 2,000 simulated generations), capped at scaled s ≤ 0.025 and scaled N ≥ 200; validated against full simulations; summary and figure in [`validation/rescaling.md`](../validation/rescaling.md).
