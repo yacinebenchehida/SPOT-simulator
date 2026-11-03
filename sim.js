@@ -85,7 +85,7 @@ function simulateRep(P,s,R,keep){
       const ni=P.n[si], dep=si===K-1?P.depthLast:P.depthEarly, k=P.kSib;
       if(hpl){
         for(let i=0;i<ni;i++){const c=callHap(R.u()<pfs?1:0,dep);if(c>=0){x[si]+=c;n[si]+=1}}
-      }else if(k<=1){
+      }else if(k<=1&&!P.famPath){ // unrelated individuals (P.famPath: send k = 1 through the family branch, validation/sibling_path_check.js)
         for(let i=0;i<ni;i++){
           if(mf>0&&R.u()<mf){ // male
             if(hap){const c=callHap(R.u()<pms?1:0,dep);if(c>=0){x[si]+=c;n[si]+=1}}
