@@ -32,7 +32,7 @@ Power without drift (perfect genotypes), old → new (`theory_check.py`):
 
 - SPOT's own power without drift changed in 63 of 240 rows of `theory_power.tsv`, by at most 5.9 points.
 - The drift (heterozygosity) and selection parts are identical.
-- `theory_spot.json` and `theory_drift.tsv` are written by the scripts but were never committed, and still are not.
+- `theory_spot.json` and `theory_drift.tsv` are written by the scripts but had never been committed; they are now in the repository, so that every number of the theory check can be traced.
 - `validation/theory.md` still quotes the old numbers.
 
 ## 2. Sibling path check
