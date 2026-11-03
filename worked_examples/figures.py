@@ -8,6 +8,7 @@ rd = lambda f: list(csv.DictReader(open('worked_examples/' + f), delimiter='\t')
 fl = float
 pct = lambda v: f'{v * 100:.0f}%'
 pal = [COL['blue'], COL['green'], COL['amber'], COL['purple'], COL['red']]
+P0COL = {'0.01': COL['blue'], '0.05': COL['green'], '0.1': COL['amber'], '0.3': COL['purple']}   # same colour for each p0 in every panel
 
 # ---------- Figure 1: bumblebees ----------
 F = Fig(1250, 1250)
@@ -18,24 +19,28 @@ a.hline(0.8, COL['muted'])
 for k, p0 in enumerate(['0.01', '0.05', '0.1', '0.3']):
     r = [x for x in A if x['p0'] == p0]
     xs, ys = [fl(x['s']) for x in r], [fl(x['power_trend']) for x in r]
-    a.line(xs, ys, pal[k]); a.points(xs, ys, pal[k])
-a.legend([(f'p₀ = {p}', pal[k], 'o-') for k, p in enumerate(['0.01', '0.05', '0.1', '0.3'])], a.x + 10, a.y + 18)
+    a.line(xs, ys, P0COL[p0]); a.points(xs, ys, P0COL[p0])
+a.legend([(f'p₀ = {p}', P0COL[p], 'o-') for p in ['0.01', '0.05', '0.1', '0.3']], a.x + 10, a.y + 18)
 
 C = rd('bee_ne.tsv')
-b = Ax(F, 520, 50, 290, 290, (110, 2e5), (0, 1), xlog=True, title='Power against Ne (s = 0.05, p₀ = 0.1)', label='b')
+SC = {'1': ('o', None), '2': ('s', '7 3'), '5': ('^', '2 2.5')}   # sample-size factor: marker and line style
+NE_P0 = [('0.01', '0.05'), ('0.1', '0.05'), ('0.3', '0.015')]          # (p0, s) of bee_ne.tsv
+b = Ax(F, 520, 50, 290, 290, (110, 2e5), (0, 1), xlog=True, title='Power against Ne', label='b')
 b.frame([100, 1000, 10000, 100000], [0, .2, .4, .6, .8, 1], 'effective population size Ne', 'power (trend test)', yfmt=pct)
 b.hline(0.8, COL['muted'])
-c = Ax(F, 920, 50, 290, 290, (110, 2e5), (0, 0.3), xlog=True, title='False positives of the sampling-only threshold', label='c')
-c.frame([100, 1000, 10000, 100000], [0, .05, .1, .15, .2, .25, .3], 'effective population size Ne', 'false-positive rate (intended 5%)', yfmt=pct)
+c = Ax(F, 920, 50, 290, 290, (110, 2e5), (0, 0.4), xlog=True, title='False positives of the sampling-only threshold', label='c')
+c.frame([100, 1000, 10000, 100000], [0, .1, .2, .3, .4], 'effective population size Ne', 'false-positive rate (intended 5%)', yfmt=pct)
 c.hline(0.05, COL['muted'])
-labs = {'1': '20/20/20/40', '2': '40/40/40/80', '5': '100/100/100/200'}
-for k, sc in enumerate(['1', '2', '5']):
-    r = [x for x in C if x['n_scale'] == sc]
-    xs = [fl(x['Ne']) for x in r]
-    b.line(xs, [fl(x['power_trend']) for x in r], pal[k]); b.points(xs, [fl(x['power_trend']) for x in r], pal[k])
-    c.line(xs, [fl(x['fpr_naive']) for x in r], pal[k]); c.points(xs, [fl(x['fpr_naive']) for x in r], pal[k])
-b.legend([(labs[s], pal[k], 'o-') for k, s in enumerate(['1', '2', '5'])], b.X(1500), b.Y(0.42))
-c.legend([(labs[s], pal[k], 'o-') for k, s in enumerate(['1', '2', '5'])], c.X(3000), c.Y(0.29))
+labs = {'1': '20/20/20/40 (×1)', '2': '40/40/40/80 (×2)', '5': '100/100/100/200 (×5)'}
+for p0, s_ in NE_P0:
+    for sc, (mk, dash) in SC.items():
+        r = [x for x in C if x['p0'] == p0 and x['n_scale'] == sc]
+        xs = [fl(x['Ne']) for x in r]
+        for ax, col in ((b, 'power_trend'), (c, 'fpr_naive')):
+            ys = [fl(x[col]) for x in r]
+            ax.line(xs, ys, P0COL[p0], 1.6, dash); ax.points(xs, ys, P0COL[p0], mk, 3.4)
+b.legend([(f'p₀ = {p} (s = {s_})', P0COL[p], 'line') for p, s_ in NE_P0], b.X(1300), b.Y(0.40))
+c.legend([(labs[k], COL['muted'], SC[k][0] + '-') for k in SC], c.X(1800), c.Y(0.385))
 
 B = rd('bee_allocation.tsv')
 designs = [x for x in list(dict.fromkeys(x['design'] for x in B))[1:] if '20x' not in x]  # historical 20x dropped: depth is in panel e
@@ -50,8 +55,8 @@ for i, lab in enumerate(designs):
     for j, Ne in enumerate(['1500', '100000']):
         for k, p0 in enumerate(p0s):
             v = next(fl(x['power_trend']) for x in B if x['design'] == lab and x['Ne'] == Ne and x['p0'] == p0)
-            d.points([100 * (v - ref[(Ne, p0)])], [i + (-0.17 if j == 0 else 0.17)], pal[k], 'o', 4.5, j == 1)
-d.legend([(f'p₀ = {p}', pal[k], 'o') for k, p in enumerate(p0s)] + [('filled: Ne = 1,500 (strong drift)', COL['muted'], 'o'),
+            d.points([100 * (v - ref[(Ne, p0)])], [i + (-0.17 if j == 0 else 0.17)], P0COL[p0], 'o', 4.5, j == 1)
+d.legend([(f'p₀ = {p}', P0COL[p], 'o') for p in p0s] + [('filled: Ne = 1,500 (strong drift)', COL['muted'], 'o'),
           ('hollow: Ne = 100,000 (weak drift)', COL['muted'], 'oh')], d.x + d.w + 20, d.y + 18)
 
 # (e) sequencing depth at all dates (depth_case.js), s = 0.02, minimum depth 1
@@ -74,7 +79,7 @@ e.legend([('Ne = 1,500 (strong drift)', pal[0], 'o-'), ('Ne = 100,000 (weak drif
           ('perfect genotypes', COL['muted'], 'd')], e.x + e.w + 20, e.y + 18)
 F.text(75, 1170, 'Reference case (museum insect): haplodiploid, Nf = Nm = 1,000 (Ne = 1,500), samples 1935/1955/1975/2025, 20/20/20/40 females, depth 10×/15×, α = 0.05. '
        '1,000 selection simulations per point; SD about 1.5 points.', 11, color=COL['muted'])
-F.text(75, 1186, 'b, c: breeding numbers varied (Ne shown) with 1×, 2× and 5× the reference sample sizes. d: each option adds 60 individuals '
+F.text(75, 1186, 'b, c: breeding numbers varied (Ne shown) with 1×, 2× and 5× the reference sample sizes (line style); p₀ = 0.01 and 0.1 with s = 0.05, p₀ = 0.3 with s = 0.015. d: each option adds 60 individuals '
        'or moves the same 100 individuals to the first and last dates;', 11, color=COL['muted'])
 F.text(75, 1202, 's chosen so that the reference design has 55–67% power; 5,000 selection simulations per point (SD of a difference about 1 point).', 11, color=COL['muted'])
 F.text(75, 1218, 'e: the same mean depth at every date, minimum depth 1 read; Ne = 1,500 and 100,000; 5,000 selection and 10,000 neutral simulations per point (depth_case.js).', 11, color=COL['muted'])
