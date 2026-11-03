@@ -13,6 +13,7 @@ from svgplot import Fig, Ax, COL
 
 D = json.load(open('validation/theory_spot.json'))
 Z95 = 1.6448536269514722
+TIE_TOL = 1e-9   # relative tolerance for ties at the threshold, as TIE_TOL in sim.js
 
 
 def det(system, h, s, p0, G, smale=1.0):
@@ -96,10 +97,16 @@ def exact_power(r):
         o = np.argsort(zs, kind='stable')
         cdf = np.cumsum(pz[o])
         crit = zs[o][np.searchsorted(cdf, 0.95 - 1e-12)]   # smallest z with P(Z <= z) >= 0.95, as SPOT's empirical quantile
-        sc = r[stat]['crit']   # SPOT's own threshold, from its neutral replicates
-        out[stat] = {'crit': float(crit), 'powerEmp': float(Ps[Z > crit + 1e-9].sum()), 'powerNaive': float(Ps[Z > Z95].sum()),
-                     'fprNaive': float(Pn[Z > Z95].sum()), 'fprExact': float(Pn[Z > crit + 1e-9].sum()),
-                     'powerAtSpot': float(Ps[Z > sc + 1e-9].sum()), 'sizeAtSpot': float(Pn[Z > sc + 1e-9].sum())}
+        # tie rule of sim.js (empiricalThreshold, exceed): values of Z equal to the threshold count with weight gamma.
+        # Exact gamma at the exact quantile: P(Z > c) + gamma P(Z = c) = 0.05 exactly.
+        eq = lambda c: np.abs(Z - c) <= TIE_TOL * max(1.0, abs(c))
+        above = lambda P, c, g: float(P[(Z > c) & ~eq(c)].sum() + g * P[eq(c)].sum())
+        A_, B_ = float(Pn[(Z > crit) & ~eq(crit)].sum()), float(Pn[eq(crit)].sum())
+        gx = min(max((0.05 - A_) / B_, 0.0), 1 - 1e-12) if B_ > 0 else 0.0
+        sc, gs = r[stat]['crit'], r[stat].get('gamma', 0.0)   # SPOT's own threshold and tie weight, from its neutral replicates
+        out[stat] = {'crit': float(crit), 'gamma': gx, 'tieMass': B_, 'powerEmp': above(Ps, crit, gx), 'powerNaive': float(Ps[Z > Z95].sum()),
+                     'fprNaive': float(Pn[Z > Z95].sum()), 'fprExact': above(Pn, crit, gx),
+                     'powerAtSpot': above(Ps, sc, gs), 'sizeAtSpot': above(Pn, sc, gs)}
     return out
 
 
@@ -215,7 +222,7 @@ A.band(xs, [x - e for x, e in zip(xs, se)], [x + e for x, e in zip(xs, se)], COL
 A.line([0, 1], [0, 1], COL['muted'], 1, '4 4')
 for p in pts:
     A.points([p[0]], [p[1]], COL['blue'] if p[2] == 'powerEmp' else COL['red'], 'o' if p[3] == 'trend' else 's', 3.2)
-A.legend([('drift-aware threshold (SPOT\'s own)', COL['blue'], 'o'), ('naive threshold z₀.₉₅', COL['red'], 'o'),
+A.legend([('neutral-simulation threshold (SPOT\'s own)', COL['blue'], 'o'), ('sampling-only threshold z₀.₉₅', COL['red'], 'o'),
           ('trend test, all points', COL['muted'], 'o'), ('first vs last point', COL['muted'], 's')], A.x + 8, A.y + 16)
 # (b) heterozygosity
 B = Ax(F, 470, 50, 300, 300, (0, 90), (0, 1), title='Neutral drift: heterozygosity retained', label='b')

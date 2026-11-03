@@ -17,8 +17,8 @@ for (const [system, h] of SYSTEMS) for (const p0 of [0.05, 0.2]) for (const s of
   const P = Object.assign({}, BASE, {system, h, p0, s, years, n, noDrift: true, seed: 100 + k++});
   const r = S.runPower(P);
   out.power.push({system, h, p0, s, design: dl, years, n, reps: P.reps,
-    trend: {crit: r.trend.crit, powerEmp: r.trend.powerEmp, powerNaive: r.trend.powerNaive, fprNaive: r.trend.fprNaive},
-    two: {crit: r.two.crit, powerEmp: r.two.powerEmp, powerNaive: r.two.powerNaive, fprNaive: r.two.fprNaive}});
+    trend: {crit: r.trend.crit, gamma: r.trend.gamma, ties: r.trend.ties, powerEmp: r.trend.powerEmp, powerNaive: r.trend.powerNaive, fprNaive: r.trend.fprNaive},
+    two: {crit: r.two.crit, gamma: r.two.gamma, ties: r.two.ties, powerEmp: r.two.powerEmp, powerNaive: r.two.powerNaive, fprNaive: r.two.fprNaive}});
 }
 console.error('power', ((Date.now() - t0) / 1000).toFixed(0) + 's');
 
