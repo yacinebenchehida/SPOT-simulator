@@ -65,7 +65,9 @@ a.line([0, 1], [0, 1], COL['muted'], 1, '4 4')
 for r in Rs:
     a.points([fl(r['power_exact'])], [fl(r['power_rescaled'])], SYS[r['system']], SYSM[r['system']], 3.4)
 a.legend([(k, c, SYSM[k]) for k, c in SYS.items()], a.x + 10, a.y + 18)
-sp = [fl(r['ms_exact']) / max(fl(r['ms_rescaled']), 1) for r in Rs]
+Tm = rd('validation/rescale_times.tsv')   # run times measured alone (rescale_validation.js times), same order as Rs
+assert [(r['G'], r['system'], r['N'], r['s'], r['p0']) for r in Tm] == [(r['G'], r['system'], r['N'], r['s'], r['p0']) for r in Rs]
+sp = [fl(r['speedup']) for r in Tm]
 b = Ax(F, 530, 50, 330, 330, (2, 40), (0.5, 100), xlog=True, ylog=True, title='Speed-up from rescaling', label='b')
 b.frame([2, 5, 10, 20, 40], [1, 2, 5, 10, 20, 50, 100], 'rescaling factor λ', 'run time full / with rescaling')
 b.line([2, 40], [2, 40], COL['muted'], 1, '4 4')
@@ -73,7 +75,7 @@ for r, v in zip(Rs, sp):
     b.points([fl(r['lambda'])], [v], SYS[r['system']], SYSM[r['system']], 3.4, True)
 F.text(75, 430, f'{len(Rs)} test cases, 5,000–60,000 generations; grey band: ±2 Monte Carlo SE of a difference (1,000 selection simulations each); '
        f'b: dashed, speed-up = λ (rescale_validation.js).', 11, color=COL['muted'])
-F.text(75, 446, f'Median speed-up {st.median(sp):.1f}, maximum {max(sp):.0f}; run times measured in one session (several analyses ran in parallel).', 11, color=COL['muted'])
+F.text(75, 446, f'Median speed-up {st.median(sp):.1f}, maximum {max(sp):.0f}; run times of one calculation each, measured with nothing else running (rescale_times.tsv).', 11, color=COL['muted'])
 print('FigS4', F.save(OUT + 'FigS4_rescaling.svg'), 'median speed-up', round(st.median(sp), 2), 'max', round(max(sp), 1))
 
 # ---------- S5: human ancient DNA (copy) ----------
