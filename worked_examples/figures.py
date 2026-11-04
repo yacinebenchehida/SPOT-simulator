@@ -8,6 +8,7 @@ rd = lambda f: list(csv.DictReader(open('worked_examples/' + f), delimiter='\t')
 fl = float
 pct = lambda v: f'{v * 100:.0f}%'
 pal = [COL['blue'], COL['green'], COL['amber'], COL['purple'], COL['red']]
+NECOL = ['#6B6B6B', '#000000']   # panel e: dark grey and black for the two Ne (blue and green are p0 colours)
 P0COL = {'0.01': COL['blue'], '0.05': COL['green'], '0.1': COL['amber'], '0.3': COL['purple']}   # same colour for each p0 in every panel
 
 # ---------- Figure 1: bumblebees ----------
@@ -24,7 +25,7 @@ a.legend([(f'p₀ = {p}', P0COL[p], 'o-') for p in ['0.01', '0.05', '0.1', '0.3'
 
 C = rd('bee_ne.tsv')
 SC = {'1': ('o', None), '2': ('s', '7 3'), '5': ('^', '2 2.5')}   # sample-size factor: marker and line style
-NE_P0 = [('0.01', '0.05'), ('0.1', '0.05'), ('0.3', '0.015')]          # (p0, s) of bee_ne.tsv
+NE_P0 = [('0.01', '0.05'), ('0.1', '0.02'), ('0.3', '0.015')]          # (p0, s) of bee_ne.tsv
 b = Ax(F, 520, 50, 290, 290, (110, 2e5), (0, 1), xlog=True, title='Power against Ne', label='b')
 b.frame([100, 1000, 10000, 100000], [0, .2, .4, .6, .8, 1], 'effective population size Ne', 'power (trend test)', yfmt=pct)
 b.hline(0.8, COL['muted'])
@@ -66,7 +67,7 @@ e = Ax(F, 330, 840, 420, 270, (0.8, 80), (0, 1), xlog=True, title='Sequencing de
 e.frame([1, 2, 5, 10, 30, PERF], [0, .2, .4, .6, .8, 1], 'mean depth at every sampling date', 'power (trend test)',
         xfmt=lambda v: 'perfect' if v == PERF else f'{v:g}×', yfmt=pct)
 for k, Ne in enumerate(['1500', '100000']):
-    col = pal[k]
+    col = NECOL[k]
     r = [x for x in E_ if x['Ne'] == Ne]
     get = lambda lab: next(fl(x['power']) for x in r if x['design'] == lab)
     xs = [1, 2, 5, 10, 30]
@@ -74,14 +75,14 @@ for k, Ne in enumerate(['1500', '100000']):
     e.line(xs, ys, col); e.points(xs, ys, col); e.points([PERF], [get('perfect')], col, 'd', 4.5)
     for err, sh in (('0.02', 's'), ('0.05', '^')):
         e.points([1, 2], [get(f'1x all dates, error {err}'), get(f'2x all dates, error {err}')], col, sh, 4.2, True)
-e.legend([('Ne = 1,500 (strong drift)', pal[0], 'o-'), ('Ne = 100,000 (weak drift)', pal[1], 'o-'),
+e.legend([('Ne = 1,500 (strong drift)', NECOL[0], 'o-'), ('Ne = 100,000 (weak drift)', NECOL[1], 'o-'),
           ('per-read error 0.005', COL['muted'], 'o'), ('error 0.02 (damage)', COL['muted'], 'sh'), ('error 0.05 (damage)', COL['muted'], '^h'),
           ('perfect genotypes', COL['muted'], 'd')], e.x + e.w + 20, e.y + 18)
 F.text(75, 1170, 'Reference case (museum insect): haplodiploid, Nf = Nm = 1,000 (Ne = 1,500), samples 1935/1955/1975/2025, 20/20/20/40 females, depth 10×/15×, α = 0.05. '
        '1,000 selection simulations per point; SD about 1.5 points.', 11, color=COL['muted'])
-F.text(75, 1186, 'b, c: breeding numbers varied (Ne shown) with 1×, 2× and 5× the reference sample sizes (line style); p₀ = 0.01 and 0.1 with s = 0.05, p₀ = 0.3 with s = 0.015. d: each option adds 60 individuals '
-       'or moves the same 100 individuals to the first and last dates;', 11, color=COL['muted'])
-F.text(75, 1202, 's chosen so that the reference design has 55–67% power; 5,000 selection simulations per point (SD of a difference about 1 point).', 11, color=COL['muted'])
+F.text(75, 1186, 'b, c: breeding numbers varied (Ne shown) with 1×, 2× and 5× the reference sample sizes (line style); p₀ = 0.01, 0.1 and 0.3 with s = 0.05, 0.02 and 0.015, as in d.', 11, color=COL['muted'])
+F.text(75, 1202, 'd: each option adds 60 individuals or moves the same 100 individuals to the first and last dates; s chosen so that the reference design has 55–67% power; '
+       '5,000 selection simulations per point.', 11, color=COL['muted'])
 F.text(75, 1218, 'e: the same mean depth at every date, minimum depth 1 read; Ne = 1,500 and 100,000; 5,000 selection and 10,000 neutral simulations per point (depth_case.js).', 11, color=COL['muted'])
 print('bumblebees.svg', F.save('worked_examples/bumblebees.svg'))
 
