@@ -28,7 +28,7 @@ for r in T:
 a.legend([('diploid', SYS['diploid'][0], 'o'), ('haploid', SYS['haploid'][0], 's'), ('haplodiploid', SYS['haplodiploid'][0], '^'),
           ('hollow: neutral runs', COL['muted'], 'oh')], a.x + 8, a.y + 16)
 # (c) power, SPOT against SLiM, with +-2 standard errors of the difference
-c_ = Ax(F, 730, 50, 250, 250, (0.1, 0.8), (0.1, 0.8), title='Power (drift-aware trend test)', label='c')
+c_ = Ax(F, 730, 50, 250, 250, (0.1, 0.8), (0.1, 0.8), title='Power (trend test)', label='c')
 c_.frame([.2, .4, .6, .8], [.2, .4, .6, .8], 'SPOT', 'SLiM', xfmt=pct, yfmt=pct)
 c_.line([0.1, 0.8], [0.1, 0.8], COL['muted'], 1, '4 4')
 for r in P:
@@ -52,5 +52,5 @@ for i, r in enumerate(Qs):
 F.text(70, 395, 'Same scenarios simulated by SPOT and by SLiM 5.2 (2,000 replicate populations each; d: 8,000 SLiM neutral replicates, SPOT threshold from 20,000). '
        'Sampling at generations 0, 20, 40 and 90,', 11, color=COL['muted'])
 F.text(70, 411, '20/20/20/40 females, perfect genotypes. a, b: allele frequency among breeding females after selection at generations 20, 40 and 90. '
-       'c, d: bars show ±2 standard errors.', 11, color=COL['muted'])
+       'c: neutral-simulation threshold of each program. c, d: bars show ±2 standard errors.', 11, color=COL['muted'])
 print('figure bytes', F.save('validation/slim_check.svg'))

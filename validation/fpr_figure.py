@@ -44,7 +44,7 @@ for i, r in enumerate(rows):
 
 # (c) small per-locus alpha: realised / nominal false-positive rate, trend test
 c = Ax(F, 1000, 50, 280, 320, (3e-5, 0.08), (0.1, 1000), xlog=True, ylog=True, title='Many loci tested (Bonferroni)', label='c')
-c.frame([5e-5, 5e-4, 5e-3, 5e-2], [0.1, 1, 10, 100, 1000], 'per-locus α′ = 0.05 / m', 'realised / intended false-positive rate')
+c.frame([5e-5, 5e-4, 5e-3, 5e-2], [0.1, 1, 10, 100, 1000], 'per-locus α′ = 0.05 / L', 'realised / intended false-positive rate')
 F.o.append(f'<rect x="{c.X(3e-5):.1f}" y="{c.y}" width="{c.X(0.0025) - c.X(3e-5):.1f}" height="{c.h}" fill="{COL["grey"]}" fill-opacity=".12"/>')
 F.text(c.X(3.5e-5), c.Y(0.25), 'more neutral simulations', 10, color=COL['muted'])
 F.text(c.X(3.5e-5), c.Y(0.25) + 12, '(20,000 and 200,000)', 10, color=COL['muted'])
