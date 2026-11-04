@@ -8,7 +8,7 @@ rd = lambda f: list(csv.DictReader(open(f), delimiter='\t'))
 A_, B_, C_ = rd('validation/fpr_A.tsv'), rd('validation/fpr_B.tsv'), rd('validation/fpr_C.tsv')
 G_ = rd('validation/fpr_C_gaussian.tsv')   # same analysis with a normal fit to 2,000 neutral simulations, for comparison
 fl = lambda r, k: float(r[k])
-F = Fig(1310, 490)
+F = Fig(1310, 440)
 SH = {'haploid': 'o', 'diploid': 's', 'haplodiploid': '^'}
 
 # (a) false-positive rate against Ne, trend test
@@ -63,8 +63,5 @@ for key, sh, _ in DS:
         c.line(al, ys, col, 1.2)
         c.points(al, ys, col, sh, 3.8)
 c.legend([(lab_, COL['muted'], sh) for _, sh, lab_ in DS] + [('normal fit (2,000 neutral)', COL['grey'], 'dash')], c.X(0.0011), c.Y(700))
-F.text(75, 440, 'Trend test across all sampling dates. Blue: neutral-simulation threshold, mean realised rate of 20 thresholds, each set by SPOT from its own neutral simulations', 11, color=COL['muted'])
-F.text(75, 456, '(2,000 by default; c: up to 200,000), applied to 100,000 (c: 100,000 or 1,000,000) independent neutral simulations. Red: sampling-only threshold.', 11, color=COL['muted'])
-F.text(75, 472, 'Reference design: haplodiploid, 1935/1955/1975/2025, 20/20/20/40 females, 10×/15× depth, p₀ = 0.1. a: Ne varied in each inheritance system. '
-       'b: one factor changed at a time.', 11, color=COL['muted'])
+# no text under the figure: the settings are in the caption of the paper
 print('figure bytes', F.save('validation/false_positive_rate.svg'))
