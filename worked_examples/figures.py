@@ -100,7 +100,7 @@ for k, h in enumerate(order):
     e.line(xs, [fl(x['power_trend']) for x in r], pal[k]); e.points(xs, [fl(x['power_trend']) for x in r], pal[k])
     e.line(xs, [fl(x['power_naive']) for x in r], pal[k], 1.2, '4 3')
 e.legend([(h.replace('bottleneck: ', 'bottleneck, ').replace('constant', 'constant'), pal[k], 'o-') for k, h in enumerate(order)]
-         + [('dashed: naive test', COL['muted'], 'dash')], e.x + 10, e.y + 18)
+         + [('dashed: sampling-only threshold', COL['muted'], 'dash')], e.x + 10, e.y + 18)
 P = rd('pathogen.tsv')
 f = Ax(F, 570, 50, 340, 290, (1.5e-5, 7e-4), (0, 1), xlog=True, title='Bacterial pathogen (17,000 generations, rescaled)', label='b')
 f.frame([2e-5, 5e-5, 1e-4, 2e-4, 5e-4], [0, .2, .4, .6, .8, 1], 'selection coefficient s (per generation)', 'power', yfmt=pct)
@@ -108,7 +108,7 @@ f.hline(0.8, COL['muted'])
 xs = [fl(x['s_per_generation']) for x in P]
 f.line(xs, [fl(x['power_trend']) for x in P], pal[0]); f.points(xs, [fl(x['power_trend']) for x in P], pal[0])
 f.line(xs, [fl(x['power_naive']) for x in P], pal[0], 1.2, '4 3')
-f.legend([('drift-aware test', pal[0], 'o-'), ('naive test', pal[0], 'dash')], f.x + 10, f.y + 18)
+f.legend([('neutral-simulation threshold', pal[0], 'o-'), ('sampling-only threshold', pal[0], 'dash')], f.x + 10, f.y + 18)
 F.text(75, 392, 'a: diploid, generation time 20 years, samples 1880/1950/2020 (20/20/40), Ne 5,000 before 1950 and as shown after; p₀ = 0.1.', 11, color=COL['muted'])
 F.text(75, 408, 'b: haploid, 100 generations per year, N = 100,000, samples 1850/1900/1950/2000/2020; p₀ = 0.05.', 11, color=COL['muted'])
 F.text(75, 424, 'Example scenarios of the page; 1,000 (a) and 500 (b) replicates under selection per point.', 11, color=COL['muted'])

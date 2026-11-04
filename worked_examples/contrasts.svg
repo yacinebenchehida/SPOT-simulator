@@ -68,7 +68,7 @@
 <use href="#m5" x="95.0" y="98.0"/>
 <text x="112.0" y="102.0" font-size="11" text-anchor="start" fill="#0F1730">severe bottleneck, Ne 5,000 then 50</text>
 <line x1="85" x2="105" y1="115" y2="115" stroke="#5A6480" stroke-width="2" stroke-dasharray="5 3"/>
-<text x="112.0" y="119.0" font-size="11" text-anchor="start" fill="#0F1730">dashed: naive test</text>
+<text x="112.0" y="119.0" font-size="11" text-anchor="start" fill="#0F1730">dashed: sampling-only threshold</text>
 <text x="570.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Bacterial pathogen (17,000 generations, rescaled)</text>
 <text x="518.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">b</text>
 <line x1="570" x2="910" y1="340.0" y2="340.0" stroke="#E1E5EF"/>
@@ -106,9 +106,9 @@
 <path d="M595.5 308.7L676.5 284.9L737.8 239.1L799.2 124.8L880.2 51.7" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity="1"/>
 <line x1="580" x2="600" y1="64" y2="64" stroke="#2B59D9" stroke-width="2"/>
 <use href="#m3" x="590.0" y="64.0"/>
-<text x="607.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">drift-aware test</text>
+<text x="607.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">neutral-simulation threshold</text>
 <line x1="580" x2="600" y1="81" y2="81" stroke="#2B59D9" stroke-width="2" stroke-dasharray="5 3"/>
-<text x="607.0" y="85.0" font-size="11" text-anchor="start" fill="#0F1730">naive test</text>
+<text x="607.0" y="85.0" font-size="11" text-anchor="start" fill="#0F1730">sampling-only threshold</text>
 <text x="75.0" y="392.0" font-size="11" text-anchor="start" fill="#5A6480">a: diploid, generation time 20 years, samples 1880/1950/2020 (20/20/40), Ne 5,000 before 1950 and as shown after; p₀ = 0.1.</text>
 <text x="75.0" y="408.0" font-size="11" text-anchor="start" fill="#5A6480">b: haploid, 100 generations per year, N = 100,000, samples 1850/1900/1950/2000/2020; p₀ = 0.05.</text>
 <text x="75.0" y="424.0" font-size="11" text-anchor="start" fill="#5A6480">Example scenarios of the page; 1,000 (a) and 500 (b) replicates under selection per point.</text>
