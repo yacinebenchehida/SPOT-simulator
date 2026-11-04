@@ -47,9 +47,9 @@ if (part === 'B') { // each option adds 60 individuals or doubles historical dep
     console.log([Ne, lab, p0, s, P.n.reduce((a, b) => a + b, 0), ...run(P, {p0, s})].join('\t')); } log('B ' + Ne + ' ' + p0); }
 }
 if (part === 'C') { // power and sampling-only false positives against Ne, for 1x, 2x and 5x the sample sizes, three p0;
-  // p0 = 0.1 with s = 0.05 as before; p0 = 0.01 and 0.3 with the s of part B at Ne = 1,500 (reference power 67% and 55%)
+  // the same (p0, s) as part B at Ne = 1,500 (panel d): reference power 67%, 55% and 55%
   console.log(['p0', 's', 'N_breeding_each_sex', 'Ne', 'het_retained', 'n_scale', 'n', ...H].join('\t'));
-  for (const [p0, s] of [[0.1, 0.05], [0.01, 0.05], [0.3, 0.015]]) for (const k of [1, 2, 5]) { for (const N of [100, 200, 300, 500, 1000, 2000, 5000, 20000, 100000]) {
+  for (const [p0, s] of [[0.1, 0.02], [0.01, 0.05], [0.3, 0.015]]) for (const k of [1, 2, 5]) { for (const N of [100, 200, 300, 500, 1000, 2000, 5000, 20000, 100000]) {
     const n = BEE.n.map(x => x * k), P = Object.assign({}, BEE, {Nf: N, Nm: N, n, p0, s});
     console.log([p0, s, N, Math.round(S.neFor(P)), S.hetRetained(P).toFixed(4), k, n.join('/'), ...run(P)].join('\t')); } log('C p0 ' + p0 + ' x' + k); }
 }
