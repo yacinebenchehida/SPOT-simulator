@@ -1,54 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="450" viewBox="0 0 840 450" font-family="Helvetica,Arial,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="420" viewBox="0 0 560 420" font-family="Helvetica,Arial,sans-serif">
 <defs><g id="m0"><circle r="4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m1"><rect x="-4" y="-4" width="8" height="8" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m2"><circle r="3.5" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m3"><rect x="-3.5" y="-3.5" width="7.0" height="7.0" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g></defs>
-<rect width="840" height="450" fill="#fff"/>
-<text x="75.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Bacterial pathogen (17,000 generations, rescaled)</text>
-<line x1="75" x2="405" y1="350.0" y2="350.0" stroke="#E1E5EF"/>
-<text x="69" y="354.0" font-size="11" text-anchor="end" fill="#5A6480">0%</text>
-<line x1="75" x2="405" y1="290.0" y2="290.0" stroke="#E1E5EF"/>
-<text x="69" y="294.0" font-size="11" text-anchor="end" fill="#5A6480">20%</text>
-<line x1="75" x2="405" y1="230.0" y2="230.0" stroke="#E1E5EF"/>
-<text x="69" y="234.0" font-size="11" text-anchor="end" fill="#5A6480">40%</text>
-<line x1="75" x2="405" y1="170.0" y2="170.0" stroke="#E1E5EF"/>
-<text x="69" y="174.0" font-size="11" text-anchor="end" fill="#5A6480">60%</text>
-<line x1="75" x2="405" y1="110.0" y2="110.0" stroke="#E1E5EF"/>
-<text x="69" y="114.0" font-size="11" text-anchor="end" fill="#5A6480">80%</text>
-<line x1="75" x2="405" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
-<text x="69" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">100%</text>
-<line x1="99.7" x2="99.7" y1="350" y2="354" stroke="#5A6480"/>
-<text x="99.7" y="367" font-size="11" text-anchor="middle" fill="#5A6480">2e-05</text>
-<line x1="178.4" x2="178.4" y1="350" y2="354" stroke="#5A6480"/>
-<text x="178.4" y="367" font-size="11" text-anchor="middle" fill="#5A6480">5e-05</text>
-<line x1="237.9" x2="237.9" y1="350" y2="354" stroke="#5A6480"/>
-<text x="237.9" y="367" font-size="11" text-anchor="middle" fill="#5A6480">0.0001</text>
-<line x1="297.4" x2="297.4" y1="350" y2="354" stroke="#5A6480"/>
-<text x="297.4" y="367" font-size="11" text-anchor="middle" fill="#5A6480">0.0002</text>
-<line x1="376.1" x2="376.1" y1="350" y2="354" stroke="#5A6480"/>
-<text x="376.1" y="367" font-size="11" text-anchor="middle" fill="#5A6480">0.0005</text>
-<rect x="75" y="50" width="330" height="300" fill="none" stroke="#0F1730" stroke-width=".8"/>
-<text x="240.0" y="386.0" font-size="12" text-anchor="middle" fill="#0F1730">selection coefficient s per generation</text>
-<text x="31.0" y="200.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 200.0)">power</text>
-<path d="M75.0 110.0L405.0 110.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
-<path d="M99.7 329.0L178.4 313.4L237.9 268.4L297.4 136.4L376.1 51.8" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
-<use href="#m0" x="99.7" y="329.0"/>
-<use href="#m0" x="178.4" y="313.4"/>
-<use href="#m0" x="237.9" y="268.4"/>
-<use href="#m0" x="297.4" y="136.4"/>
-<use href="#m0" x="376.1" y="51.8"/>
-<path d="M99.7 331.9L178.4 313.9L237.9 269.8L297.4 144.0L376.1 51.8" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-opacity="1"/>
-<use href="#m1" x="99.7" y="331.9"/>
-<use href="#m1" x="178.4" y="313.9"/>
-<use href="#m1" x="237.9" y="269.8"/>
-<use href="#m1" x="297.4" y="144.0"/>
-<use href="#m1" x="376.1" y="51.8"/>
-<path d="M99.7 317.6L178.4 293.0L237.9 245.6L297.4 127.4L376.1 51.8" fill="none" stroke="#D9363E" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity="1"/>
-<line x1="85" x2="105" y1="64" y2="64" stroke="#2B59D9" stroke-width="2"/>
-<use href="#m2" x="95.0" y="64.0"/>
-<text x="112.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">trend test</text>
-<line x1="85" x2="105" y1="81" y2="81" stroke="#0E9F6E" stroke-width="2"/>
-<use href="#m3" x="95.0" y="81.0"/>
-<text x="112.0" y="85.0" font-size="11" text-anchor="start" fill="#0F1730">first-versus-last test</text>
-<line x1="85" x2="105" y1="98" y2="98" stroke="#D9363E" stroke-width="2" stroke-dasharray="5 3"/>
-<text x="112.0" y="102.0" font-size="11" text-anchor="start" fill="#0F1730">sampling-only threshold (trend)</text>
-<text x="75.0" y="405.0" font-size="11" text-anchor="start" fill="#5A6480">Haploid, 100 generations per year, N = 100,000, samples 1850/1900/1950/2000/2020 (10/10/15/20/40), p₀ = 0.05;</text>
-<text x="75.0" y="421.0" font-size="11" text-anchor="start" fill="#5A6480">500 selection simulations per point (worked_examples.js E).</text>
+<rect width="560" height="420" fill="#fff"/>
+<text x="85.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Bacterial pathogen, 17,000 generations</text>
+<line x1="85" x2="485" y1="350.0" y2="350.0" stroke="#E1E5EF"/>
+<text x="79" y="354.0" font-size="11" text-anchor="end" fill="#5A6480">0%</text>
+<line x1="85" x2="485" y1="290.0" y2="290.0" stroke="#E1E5EF"/>
+<text x="79" y="294.0" font-size="11" text-anchor="end" fill="#5A6480">20%</text>
+<line x1="85" x2="485" y1="230.0" y2="230.0" stroke="#E1E5EF"/>
+<text x="79" y="234.0" font-size="11" text-anchor="end" fill="#5A6480">40%</text>
+<line x1="85" x2="485" y1="170.0" y2="170.0" stroke="#E1E5EF"/>
+<text x="79" y="174.0" font-size="11" text-anchor="end" fill="#5A6480">60%</text>
+<line x1="85" x2="485" y1="110.0" y2="110.0" stroke="#E1E5EF"/>
+<text x="79" y="114.0" font-size="11" text-anchor="end" fill="#5A6480">80%</text>
+<line x1="85" x2="485" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
+<text x="79" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">100%</text>
+<line x1="114.9" x2="114.9" y1="350" y2="354" stroke="#5A6480"/>
+<text x="114.9" y="367" font-size="11" text-anchor="middle" fill="#5A6480">0.00002</text>
+<line x1="210.3" x2="210.3" y1="350" y2="354" stroke="#5A6480"/>
+<text x="210.3" y="367" font-size="11" text-anchor="middle" fill="#5A6480">0.00005</text>
+<line x1="282.5" x2="282.5" y1="350" y2="354" stroke="#5A6480"/>
+<text x="282.5" y="367" font-size="11" text-anchor="middle" fill="#5A6480">0.0001</text>
+<line x1="354.6" x2="354.6" y1="350" y2="354" stroke="#5A6480"/>
+<text x="354.6" y="367" font-size="11" text-anchor="middle" fill="#5A6480">0.0002</text>
+<line x1="450.0" x2="450.0" y1="350" y2="354" stroke="#5A6480"/>
+<text x="450.0" y="367" font-size="11" text-anchor="middle" fill="#5A6480">0.0005</text>
+<rect x="85" y="50" width="400" height="300" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="285.0" y="386.0" font-size="12" text-anchor="middle" fill="#0F1730">selection coefficient s per generation</text>
+<text x="41.0" y="200.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 41.0 200.0)">power</text>
+<path d="M85.0 110.0L485.0 110.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
+<path d="M114.9 329.0L210.3 313.4L282.5 268.4L354.6 136.4L450.0 51.8" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m0" x="114.9" y="329.0"/>
+<use href="#m0" x="210.3" y="313.4"/>
+<use href="#m0" x="282.5" y="268.4"/>
+<use href="#m0" x="354.6" y="136.4"/>
+<use href="#m0" x="450.0" y="51.8"/>
+<path d="M114.9 331.9L210.3 313.9L282.5 269.8L354.6 144.0L450.0 51.8" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m1" x="114.9" y="331.9"/>
+<use href="#m1" x="210.3" y="313.9"/>
+<use href="#m1" x="282.5" y="269.8"/>
+<use href="#m1" x="354.6" y="144.0"/>
+<use href="#m1" x="450.0" y="51.8"/>
+<path d="M114.9 317.6L210.3 293.0L282.5 245.6L354.6 127.4L450.0 51.8" fill="none" stroke="#D9363E" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity="1"/>
+<line x1="95" x2="115" y1="64" y2="64" stroke="#2B59D9" stroke-width="2"/>
+<use href="#m2" x="105.0" y="64.0"/>
+<text x="122.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">trend test</text>
+<line x1="95" x2="115" y1="81" y2="81" stroke="#0E9F6E" stroke-width="2"/>
+<use href="#m3" x="105.0" y="81.0"/>
+<text x="122.0" y="85.0" font-size="11" text-anchor="start" fill="#0F1730">first-versus-last test</text>
+<line x1="95" x2="115" y1="98" y2="98" stroke="#D9363E" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="122.0" y="102.0" font-size="11" text-anchor="start" fill="#0F1730">trend test, sampling-only threshold</text>
 </svg>
