@@ -1,0 +1,338 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="830" viewBox="0 0 1200 830" font-family="Helvetica,Arial,sans-serif">
+<defs><g id="m0"><circle r="3.2" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m1"><circle r="5.5" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m2"><circle r="3.2" fill="#fff" stroke="#0E9F6E" stroke-width="1.5"/></g><g id="m3"><circle r="5.5" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m4"><circle r="3.2" fill="#fff" stroke="#C27A12" stroke-width="1.5"/></g><g id="m5"><circle r="5.5" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m6"><circle r="3.2" fill="#fff" stroke="#8B4FD6" stroke-width="1.5"/></g><g id="m7"><circle r="5.5" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m8"><circle r="3.2" fill="#fff" stroke="#D9363E" stroke-width="1.5"/></g><g id="m9"><circle r="5.5" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m10"><circle r="3.2" fill="#fff" stroke="#0F1730" stroke-width="1.5"/></g><g id="m11"><circle r="5.5" fill="#0F1730" stroke="#fff" stroke-width="0.6"/></g><g id="m12"><circle r="4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m13"><circle r="4" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m14"><circle r="4" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m15"><circle r="4" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m16"><circle r="4" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m17"><circle r="4" fill="#0F1730" stroke="#fff" stroke-width="0.6"/></g><g id="m18"><circle r="4" fill="#fff" stroke="#5A6480" stroke-width="1.5"/></g><g id="m19"><circle r="4" fill="#5A6480" stroke="#fff" stroke-width="0.6"/></g><g id="m20"><rect x="-4" y="-4" width="8" height="8" fill="#0F1730" stroke="#fff" stroke-width="0.6"/></g><g id="m21"><rect x="-4" y="-4" width="8" height="8" fill="#fff" stroke="#0F1730" stroke-width="1.5"/></g><g id="m22"><circle r="4" fill="#fff" stroke="#0F1730" stroke-width="1.5"/></g><g id="m23"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#0F1730" stroke="#fff" stroke-width="0.6"/></g><g id="m24"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#fff" stroke="#0F1730" stroke-width="1.5"/></g><g id="m25"><rect x="-4" y="-4" width="8" height="8" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m26"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m27"><rect x="-4" y="-4" width="8" height="8" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m28"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g></defs>
+<rect width="1200" height="830" fill="#fff"/>
+<text x="75.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Power in each of the 20 runs</text>
+<text x="23.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">a</text>
+<line x1="75" x2="405" y1="354.6" y2="354.6" stroke="#E1E5EF"/>
+<text x="69" y="358.6" font-size="11" text-anchor="end" fill="#5A6480">20%</text>
+<line x1="75" x2="405" y1="303.8" y2="303.8" stroke="#E1E5EF"/>
+<text x="69" y="307.8" font-size="11" text-anchor="end" fill="#5A6480">30%</text>
+<line x1="75" x2="405" y1="253.1" y2="253.1" stroke="#E1E5EF"/>
+<text x="69" y="257.1" font-size="11" text-anchor="end" fill="#5A6480">40%</text>
+<line x1="75" x2="405" y1="202.3" y2="202.3" stroke="#E1E5EF"/>
+<text x="69" y="206.3" font-size="11" text-anchor="end" fill="#5A6480">50%</text>
+<line x1="75" x2="405" y1="151.5" y2="151.5" stroke="#E1E5EF"/>
+<text x="69" y="155.5" font-size="11" text-anchor="end" fill="#5A6480">60%</text>
+<line x1="75" x2="405" y1="100.8" y2="100.8" stroke="#E1E5EF"/>
+<text x="69" y="104.8" font-size="11" text-anchor="end" fill="#5A6480">70%</text>
+<line x1="75" x2="405" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
+<text x="69" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">80%</text>
+<line x1="100.4" x2="100.4" y1="380" y2="384" stroke="#5A6480"/>
+<text x="100.4" y="397" font-size="11" text-anchor="middle" fill="#5A6480">20%</text>
+<line x1="151.2" x2="151.2" y1="380" y2="384" stroke="#5A6480"/>
+<text x="151.2" y="397" font-size="11" text-anchor="middle" fill="#5A6480">30%</text>
+<line x1="201.9" x2="201.9" y1="380" y2="384" stroke="#5A6480"/>
+<text x="201.9" y="397" font-size="11" text-anchor="middle" fill="#5A6480">40%</text>
+<line x1="252.7" x2="252.7" y1="380" y2="384" stroke="#5A6480"/>
+<text x="252.7" y="397" font-size="11" text-anchor="middle" fill="#5A6480">50%</text>
+<line x1="303.5" x2="303.5" y1="380" y2="384" stroke="#5A6480"/>
+<text x="303.5" y="397" font-size="11" text-anchor="middle" fill="#5A6480">60%</text>
+<line x1="354.2" x2="354.2" y1="380" y2="384" stroke="#5A6480"/>
+<text x="354.2" y="397" font-size="11" text-anchor="middle" fill="#5A6480">70%</text>
+<line x1="405.0" x2="405.0" y1="380" y2="384" stroke="#5A6480"/>
+<text x="405.0" y="397" font-size="11" text-anchor="middle" fill="#5A6480">80%</text>
+<rect x="75" y="50" width="330" height="330" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="240.0" y="416.0" font-size="12" text-anchor="middle" fill="#0F1730">power with SLiM</text>
+<text x="31.0" y="215.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 215.0)">power with SPOT</text>
+<path d="M75.0 380.0L405.0 50.0" fill="none" stroke="#5A6480" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="1"/>
+<use href="#m0" x="148.6" y="290.6"/>
+<use href="#m0" x="164.1" y="303.8"/>
+<use href="#m0" x="171.5" y="301.3"/>
+<use href="#m0" x="152.7" y="283.8"/>
+<use href="#m0" x="149.9" y="288.6"/>
+<use href="#m0" x="168.2" y="283.8"/>
+<use href="#m0" x="184.7" y="290.0"/>
+<use href="#m0" x="158.0" y="290.4"/>
+<use href="#m0" x="150.4" y="316.5"/>
+<use href="#m0" x="159.5" y="295.7"/>
+<use href="#m0" x="170.4" y="289.1"/>
+<use href="#m0" x="160.0" y="290.1"/>
+<use href="#m0" x="166.9" y="300.5"/>
+<use href="#m0" x="157.5" y="292.4"/>
+<use href="#m0" x="149.9" y="293.7"/>
+<use href="#m0" x="156.2" y="309.4"/>
+<use href="#m0" x="160.8" y="303.6"/>
+<use href="#m0" x="175.3" y="302.1"/>
+<use href="#m0" x="170.7" y="278.5"/>
+<use href="#m0" x="157.2" y="291.9"/>
+<use href="#m1" x="161.6" y="294.8"/>
+<use href="#m2" x="117.6" y="334.6"/>
+<use href="#m2" x="119.4" y="328.0"/>
+<use href="#m2" x="135.7" y="327.5"/>
+<use href="#m2" x="121.7" y="322.6"/>
+<use href="#m2" x="109.0" y="333.3"/>
+<use href="#m2" x="128.1" y="331.3"/>
+<use href="#m2" x="135.4" y="311.0"/>
+<use href="#m2" x="122.0" y="333.3"/>
+<use href="#m2" x="117.4" y="326.2"/>
+<use href="#m2" x="130.6" y="333.8"/>
+<use href="#m2" x="132.2" y="337.4"/>
+<use href="#m2" x="118.9" y="314.3"/>
+<use href="#m2" x="131.1" y="324.2"/>
+<use href="#m2" x="124.5" y="328.2"/>
+<use href="#m2" x="120.9" y="331.0"/>
+<use href="#m2" x="126.5" y="324.9"/>
+<use href="#m2" x="113.1" y="324.9"/>
+<use href="#m2" x="133.1" y="332.5"/>
+<use href="#m2" x="134.7" y="335.1"/>
+<use href="#m2" x="122.5" y="329.7"/>
+<use href="#m3" x="124.7" y="328.2"/>
+<use href="#m4" x="250.9" y="175.9"/>
+<use href="#m4" x="267.2" y="202.8"/>
+<use href="#m4" x="273.8" y="195.7"/>
+<use href="#m4" x="269.7" y="179.7"/>
+<use href="#m4" x="249.9" y="179.2"/>
+<use href="#m4" x="262.1" y="179.5"/>
+<use href="#m4" x="262.6" y="188.3"/>
+<use href="#m4" x="261.8" y="179.7"/>
+<use href="#m4" x="267.2" y="184.8"/>
+<use href="#m4" x="274.3" y="187.3"/>
+<use href="#m4" x="255.2" y="172.1"/>
+<use href="#m4" x="274.5" y="189.4"/>
+<use href="#m4" x="280.4" y="196.5"/>
+<use href="#m4" x="274.5" y="195.2"/>
+<use href="#m4" x="278.3" y="187.1"/>
+<use href="#m4" x="279.1" y="181.2"/>
+<use href="#m4" x="247.6" y="179.2"/>
+<use href="#m4" x="279.6" y="193.9"/>
+<use href="#m4" x="267.4" y="179.7"/>
+<use href="#m4" x="275.0" y="169.1"/>
+<use href="#m5" x="267.6" y="184.8"/>
+<use href="#m6" x="223.2" y="242.7"/>
+<use href="#m6" x="201.3" y="235.6"/>
+<use href="#m6" x="223.0" y="233.3"/>
+<use href="#m6" x="215.9" y="223.9"/>
+<use href="#m6" x="212.3" y="238.1"/>
+<use href="#m6" x="223.8" y="232.7"/>
+<use href="#m6" x="221.3" y="231.7"/>
+<use href="#m6" x="214.9" y="225.1"/>
+<use href="#m6" x="203.2" y="227.9"/>
+<use href="#m6" x="213.1" y="225.2"/>
+<use href="#m6" x="225.1" y="224.5"/>
+<use href="#m6" x="210.0" y="248.5"/>
+<use href="#m6" x="215.9" y="246.7"/>
+<use href="#m6" x="204.5" y="231.8"/>
+<use href="#m6" x="222.9" y="241.4"/>
+<use href="#m6" x="227.2" y="210.4"/>
+<use href="#m6" x="193.5" y="238.4"/>
+<use href="#m6" x="232.6" y="231.8"/>
+<use href="#m6" x="222.7" y="238.1"/>
+<use href="#m6" x="213.5" y="249.8"/>
+<use href="#m7" x="216.0" y="233.9"/>
+<use href="#m8" x="215.9" y="229.5"/>
+<use href="#m8" x="223.2" y="235.1"/>
+<use href="#m8" x="219.7" y="243.9"/>
+<use href="#m8" x="219.9" y="226.9"/>
+<use href="#m8" x="224.3" y="232.5"/>
+<use href="#m8" x="219.9" y="247.0"/>
+<use href="#m8" x="206.9" y="241.1"/>
+<use href="#m8" x="217.9" y="230.5"/>
+<use href="#m8" x="211.1" y="225.4"/>
+<use href="#m8" x="220.5" y="235.1"/>
+<use href="#m8" x="213.1" y="254.9"/>
+<use href="#m8" x="209.5" y="235.6"/>
+<use href="#m8" x="226.0" y="232.8"/>
+<use href="#m8" x="215.9" y="229.5"/>
+<use href="#m8" x="246.9" y="232.4"/>
+<use href="#m8" x="226.0" y="245.0"/>
+<use href="#m8" x="234.4" y="243.3"/>
+<use href="#m8" x="241.8" y="233.8"/>
+<use href="#m8" x="206.0" y="236.1"/>
+<use href="#m8" x="194.8" y="256.1"/>
+<use href="#m9" x="219.7" y="237.3"/>
+<use href="#m10" x="345.6" y="121.8"/>
+<use href="#m10" x="321.9" y="110.4"/>
+<use href="#m10" x="355.2" y="122.1"/>
+<use href="#m10" x="338.1" y="122.2"/>
+<use href="#m10" x="328.6" y="123.7"/>
+<use href="#m10" x="340.3" y="131.0"/>
+<use href="#m10" x="335.7" y="130.9"/>
+<use href="#m10" x="343.6" y="105.8"/>
+<use href="#m10" x="341.8" y="104.0"/>
+<use href="#m10" x="337.2" y="115.7"/>
+<use href="#m10" x="333.2" y="115.8"/>
+<use href="#m10" x="343.1" y="123.6"/>
+<use href="#m10" x="340.8" y="109.8"/>
+<use href="#m10" x="342.0" y="109.1"/>
+<use href="#m10" x="334.6" y="126.6"/>
+<use href="#m10" x="349.4" y="123.4"/>
+<use href="#m10" x="343.1" y="128.1"/>
+<use href="#m10" x="343.3" y="123.9"/>
+<use href="#m10" x="346.4" y="118.8"/>
+<use href="#m10" x="336.5" y="120.4"/>
+<use href="#m11" x="340.0" y="119.4"/>
+<use href="#m12" x="440.0" y="64.0"/>
+<text x="457.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">diploid, Ne = 1,000, s = 0.02</text>
+<use href="#m13" x="440.0" y="81.0"/>
+<text x="457.0" y="85.0" font-size="11" text-anchor="start" fill="#0F1730">diploid, Ne = 1,000, s = 0.05, h = 0</text>
+<use href="#m14" x="440.0" y="98.0"/>
+<text x="457.0" y="102.0" font-size="11" text-anchor="start" fill="#0F1730">diploid, Ne = 200, s = 0.05</text>
+<use href="#m15" x="440.0" y="115.0"/>
+<text x="457.0" y="119.0" font-size="11" text-anchor="start" fill="#0F1730">haploid, N = 1,000, s = 0.02</text>
+<use href="#m16" x="440.0" y="132.0"/>
+<text x="457.0" y="136.0" font-size="11" text-anchor="start" fill="#0F1730">haplodiploid, Ne = 750, s = 0.02</text>
+<use href="#m17" x="440.0" y="149.0"/>
+<text x="457.0" y="153.0" font-size="11" text-anchor="start" fill="#0F1730">haplodiploid, Ne = 1,500, s = 0.05</text>
+<use href="#m18" x="440.0" y="166.0"/>
+<text x="457.0" y="170.0" font-size="11" text-anchor="start" fill="#0F1730">hollow: one run</text>
+<use href="#m19" x="440.0" y="183.0"/>
+<text x="457.0" y="187.0" font-size="11" text-anchor="start" fill="#0F1730">filled: mean of the 20 runs</text>
+<line x1="430" x2="450" y1="200" y2="200" stroke="#5A6480" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="457.0" y="204.0" font-size="11" text-anchor="start" fill="#0F1730">dashed: 1:1</text>
+<text x="75.0" y="480.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Mean allele frequency</text>
+<text x="23.0" y="480.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">b</text>
+<line x1="75" x2="355" y1="770.0" y2="770.0" stroke="#E1E5EF"/>
+<text x="69" y="774.0" font-size="11" text-anchor="end" fill="#5A6480">0</text>
+<line x1="75" x2="355" y1="714.0" y2="714.0" stroke="#E1E5EF"/>
+<text x="69" y="718.0" font-size="11" text-anchor="end" fill="#5A6480">0.1</text>
+<line x1="75" x2="355" y1="658.0" y2="658.0" stroke="#E1E5EF"/>
+<text x="69" y="662.0" font-size="11" text-anchor="end" fill="#5A6480">0.2</text>
+<line x1="75" x2="355" y1="602.0" y2="602.0" stroke="#E1E5EF"/>
+<text x="69" y="606.0" font-size="11" text-anchor="end" fill="#5A6480">0.3</text>
+<line x1="75" x2="355" y1="546.0" y2="546.0" stroke="#E1E5EF"/>
+<text x="69" y="550.0" font-size="11" text-anchor="end" fill="#5A6480">0.4</text>
+<line x1="75" x2="355" y1="490.0" y2="490.0" stroke="#E1E5EF"/>
+<text x="69" y="494.0" font-size="11" text-anchor="end" fill="#5A6480">0.5</text>
+<line x1="75.0" x2="75.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="75.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">0</text>
+<line x1="131.0" x2="131.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="131.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">0.1</text>
+<line x1="187.0" x2="187.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="187.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">0.2</text>
+<line x1="243.0" x2="243.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="243.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">0.3</text>
+<line x1="299.0" x2="299.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="299.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">0.4</text>
+<line x1="355.0" x2="355.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="355.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">0.5</text>
+<rect x="75" y="490" width="280" height="280" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="215.0" y="806.0" font-size="12" text-anchor="middle" fill="#0F1730">SPOT</text>
+<text x="31.0" y="630.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 630.0)">SLiM</text>
+<path d="M75.0 770.0L355.0 490.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
+<use href="#m20" x="141.6" y="703.8"/>
+<use href="#m20" x="153.7" y="691.0"/>
+<use href="#m20" x="191.1" y="653.6"/>
+<use href="#m21" x="131.5" y="713.2"/>
+<use href="#m21" x="132.1" y="712.8"/>
+<use href="#m21" x="131.8" y="712.4"/>
+<use href="#m20" x="136.9" y="708.8"/>
+<use href="#m20" x="144.3" y="701.3"/>
+<use href="#m20" x="175.6" y="672.4"/>
+<use href="#m20" x="159.3" y="684.9"/>
+<use href="#m20" x="194.7" y="648.0"/>
+<use href="#m20" x="309.8" y="539.8"/>
+<use href="#m21" x="129.5" y="714.4"/>
+<use href="#m21" x="129.3" y="714.1"/>
+<use href="#m21" x="129.0" y="712.5"/>
+<use href="#m17" x="115.2" y="729.6"/>
+<use href="#m17" x="131.7" y="713.4"/>
+<use href="#m17" x="193.9" y="649.7"/>
+<use href="#m22" x="102.9" y="743.2"/>
+<use href="#m22" x="103.1" y="743.3"/>
+<use href="#m22" x="102.4" y="741.8"/>
+<use href="#m23" x="145.4" y="700.4"/>
+<use href="#m23" x="163.2" y="682.6"/>
+<use href="#m23" x="218.6" y="624.8"/>
+<use href="#m24" x="131.5" y="714.3"/>
+<use href="#m24" x="131.2" y="714.1"/>
+<use href="#m24" x="130.6" y="714.2"/>
+<use href="#m23" x="85.5" y="759.6"/>
+<use href="#m23" x="95.1" y="750.5"/>
+<use href="#m23" x="157.7" y="690.3"/>
+<use href="#m24" x="80.6" y="764.6"/>
+<use href="#m24" x="80.8" y="764.6"/>
+<use href="#m24" x="80.5" y="764.5"/>
+<text x="83.0" y="508.0" font-size="11" text-anchor="start" fill="#0F1730">slope 0.992, R² 0.999</text>
+<use href="#m17" x="93.0" y="533.6"/>
+<text x="110.0" y="537.6" font-size="11" text-anchor="start" fill="#0F1730">haploid</text>
+<use href="#m20" x="93.0" y="550.6"/>
+<text x="110.0" y="554.6" font-size="11" text-anchor="start" fill="#0F1730">diploid</text>
+<use href="#m23" x="93.0" y="567.6"/>
+<text x="110.0" y="571.6" font-size="11" text-anchor="start" fill="#0F1730">haplodiploid</text>
+<use href="#m17" x="93.0" y="584.6"/>
+<text x="110.0" y="588.6" font-size="11" text-anchor="start" fill="#0F1730">filled: with selection</text>
+<use href="#m22" x="93.0" y="601.6"/>
+<text x="110.0" y="605.6" font-size="11" text-anchor="start" fill="#0F1730">hollow: without selection</text>
+<text x="465.0" y="480.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Mean power</text>
+<text x="413.0" y="480.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">c</text>
+<line x1="465" x2="745" y1="770.0" y2="770.0" stroke="#E1E5EF"/>
+<text x="459" y="774.0" font-size="11" text-anchor="end" fill="#5A6480">0%</text>
+<line x1="465" x2="745" y1="714.0" y2="714.0" stroke="#E1E5EF"/>
+<text x="459" y="718.0" font-size="11" text-anchor="end" fill="#5A6480">20%</text>
+<line x1="465" x2="745" y1="658.0" y2="658.0" stroke="#E1E5EF"/>
+<text x="459" y="662.0" font-size="11" text-anchor="end" fill="#5A6480">40%</text>
+<line x1="465" x2="745" y1="602.0" y2="602.0" stroke="#E1E5EF"/>
+<text x="459" y="606.0" font-size="11" text-anchor="end" fill="#5A6480">60%</text>
+<line x1="465" x2="745" y1="546.0" y2="546.0" stroke="#E1E5EF"/>
+<text x="459" y="550.0" font-size="11" text-anchor="end" fill="#5A6480">80%</text>
+<line x1="465" x2="745" y1="490.0" y2="490.0" stroke="#E1E5EF"/>
+<text x="459" y="494.0" font-size="11" text-anchor="end" fill="#5A6480">100%</text>
+<line x1="465.0" x2="465.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="465.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">0%</text>
+<line x1="521.0" x2="521.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="521.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">20%</text>
+<line x1="577.0" x2="577.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="577.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">40%</text>
+<line x1="633.0" x2="633.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="633.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">60%</text>
+<line x1="689.0" x2="689.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="689.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">80%</text>
+<line x1="745.0" x2="745.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="745.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">100%</text>
+<rect x="465" y="490" width="280" height="280" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="605.0" y="806.0" font-size="12" text-anchor="middle" fill="#0F1730">SPOT</text>
+<text x="421.0" y="630.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 421.0 630.0)">SLiM</text>
+<path d="M465.0 770.0L745.0 490.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
+<use href="#m20" x="554.0" y="680.2"/>
+<use href="#m20" x="535.6" y="700.6"/>
+<use href="#m20" x="614.6" y="621.8"/>
+<use href="#m17" x="587.6" y="650.2"/>
+<use href="#m23" x="585.7" y="648.2"/>
+<use href="#m23" x="650.8" y="581.8"/>
+<text x="473.0" y="508.0" font-size="11" text-anchor="start" fill="#0F1730">slope 1.017, R² 0.998</text>
+<text x="855.0" y="480.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">False-positive rate</text>
+<text x="803.0" y="480.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">d</text>
+<line x1="855" x2="1135" y1="770.0" y2="770.0" stroke="#E1E5EF"/>
+<text x="849" y="774.0" font-size="11" text-anchor="end" fill="#5A6480">0%</text>
+<line x1="855" x2="1135" y1="714.0" y2="714.0" stroke="#E1E5EF"/>
+<text x="849" y="718.0" font-size="11" text-anchor="end" fill="#5A6480">5%</text>
+<line x1="855" x2="1135" y1="658.0" y2="658.0" stroke="#E1E5EF"/>
+<text x="849" y="662.0" font-size="11" text-anchor="end" fill="#5A6480">10%</text>
+<line x1="855" x2="1135" y1="602.0" y2="602.0" stroke="#E1E5EF"/>
+<text x="849" y="606.0" font-size="11" text-anchor="end" fill="#5A6480">15%</text>
+<line x1="855" x2="1135" y1="546.0" y2="546.0" stroke="#E1E5EF"/>
+<text x="849" y="550.0" font-size="11" text-anchor="end" fill="#5A6480">20%</text>
+<line x1="855" x2="1135" y1="490.0" y2="490.0" stroke="#E1E5EF"/>
+<text x="849" y="494.0" font-size="11" text-anchor="end" fill="#5A6480">25%</text>
+<line x1="855.0" x2="855.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="855.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">0%</text>
+<line x1="911.0" x2="911.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="911.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">5%</text>
+<line x1="967.0" x2="967.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="967.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">10%</text>
+<line x1="1023.0" x2="1023.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="1023.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">15%</text>
+<line x1="1079.0" x2="1079.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="1079.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">20%</text>
+<line x1="1135.0" x2="1135.0" y1="770" y2="774" stroke="#5A6480"/>
+<text x="1135.0" y="787" font-size="11" text-anchor="middle" fill="#5A6480">25%</text>
+<rect x="855" y="490" width="280" height="280" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="995.0" y="806.0" font-size="12" text-anchor="middle" fill="#0F1730">SPOT</text>
+<text x="811.0" y="630.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 811.0 630.0)">SLiM</text>
+<path d="M855.0 770.0L1135.0 490.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
+<use href="#m25" x="910.9" y="710.0"/>
+<use href="#m25" x="909.9" y="714.7"/>
+<use href="#m12" x="916.3" y="710.5"/>
+<use href="#m26" x="918.3" y="708.7"/>
+<use href="#m26" x="910.4" y="714.2"/>
+<use href="#m27" x="1000.8" y="618.7"/>
+<use href="#m27" x="1075.2" y="549.1"/>
+<use href="#m16" x="971.9" y="656.2"/>
+<use href="#m28" x="1025.4" y="597.4"/>
+<use href="#m28" x="915.7" y="709.5"/>
+<text x="863.0" y="508.0" font-size="11" text-anchor="start" fill="#0F1730">slope 1.011, R² 0.998</text>
+<use href="#m12" x="965.8" y="698.8"/>
+<text x="982.8" y="702.8" font-size="11" text-anchor="start" fill="#0F1730">neutral-simulation threshold</text>
+<use href="#m16" x="965.8" y="715.8"/>
+<text x="982.8" y="719.8" font-size="11" text-anchor="start" fill="#0F1730">sampling-only threshold</text>
+</svg>
