@@ -1202,7 +1202,7 @@ setTimeout(()=>{$('sweep-run').click();setTimeout(()=>{$('sex-run').click();ranO
   window.__lastPlan=null;
   function runPlan(){
     var st=getSt(); if(!st) return;
-    var key=$('plan-var').value, def=COLS[key], reps=Math.min(st.reps,500), grid=FACT.map(function(){return []});
+    var key=$('plan-var').value, def=COLS[key], reps=Math.min(st.reps,1000), grid=FACT.map(function(){return []});
     var jobs=[]; FACT.forEach(function(f,i){def.vals.forEach(function(v,j){jobs.push([i,j,f,v])})});
     var k=0, t0=performance.now(); draw(def,grid,st); window.__lastPlan=null;
     var plist=jobs.map(function(J){var p=JSON.parse(JSON.stringify(st)); p.reps=reps; p.neutralMax=20000; p.n=scaleN(st.n,J[2]); def.apply(p,J[3]); return p;});
