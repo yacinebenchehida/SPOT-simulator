@@ -788,12 +788,12 @@ const SYS=()=>st.system;
 
 const MAXP=20, MAXG=1e7, MAXN=1000, MINGT=0.0001;
 const MAXNE=1e8;
-const DEFAULTS={system:'haplodiploid',neByBlock:false,neBlocks:null,genTime:1,Nf:1000,Nm:1000,noDrift:false,p0:0.01,s:0.05,h:0.5,onset:1935,years:[1935,1955,1975,2025],n:[20,20,20,40],perfect:false,depthEarly:10,depthLast:15,err:0.005,errLast:0.005,minDP:3,alpha:0.05,m:1,sMale:1,decline:1,mig:0,pMig:-1,kSib:1,maleFrac:0,reps:1000,seed:1};
+const DEFAULTS={system:'diploid',neByBlock:false,neBlocks:null,genTime:1,Nf:1000,Nm:1000,noDrift:false,p0:0.01,s:0.05,h:0.5,onset:1935,years:[1935,1955,1975,2025],n:[20,20,20,40],perfect:false,depthEarly:10,depthLast:15,err:0.005,errLast:0.005,minDP:3,alpha:0.05,m:1,sMale:1,decline:1,mig:0,pMig:-1,kSib:1,maleFrac:0,reps:1000,seed:1};
 const VERSION='0.9.1';
 document.querySelectorAll('.spot-version').forEach(e=>e.textContent=VERSION);
 /* example scenarios: illustrative starting points, not estimates for real species */
 const PRESETS={
-  defaults:DEFAULTS,
+  defaults:Object.assign({},DEFAULTS,{system:'haplodiploid'}),
   mammal:Object.assign({},DEFAULTS,{system:'diploid',genTime:20,Nf:2500,Nm:2500,neByBlock:true,neBlocks:[5000,200],p0:0.1,s:0.2,onset:1880,years:[1880,1950,2020],n:[20,20,40],depthEarly:4,depthLast:15}),
   human:Object.assign({},DEFAULTS,{system:'diploid',genTime:28,Nf:5000,Nm:5000,p0:0.1,s:0.005,onset:-7000,years:[-7000,-5000,-3000,-1000,1000,2000],n:[50,50,50,50,50,100],depthEarly:2,depthLast:20,err:0.01,errLast:0.01,minDP:1}),
   pathogen:Object.assign({},DEFAULTS,{system:'haploid',genTime:0.01,Nf:100000,Nm:100000,p0:0.05,s:0.0002,onset:1850,years:[1850,1900,1950,2000,2020],n:[10,10,15,20,40],depthEarly:10,depthLast:30}),
