@@ -329,7 +329,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
         <button type="button" class="primary" id="sweep-run">Draw curve</button>
         <button type="button" id="sweep-csv">CSV</button>
       </div></div>
-    <p class="hint">Every value set in the parameter panel stays fixed except the parameter chosen here, which is stepped through a range of values. At each value the full power calculation is rerun from scratch (new simulations with and without selection, new threshold), and the power of the whole design is plotted. Example: with "Individuals at the last point", the earlier points keep their current sample sizes while the last point takes 10, 20, 30, 40, 60, 80 and 120 individuals; each dot is the power of that complete design. The upper panel shows power. The lower panel shows a different quantity: how often the sampling-only threshold calls a neutral locus "selected", against the intended rate α′. The vertical line marks the current value. Varying Ne or its change over time switches drift on; varying depth switches perfect genotypes off.</p>
+    <p class="hint">Every value set in the parameter panel stays fixed except the parameter chosen here, which is stepped through a range of values. At each value the full power calculation is rerun from scratch (new simulations with and without selection, new threshold), and the power of the whole design is plotted. Example: with "Individuals at the last point", the earlier points keep their current sample sizes while the last point takes 10, 20, 30, 40, 60, 80 and 120 individuals; each dot is the power of that complete design. The upper panel shows power. The lower panel shows a different quantity: how often the sampling-only threshold calls a neutral locus "selected", against the intended rate α′. Points are evenly spaced along the horizontal axis, whatever the gap between values. The vertical line marks the current value. Varying Ne or its change over time switches drift on; varying depth switches perfect genotypes off.</p>
     <svg id="ch-sweep" viewBox="0 0 720 520" role="img" aria-label="Power as a function of the chosen parameter"></svg>
     <p class="hint">Hollow markers: too few neutral simulations for α′, so the threshold is extrapolated by a normal fit; such points can be far off.</p>
     <p class="status" id="sweep-status">All other parameters stay at their current values. Each point uses up to 1,000 selection simulations and 2,000 neutral (up to 20,000 neutral when many loci are tested; beyond that the threshold is extrapolated by a normal fit, shown by hollow markers).</p>
@@ -1056,7 +1056,12 @@ function drawSweep(def,pts){
   const svg=$('ch-sweep'),W=720,L=56,R=20, vals=def.vals;
   const T=32,B=222, LG=18, T2=B+52+3*LG+60,B2=T2+96, H=B2+52+LG+14;
   const pos=def.log?(v=>Math.log(v)):(v=>v), a=pos(vals[0]), b=pos(vals[vals.length-1]);
-  const PAD=18, X=v=>L+PAD+(pos(v)-a)/(b-a)*(W-L-R-2*PAD), Y=p=>B-p*(B-T);
+  // points evenly spaced along x, whatever the gap between values; a value between two points (the current one) is
+  // placed between them on the log or linear scale of that interval
+  const PAD=18, nv=vals.length, step=(W-L-R-2*PAD)/Math.max(1,nv-1);
+  const X=v=>{ if(v<=vals[0]) return L+PAD; if(v>=vals[nv-1]) return L+PAD+(nv-1)*step;
+    let i=0; while(i<nv-2&&v>vals[i+1]) i++; const f=(pos(v)-pos(vals[i]))/(pos(vals[i+1])-pos(vals[i])); return L+PAD+(i+f)*step; };
+  const Y=p=>B-p*(B-T);
   const fmax=niceMax(Math.max(0.1,...pts.map(p=>p.fp),...pts.map(p=>2*p.a))), Y2=f=>B2-f/fmax*(B2-T2);
   const ticks=(yb)=>vals.map(v=>`<text x="${X(v)}" y="${yb+16}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${def.year?v:(v>=1000?fmtK(v):v)}</text>`).join('')
     +`<text x="${(L+W-R)/2}" y="${yb+32}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${def.label}</text>`;
