@@ -1,157 +1,157 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" font-family="Helvetica,Arial,sans-serif">
-<defs><g id="m0"><circle r="3.4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m1"><rect x="-3.4" y="-3.4" width="6.8" height="6.8" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m2"><path d="M0 -4.4L3.9 2.9H-3.9Z" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m3"><circle r="4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m4"><rect x="-4" y="-4" width="8" height="8" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m5"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m6"><circle r="3.4" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m7"><rect x="-3.4" y="-3.4" width="6.8" height="6.8" fill="#fff" stroke="#0E9F6E" stroke-width="1.5"/></g><g id="m8"><path d="M0 -4.4L3.9 2.9H-3.9Z" fill="#fff" stroke="#C27A12" stroke-width="1.5"/></g></defs>
-<rect width="1000" height="420" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1530" height="430" viewBox="0 0 1530 430" font-family="Helvetica,Arial,sans-serif">
+<defs><g id="m0"><circle r="3.4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m1"><rect x="-3.4" y="-3.4" width="6.8" height="6.8" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m2"><path d="M0 -4.4L3.9 2.9H-3.9Z" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m3"><circle r="4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m4"><rect x="-4" y="-4" width="8" height="8" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m5"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m6"><circle r="2.6" fill="#fff" stroke="#0F1730" stroke-width="1.5"/></g><g id="m7"><circle r="2.6" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m8"><circle r="4" fill="#fff" stroke="#0F1730" stroke-width="1.5"/></g><g id="m9"><circle r="4" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m10"><circle r="3.6" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m11"><circle r="3.6" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m12"><circle r="3.6" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m13"><circle r="3.6" fill="#fff" stroke="#8B4FD6" stroke-width="1.5"/></g><g id="m14"><rect x="-3.6" y="-3.6" width="7.2" height="7.2" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m15"><rect x="-3.6" y="-3.6" width="7.2" height="7.2" fill="#fff" stroke="#0E9F6E" stroke-width="1.5"/></g><g id="m16"><rect x="-3.6" y="-3.6" width="7.2" height="7.2" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m17"><rect x="-3.6" y="-3.6" width="7.2" height="7.2" fill="#fff" stroke="#C27A12" stroke-width="1.5"/></g><g id="m18"><circle r="4" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m19"><rect x="-4" y="-4" width="8" height="8" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m20"><circle r="4" fill="#5A6480" stroke="#fff" stroke-width="0.6"/></g><g id="m21"><circle r="4" fill="#fff" stroke="#5A6480" stroke-width="1.5"/></g></defs>
+<rect width="1530" height="430" fill="#fff"/>
 <text x="75.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Power of the trend test</text>
 <text x="23.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">a</text>
-<line x1="75" x2="405" y1="380.0" y2="380.0" stroke="#E1E5EF"/>
-<text x="69" y="384.0" font-size="11" text-anchor="end" fill="#5A6480">0%</text>
-<line x1="75" x2="405" y1="314.0" y2="314.0" stroke="#E1E5EF"/>
-<text x="69" y="318.0" font-size="11" text-anchor="end" fill="#5A6480">20%</text>
-<line x1="75" x2="405" y1="248.0" y2="248.0" stroke="#E1E5EF"/>
-<text x="69" y="252.0" font-size="11" text-anchor="end" fill="#5A6480">40%</text>
-<line x1="75" x2="405" y1="182.0" y2="182.0" stroke="#E1E5EF"/>
-<text x="69" y="186.0" font-size="11" text-anchor="end" fill="#5A6480">60%</text>
-<line x1="75" x2="405" y1="116.0" y2="116.0" stroke="#E1E5EF"/>
-<text x="69" y="120.0" font-size="11" text-anchor="end" fill="#5A6480">80%</text>
-<line x1="75" x2="405" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
+<line x1="75" x2="375" y1="350.0" y2="350.0" stroke="#E1E5EF"/>
+<text x="69" y="354.0" font-size="11" text-anchor="end" fill="#5A6480">0%</text>
+<line x1="75" x2="375" y1="290.0" y2="290.0" stroke="#E1E5EF"/>
+<text x="69" y="294.0" font-size="11" text-anchor="end" fill="#5A6480">20%</text>
+<line x1="75" x2="375" y1="230.0" y2="230.0" stroke="#E1E5EF"/>
+<text x="69" y="234.0" font-size="11" text-anchor="end" fill="#5A6480">40%</text>
+<line x1="75" x2="375" y1="170.0" y2="170.0" stroke="#E1E5EF"/>
+<text x="69" y="174.0" font-size="11" text-anchor="end" fill="#5A6480">60%</text>
+<line x1="75" x2="375" y1="110.0" y2="110.0" stroke="#E1E5EF"/>
+<text x="69" y="114.0" font-size="11" text-anchor="end" fill="#5A6480">80%</text>
+<line x1="75" x2="375" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
 <text x="69" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">100%</text>
-<line x1="75.0" x2="75.0" y1="380" y2="384" stroke="#5A6480"/>
-<text x="75.0" y="397" font-size="11" text-anchor="middle" fill="#5A6480">0%</text>
-<line x1="141.0" x2="141.0" y1="380" y2="384" stroke="#5A6480"/>
-<text x="141.0" y="397" font-size="11" text-anchor="middle" fill="#5A6480">20%</text>
-<line x1="207.0" x2="207.0" y1="380" y2="384" stroke="#5A6480"/>
-<text x="207.0" y="397" font-size="11" text-anchor="middle" fill="#5A6480">40%</text>
-<line x1="273.0" x2="273.0" y1="380" y2="384" stroke="#5A6480"/>
-<text x="273.0" y="397" font-size="11" text-anchor="middle" fill="#5A6480">60%</text>
-<line x1="339.0" x2="339.0" y1="380" y2="384" stroke="#5A6480"/>
-<text x="339.0" y="397" font-size="11" text-anchor="middle" fill="#5A6480">80%</text>
-<line x1="405.0" x2="405.0" y1="380" y2="384" stroke="#5A6480"/>
-<text x="405.0" y="397" font-size="11" text-anchor="middle" fill="#5A6480">100%</text>
-<rect x="75" y="50" width="330" height="330" fill="none" stroke="#0F1730" stroke-width=".8"/>
-<text x="240.0" y="416.0" font-size="12" text-anchor="middle" fill="#0F1730">every generation simulated</text>
-<text x="31.0" y="215.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 215.0)">with rescaling</text>
-<path d="M75.0 380.0L78.3 373.8L81.6 369.3L84.9 365.1L88.2 361.0L91.5 357.1L94.8 353.2L98.1 349.4L101.4 345.6L104.7 341.9L108.0 338.1L111.3 334.5L114.6 330.8L117.9 327.2L121.2 323.6L124.5 320.0L127.8 316.4L131.1 312.8L134.4 309.3L137.7 305.7L141.0 302.2L144.3 298.7L147.6 295.2L150.9 291.7L154.2 288.2L157.5 284.7L160.8 281.3L164.1 277.8L167.4 274.3L170.7 270.9L174.0 267.5L177.3 264.0L180.6 260.6L183.9 257.2L187.2 253.8L190.5 250.4L193.8 247.0L197.1 243.6L200.4 240.3L203.7 236.9L207.0 233.5L210.3 230.2L213.6 226.8L216.9 223.5L220.2 220.1L223.5 216.8L226.8 213.5L230.1 210.2L233.4 206.9L236.7 203.5L240.0 200.2L243.3 196.9L246.6 193.7L249.9 190.4L253.2 187.1L256.5 183.8L259.8 180.5L263.1 177.3L266.4 174.0L269.7 170.8L273.0 167.5L276.3 164.3L279.6 161.1L282.9 157.8L286.2 154.6L289.5 151.4L292.8 148.2L296.1 145.0L299.4 141.8L302.7 138.6L306.0 135.5L309.3 132.3L312.6 129.1L315.9 126.0L319.2 122.9L322.5 119.7L325.8 116.6L329.1 113.5L332.4 110.4L335.7 107.3L339.0 104.2L342.3 101.1L345.6 98.1L348.9 95.0L352.2 92.0L355.5 89.0L358.8 86.0L362.1 83.0L365.4 80.0L368.7 77.1L372.0 74.1L375.3 71.3L378.6 68.4L381.9 65.6L385.2 62.8L388.5 60.1L391.8 57.4L395.1 54.9L398.4 52.5L401.7 50.4L405.0 50.0L405.0 50.0L401.7 56.2L398.4 60.7L395.1 64.9L391.8 69.0L388.5 72.9L385.2 76.8L381.9 80.6L378.6 84.4L375.3 88.1L372.0 91.9L368.7 95.5L365.4 99.2L362.1 102.8L358.8 106.4L355.5 110.0L352.2 113.6L348.9 117.2L345.6 120.7L342.3 124.3L339.0 127.8L335.7 131.3L332.4 134.8L329.1 138.3L325.8 141.8L322.5 145.3L319.2 148.7L315.9 152.2L312.6 155.7L309.3 159.1L306.0 162.5L302.7 166.0L299.4 169.4L296.1 172.8L292.8 176.2L289.5 179.6L286.2 183.0L282.9 186.4L279.6 189.7L276.3 193.1L273.0 196.5L269.7 199.8L266.4 203.2L263.1 206.5L259.8 209.9L256.5 213.2L253.2 216.5L249.9 219.8L246.6 223.1L243.3 226.5L240.0 229.8L236.7 233.1L233.4 236.3L230.1 239.6L226.8 242.9L223.5 246.2L220.2 249.5L216.9 252.7L213.6 256.0L210.3 259.2L207.0 262.5L203.7 265.7L200.4 268.9L197.1 272.2L193.8 275.4L190.5 278.6L187.2 281.8L183.9 285.0L180.6 288.2L177.3 291.4L174.0 294.5L170.7 297.7L167.4 300.9L164.1 304.0L160.8 307.1L157.5 310.3L154.2 313.4L150.9 316.5L147.6 319.6L144.3 322.7L141.0 325.8L137.7 328.9L134.4 331.9L131.1 335.0L127.8 338.0L124.5 341.0L121.2 344.0L117.9 347.0L114.6 350.0L111.3 352.9L108.0 355.9L104.7 358.7L101.4 361.6L98.1 364.4L94.8 367.2L91.5 369.9L88.2 372.6L84.9 375.1L81.6 377.5L78.3 379.6L75.0 380.0Z" fill="#9AA3B8" fill-opacity="0.25"/>
-<path d="M75.0 380.0L405.0 50.0" fill="none" stroke="#5A6480" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="1"/>
-<use href="#m0" x="91.3" y="363.7"/>
-<use href="#m0" x="94.5" y="361.9"/>
-<use href="#m0" x="93.1" y="363.4"/>
-<use href="#m0" x="103.0" y="352.8"/>
-<use href="#m0" x="101.7" y="356.9"/>
-<use href="#m0" x="128.5" y="329.5"/>
-<use href="#m0" x="95.2" y="361.2"/>
-<use href="#m0" x="112.0" y="347.7"/>
-<use href="#m0" x="115.4" y="339.9"/>
-<use href="#m0" x="204.7" y="260.5"/>
-<use href="#m0" x="190.3" y="266.1"/>
-<use href="#m0" x="397.1" y="57.9"/>
-<use href="#m0" x="103.7" y="353.6"/>
-<use href="#m0" x="124.5" y="332.1"/>
-<use href="#m0" x="216.4" y="234.5"/>
-<use href="#m0" x="381.2" y="73.8"/>
-<use href="#m0" x="399.1" y="54.9"/>
-<use href="#m0" x="405.0" y="50.0"/>
-<use href="#m1" x="91.0" y="365.7"/>
-<use href="#m1" x="95.5" y="362.5"/>
-<use href="#m1" x="96.8" y="361.5"/>
-<use href="#m1" x="106.0" y="344.7"/>
-<use href="#m1" x="109.0" y="343.4"/>
-<use href="#m1" x="211.3" y="239.1"/>
-<use href="#m1" x="94.1" y="368.8"/>
-<use href="#m1" x="100.1" y="352.9"/>
-<use href="#m1" x="119.2" y="338.4"/>
-<use href="#m1" x="183.9" y="263.5"/>
-<use href="#m1" x="248.2" y="203.1"/>
-<use href="#m1" x="403.7" y="50.7"/>
-<use href="#m1" x="92.6" y="358.4"/>
-<use href="#m1" x="111.0" y="349.6"/>
-<use href="#m1" x="152.1" y="310.3"/>
-<use href="#m1" x="303.0" y="158.6"/>
-<use href="#m1" x="402.7" y="50.7"/>
-<use href="#m1" x="405.0" y="50.0"/>
-<use href="#m2" x="94.6" y="359.9"/>
-<use href="#m2" x="98.1" y="356.9"/>
-<use href="#m2" x="93.0" y="360.9"/>
-<use href="#m2" x="117.2" y="342.4"/>
-<use href="#m2" x="107.5" y="342.9"/>
-<use href="#m2" x="248.2" y="216.7"/>
-<use href="#m2" x="97.4" y="361.9"/>
-<use href="#m2" x="105.4" y="351.0"/>
-<use href="#m2" x="126.2" y="328.5"/>
-<use href="#m2" x="217.6" y="235.1"/>
-<use href="#m2" x="253.9" y="205.9"/>
-<use href="#m2" x="404.0" y="50.3"/>
-<use href="#m2" x="99.4" y="349.1"/>
-<use href="#m2" x="114.9" y="340.7"/>
-<use href="#m2" x="188.9" y="261.5"/>
-<use href="#m2" x="360.4" y="86.3"/>
-<use href="#m2" x="404.3" y="50.0"/>
-<use href="#m2" x="405.0" y="50.0"/>
-<use href="#m0" x="91.6" y="363.8"/>
-<use href="#m0" x="98.1" y="363.4"/>
-<use href="#m0" x="96.2" y="359.4"/>
-<use href="#m0" x="105.4" y="359.6"/>
-<use href="#m0" x="100.7" y="353.1"/>
-<use href="#m0" x="145.9" y="333.3"/>
-<use href="#m0" x="94.7" y="359.9"/>
-<use href="#m0" x="116.2" y="341.7"/>
-<use href="#m0" x="116.8" y="336.8"/>
-<use href="#m0" x="234.1" y="234.8"/>
-<use href="#m0" x="187.1" y="259.8"/>
-<use href="#m0" x="298.7" y="167.2"/>
-<use href="#m0" x="124.7" y="324.6"/>
-<use href="#m0" x="220.2" y="225.9"/>
-<use href="#m0" x="281.2" y="181.3"/>
-<use href="#m0" x="405.0" y="50.0"/>
-<use href="#m0" x="399.7" y="57.9"/>
-<use href="#m0" x="405.0" y="50.0"/>
-<use href="#m1" x="93.9" y="358.4"/>
-<use href="#m1" x="96.8" y="355.2"/>
-<use href="#m1" x="101.8" y="356.9"/>
-<use href="#m1" x="107.7" y="344.7"/>
-<use href="#m1" x="112.1" y="344.3"/>
-<use href="#m1" x="144.3" y="299.8"/>
-<use href="#m1" x="97.2" y="354.3"/>
-<use href="#m1" x="114.6" y="334.8"/>
-<use href="#m1" x="133.5" y="316.7"/>
-<use href="#m1" x="337.0" y="116.3"/>
-<use href="#m1" x="259.9" y="201.2"/>
-<use href="#m1" x="405.0" y="50.0"/>
-<use href="#m1" x="119.9" y="329.2"/>
-<use href="#m1" x="192.5" y="265.8"/>
-<use href="#m1" x="351.2" y="110.4"/>
-<use href="#m1" x="405.0" y="50.0"/>
-<use href="#m1" x="405.0" y="50.3"/>
-<use href="#m1" x="405.0" y="50.0"/>
-<use href="#m2" x="94.9" y="364.5"/>
-<use href="#m2" x="97.1" y="357.3"/>
-<use href="#m2" x="94.6" y="360.9"/>
-<use href="#m2" x="107.3" y="346.9"/>
-<use href="#m2" x="111.2" y="342.5"/>
-<use href="#m2" x="142.6" y="292.1"/>
-<use href="#m2" x="100.7" y="358.2"/>
-<use href="#m2" x="124.5" y="330.8"/>
-<use href="#m2" x="139.0" y="314.2"/>
-<use href="#m2" x="353.8" y="105.1"/>
-<use href="#m2" x="254.5" y="187.3"/>
-<use href="#m2" x="405.0" y="50.3"/>
-<use href="#m2" x="128.1" y="321.3"/>
-<use href="#m2" x="238.0" y="224.2"/>
-<use href="#m2" x="351.2" y="100.2"/>
-<use href="#m2" x="405.0" y="50.0"/>
-<use href="#m2" x="404.7" y="50.3"/>
-<use href="#m2" x="405.0" y="50.0"/>
-<use href="#m0" x="108.7" y="342.2"/>
-<use href="#m0" x="162.9" y="279.7"/>
-<use href="#m0" x="348.2" y="103.8"/>
-<use href="#m0" x="405.0" y="50.0"/>
-<use href="#m1" x="141.7" y="311.7"/>
-<use href="#m1" x="356.5" y="106.8"/>
-<use href="#m1" x="360.1" y="104.8"/>
-<use href="#m1" x="405.0" y="50.0"/>
-<use href="#m2" x="134.7" y="300.8"/>
-<use href="#m2" x="239.0" y="167.5"/>
-<use href="#m2" x="385.9" y="77.1"/>
-<use href="#m2" x="405.0" y="50.0"/>
+<line x1="75.0" x2="75.0" y1="350" y2="354" stroke="#5A6480"/>
+<text x="75.0" y="367" font-size="11" text-anchor="middle" fill="#5A6480">0%</text>
+<line x1="135.0" x2="135.0" y1="350" y2="354" stroke="#5A6480"/>
+<text x="135.0" y="367" font-size="11" text-anchor="middle" fill="#5A6480">20%</text>
+<line x1="195.0" x2="195.0" y1="350" y2="354" stroke="#5A6480"/>
+<text x="195.0" y="367" font-size="11" text-anchor="middle" fill="#5A6480">40%</text>
+<line x1="255.0" x2="255.0" y1="350" y2="354" stroke="#5A6480"/>
+<text x="255.0" y="367" font-size="11" text-anchor="middle" fill="#5A6480">60%</text>
+<line x1="315.0" x2="315.0" y1="350" y2="354" stroke="#5A6480"/>
+<text x="315.0" y="367" font-size="11" text-anchor="middle" fill="#5A6480">80%</text>
+<line x1="375.0" x2="375.0" y1="350" y2="354" stroke="#5A6480"/>
+<text x="375.0" y="367" font-size="11" text-anchor="middle" fill="#5A6480">100%</text>
+<rect x="75" y="50" width="300" height="300" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="225.0" y="386.0" font-size="12" text-anchor="middle" fill="#0F1730">every generation simulated</text>
+<text x="31.0" y="200.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 200.0)">with rescaling</text>
+<path d="M75.0 350.0L78.0 344.3L81.0 340.2L84.0 336.4L87.0 332.7L90.0 329.2L93.0 325.6L96.0 322.2L99.0 318.7L102.0 315.3L105.0 312.0L108.0 308.6L111.0 305.3L114.0 302.0L117.0 298.7L120.0 295.4L123.0 292.2L126.0 288.9L129.0 285.7L132.0 282.5L135.0 279.3L138.0 276.1L141.0 272.9L144.0 269.7L147.0 266.5L150.0 263.4L153.0 260.2L156.0 257.1L159.0 254.0L162.0 250.8L165.0 247.7L168.0 244.6L171.0 241.5L174.0 238.4L177.0 235.3L180.0 232.2L183.0 229.1L186.0 226.0L189.0 223.0L192.0 219.9L195.0 216.9L198.0 213.8L201.0 210.8L204.0 207.7L207.0 204.7L210.0 201.7L213.0 198.6L216.0 195.6L219.0 192.6L222.0 189.6L225.0 186.6L228.0 183.6L231.0 180.6L234.0 177.6L237.0 174.6L240.0 171.7L243.0 168.7L246.0 165.7L249.0 162.8L252.0 159.8L255.0 156.9L258.0 153.9L261.0 151.0L264.0 148.0L267.0 145.1L270.0 142.2L273.0 139.3L276.0 136.4L279.0 133.5L282.0 130.6L285.0 127.7L288.0 124.8L291.0 122.0L294.0 119.1L297.0 116.2L300.0 113.4L303.0 110.5L306.0 107.7L309.0 104.9L312.0 102.1L315.0 99.3L318.0 96.5L321.0 93.7L324.0 90.9L327.0 88.2L330.0 85.4L333.0 82.7L336.0 80.0L339.0 77.3L342.0 74.6L345.0 72.0L348.0 69.3L351.0 66.7L354.0 64.2L357.0 61.6L360.0 59.2L363.0 56.7L366.0 54.4L369.0 52.2L372.0 50.3L375.0 50.0L375.0 50.0L372.0 55.7L369.0 59.8L366.0 63.6L363.0 67.3L360.0 70.8L357.0 74.4L354.0 77.8L351.0 81.3L348.0 84.7L345.0 88.0L342.0 91.4L339.0 94.7L336.0 98.0L333.0 101.3L330.0 104.6L327.0 107.8L324.0 111.1L321.0 114.3L318.0 117.5L315.0 120.7L312.0 123.9L309.0 127.1L306.0 130.3L303.0 133.5L300.0 136.6L297.0 139.8L294.0 142.9L291.0 146.0L288.0 149.2L285.0 152.3L282.0 155.4L279.0 158.5L276.0 161.6L273.0 164.7L270.0 167.8L267.0 170.9L264.0 174.0L261.0 177.0L258.0 180.1L255.0 183.1L252.0 186.2L249.0 189.2L246.0 192.3L243.0 195.3L240.0 198.3L237.0 201.4L234.0 204.4L231.0 207.4L228.0 210.4L225.0 213.4L222.0 216.4L219.0 219.4L216.0 222.4L213.0 225.4L210.0 228.3L207.0 231.3L204.0 234.3L201.0 237.2L198.0 240.2L195.0 243.1L192.0 246.1L189.0 249.0L186.0 252.0L183.0 254.9L180.0 257.8L177.0 260.7L174.0 263.6L171.0 266.5L168.0 269.4L165.0 272.3L162.0 275.2L159.0 278.0L156.0 280.9L153.0 283.8L150.0 286.6L147.0 289.5L144.0 292.3L141.0 295.1L138.0 297.9L135.0 300.7L132.0 303.5L129.0 306.3L126.0 309.1L123.0 311.8L120.0 314.6L117.0 317.3L114.0 320.0L111.0 322.7L108.0 325.4L105.0 328.0L102.0 330.7L99.0 333.3L96.0 335.8L93.0 338.4L90.0 340.8L87.0 343.3L84.0 345.6L81.0 347.8L78.0 349.7L75.0 350.0Z" fill="#9AA3B8" fill-opacity="0.25"/>
+<path d="M75.0 350.0L375.0 50.0" fill="none" stroke="#5A6480" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="1"/>
+<use href="#m0" x="89.8" y="335.2"/>
+<use href="#m0" x="92.7" y="333.5"/>
+<use href="#m0" x="91.5" y="334.9"/>
+<use href="#m0" x="100.5" y="325.3"/>
+<use href="#m0" x="99.3" y="329.0"/>
+<use href="#m0" x="123.6" y="304.1"/>
+<use href="#m0" x="93.4" y="332.9"/>
+<use href="#m0" x="108.6" y="320.6"/>
+<use href="#m0" x="111.7" y="313.6"/>
+<use href="#m0" x="192.9" y="241.4"/>
+<use href="#m0" x="179.9" y="246.5"/>
+<use href="#m0" x="367.8" y="57.2"/>
+<use href="#m0" x="101.0" y="326.0"/>
+<use href="#m0" x="120.0" y="306.4"/>
+<use href="#m0" x="203.5" y="217.7"/>
+<use href="#m0" x="353.4" y="71.6"/>
+<use href="#m0" x="369.6" y="54.5"/>
+<use href="#m0" x="375.0" y="50.0"/>
+<use href="#m1" x="89.5" y="337.0"/>
+<use href="#m1" x="93.6" y="334.1"/>
+<use href="#m1" x="94.8" y="333.2"/>
+<use href="#m1" x="103.2" y="317.9"/>
+<use href="#m1" x="105.9" y="316.7"/>
+<use href="#m1" x="198.9" y="221.9"/>
+<use href="#m1" x="92.4" y="339.8"/>
+<use href="#m1" x="97.8" y="325.4"/>
+<use href="#m1" x="115.2" y="312.2"/>
+<use href="#m1" x="174.0" y="244.1"/>
+<use href="#m1" x="232.5" y="189.2"/>
+<use href="#m1" x="373.8" y="50.6"/>
+<use href="#m1" x="91.0" y="330.4"/>
+<use href="#m1" x="107.7" y="322.4"/>
+<use href="#m1" x="145.1" y="286.6"/>
+<use href="#m1" x="282.3" y="148.7"/>
+<use href="#m1" x="372.9" y="50.6"/>
+<use href="#m1" x="375.0" y="50.0"/>
+<use href="#m2" x="92.8" y="331.7"/>
+<use href="#m2" x="96.0" y="329.0"/>
+<use href="#m2" x="91.3" y="332.6"/>
+<use href="#m2" x="113.4" y="315.8"/>
+<use href="#m2" x="104.5" y="316.2"/>
+<use href="#m2" x="232.5" y="201.5"/>
+<use href="#m2" x="95.4" y="333.5"/>
+<use href="#m2" x="102.6" y="323.6"/>
+<use href="#m2" x="121.5" y="303.2"/>
+<use href="#m2" x="204.6" y="218.3"/>
+<use href="#m2" x="237.6" y="191.8"/>
+<use href="#m2" x="374.1" y="50.3"/>
+<use href="#m2" x="97.2" y="321.9"/>
+<use href="#m2" x="111.3" y="314.3"/>
+<use href="#m2" x="178.6" y="242.3"/>
+<use href="#m2" x="334.5" y="83.0"/>
+<use href="#m2" x="374.4" y="50.0"/>
+<use href="#m2" x="375.0" y="50.0"/>
+<use href="#m0" x="90.1" y="335.3"/>
+<use href="#m0" x="96.0" y="334.9"/>
+<use href="#m0" x="94.2" y="331.3"/>
+<use href="#m0" x="102.6" y="331.5"/>
+<use href="#m0" x="98.4" y="325.6"/>
+<use href="#m0" x="139.5" y="307.5"/>
+<use href="#m0" x="92.9" y="331.8"/>
+<use href="#m0" x="112.5" y="315.2"/>
+<use href="#m0" x="113.0" y="310.7"/>
+<use href="#m0" x="219.6" y="218.0"/>
+<use href="#m0" x="176.9" y="240.7"/>
+<use href="#m0" x="278.4" y="156.5"/>
+<use href="#m0" x="120.2" y="299.6"/>
+<use href="#m0" x="207.0" y="209.9"/>
+<use href="#m0" x="262.5" y="169.4"/>
+<use href="#m0" x="375.0" y="50.0"/>
+<use href="#m0" x="370.2" y="57.2"/>
+<use href="#m0" x="375.0" y="50.0"/>
+<use href="#m1" x="92.2" y="330.4"/>
+<use href="#m1" x="94.8" y="327.5"/>
+<use href="#m1" x="99.4" y="329.0"/>
+<use href="#m1" x="104.7" y="317.9"/>
+<use href="#m1" x="108.8" y="317.5"/>
+<use href="#m1" x="138.0" y="277.1"/>
+<use href="#m1" x="95.2" y="326.6"/>
+<use href="#m1" x="111.0" y="308.9"/>
+<use href="#m1" x="128.2" y="292.5"/>
+<use href="#m1" x="313.2" y="110.3"/>
+<use href="#m1" x="243.1" y="187.5"/>
+<use href="#m1" x="375.0" y="50.0"/>
+<use href="#m1" x="115.8" y="303.8"/>
+<use href="#m1" x="181.8" y="246.2"/>
+<use href="#m1" x="326.1" y="104.9"/>
+<use href="#m1" x="375.0" y="50.0"/>
+<use href="#m1" x="375.0" y="50.3"/>
+<use href="#m1" x="375.0" y="50.0"/>
+<use href="#m2" x="93.1" y="335.9"/>
+<use href="#m2" x="95.1" y="329.3"/>
+<use href="#m2" x="92.8" y="332.6"/>
+<use href="#m2" x="104.4" y="319.9"/>
+<use href="#m2" x="107.9" y="315.9"/>
+<use href="#m2" x="136.5" y="270.1"/>
+<use href="#m2" x="98.4" y="330.2"/>
+<use href="#m2" x="120.0" y="305.3"/>
+<use href="#m2" x="133.2" y="290.1"/>
+<use href="#m2" x="328.5" y="100.1"/>
+<use href="#m2" x="238.2" y="174.8"/>
+<use href="#m2" x="375.0" y="50.3"/>
+<use href="#m2" x="123.3" y="296.6"/>
+<use href="#m2" x="223.2" y="208.4"/>
+<use href="#m2" x="326.1" y="95.6"/>
+<use href="#m2" x="375.0" y="50.0"/>
+<use href="#m2" x="374.7" y="50.3"/>
+<use href="#m2" x="375.0" y="50.0"/>
+<use href="#m0" x="105.6" y="315.6"/>
+<use href="#m0" x="154.9" y="258.8"/>
+<use href="#m0" x="323.4" y="98.9"/>
+<use href="#m0" x="375.0" y="50.0"/>
+<use href="#m1" x="135.6" y="287.9"/>
+<use href="#m1" x="330.9" y="101.6"/>
+<use href="#m1" x="334.2" y="99.8"/>
+<use href="#m1" x="375.0" y="50.0"/>
+<use href="#m2" x="129.3" y="278.0"/>
+<use href="#m2" x="224.1" y="156.8"/>
+<use href="#m2" x="357.6" y="74.6"/>
+<use href="#m2" x="375.0" y="50.0"/>
 <use href="#m3" x="95.0" y="64.0"/>
 <text x="112.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">haploid</text>
 <use href="#m4" x="95.0" y="81.0"/>
@@ -160,156 +160,380 @@
 <text x="112.0" y="102.0" font-size="11" text-anchor="start" fill="#0F1730">haplodiploid</text>
 <line x1="85" x2="105" y1="115" y2="115" stroke="#5A6480" stroke-width="2" stroke-dasharray="5 3"/>
 <text x="112.0" y="119.0" font-size="11" text-anchor="start" fill="#0F1730">dashed: 1:1</text>
-<text x="545.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Speed-up from rescaling</text>
-<text x="493.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">b</text>
-<line x1="545" x2="875" y1="380.0" y2="380.0" stroke="#E1E5EF"/>
-<text x="539" y="384.0" font-size="11" text-anchor="end" fill="#5A6480">1</text>
-<line x1="545" x2="875" y1="330.3" y2="330.3" stroke="#E1E5EF"/>
-<text x="539" y="334.3" font-size="11" text-anchor="end" fill="#5A6480">2</text>
-<line x1="545" x2="875" y1="264.7" y2="264.7" stroke="#E1E5EF"/>
-<text x="539" y="268.7" font-size="11" text-anchor="end" fill="#5A6480">5</text>
-<line x1="545" x2="875" y1="215.0" y2="215.0" stroke="#E1E5EF"/>
-<text x="539" y="219.0" font-size="11" text-anchor="end" fill="#5A6480">10</text>
-<line x1="545" x2="875" y1="165.3" y2="165.3" stroke="#E1E5EF"/>
-<text x="539" y="169.3" font-size="11" text-anchor="end" fill="#5A6480">20</text>
-<line x1="545" x2="875" y1="99.7" y2="99.7" stroke="#E1E5EF"/>
-<text x="539" y="103.7" font-size="11" text-anchor="end" fill="#5A6480">50</text>
-<line x1="545" x2="875" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
-<text x="539" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">100</text>
-<line x1="545.0" x2="545.0" y1="380" y2="384" stroke="#5A6480"/>
-<text x="545.0" y="397" font-size="11" text-anchor="middle" fill="#5A6480">2</text>
-<line x1="645.9" x2="645.9" y1="380" y2="384" stroke="#5A6480"/>
-<text x="645.9" y="397" font-size="11" text-anchor="middle" fill="#5A6480">5</text>
-<line x1="722.3" x2="722.3" y1="380" y2="384" stroke="#5A6480"/>
-<text x="722.3" y="397" font-size="11" text-anchor="middle" fill="#5A6480">10</text>
-<line x1="798.6" x2="798.6" y1="380" y2="384" stroke="#5A6480"/>
-<text x="798.6" y="397" font-size="11" text-anchor="middle" fill="#5A6480">20</text>
-<line x1="875.0" x2="875.0" y1="380" y2="384" stroke="#5A6480"/>
-<text x="875.0" y="397" font-size="11" text-anchor="middle" fill="#5A6480">40</text>
-<rect x="545" y="50" width="330" height="330" fill="none" stroke="#0F1730" stroke-width=".8"/>
-<text x="710.0" y="416.0" font-size="12" text-anchor="middle" fill="#0F1730">rescaling factor λ</text>
-<text x="501.0" y="215.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 501.0 215.0)">run time: every generation / rescaled</text>
-<path d="M545.0 330.3L875.0 115.7" fill="none" stroke="#5A6480" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="1"/>
-<use href="#m6" x="589.7" y="320.3"/>
-<use href="#m6" x="589.7" y="311.3"/>
-<use href="#m6" x="589.7" y="312.1"/>
-<use href="#m6" x="589.7" y="312.9"/>
-<use href="#m6" x="589.7" y="311.5"/>
-<use href="#m6" x="589.7" y="312.9"/>
-<use href="#m6" x="589.7" y="306.7"/>
-<use href="#m6" x="589.7" y="312.1"/>
-<use href="#m6" x="589.7" y="314.1"/>
-<use href="#m6" x="589.7" y="308.8"/>
-<use href="#m6" x="589.7" y="314.6"/>
-<use href="#m6" x="589.7" y="311.0"/>
-<use href="#m6" x="589.7" y="310.2"/>
-<use href="#m6" x="589.7" y="308.0"/>
-<use href="#m6" x="589.7" y="311.0"/>
-<use href="#m6" x="589.7" y="308.3"/>
-<use href="#m6" x="589.7" y="309.6"/>
-<use href="#m6" x="589.7" y="309.9"/>
-<use href="#m7" x="589.7" y="314.6"/>
-<use href="#m7" x="589.7" y="308.3"/>
-<use href="#m7" x="589.7" y="310.7"/>
-<use href="#m7" x="589.7" y="311.3"/>
-<use href="#m7" x="589.7" y="310.2"/>
-<use href="#m7" x="589.7" y="310.2"/>
-<use href="#m7" x="589.7" y="306.2"/>
-<use href="#m7" x="589.7" y="305.7"/>
-<use href="#m7" x="589.7" y="308.3"/>
-<use href="#m7" x="589.7" y="305.5"/>
-<use href="#m7" x="589.7" y="308.0"/>
-<use href="#m7" x="589.7" y="304.2"/>
-<use href="#m7" x="589.7" y="305.7"/>
-<use href="#m7" x="589.7" y="306.0"/>
-<use href="#m7" x="589.7" y="304.0"/>
-<use href="#m7" x="589.7" y="306.0"/>
-<use href="#m7" x="589.7" y="305.0"/>
-<use href="#m7" x="589.7" y="304.7"/>
-<use href="#m8" x="589.7" y="308.0"/>
-<use href="#m8" x="589.7" y="310.2"/>
-<use href="#m8" x="589.7" y="309.4"/>
-<use href="#m8" x="589.7" y="312.1"/>
-<use href="#m8" x="589.7" y="306.2"/>
-<use href="#m8" x="589.7" y="310.4"/>
-<use href="#m8" x="589.7" y="310.7"/>
-<use href="#m8" x="589.7" y="304.7"/>
-<use href="#m8" x="589.7" y="310.4"/>
-<use href="#m8" x="589.7" y="307.0"/>
-<use href="#m8" x="589.7" y="307.5"/>
-<use href="#m8" x="589.7" y="307.0"/>
-<use href="#m8" x="589.7" y="306.0"/>
-<use href="#m8" x="589.7" y="304.0"/>
-<use href="#m8" x="589.7" y="305.5"/>
-<use href="#m8" x="589.7" y="305.5"/>
-<use href="#m8" x="589.7" y="306.7"/>
-<use href="#m8" x="589.7" y="305.2"/>
-<use href="#m6" x="645.9" y="278.0"/>
-<use href="#m6" x="645.9" y="273.3"/>
-<use href="#m6" x="645.9" y="276.1"/>
-<use href="#m6" x="645.9" y="276.3"/>
-<use href="#m6" x="645.9" y="271.9"/>
-<use href="#m6" x="645.9" y="274.8"/>
-<use href="#m6" x="722.3" y="234.9"/>
-<use href="#m6" x="722.3" y="231.6"/>
-<use href="#m6" x="722.3" y="233.1"/>
-<use href="#m6" x="722.3" y="230.3"/>
-<use href="#m6" x="722.3" y="232.3"/>
-<use href="#m6" x="722.3" y="234.5"/>
-<use href="#m6" x="722.3" y="231.0"/>
-<use href="#m6" x="722.3" y="225.3"/>
-<use href="#m6" x="722.3" y="229.7"/>
-<use href="#m6" x="722.3" y="226.5"/>
-<use href="#m6" x="722.3" y="231.4"/>
-<use href="#m6" x="722.3" y="227.7"/>
-<use href="#m7" x="645.9" y="275.3"/>
-<use href="#m7" x="645.9" y="272.1"/>
-<use href="#m7" x="645.9" y="270.5"/>
-<use href="#m7" x="645.9" y="272.2"/>
-<use href="#m7" x="645.9" y="271.4"/>
-<use href="#m7" x="645.9" y="273.7"/>
-<use href="#m7" x="722.3" y="229.7"/>
-<use href="#m7" x="722.3" y="225.0"/>
-<use href="#m7" x="722.3" y="228.3"/>
-<use href="#m7" x="722.3" y="223.1"/>
-<use href="#m7" x="722.3" y="229.0"/>
-<use href="#m7" x="722.3" y="223.8"/>
-<use href="#m7" x="722.3" y="221.0"/>
-<use href="#m7" x="722.3" y="220.7"/>
-<use href="#m7" x="722.3" y="224.2"/>
-<use href="#m7" x="722.3" y="220.7"/>
-<use href="#m7" x="722.3" y="224.2"/>
-<use href="#m7" x="722.3" y="221.6"/>
-<use href="#m8" x="645.9" y="272.7"/>
-<use href="#m8" x="645.9" y="271.4"/>
-<use href="#m8" x="645.9" y="272.1"/>
-<use href="#m8" x="645.9" y="272.2"/>
-<use href="#m8" x="645.9" y="270.5"/>
-<use href="#m8" x="645.9" y="271.7"/>
-<use href="#m8" x="722.3" y="231.0"/>
-<use href="#m8" x="722.3" y="223.7"/>
-<use href="#m8" x="722.3" y="232.6"/>
-<use href="#m8" x="722.3" y="222.9"/>
-<use href="#m8" x="722.3" y="238.2"/>
-<use href="#m8" x="722.3" y="235.4"/>
-<use href="#m8" x="722.3" y="225.1"/>
-<use href="#m8" x="722.3" y="220.8"/>
-<use href="#m8" x="722.3" y="223.7"/>
-<use href="#m8" x="722.3" y="220.5"/>
-<use href="#m8" x="722.3" y="233.4"/>
-<use href="#m8" x="722.3" y="228.6"/>
-<use href="#m6" x="843.3" y="154.4"/>
-<use href="#m6" x="843.3" y="148.5"/>
-<use href="#m6" x="843.3" y="145.1"/>
-<use href="#m6" x="843.3" y="145.3"/>
-<use href="#m7" x="843.3" y="149.5"/>
-<use href="#m7" x="843.3" y="147.4"/>
-<use href="#m7" x="843.3" y="143.5"/>
-<use href="#m7" x="843.3" y="143.3"/>
-<use href="#m8" x="843.3" y="152.6"/>
-<use href="#m8" x="843.3" y="152.9"/>
-<use href="#m8" x="843.3" y="140.8"/>
-<use href="#m8" x="843.3" y="145.6"/>
-<line x1="555" x2="575" y1="64" y2="64" stroke="#5A6480" stroke-width="2" stroke-dasharray="5 3"/>
-<text x="582.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">dashed: speed-up = λ</text>
+<text x="520.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Run time</text>
+<text x="468.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">b</text>
+<line x1="520" x2="820" y1="350.0" y2="350.0" stroke="#E1E5EF"/>
+<text x="514" y="354.0" font-size="11" text-anchor="end" fill="#5A6480">0.1</text>
+<line x1="520" x2="820" y1="316.5" y2="316.5" stroke="#E1E5EF"/>
+<text x="514" y="320.5" font-size="11" text-anchor="end" fill="#5A6480">0.2</text>
+<line x1="520" x2="820" y1="272.3" y2="272.3" stroke="#E1E5EF"/>
+<text x="514" y="276.3" font-size="11" text-anchor="end" fill="#5A6480">0.5</text>
+<line x1="520" x2="820" y1="238.8" y2="238.8" stroke="#E1E5EF"/>
+<text x="514" y="242.8" font-size="11" text-anchor="end" fill="#5A6480">1</text>
+<line x1="520" x2="820" y1="205.4" y2="205.4" stroke="#E1E5EF"/>
+<text x="514" y="209.4" font-size="11" text-anchor="end" fill="#5A6480">2</text>
+<line x1="520" x2="820" y1="161.2" y2="161.2" stroke="#E1E5EF"/>
+<text x="514" y="165.2" font-size="11" text-anchor="end" fill="#5A6480">5</text>
+<line x1="520" x2="820" y1="127.7" y2="127.7" stroke="#E1E5EF"/>
+<text x="514" y="131.7" font-size="11" text-anchor="end" fill="#5A6480">10</text>
+<line x1="520" x2="820" y1="94.2" y2="94.2" stroke="#E1E5EF"/>
+<text x="514" y="98.2" font-size="11" text-anchor="end" fill="#5A6480">20</text>
+<line x1="520" x2="820" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
+<text x="514" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">50</text>
+<line x1="563.7" x2="563.7" y1="350" y2="354" stroke="#5A6480"/>
+<text x="563.7" y="367" font-size="11" text-anchor="middle" fill="#5A6480">5,000</text>
+<line x1="682.3" x2="682.3" y1="350" y2="354" stroke="#5A6480"/>
+<text x="682.3" y="367" font-size="11" text-anchor="middle" fill="#5A6480">20,000</text>
+<line x1="776.3" x2="776.3" y1="350" y2="354" stroke="#5A6480"/>
+<text x="776.3" y="367" font-size="11" text-anchor="middle" fill="#5A6480">60,000</text>
+<rect x="520" y="50" width="300" height="300" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="670.0" y="386.0" font-size="12" text-anchor="middle" fill="#0F1730">generations between the first and last dates</text>
+<text x="476.0" y="200.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 476.0 200.0)">run time (s)</text>
+<use href="#m6" x="554.4" y="262.9"/>
+<use href="#m7" x="566.4" y="303.1"/>
+<use href="#m6" x="555.5" y="256.2"/>
+<use href="#m7" x="567.5" y="302.6"/>
+<use href="#m6" x="556.5" y="263.6"/>
+<use href="#m7" x="568.5" y="309.4"/>
+<use href="#m6" x="557.5" y="257.0"/>
+<use href="#m7" x="569.5" y="302.2"/>
+<use href="#m6" x="558.5" y="262.6"/>
+<use href="#m7" x="570.5" y="308.8"/>
+<use href="#m6" x="559.5" y="256.1"/>
+<use href="#m7" x="571.5" y="301.2"/>
+<use href="#m6" x="560.4" y="252.8"/>
+<use href="#m7" x="572.4" y="302.2"/>
+<use href="#m6" x="554.4" y="235.7"/>
+<use href="#m7" x="566.4" y="281.4"/>
+<use href="#m6" x="555.5" y="250.2"/>
+<use href="#m7" x="567.5" y="294.6"/>
+<use href="#m6" x="556.5" y="232.1"/>
+<use href="#m7" x="568.5" y="280.0"/>
+<use href="#m6" x="557.5" y="249.8"/>
+<use href="#m7" x="569.5" y="293.9"/>
+<use href="#m6" x="558.5" y="233.2"/>
+<use href="#m7" x="570.5" y="279.7"/>
+<use href="#m6" x="559.5" y="234.6"/>
+<use href="#m7" x="571.5" y="281.5"/>
+<use href="#m6" x="560.4" y="223.8"/>
+<use href="#m7" x="572.4" y="272.3"/>
+<use href="#m6" x="554.4" y="233.6"/>
+<use href="#m7" x="566.4" y="280.0"/>
+<use href="#m6" x="555.5" y="223.8"/>
+<use href="#m7" x="567.5" y="272.2"/>
+<use href="#m6" x="556.5" y="229.0"/>
+<use href="#m7" x="568.5" y="276.4"/>
+<use href="#m6" x="557.5" y="223.4"/>
+<use href="#m7" x="569.5" y="270.7"/>
+<use href="#m6" x="558.5" y="237.2"/>
+<use href="#m7" x="570.5" y="281.3"/>
+<use href="#m6" x="559.5" y="218.4"/>
+<use href="#m7" x="571.5" y="266.7"/>
+<use href="#m6" x="560.4" y="237.0"/>
+<use href="#m7" x="572.4" y="283.6"/>
+<use href="#m6" x="554.4" y="219.0"/>
+<use href="#m7" x="566.4" y="265.2"/>
+<use href="#m6" x="555.5" y="236.0"/>
+<use href="#m7" x="567.5" y="283.0"/>
+<use href="#m6" x="556.5" y="217.9"/>
+<use href="#m7" x="568.5" y="265.0"/>
+<use href="#m6" x="557.5" y="218.9"/>
+<use href="#m7" x="569.5" y="268.5"/>
+<use href="#m6" x="558.5" y="199.1"/>
+<use href="#m7" x="570.5" y="249.2"/>
+<use href="#m6" x="559.5" y="219.5"/>
+<use href="#m7" x="571.5" y="267.9"/>
+<use href="#m6" x="560.4" y="199.3"/>
+<use href="#m7" x="572.4" y="249.5"/>
+<use href="#m6" x="554.4" y="216.3"/>
+<use href="#m7" x="566.4" y="264.7"/>
+<use href="#m6" x="555.5" y="197.8"/>
+<use href="#m7" x="567.5" y="248.9"/>
+<use href="#m6" x="556.5" y="199.9"/>
+<use href="#m7" x="568.5" y="250.0"/>
+<use href="#m6" x="557.5" y="197.4"/>
+<use href="#m7" x="569.5" y="247.1"/>
+<use href="#m6" x="558.5" y="198.2"/>
+<use href="#m7" x="570.5" y="249.4"/>
+<use href="#m6" x="559.5" y="197.8"/>
+<use href="#m7" x="571.5" y="247.7"/>
+<use href="#m6" x="560.4" y="198.7"/>
+<use href="#m7" x="572.4" y="249.4"/>
+<use href="#m6" x="554.4" y="197.3"/>
+<use href="#m7" x="566.4" y="248.1"/>
+<use href="#m6" x="555.5" y="239.4"/>
+<use href="#m7" x="567.5" y="287.9"/>
+<use href="#m6" x="556.5" y="225.2"/>
+<use href="#m7" x="568.5" y="272.3"/>
+<use href="#m6" x="557.5" y="242.4"/>
+<use href="#m7" x="569.5" y="290.1"/>
+<use href="#m6" x="558.5" y="225.2"/>
+<use href="#m7" x="570.5" y="270.9"/>
+<use href="#m6" x="559.5" y="239.7"/>
+<use href="#m7" x="571.5" y="289.4"/>
+<use href="#m6" x="560.4" y="221.6"/>
+<use href="#m7" x="572.4" y="268.5"/>
+<use href="#m6" x="554.4" y="224.9"/>
+<use href="#m7" x="566.4" y="271.6"/>
+<use href="#m6" x="555.5" y="201.8"/>
+<use href="#m7" x="567.5" y="252.4"/>
+<use href="#m6" x="556.5" y="225.4"/>
+<use href="#m7" x="568.5" y="272.2"/>
+<use href="#m6" x="557.5" y="201.9"/>
+<use href="#m7" x="569.5" y="251.2"/>
+<use href="#m6" x="558.5" y="221.5"/>
+<use href="#m7" x="570.5" y="270.4"/>
+<use href="#m6" x="559.5" y="201.1"/>
+<use href="#m7" x="571.5" y="250.2"/>
+<use href="#m6" x="560.4" y="203.0"/>
+<use href="#m7" x="572.4" y="252.8"/>
+<use href="#m6" x="554.4" y="200.8"/>
+<use href="#m7" x="566.4" y="252.1"/>
+<use href="#m6" x="555.5" y="203.1"/>
+<use href="#m7" x="567.5" y="253.3"/>
+<use href="#m6" x="556.5" y="201.2"/>
+<use href="#m7" x="568.5" y="251.5"/>
+<use href="#m6" x="557.5" y="202.4"/>
+<use href="#m7" x="569.5" y="251.8"/>
+<use href="#m6" x="558.5" y="198.7"/>
+<use href="#m7" x="570.5" y="249.1"/>
+<text x="563.7" y="342.0" font-size="11" text-anchor="middle" fill="#5A6480">λ = 3</text>
+<use href="#m6" x="673.0" y="200.5"/>
+<use href="#m7" x="685.0" y="269.1"/>
+<use href="#m6" x="674.1" y="197.2"/>
+<use href="#m7" x="686.1" y="269.0"/>
+<use href="#m6" x="675.1" y="197.6"/>
+<use href="#m7" x="687.1" y="267.5"/>
+<use href="#m6" x="676.1" y="197.6"/>
+<use href="#m7" x="688.1" y="267.4"/>
+<use href="#m6" x="677.1" y="197.9"/>
+<use href="#m7" x="689.1" y="270.7"/>
+<use href="#m6" x="678.1" y="198.2"/>
+<use href="#m7" x="690.1" y="269.0"/>
+<use href="#m6" x="679.0" y="196.8"/>
+<use href="#m7" x="691.0" y="294.6"/>
+<use href="#m6" x="673.0" y="183.9"/>
+<use href="#m7" x="685.0" y="283.8"/>
+<use href="#m6" x="674.1" y="196.0"/>
+<use href="#m7" x="686.1" y="294.9"/>
+<use href="#m6" x="675.1" y="182.2"/>
+<use href="#m7" x="687.1" y="283.1"/>
+<use href="#m6" x="676.1" y="194.2"/>
+<use href="#m7" x="688.1" y="293.7"/>
+<use href="#m6" x="677.1" y="185.4"/>
+<use href="#m7" x="689.1" y="283.4"/>
+<use href="#m6" x="678.1" y="183.4"/>
+<use href="#m7" x="690.1" y="283.8"/>
+<use href="#m6" x="679.0" y="162.2"/>
+<use href="#m7" x="691.0" y="266.4"/>
+<use href="#m6" x="673.0" y="179.8"/>
+<use href="#m7" x="685.0" y="281.1"/>
+<use href="#m6" x="674.1" y="165.0"/>
+<use href="#m7" x="686.1" y="268.4"/>
+<use href="#m6" x="675.1" y="185.6"/>
+<use href="#m7" x="687.1" y="285.7"/>
+<use href="#m6" x="676.1" y="169.5"/>
+<use href="#m7" x="688.1" y="272.1"/>
+<use href="#m6" x="677.1" y="181.6"/>
+<use href="#m7" x="689.1" y="252.2"/>
+<use href="#m6" x="678.1" y="171.5"/>
+<use href="#m7" x="690.1" y="244.2"/>
+<use href="#m6" x="679.0" y="180.1"/>
+<use href="#m7" x="691.0" y="253.9"/>
+<use href="#m6" x="673.0" y="171.4"/>
+<use href="#m7" x="685.0" y="243.9"/>
+<use href="#m6" x="674.1" y="180.1"/>
+<use href="#m7" x="686.1" y="253.3"/>
+<use href="#m6" x="675.1" y="171.8"/>
+<use href="#m7" x="687.1" y="243.5"/>
+<use href="#m6" x="676.1" y="170.4"/>
+<use href="#m7" x="688.1" y="271.7"/>
+<use href="#m6" x="677.1" y="145.2"/>
+<use href="#m7" x="689.1" y="249.6"/>
+<use href="#m6" x="678.1" y="169.0"/>
+<use href="#m7" x="690.1" y="271.3"/>
+<use href="#m6" x="679.0" y="142.7"/>
+<use href="#m7" x="691.0" y="248.4"/>
+<use href="#m6" x="673.0" y="168.6"/>
+<use href="#m7" x="685.0" y="270.3"/>
+<use href="#m6" x="674.1" y="149.1"/>
+<use href="#m7" x="686.1" y="254.3"/>
+<use href="#m6" x="675.1" y="146.0"/>
+<use href="#m7" x="687.1" y="253.1"/>
+<use href="#m6" x="676.1" y="133.5"/>
+<use href="#m7" x="688.1" y="240.8"/>
+<use href="#m6" x="677.1" y="142.5"/>
+<use href="#m7" x="689.1" y="247.4"/>
+<use href="#m6" x="678.1" y="132.2"/>
+<use href="#m7" x="690.1" y="239.5"/>
+<use href="#m6" x="679.0" y="146.0"/>
+<use href="#m7" x="691.0" y="250.9"/>
+<use href="#m6" x="673.0" y="138.5"/>
+<use href="#m7" x="685.0" y="245.2"/>
+<use href="#m6" x="674.1" y="184.5"/>
+<use href="#m7" x="686.1" y="256.8"/>
+<use href="#m6" x="675.1" y="176.1"/>
+<use href="#m7" x="687.1" y="249.2"/>
+<use href="#m6" x="676.1" y="183.1"/>
+<use href="#m7" x="688.1" y="255.8"/>
+<use href="#m6" x="677.1" y="175.1"/>
+<use href="#m7" x="689.1" y="247.7"/>
+<use href="#m6" x="678.1" y="182.6"/>
+<use href="#m7" x="690.1" y="256.3"/>
+<use href="#m6" x="679.0" y="175.5"/>
+<use href="#m7" x="691.0" y="248.5"/>
+<use href="#m6" x="673.0" y="173.9"/>
+<use href="#m7" x="685.0" y="274.3"/>
+<use href="#m6" x="674.1" y="148.2"/>
+<use href="#m7" x="686.1" y="253.4"/>
+<use href="#m6" x="675.1" y="172.9"/>
+<use href="#m7" x="687.1" y="272.2"/>
+<use href="#m6" x="676.1" y="146.3"/>
+<use href="#m7" x="688.1" y="252.1"/>
+<use href="#m6" x="677.1" y="172.9"/>
+<use href="#m7" x="689.1" y="268.4"/>
+<use href="#m6" x="678.1" y="153.9"/>
+<use href="#m7" x="690.1" y="251.3"/>
+<use href="#m6" x="679.0" y="150.5"/>
+<use href="#m7" x="691.0" y="254.9"/>
+<use href="#m6" x="673.0" y="134.2"/>
+<use href="#m7" x="685.0" y="241.5"/>
+<use href="#m6" x="674.1" y="145.8"/>
+<use href="#m7" x="686.1" y="251.2"/>
+<use href="#m6" x="675.1" y="133.4"/>
+<use href="#m7" x="687.1" y="240.8"/>
+<use href="#m6" x="676.1" y="152.1"/>
+<use href="#m7" x="688.1" y="250.9"/>
+<use href="#m6" x="677.1" y="140.8"/>
+<use href="#m7" x="689.1" y="242.8"/>
+<text x="682.3" y="342.0" font-size="11" text-anchor="middle" fill="#5A6480">λ = 5 or 10</text>
+<use href="#m6" x="767.0" y="138.5"/>
+<use href="#m7" x="779.0" y="290.5"/>
+<use href="#m6" x="768.1" y="135.1"/>
+<use href="#m7" x="780.1" y="291.1"/>
+<use href="#m6" x="769.1" y="114.5"/>
+<use href="#m7" x="781.1" y="272.7"/>
+<use href="#m6" x="770.1" y="120.6"/>
+<use href="#m7" x="782.1" y="278.7"/>
+<use href="#m6" x="771.1" y="105.3"/>
+<use href="#m7" x="783.1" y="260.5"/>
+<use href="#m6" x="772.1" y="105.4"/>
+<use href="#m7" x="784.1" y="262.1"/>
+<use href="#m6" x="773.0" y="82.9"/>
+<use href="#m7" x="785.0" y="242.2"/>
+<use href="#m6" x="767.0" y="87.5"/>
+<use href="#m7" x="779.0" y="246.9"/>
+<use href="#m6" x="768.1" y="109.1"/>
+<use href="#m7" x="780.1" y="262.2"/>
+<use href="#m6" x="769.1" y="109.3"/>
+<use href="#m7" x="781.1" y="262.3"/>
+<use href="#m6" x="770.1" y="83.1"/>
+<use href="#m7" x="782.1" y="244.2"/>
+<use href="#m6" x="771.1" y="89.8"/>
+<use href="#m7" x="783.1" y="247.7"/>
+<text x="776.3" y="342.0" font-size="11" text-anchor="middle" fill="#5A6480">λ = 30</text>
+<use href="#m8" x="540.0" y="64.0"/>
+<text x="557.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">every generation simulated</text>
+<use href="#m9" x="540.0" y="81.0"/>
+<text x="557.0" y="85.0" font-size="11" text-anchor="start" fill="#0F1730">with rescaling</text>
+<text x="965.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Rescaling forced beyond its limits</text>
+<text x="913.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">c</text>
+<line x1="965" x2="1265" y1="325.0" y2="325.0" stroke="#E1E5EF"/>
+<text x="959" y="329.0" font-size="11" text-anchor="end" fill="#5A6480">-10</text>
+<line x1="965" x2="1265" y1="262.5" y2="262.5" stroke="#E1E5EF"/>
+<text x="959" y="266.5" font-size="11" text-anchor="end" fill="#5A6480">-5</text>
+<line x1="965" x2="1265" y1="200.0" y2="200.0" stroke="#E1E5EF"/>
+<text x="959" y="204.0" font-size="11" text-anchor="end" fill="#5A6480">0</text>
+<line x1="965" x2="1265" y1="137.5" y2="137.5" stroke="#E1E5EF"/>
+<text x="959" y="141.5" font-size="11" text-anchor="end" fill="#5A6480">+5</text>
+<line x1="965" x2="1265" y1="75.0" y2="75.0" stroke="#E1E5EF"/>
+<text x="959" y="79.0" font-size="11" text-anchor="end" fill="#5A6480">+10</text>
+<line x1="981.5" x2="981.5" y1="350" y2="354" stroke="#5A6480"/>
+<text x="981.5" y="367" font-size="11" text-anchor="middle" fill="#5A6480">2</text>
+<line x1="1034.1" x2="1034.1" y1="350" y2="354" stroke="#5A6480"/>
+<text x="1034.1" y="367" font-size="11" text-anchor="middle" fill="#5A6480">5</text>
+<line x1="1073.8" x2="1073.8" y1="350" y2="354" stroke="#5A6480"/>
+<text x="1073.8" y="367" font-size="11" text-anchor="middle" fill="#5A6480">10</text>
+<line x1="1113.6" x2="1113.6" y1="350" y2="354" stroke="#5A6480"/>
+<text x="1113.6" y="367" font-size="11" text-anchor="middle" fill="#5A6480">20</text>
+<line x1="1166.2" x2="1166.2" y1="350" y2="354" stroke="#5A6480"/>
+<text x="1166.2" y="367" font-size="11" text-anchor="middle" fill="#5A6480">50</text>
+<line x1="1205.9" x2="1205.9" y1="350" y2="354" stroke="#5A6480"/>
+<text x="1205.9" y="367" font-size="11" text-anchor="middle" fill="#5A6480">100</text>
+<line x1="1245.7" x2="1245.7" y1="350" y2="354" stroke="#5A6480"/>
+<text x="1245.7" y="367" font-size="11" text-anchor="middle" fill="#5A6480">200</text>
+<rect x="965" y="50" width="300" height="300" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="1115.0" y="386.0" font-size="12" text-anchor="middle" fill="#0F1730">rescaling factor λ (forced)</text>
+<text x="921.0" y="200.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 921.0 200.0)">power with rescaling minus without (points)</text>
+<path d="M965.0 200.0L1265.0 200.0" fill="none" stroke="#5A6480" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="1"/>
+<line x1="974.2" x2="974.2" y1="242.5" y2="162.5" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m10" x="974.2" y="202.5"/>
+<line x1="1026.7" x2="1026.7" y1="228.8" y2="148.7" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m10" x="1026.7" y="188.7"/>
+<line x1="1066.5" x2="1066.5" y1="245.0" y2="165.0" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m10" x="1066.5" y="205.0"/>
+<line x1="1106.3" x2="1106.3" y1="251.2" y2="171.2" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m10" x="1106.3" y="211.2"/>
+<line x1="1158.8" x2="1158.8" y1="228.8" y2="148.7" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m11" x="1158.8" y="188.7"/>
+<line x1="1198.6" x2="1198.6" y1="158.7" y2="78.8" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m11" x="1198.6" y="118.8"/>
+<line x1="1238.4" x2="1238.4" y1="285.0" y2="205.0" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m11" x="1238.4" y="245.0"/>
+<line x1="979.2" x2="979.2" y1="235.0" y2="175.0" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m12" x="979.2" y="205.0"/>
+<line x1="1031.7" x2="1031.7" y1="256.2" y2="196.2" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m12" x="1031.7" y="226.2"/>
+<line x1="1071.5" x2="1071.5" y1="250.0" y2="190.0" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m13" x="1071.5" y="220.0"/>
+<line x1="1111.3" x2="1111.3" y1="265.0" y2="205.0" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m13" x="1111.3" y="235.0"/>
+<line x1="1163.8" x2="1163.8" y1="241.2" y2="181.2" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m13" x="1163.8" y="211.2"/>
+<line x1="1203.6" x2="1203.6" y1="286.2" y2="231.2" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m13" x="1203.6" y="258.8"/>
+<line x1="1243.4" x2="1243.4" y1="300.0" y2="245.0" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m13" x="1243.4" y="272.5"/>
+<line x1="983.8" x2="983.8" y1="221.2" y2="161.2" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m14" x="983.8" y="191.2"/>
+<line x1="1036.3" x2="1036.3" y1="237.5" y2="177.5" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m14" x="1036.3" y="207.5"/>
+<line x1="1076.1" x2="1076.1" y1="240.0" y2="180.0" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m14" x="1076.1" y="210.0"/>
+<line x1="1115.9" x2="1115.9" y1="245.0" y2="185.0" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m14" x="1115.9" y="215.0"/>
+<line x1="1168.4" x2="1168.4" y1="232.5" y2="172.5" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m15" x="1168.4" y="202.5"/>
+<line x1="1208.2" x2="1208.2" y1="232.5" y2="172.5" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m15" x="1208.2" y="202.5"/>
+<line x1="1247.9" x2="1247.9" y1="220.0" y2="160.0" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m15" x="1247.9" y="190.0"/>
+<line x1="988.0" x2="988.0" y1="225.0" y2="180.0" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m16" x="988.0" y="202.5"/>
+<line x1="1040.6" x2="1040.6" y1="210.0" y2="165.0" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m16" x="1040.6" y="187.5"/>
+<line x1="1080.3" x2="1080.3" y1="210.0" y2="165.0" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m17" x="1080.3" y="187.5"/>
+<line x1="1120.1" x2="1120.1" y1="225.0" y2="180.0" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m17" x="1120.1" y="202.5"/>
+<line x1="1172.7" x2="1172.7" y1="212.5" y2="167.5" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m17" x="1172.7" y="190.0"/>
+<line x1="1212.4" x2="1212.4" y1="208.8" y2="163.8" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m17" x="1212.4" y="186.2"/>
+<line x1="1252.2" x2="1252.2" y1="231.2" y2="186.2" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m17" x="1252.2" y="208.8"/>
+<use href="#m3" x="1293.0" y="62.0"/>
+<text x="1310.0" y="66.0" font-size="11" text-anchor="start" fill="#0F1730">haploid, N = 10,000</text>
+<use href="#m18" x="1293.0" y="79.0"/>
+<text x="1310.0" y="83.0" font-size="11" text-anchor="start" fill="#0F1730">haploid, N = 1,000</text>
+<use href="#m4" x="1293.0" y="96.0"/>
+<text x="1310.0" y="100.0" font-size="11" text-anchor="start" fill="#0F1730">diploid, Nf = Nm = 100,000</text>
+<use href="#m19" x="1293.0" y="113.0"/>
+<text x="1310.0" y="117.0" font-size="11" text-anchor="start" fill="#0F1730">diploid, Nf = Nm = 1,000</text>
+<use href="#m20" x="1293.0" y="130.0"/>
+<text x="1310.0" y="134.0" font-size="11" text-anchor="start" fill="#0F1730">filled: within SPOT's limits</text>
+<use href="#m21" x="1293.0" y="147.0"/>
+<text x="1310.0" y="151.0" font-size="11" text-anchor="start" fill="#0F1730">hollow: beyond them</text>
+<line x1="1283" x2="1303" y1="164" y2="164" stroke="#5A6480" stroke-width="2"/>
+<text x="1310.0" y="168.0" font-size="11" text-anchor="start" fill="#0F1730">bars: ±2 standard errors</text>
 </svg>

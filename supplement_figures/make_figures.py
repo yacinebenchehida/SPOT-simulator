@@ -26,24 +26,13 @@ def ols(x, y):
     return b, 1 - sse / syy
 
 
-# =============== Figure S1: agreement with theory (panels in the order of Section S3) ===============
+# =============== Figure S1: agreement with theory (Sections S3.2 and S3.3) ===============
+# Selection without drift (Section S3.1) agrees with Equation (7) to rounding error and is not shown.
 D = json.load(open('validation/theory_spot.json'))
-F = Fig(1200, 420)
-# (a) selection without drift, haploids: SPOT against the closed form (Equation 7)
-a = Ax(F, 75, 50, 300, 300, (0, 300), (0, 1), title='Selection without drift', label='a')
-a.frame([0, 50, 100, 150, 200, 250, 300], [0, .2, .4, .6, .8, 1], 'generation', 'frequency of the favoured allele')
-for k, s in enumerate([0.01, 0.05, 0.2]):
-    for p0 in (0.01, 0.2):
-        r = next(x for x in D['selection'] if x['system'] == 'haploid' and x['s'] == s and x['p0'] == p0)
-        th = [p0 * (1 + s) ** t / (1 - p0 + p0 * (1 + s) ** t) for t in range(301)]
-        a.line(list(range(0, 301, 2)), th[::2], PAL[k], 1.6)
-        g = list(range(0, 301, 10))
-        a.points(g, [r['f'][i] for i in g], PAL[k], 'o', 2.6, True)
-a.legend([('s = 0.01', PAL[0], 'line'), ('s = 0.05', PAL[1], 'line'), ('s = 0.2', PAL[2], 'line'),
-          ('lines: Equation (7)', COL['muted'], 'line'), ('circles: SPOT', COL['muted'], 'oh')], a.X(170), a.Y(0.5))
-# (b) power without drift: SPOT against the exact calculation
+F = Fig(1060, 420)
+# (a) power without drift: SPOT against the exact calculation
 TP = rd('validation/theory_power.tsv')
-b = Ax(F, 490, 50, 300, 300, (0, 1), (0, 1), title='Power without drift', label='b')
+b = Ax(F, 75, 50, 300, 300, (0, 1), (0, 1), title='Power without drift', label='a')
 b.frame([0, .2, .4, .6, .8, 1], [0, .2, .4, .6, .8, 1], 'exact power', 'power given by SPOT', xfmt=pct, yfmt=pct)
 xs = [i / 100 for i in range(101)]
 se = [2 * math.sqrt(x * (1 - x) / 5000) for x in xs]
@@ -55,22 +44,39 @@ for r in TP:
     b.points([fl(r['power_exact_at_spot_threshold'])], [fl(r['power_spot'])], col, 's' if first_last else 'o', 3.2)
 b.legend([('neutral-simulation threshold', TH['neutral'], 'o'), ('sampling-only threshold', TH['sampling'], 'o'),
           ('trend test', COL['muted'], 'o'), ('first-versus-last test', COL['muted'], 's')], b.x + 8, b.y + 16)
-# (c) drift: proportion of genetic diversity kept
+# (b) drift: proportion of genetic diversity LOST (as reported by SPOT), all nine scenarios of Table S4
 DR = rd('validation/theory_drift.tsv')
-c = Ax(F, 905, 50, 270, 300, (0, 90), (0, 1), title='Drift: genetic diversity kept', label='c')
-c.frame([0, 20, 40, 60, 80], [0, .2, .4, .6, .8, 1], 'generation', 'proportion of genetic diversity kept')
-show = [('haploid, N = 100', 'haploid, N = 100'), ('diploid, Nf = Nm = 50', 'diploid, Nf = Nm = 50'),
-        ('haplodiploid, Nf = Nm = 100', 'haplodiploid, Nf = Nm = 100'),
-        ('diploid, Nf = Nm = 500, decline to 10%', 'diploid, decline to 10%'),
-        ('diploid, Ne per interval 1,000 / 50 / 1,000', 'diploid, Ne 1,000, 50, 1,000')]
-for k, (lab, short) in enumerate(show):
+c = Ax(F, 500, 50, 330, 300, (0, 90), (0, 0.7), title='Drift: genetic diversity lost', label='b')
+c.frame([0, 15, 30, 45, 60, 75, 90], [0, .1, .2, .3, .4, .5, .6, .7], 'generation', 'proportion of genetic diversity lost')
+show = ['haploid, N = 100', 'diploid, Nf = 100, Nm = 20', 'diploid, Nf = Nm = 50', 'haplodiploid, Nf = Nm = 100',
+        'haplodiploid, Nf = 300, Nm = 50', 'diploid, Ne per interval 1,000 / 50 / 1,000', 'diploid, Nf = Nm = 500, decline to 10%',
+        'haploid, N = 1,000', 'diploid, Nf = Nm = 500']
+short = {'haploid, N = 100': 'haploid, N = 100', 'diploid, Nf = 100, Nm = 20': 'diploid, Nf = 100, Nm = 20',
+         'diploid, Nf = Nm = 50': 'diploid, Nf = Nm = 50', 'haplodiploid, Nf = Nm = 100': 'haplodiploid, Nf = Nm = 100',
+         'haplodiploid, Nf = 300, Nm = 50': 'haplodiploid, Nf = 300, Nm = 50',
+         'diploid, Ne per interval 1,000 / 50 / 1,000': 'diploid, Ne 1,000 / 50 / 1,000',
+         'diploid, Nf = Nm = 500, decline to 10%': 'diploid, decline to 10%', 'haploid, N = 1,000': 'haploid, N = 1,000',
+         'diploid, Nf = Nm = 500': 'diploid, Nf = Nm = 500'}
+assert set(show) == {r['scenario'] for r in DR}
+ends = []
+for lab in show:
     rows = [r for r in DR if r['scenario'] == lab]
     assert len(rows) == 91, lab
-    c.line([int(r['generation']) for r in rows], [fl(r['H_ratio_theory']) for r in rows], PAL[k], 1.6)
+    sysname = lab.split(',')[0]
+    col = SYS[sysname]
+    c.line([int(r['generation']) for r in rows], [1 - fl(r['H_ratio_theory']) for r in rows], col, 1.4)
     g = rows[::6]
-    c.points([int(r['generation']) for r in g], [fl(r['H_ratio_simulated']) for r in g], PAL[k], 'o', 3, True)
-c.legend([(short, PAL[k], 'line') for k, (lab, short) in enumerate(show)] +
-         [('lines: Equations (5), (6)', COL['muted'], 'line'), ('circles: SPOT', COL['muted'], 'oh')], c.x + 8, c.y + c.h - 112)
+    c.points([int(r['generation']) for r in g], [1 - fl(r['H_ratio_simulated']) for r in g], col, SH[sysname], 2.8, True)
+    ends.append([1 - fl(rows[-1]['H_ratio_theory']), short[lab], col])
+# direct labels at the end of each curve, pushed apart vertically when they would overlap
+ends.sort(key=lambda e: e[0])
+ys = [c.Y(v) for v, _, _ in ends]
+for _ in range(50):
+    for i in range(1, len(ys)):
+        if ys[i - 1] - ys[i] < 12: ys[i] = ys[i - 1] - 12
+for (v, txt, col), yy in zip(ends, ys):
+    F.text(c.x + c.w + 8, yy + 4, txt, 11, 'start', col)
+c.legend([('lines: Equations (5), (6)', COL['muted'], 'line'), ('symbols: SPOT', COL['muted'], 'oh')], c.x + 8, c.y + 16)
 print('FigS1', F.save(OUT + 'FigS1_theory.svg'))
 
 # =============== Figure S2: comparison with SLiM ===============
@@ -81,7 +87,7 @@ R = rd('validation/slim_power_runs.tsv')
 scen = list(dict.fromkeys(r['scenario'] for r in R))
 assert set(scen) == set(NAME)
 F = Fig(1200, 830)
-a = Ax(F, 75, 50, 330, 330, (0.15, 0.8), (0.15, 0.8), title='Power in each of the 20 runs', label='a')
+a = Ax(F, 205, 50, 330, 330, (0.15, 0.8), (0.15, 0.8), title='Power in each of the 20 runs', label='a')   # centred over panels b-d
 a.frame([.2, .3, .4, .5, .6, .7, .8], [.2, .3, .4, .5, .6, .7, .8], 'power with SLiM', 'power with SPOT', xfmt=pct, yfmt=pct)
 a.line([0.15, 0.8], [0.15, 0.8], COL['muted'], 1, '4 4')
 for k, s in enumerate(scen):
@@ -137,8 +143,8 @@ print('FigS3', F.save(OUT + 'FigS3_precision.svg'))
 Rs = rd('validation/rescale_results.tsv')
 Tm = rd('validation/rescale_times.tsv')   # run times measured with nothing else running, same order as Rs
 assert [(r['G'], r['system'], r['N'], r['s'], r['p0']) for r in Tm] == [(r['G'], r['system'], r['N'], r['s'], r['p0']) for r in Rs]
-F = Fig(1000, 420)
-a = Ax(F, 75, 50, 330, 330, (0, 1), (0, 1), title='Power of the trend test', label='a')
+F = Fig(1530, 430)
+a = Ax(F, 75, 50, 300, 300, (0, 1), (0, 1), title='Power of the trend test', label='a')
 a.frame([0, .2, .4, .6, .8, 1], [0, .2, .4, .6, .8, 1], 'every generation simulated', 'with rescaling', xfmt=pct, yfmt=pct)
 xs = [i / 100 for i in range(101)]
 se = [2 * math.sqrt(2 * x * (1 - x) / 1000) for x in xs]
@@ -147,14 +153,44 @@ a.line([0, 1], [0, 1], COL['muted'], 1, '4 4')
 for r in Rs:
     a.points([fl(r['power_exact'])], [fl(r['power_rescaled'])], SYS[r['system']], SH[r['system']], 3.4)
 a.legend([(k, v, SH[k]) for k, v in SYS.items()] + [('dashed: 1:1', COL['muted'], 'dash')], a.x + 10, a.y + 18)
-sp = [fl(r['speedup']) for r in Tm]
-b = Ax(F, 545, 50, 330, 330, (2, 40), (1, 100), xlog=True, ylog=True, title='Speed-up from rescaling', label='b')
-b.frame([2, 5, 10, 20, 40], [1, 2, 5, 10, 20, 50, 100], 'rescaling factor λ', 'run time: every generation / rescaled')
-b.line([2, 40], [2, 40], COL['muted'], 1, '4 4')
-for r, v in zip(Rs, sp):
-    b.points([fl(r['lambda'])], [v], SYS[r['system']], SH[r['system']], 3.4, True)
-b.legend([('dashed: speed-up = λ', COL['muted'], 'dash')], b.x + 10, b.y + 18)
-print('FigS4', F.save(OUT + 'FigS4_rescaling.svg'), 'median speed-up', round(st.median(sp), 2), 'max', round(max(sp), 1))
+# (b) run time against the length of the series, with and without rescaling
+b = Ax(F, 520, 50, 300, 300, (3000, 100000), (0.1, 50), xlog=True, ylog=True, title='Run time', label='b')
+b.frame([5000, 20000, 60000], [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50], 'generations between the first and last dates',
+        'run time (s)', xfmt=lambda v: f'{v:,.0f}', yfmt=lambda v: f'{v:g}')
+med = []
+for G in ('5000', '20000', '60000'):
+    rows = [r for r in Tm if r['G'] == G]
+    for j, r in enumerate(rows):
+        jit = 1 + 0.035 * ((j % 7) - 3) / 3
+        b.points([fl(G) * 0.93 * jit], [fl(r['ms_exact']) / 1000], COL['ink'], 'o', 2.6, True)
+        b.points([fl(G) * 1.07 * jit], [fl(r['ms_rescaled']) / 1000], COL['blue'], 'o', 2.6, True)
+    lams = sorted({int(r['lambda']) for r in rows})
+    F.text(b.X(fl(G)), b.Y(0.1) - 8, 'λ = ' + ' or '.join(str(l) for l in lams), 11, 'middle', COL['muted'])
+    med.append((G, st.median(fl(r['ms_exact']) for r in rows) / 1000, st.median(fl(r['ms_rescaled']) for r in rows) / 1000))
+b.legend([('every generation simulated', COL['ink'], 'oh'), ('with rescaling', COL['blue'], 'oh')], b.x + 10, b.y + 18)
+# (c) limits of rescaling: lambda forced from 2 to 200 (validation/rescale_limits.tsv)
+L = rd('validation/rescale_limits.tsv')
+c = Ax(F, 965, 50, 300, 300, (1.5, 280), (-0.12, 0.12), xlog=True, title='Rescaling forced beyond its limits', label='c')
+c.frame([2, 5, 10, 20, 50, 100, 200], [-.1, -.05, 0, .05, .1], 'rescaling factor λ (forced)',
+        'power with rescaling minus without (points)', xfmt=lambda v: f'{v:g}', yfmt=lambda v: f'{v * 100:+.0f}' if v else '0')
+c.line([1.5, 280], [0, 0], COL['muted'], 1, '4 4')
+DES = [('haploid N=1e4 s=5e-4 p0=0.1', 'haploid, N = 10,000', 'haploid', 1e4, 5e-4),
+       ('haploid N=1e3 s=2e-3 p0=0.1', 'haploid, N = 1,000', 'haploid', 1e3, 2e-3),
+       ('diploid N=1e5 s=5e-4 p0=0.01', 'diploid, Nf = Nm = 100,000', 'diploid', 1e5, 5e-4),
+       ('diploid N=1e3 s=5e-4 p0=0.1', 'diploid, Nf = Nm = 1,000', 'diploid', 1e3, 5e-4)]
+assert {d[0] for d in DES} == {r['design'] for r in L}
+CL = [COL['blue'], COL['purple'], COL['green'], COL['amber']]
+for k, (key, lab, sysname, N, s0) in enumerate(DES):
+    lam_max = min(math.floor(math.log(1.025) / math.log(1 + s0)), math.floor(N / 200))   # SPOT's own limits (sim.js, rescale)
+    for r in [x for x in L if x['design'] == key]:
+        lam = fl(r['lambda']); d = fl(r['difference']) / 100; e = 2 * fl(r['se_difference']) / 100
+        xx = lam * (0.88, 0.96, 1.04, 1.12)[k]
+        c.errbar([xx], [d - e], [d + e], CL[k], 1.1)
+        c.points([xx], [d], CL[k], SH[sysname], 3.6, lam > lam_max)
+c.legend([(lab, CL[k], SH[sysname]) for k, (_, lab, sysname, _, _) in enumerate(DES)] +
+         [('filled: within SPOT\'s limits', COL['muted'], 'o'), ('hollow: beyond them', COL['muted'], 'oh'),
+          ('bars: ±2 standard errors', COL['muted'], 'line')], c.x + c.w + 18, c.y + 16)
+print('FigS4', F.save(OUT + 'FigS4_rescaling.svg'), 'median run times (s):', [(g, round(x, 2), round(y, 2)) for g, x, y in med])
 
 # =============== Figure S5: human ancient DNA case study ===============
 F = Fig(1000, 420)

@@ -2,7 +2,7 @@
 // Run from the repository root: node validation/rescale_limits.js > validation/rescale_limits.tsv  (about 1 minute)
 // Output: one row per design and forced lambda: rescaled s and smallest breeding number, power of the trend test without
 // rescaling (lambda = 1, seed 1) and with the forced lambda (seed 2), difference, and its binomial standard error
-// (1,000 selection simulations each; it ignores the variation of the threshold, so it is slightly too small).
+// (2,000 selection simulations each; it ignores the variation of the threshold, so it is slightly too small).
 const S=require('../sim.js');
 const base={system:'haploid',genTime:1,Nf:1e4,Nm:1e4,noDrift:false,p0:0.1,s:0.0005,h:0.5,onset:0,years:[0,6667,13333,20000],n:[20,20,20,40],perfect:false,depthEarly:10,depthLast:15,err:0.005,minDP:3,alpha:0.05,m:1,sMale:1,decline:1,mig:0,pMig:-1,kSib:1,maleFrac:0,reps:2000,seed:1};
 function force(P,lam){const Q=Object.assign({},P,{noRescale:true}); Q.genTime=P.genTime*lam; Q.s=Math.pow(1+P.s,lam)-1; Q.Nf=P.Nf/lam; Q.Nm=P.Nm/lam; return Q;}
