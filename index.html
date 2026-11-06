@@ -230,8 +230,10 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
     <label for="dh"><span class="row"><span>Mean depth, earlier points</span><output id="o-dh"></output></span><input id="dh" type="range" min="1" max="30" step="0.5"></label>
     <label for="dm"><span class="row"><span>Mean depth, last point</span><output id="o-dm"></output></span><input id="dm" type="range" min="1" max="30" step="0.5"></label>
     <p class="hint" id="depth-hint">At low depth, many heterozygous individuals are called homozygous, and read errors create copies of the other allele. A difference in depth between the earlier points and the last point therefore shifts the called frequency of a rare allele, which the sampling-only threshold can mistake for a trend. The drift-aware threshold includes these effects.</p>
-    <label for="err">Per-read error rate
+    <label for="err">Per-read error rate, earlier points
       <select id="err"><option value="0.001">0.1%</option><option value="0.005">0.5%</option><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.05">5%</option></select></label>
+    <label for="errl">Per-read error rate, last point
+      <select id="errl"><option value="0.001">0.1%</option><option value="0.005">0.5%</option><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.05">5%</option></select></label>
     <label for="mindp"><span class="row"><span>Minimum depth to call a genotype</span><output id="o-mindp"></output></span><input id="mindp" type="range" min="1" max="10" step="1"></label>
     <p class="hint">Individuals with fewer reads at the locus are left out of the analysis.</p>
   </fieldset>
@@ -786,14 +788,14 @@ const SYS=()=>st.system;
 
 const MAXP=20, MAXG=1e7, MAXN=1000, MINGT=0.0001;
 const MAXNE=1e8;
-const DEFAULTS={system:'haplodiploid',neByBlock:false,neBlocks:null,genTime:1,Nf:1000,Nm:1000,noDrift:false,p0:0.01,s:0.05,h:0.5,onset:1935,years:[1935,1955,1975,2025],n:[20,20,20,40],perfect:false,depthEarly:10,depthLast:15,err:0.005,minDP:3,alpha:0.05,m:1,sMale:1,decline:1,mig:0,pMig:-1,kSib:1,maleFrac:0,reps:1000,seed:1};
+const DEFAULTS={system:'haplodiploid',neByBlock:false,neBlocks:null,genTime:1,Nf:1000,Nm:1000,noDrift:false,p0:0.01,s:0.05,h:0.5,onset:1935,years:[1935,1955,1975,2025],n:[20,20,20,40],perfect:false,depthEarly:10,depthLast:15,err:0.005,errLast:0.005,minDP:3,alpha:0.05,m:1,sMale:1,decline:1,mig:0,pMig:-1,kSib:1,maleFrac:0,reps:1000,seed:1};
 const VERSION='0.9.1';
 document.querySelectorAll('.spot-version').forEach(e=>e.textContent=VERSION);
 /* example scenarios: illustrative starting points, not estimates for real species */
 const PRESETS={
   defaults:DEFAULTS,
   mammal:Object.assign({},DEFAULTS,{system:'diploid',genTime:20,Nf:2500,Nm:2500,neByBlock:true,neBlocks:[5000,200],p0:0.1,s:0.2,onset:1880,years:[1880,1950,2020],n:[20,20,40],depthEarly:4,depthLast:15}),
-  human:Object.assign({},DEFAULTS,{system:'diploid',genTime:28,Nf:5000,Nm:5000,p0:0.1,s:0.005,onset:-7000,years:[-7000,-5000,-3000,-1000,1000,2000],n:[50,50,50,50,50,100],depthEarly:2,depthLast:20,err:0.01,minDP:1}),
+  human:Object.assign({},DEFAULTS,{system:'diploid',genTime:28,Nf:5000,Nm:5000,p0:0.1,s:0.005,onset:-7000,years:[-7000,-5000,-3000,-1000,1000,2000],n:[50,50,50,50,50,100],depthEarly:2,depthLast:20,err:0.01,errLast:0.01,minDP:1}),
   pathogen:Object.assign({},DEFAULTS,{system:'haploid',genTime:0.01,Nf:100000,Nm:100000,p0:0.05,s:0.0002,onset:1850,years:[1850,1900,1950,2000,2020],n:[10,10,15,20,40],depthEarly:10,depthLast:30}),
   large:Object.assign({},DEFAULTS,{system:'diploid',genTime:1,Nf:1e6,Nm:1e6,p0:0.05,s:0.02,onset:1900,years:[1900,1950,2000,2020],n:[30,30,30,60]}),
   analytic:Object.assign({},DEFAULTS,{system:'diploid',noDrift:true,perfect:true,h:1})
@@ -829,7 +831,7 @@ function writeUI(){
   buildTP(); $('y-hint').textContent='';
   $('onset').min=st.years[0]; $('onset').max=last(st.years)-1;
   $('decline').value=DMAP.from(st.decline); $('mig').value=st.mig; $('pmig').value=String(st.pMig); $('smale').value=st.sMale; $('ksib').value=st.kSib; $('mfrac').value=st.maleFrac;
-  $('perfect').checked=st.perfect; $('dh').value=st.depthEarly; $('dm').value=st.depthLast; $('err').value=String(st.err); $('mindp').value=st.minDP;
+  $('perfect').checked=st.perfect; $('dh').value=st.depthEarly; $('dm').value=st.depthLast; $('err').value=String(st.err); $('errl').value=String(st.errLast); $('mindp').value=st.minDP;
   $('alpha').value=String(st.alpha); $('m').value=st.m; $('reps').value=String(st.reps); $('seed').value=st.seed;
   labels();
 }
@@ -849,7 +851,7 @@ function labels(){
   [...$('sweepvar').options].forEach(o=>{o.hidden=o.disabled=HAPL()&&['h','sMale','maleFrac','kSib'].includes(o.value)}); if($('sweepvar').selectedOptions[0].disabled) $('sweepvar').value='nMod';
   $('o-dh').textContent=st.depthEarly+'×'; $('o-dm').textContent=st.depthLast+'×'; $('o-mindp').textContent=st.minDP+' reads';
   ['nf','nm'].forEach(k=>$(k).disabled=st.noDrift||st.neByBlock);
-  ['dh','dm','err','mindp'].forEach(k=>$(k).disabled=st.perfect);
+  ['dh','dm','err','errl','mindp'].forEach(k=>$(k).disabled=st.perfect);
   { const nn=neutralReps(st), a=st.alpha/st.m, mh=$('m-hint');
     if(a*nn<10){mh.hidden=false; mh.textContent=`α/m = ${+a.toPrecision(2)} is too strict for ${nn.toLocaleString()} neutral replicates (the maximum): the threshold is then extrapolated with a normal fit, which can be far off, especially for a rare allele (power over- or underestimated). Treat the result as unreliable. Each run may take 10–30 seconds.`}
     else if(nn>100000){mh.hidden=false; mh.textContent=`${nn.toLocaleString()} neutral replicates are needed to set the threshold for α/m = ${+a.toPrecision(2)}: each run may take 10–30 seconds.`}
@@ -880,7 +882,7 @@ function readUI(){
     if(!msg){const tied=st.onset===st.years[0]&&y[0]!==st.years[0]; st.years=y; st.genTime=gt; $('onset').min=y[0]; $('onset').max=last(y)-1; if(tied) $('onset').value=y[0];} }
   st.onset=Math.min(Math.max(+$('onset').value,st.years[0]),last(st.years)-1);
   {const a=+$('decline').value; if(a!==DMAP.from(st.decline)) st.decline=+DMAP.to(a).toPrecision(2);} st.mig=+$('mig').value; st.pMig=+$('pmig').value; st.sMale=+$('smale').value; st.kSib=+$('ksib').value; st.maleFrac=+$('mfrac').value;
-  st.perfect=$('perfect').checked; st.depthEarly=+$('dh').value; st.depthLast=+$('dm').value; st.err=+$('err').value; st.minDP=+$('mindp').value;
+  st.perfect=$('perfect').checked; st.depthEarly=+$('dh').value; st.depthLast=+$('dm').value; st.err=+$('err').value; st.errLast=+$('errl').value; st.minDP=+$('mindp').value;
   st.alpha=+$('alpha').value; st.m=Math.max(1,Math.round(+$('m').value||1)); st.reps=+$('reps').value; st.seed=Math.max(1,Math.round(+$('seed').value||1));
   labels();
 }
@@ -1077,7 +1079,7 @@ function drawSexS(out,N){
   svg.innerHTML=s;
 }
 /* ---------- save, load and share settings; export results ---------- */
-const SNAP={h:[0,0.25,0.5,0.75,1],err:[0.001,0.005,0.01,0.02,0.05],alpha:[0.05,0.01,0.001],pMig:[-1,0,0.5,1],reps:[500,1000,2000,5000]};
+const SNAP={h:[0,0.25,0.5,0.75,1],err:[0.001,0.005,0.01,0.02,0.05],errLast:[0.001,0.005,0.01,0.02,0.05],alpha:[0.05,0.01,0.001],pMig:[-1,0,0.5,1],reps:[500,1000,2000,5000]};
 const RANGE={Nf:[2,1e8],Nm:[2,1e8],p0:[0.001,0.5],s:[0.0001,0.6],sMale:[0,1.5],decline:[0.01,10],mig:[0,0.1],maleFrac:[0,1],kSib:[1,10],depthEarly:[1,30],depthLast:[1,30],minDP:[1,10],m:[1,10000],seed:[1,999999],genTime:[0.0001,100]};
 function encodeSettings(o){return btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
 function decodeSettings(x){x=x.replace(/-/g,'+').replace(/_/g,'/'); while(x.length%4) x+='='; return JSON.parse(decodeURIComponent(escape(atob(x))))}
@@ -1090,6 +1092,7 @@ function applySettings(o){ // returns null if applied, or an error message
     else if(Array.isArray(d)){ if(nums(v)) s[k]=v.slice(); }
     else if(typeof d===typeof v&&(typeof v!=='number'||isFinite(v))) s[k]=v; }
   if(!('genTime' in o)&&num(o.volt)&&o.volt>0) s.genTime=1/o.volt;  // older files used generations per year
+  if(!('errLast' in o)&&num(o.err)) s.errLast=o.err;               // older files had one error rate for every point
   if(!['haplodiploid','diploid','haploid'].includes(s.system)) return 'Unknown inheritance system.';
   const K=s.years.length;
   if(K<2||K>MAXP||s.n.length!==K) return `Need between 2 and ${MAXP} time points, with one sample size per year.`;
