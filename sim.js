@@ -43,20 +43,20 @@ function simulateRep(P,s,R,keep){
   const inf=P.N===Infinity, mig=P.mig, pMig=P.pMig;
   let pf=P.p0, pm=P.p0, si=0;
   const x=new Array(K).fill(0), n=new Array(K).fill(0), traj=keep?[]:null, trajM=keep?[]:null;
-  let hetTrue=0, hetCalled=0, missing=0, sampled=0, hapTot=0, hapOk=0;
+  let hetTrue=0, hetCalled=0, homTrue=0, homCalled=0, missing=0, sampled=0, hapTot=0, hapOk=0;
   const mf=P.maleFrac||0;
   const callOne=(gt,dep,last)=>{ // returns called genotype or -1 (missing); last: sampled at the last date (error rate P.errLast)
     sampled++;
     if(P.perfect){ if(gt===1){hetTrue++;hetCalled++} return gt; }
     const d=R.pois(dep);
     if(d<P.minDP){missing++;return -1}
-    if(gt===1) hetTrue++;
+    if(gt===1) hetTrue++; else homTrue++;
     const e=last?P.errLast:P.err, lE=last?P.lEL:P.lE, l1E=last?P.l1EL:P.l1E;
     const q=gt===0?e:gt===1?0.5:1-e;
     const k=R.binom(d,q);
     const l0=k*lE+(d-k)*l1E, l1=-d*Math.LN2, l2=k*l1E+(d-k)*lE;
     const c=(l1>=l0&&l1>=l2)?1:(l2>l0?2:0);
-    if(gt===1&&c===1) hetCalled++;
+    if(gt===1&&c===1) hetCalled++; else if(gt!==1&&c===gt) homCalled++;
     return c;
   };
   const callHap=(a,dep,last)=>{ // haploid individual or male: returns called allele or -1
@@ -122,7 +122,7 @@ function simulateRep(P,s,R,keep){
     }
     if(mig>0){const pmg=pMig<0?P.p0:pMig; pf=(1-mig)*pf+mig*pmg; pm=(1-mig)*pm+mig*pmg;}
   }
-  return {x,n,traj,trajM,hetTrue,hetCalled,missing,sampled,hapTot,hapOk};
+  return {x,n,traj,trajM,hetTrue,hetCalled,homTrue,homCalled,missing,sampled,hapTot,hapOk};
 }
 /* Cochran–Armitage trend Z on allele counts; idx = which points to use */
 function trendZ(x,n,t,idx){
@@ -212,12 +212,12 @@ function runPower(P0,opt={}){
   const ALL=t.map((_,i)=>i), TWO=[0,K-1];
   const keepK=opt.keep||0;
   const sel={trend:new Float64Array(reps),two:new Float64Array(reps)}, neu={trend:new Float64Array(nn),two:new Float64Array(nn)};
-  const trajS=[],trajN=[]; let het=0,hetOk=0,miss=0,samp=0,hT=0,hO=0;
-  for(let r=0;r<reps;r++){const o=simulateRep(P,P.s,R,r<keepK);sel.trend[r]=trendZ(o.x,o.n,t,ALL);sel.two[r]=trendZ(o.x,o.n,t,TWO);if(o.traj)trajS.push(o.traj);het+=o.hetTrue;hetOk+=o.hetCalled;miss+=o.missing;samp+=o.sampled;hT+=o.hapTot;hO+=o.hapOk}
+  const trajS=[],trajN=[]; let het=0,hetOk=0,hom=0,homOk=0,miss=0,samp=0,hT=0,hO=0;
+  for(let r=0;r<reps;r++){const o=simulateRep(P,P.s,R,r<keepK);sel.trend[r]=trendZ(o.x,o.n,t,ALL);sel.two[r]=trendZ(o.x,o.n,t,TWO);if(o.traj)trajS.push(o.traj);het+=o.hetTrue;hetOk+=o.hetCalled;hom+=o.homTrue;homOk+=o.homCalled;miss+=o.missing;samp+=o.sampled;hT+=o.hapTot;hO+=o.hapOk}
   for(let r=0;r<nn;r++){const o=simulateRep(P,0,R,r<keepK);neu.trend[r]=trendZ(o.x,o.n,t,ALL);neu.two[r]=trendZ(o.x,o.n,t,TWO);if(o.traj)trajN.push(o.traj)}
   const a=P.alpha/P.m, zc=qnorm(1-a);
   const res={alphaAdj:a,zNaive:zc,trajS,trajN,sel,neu,nNeutral:nn,lambda:sc.lambda,genReal:sc.G,genSim:sc.Gsim,rescaleOutside:sc.outside,
-    hetAcc:P.perfect?1:(het?hetOk/het:NaN), missRate:P.perfect?0:miss/samp, hapAcc:hT?hO/hT:NaN};
+    hetAcc:P.perfect?1:(het?hetOk/het:NaN), homAcc:P.perfect?1:(hom?homOk/hom:NaN), missRate:P.perfect?0:miss/samp, hapAcc:hT?hO/hT:NaN};
   for(const k of ['trend','two']){
     let crit, method, gamma=0, ties=0;
     if(a*nn>=10){({crit,gamma,ties}=empiricalThreshold(neu[k],a));method='empirical'}
