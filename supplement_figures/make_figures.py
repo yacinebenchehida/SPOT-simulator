@@ -143,7 +143,7 @@ print('FigS3', F.save(OUT + 'FigS3_precision.svg'))
 Rs = rd('validation/rescale_results.tsv')
 Tm = rd('validation/rescale_times.tsv')   # run times measured with nothing else running, same order as Rs
 assert [(r['G'], r['system'], r['N'], r['s'], r['p0']) for r in Tm] == [(r['G'], r['system'], r['N'], r['s'], r['p0']) for r in Rs]
-F = Fig(1530, 430)
+F = Fig(1060, 820)
 a = Ax(F, 75, 50, 300, 300, (0, 1), (0, 1), title='Power of the trend test', label='a')
 a.frame([0, .2, .4, .6, .8, 1], [0, .2, .4, .6, .8, 1], 'every generation simulated', 'with rescaling', xfmt=pct, yfmt=pct)
 xs = [i / 100 for i in range(101)]
@@ -154,7 +154,7 @@ for r in Rs:
     a.points([fl(r['power_exact'])], [fl(r['power_rescaled'])], SYS[r['system']], SH[r['system']], 3.4)
 a.legend([(k, v, SH[k]) for k, v in SYS.items()] + [('dashed: 1:1', COL['muted'], 'dash')], a.x + 10, a.y + 18)
 # (b) run time against the length of the series, with and without rescaling
-b = Ax(F, 520, 50, 300, 300, (3000, 100000), (0.1, 50), xlog=True, ylog=True, title='Run time', label='b')
+b = Ax(F, 640, 50, 300, 300, (3000, 100000), (0.1, 50), xlog=True, ylog=True, title='Run time', label='b')
 b.frame([5000, 20000, 60000], [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50], 'generations between the first and last dates',
         'run time (s)', xfmt=lambda v: f'{v:,.0f}', yfmt=lambda v: f'{v:g}')
 med = []
@@ -170,7 +170,7 @@ for G in ('5000', '20000', '60000'):
 b.legend([('every generation simulated', COL['ink'], 'oh'), ('with rescaling', COL['blue'], 'oh')], b.x + 10, b.y + 18)
 # (c) limits of rescaling: lambda forced from 2 to 200 (validation/rescale_limits.tsv)
 L = rd('validation/rescale_limits.tsv')
-c = Ax(F, 965, 50, 300, 300, (1.5, 280), (-0.12, 0.12), xlog=True, title='Rescaling forced beyond its limits', label='c')
+c = Ax(F, 200, 460, 360, 300, (1.5, 280), (-0.12, 0.12), xlog=True, title='Rescaling forced beyond its limits', label='c')
 c.frame([2, 5, 10, 20, 50, 100, 200], [-.1, -.05, 0, .05, .1], 'rescaling factor λ (forced)',
         'power with rescaling minus without (points)', xfmt=lambda v: f'{v:g}', yfmt=lambda v: f'{v * 100:+.0f}' if v else '0')
 c.line([1.5, 280], [0, 0], COL['muted'], 1, '4 4')
