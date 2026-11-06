@@ -375,7 +375,6 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
       <p style="font-size:.92rem">A common back-of-envelope calculation of power ignores drift. The allele frequency goes deterministically from p₀ at the first date to p<sub>t</sub> at the last, and the only source of chance is the sampling of n₁ gene copies at the first date and n₂ at the last. Power is then the probability that the test rejects, added up over all the counts the two samples can give<sup>1</sup>:</p>
       <div class="math"><math display="block"><mrow><mtext>Power</mtext><mo>=</mo><munderover><mo>∑</mo><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><msub><mi>n</mi><mn>1</mn></msub></munderover><munderover><mo>∑</mo><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><msub><mi>n</mi><mn>2</mn></msub></munderover><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo>=</mo><mi>x</mi><mo stretchy="false">)</mo><mspace width="0.2em"/><mi>P</mi><mo stretchy="false">(</mo><mi>Y</mi><mo>=</mo><mi>y</mi><mo stretchy="false">)</mo><mspace width="0.2em"/><msub><mi mathvariant="normal">𝟙</mi><mrow><mo stretchy="false">[</mo><mi>Z</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>&gt;</mo><msub><mi>z</mi><mrow><mn>1</mn><mo>−</mo><mi>α</mi><mo>′</mo></mrow></msub><mo stretchy="false">]</mo></mrow></msub></mrow></math><math display="block"><mrow><mi>X</mi><mo>∼</mo><mtext>Binomial</mtext><mo stretchy="false">(</mo><msub><mi>n</mi><mn>1</mn></msub><mo>,</mo><msub><mi>p</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>,</mo><mspace width="1.5em"/><mi>Y</mi><mo>∼</mo><mtext>Binomial</mtext><mo stretchy="false">(</mo><msub><mi>n</mi><mn>2</mn></msub><mo>,</mo><msub><mi>p</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></math></div>
       <p style="font-size:.92rem">Here x and y are the numbers of copies of the favoured allele in the first and last samples, each with its binomial probability, and the last factor is 1 when the first-versus-last test rejects with these counts and 0 otherwise. The example "Analytic baseline" (no drift, perfect genotypes) reproduces this setting, with the threshold read from simulations instead of the normal approximation.</p>
-      <p class="hint" style="font-size:.74rem;margin-top:10px">1. Fleiss, J. L., Levin, B., &amp; Paik, M. C. (2003). <i>Statistical methods for rates and proportions</i> (3rd ed., chapter 4). Wiley.</p>
     </div>
   <div class="panel">
     <h3>The score Z</h3>
@@ -384,7 +383,6 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
     <p style="font-size:.92rem">The numerator is positive when the favoured allele is more common at later dates than at earlier ones. The denominator is the standard deviation the numerator would have if the random sampling of gene copies were the only source of chance. The <b>trend test</b> uses all dates; the <b>first-versus-last test</b> uses only the first and last, and is then the usual comparison of two proportions. Both are one-sided: they test for an increase of the favoured allele.</p>
     <p style="font-size:.92rem">When sampling is the only source of chance and enough copies are sampled, Z follows approximately a standard normal distribution: this is what the sampling-only threshold assumes. Drift, siblings in the sample and genotype-call errors make Z vary more, and with few copies of a rare allele Z takes only a few values. In both cases the real distribution of Z without selection differs from the standard normal, which is why SPOT reads the threshold from neutral simulations.</p>
     <p class="hint">SPOT does not analyse data. With real data, the counterpart of the neutral simulations is an empirical null distribution: Z computed for genome-wide SNPs with a similar starting frequency, in the same samples. It includes drift, population structure and sample-specific errors, without needing an estimate of N<sub>e</sub>.</p>
-    <p class="hint" style="font-size:.74rem;margin-top:10px">2. Cochran, W. G. (1954). Some methods for strengthening the common χ² tests. <i>Biometrics</i>, 10, 417–451.<br>3. Armitage, P. (1955). Tests for linear trends in proportions and frequencies. <i>Biometrics</i>, 11, 375–386.</p>
   </div>
     </div>
     <div class="panel" style="align-self:stretch">
@@ -445,6 +443,15 @@ Sampled families, k > 1:       mother and father drawn from the post-selection g
 Genetic diversity lost:        1 − H_G/H_0, with H_g = (1 − m)² (1 − 1/2Ne(g)) H_(g−1) + [1 − (1 − m)²] H_0   (haploid: 1/N(g) instead of 1/2Ne(g));
                                without migration (m = 0): 1 − Π_g (1 − 1/2Ne(g))</div>
     <p class="hint">Selection starts in the generation after the onset year, so a sample taken in the onset year is not yet affected by selection. Not modelled: population structure, linked selection, random fluctuation in population size, overlapping generations, and mapping reference bias.</p>
+  </div>
+
+  <div class="panel" id="refs">
+    <h3>References</h3>
+    <ol class="refs" style="font-size:.85rem;margin:0;padding-left:1.4em;display:grid;gap:4px">
+      <li>Fleiss, J. L., Levin, B., &amp; Paik, M. C. (2003). <i>Statistical methods for rates and proportions</i> (3rd ed., chapter 4). Wiley.</li>
+      <li>Cochran, W. G. (1954). Some methods for strengthening the common χ² tests. <i>Biometrics</i>, 10, 417–451.</li>
+      <li>Armitage, P. (1955). Tests for linear trends in proportions and frequencies. <i>Biometrics</i>, 11, 375–386.</li>
+    </ol>
   </div>
 
   <div class="panel" id="cite">
