@@ -273,7 +273,7 @@
 <use href="#m2" x="375.0" y="50.0"/>
 <use href="#m3" x="375.0" y="50.0"/>
 <use href="#m4" x="93.0" y="62.0"/>
-<text x="110.0" y="66.0" font-size="11" text-anchor="start" fill="#0F1730">neutral-simulation threshold</text>
+<text x="110.0" y="66.0" font-size="11" text-anchor="start" fill="#0F1730">drift-aware threshold</text>
 <use href="#m5" x="93.0" y="79.0"/>
 <text x="110.0" y="83.0" font-size="11" text-anchor="start" fill="#0F1730">sampling-only threshold</text>
 <use href="#m6" x="93.0" y="96.0"/>

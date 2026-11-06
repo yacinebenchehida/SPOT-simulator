@@ -22,7 +22,7 @@ for k, sc in enumerate(SC):
 a.legend([(sc, pal[k], 'o-') for k, sc in enumerate(SC)] + [('sampling noise only, p = 0.5', COL['grey'], 'dash')], a.X(1350), a.Y(5) + 16)
 
 b = Ax(F, 520, 50, 500, 300, (-0.5, len(SC) - 0.5), (0, 1), title='Power from 40 runs at the default 1,000 replicates', label='b')
-b.frame([], [0, .2, .4, .6, .8, 1], '', 'power (trend test, neutral-simulation threshold)', yfmt=lambda v: f'{v * 100:.0f}%')
+b.frame([], [0, .2, .4, .6, .8, 1], '', 'power (trend test, drift-aware threshold)', yfmt=lambda v: f'{v * 100:.0f}%')
 for k, sc in enumerate(SC):
     v = J[sc]['1000']['trend']
     m = sum(v) / len(v)

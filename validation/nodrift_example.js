@@ -12,7 +12,7 @@ const prep = S.prep(S.rescale(P).P), R = S.makeRng(777), t = S.gensOf(prep), all
 const trendZ = (x, n) => { let N=0,X=0,T=0; for (const i of all){N+=n[i];X+=x[i];T+=n[i]*t[i]} if(!N) return 0;
   const pb=X/N, tb=T/N; if(pb<=0||pb>=1) return 0; let a=0,b=0; for (const i of all){a+=x[i]*(t[i]-tb); b+=n[i]*(t[i]-tb)**2}
   return b>0 ? a/Math.sqrt(pb*(1-pb)*b) : 0; };
-// power of the neutral-simulation threshold with three ways of counting the selection simulations tied with it
+// power of the drift-aware threshold with three ways of counting the selection simulations tied with it
 let sGt = 0, sEq = 0; for (const z of r.sel.trend) { if (S.isTie(z, crit)) sEq++; else if (z > crit) sGt++; }
 const NT = 100000; let f1 = 0, f2 = 0;
 for (let i = 0; i < NT; i++) { const o = S.simulateRep(prep, 0, R, false); const z = trendZ(o.x, o.n); f1 += S.exceed(z, crit, gamma); if (z > zc) f2++; }

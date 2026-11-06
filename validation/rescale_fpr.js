@@ -1,4 +1,4 @@
-// False-positive rate of the neutral-simulation threshold WITH rescaling.
+// False-positive rate of the drift-aware threshold WITH rescaling.
 // For each design, SPOT sets its threshold from rescaled neutral simulations (20 independent runs, default 1,000 + 2,000
 // simulations each); the realised false-positive rate of each threshold is measured on 50,000 independent neutral
 // simulations run WITHOUT rescaling (every generation simulated). The sampling-only threshold z(1 - alpha) is
