@@ -142,6 +142,8 @@ svg text{font-family:var(--f-mono)}
 .steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .steps li{counter-increment:s;position:relative;padding-left:36px;font-size:.93rem}
 .steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:24px;height:24px;border-radius:7px;background:var(--accent-soft);font-family:var(--f-mono);font-size:.74rem;font-weight:600;display:grid;place-items:center;color:var(--accent)}
+.math{background:var(--code);border-radius:8px;padding:10px 14px;overflow-x:auto;border-left:3px solid var(--accent);margin:8px 0}
+.math math{font-size:1.05rem;margin:4px 0}
 .eq{font-family:var(--f-mono);font-size:.8rem;background:var(--code);border-radius:8px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.65;border-left:3px solid var(--accent)}
 table{border-collapse:collapse;width:100%;font-size:.88rem}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -368,82 +370,31 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
   <div><div class="eyebrow">Method</div><h2>How power is computed: technical details</h2></div>
   <div class="cols">
     <div class="panel">
-      <h3>Analytic baseline (deterministic trajectory)</h3>
-      <p style="font-size:.92rem">A common back-of-envelope calculation. The allele frequency follows a deterministic path from p₀ to p<sub>t</sub>, and the only noise is binomial sampling of n₁ alleles at the start and n₂ at the end. Power is the probability, summed over every possible pair of sample counts, that the test rejects:</p>
-      <div class="eq">Power = Σₓ Σᵧ Bin(x; n₁, p₀) · Bin(y; n₂, pₜ) · 1[ test(x, y) rejects at α ]</div>
-      <p style="font-size:.92rem">The threshold comes from sampling noise alone, so drift is assumed away. The "Analytic baseline" preset reproduces this setting; its first-versus-last power corresponds to this formula.</p>
+      <h3>The usual calculation, without drift</h3>
+      <p style="font-size:.92rem">A common back-of-envelope calculation of power ignores drift. The allele frequency goes deterministically from p₀ at the first date to p<sub>t</sub> at the last, and the only source of chance is the sampling of n₁ gene copies at the first date and n₂ at the last. Power is then the probability that the test rejects, added up over all the counts the two samples can give:</p>
+      <div class="math"><math display="block"><mrow><mtext>Power</mtext><mo>=</mo><munderover><mo>∑</mo><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><msub><mi>n</mi><mn>1</mn></msub></munderover><munderover><mo>∑</mo><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><msub><mi>n</mi><mn>2</mn></msub></munderover><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo>=</mo><mi>x</mi><mo stretchy="false">)</mo><mspace width="0.2em"/><mi>P</mi><mo stretchy="false">(</mo><mi>Y</mi><mo>=</mo><mi>y</mi><mo stretchy="false">)</mo><mspace width="0.2em"/><msub><mi mathvariant="normal">𝟙</mi><mrow><mo stretchy="false">[</mo><mi>Z</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>&gt;</mo><msub><mi>z</mi><mrow><mn>1</mn><mo>−</mo><mi>α</mi><mo>′</mo></mrow></msub><mo stretchy="false">]</mo></mrow></msub></mrow></math><math display="block"><mrow><mi>X</mi><mo>∼</mo><mtext>Binomial</mtext><mo stretchy="false">(</mo><msub><mi>n</mi><mn>1</mn></msub><mo>,</mo><msub><mi>p</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>,</mo><mspace width="1.5em"/><mi>Y</mi><mo>∼</mo><mtext>Binomial</mtext><mo stretchy="false">(</mo><msub><mi>n</mi><mn>2</mn></msub><mo>,</mo><msub><mi>p</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></math></div>
+      <p style="font-size:.92rem">Here x and y are the numbers of copies of the favoured allele in the first and last samples, each with its binomial probability, and the last factor is 1 when the first-versus-last test rejects with these counts and 0 otherwise. The example "Analytic baseline" (no drift, perfect genotypes) reproduces this setting, with the threshold read from simulations instead of the normal approximation.</p>
     </div>
     <div class="panel">
-      <h3>This simulator: threshold from neutral simulations</h3>
+      <h3>SPOT: the threshold comes from neutral simulations</h3>
       <ol class="steps">
-        <li>Simulate R populations <b>under selection</b> and 2R <b>without selection</b> (more when many loci are tested, so that about 10 neutral simulations fall beyond the threshold). Both start at the same p₀ and have the same breeding numbers, so drift (unless switched off) acts on both.</li>
-        <li>At each sampling point, draw the chosen number of individuals. Diploid individuals (diploids, haplodiploid females) carry two alleles; haploid individuals (haploid system, haplodiploid males) carry one.</li>
-        <li>Pass each individual through <b>sequencing</b>: depth ~ Poisson(mean), alt reads ~ Binomial(depth, expected allele fraction). Diploid genotypes are called by maximum likelihood, haploid ones by the majority of reads (ties at random). Individuals below the minimum depth are dropped.</li>
-        <li>Compute the <b>test statistic</b> Z for each simulation from the called allele counts.</li>
-        <li>Set the <b>drift-aware threshold</b> at the 1 − α′ quantile of the neutral Z values (α′ = α/L for L candidate loci) (extrapolated by a normal fit when too few neutral simulations lie beyond it; this can be far off for a rare allele).</li>
-        <li><b>Power</b> is the fraction of selection simulations whose Z exceeds that threshold. The false-positive rate of the sampling-only threshold is the fraction of neutral simulations that exceed z₁₋α′.</li>
+        <li><b>Simulate.</b> SPOT simulates the population R times with selection (R = "Selection simulations", 1,000 by default) and at least 2R times without selection (neutral simulations; more when many loci are tested, so that about 10 neutral simulations lie beyond the threshold). Both start at the same p₀ and share the same Ne, migration and history, so drift (unless switched off) acts on both.</li>
+        <li><b>Sample.</b> At each sampling date, the chosen number of individuals is drawn from the population, as groups of siblings if chosen. A diploid individual (diploids, haplodiploid females) carries two gene copies; a haploid individual (haploids, haplodiploid males) carries one.</li>
+        <li><b>Sequence and call genotypes.</b> Each individual receives a number of reads drawn from a Poisson distribution with the mean depth of its date, and each read shows the wrong allele with the per-read error rate of its date (earlier points or last point). Individuals with fewer reads than the minimum depth are left out. Diploid genotypes are called by maximum likelihood, haploid ones by the majority of reads (ties at random).</li>
+        <li><b>Score.</b> From the called gene copies at each date, SPOT computes the score Z (below) for every simulation.</li>
+        <li><b>Set the threshold.</b> The drift-aware threshold is the value of Z exceeded by a proportion α′ of the neutral simulations (α′ = α/L for L candidate loci). Neutral simulations exactly at the threshold count for a fraction, so that this proportion is exactly α′. If too few neutral simulations lie beyond it, the threshold is extrapolated from a normal distribution fitted to the neutral Z values, which can be far off for a rare allele.</li>
+        <li><b>Count.</b> Power is the proportion of selection simulations whose Z exceeds the threshold (same rule for values at the threshold). The sampling-only threshold is z<sub>1−α′</sub>, the value exceeded with probability α′ by a standard normal variable (1.645 for α′ = 5%); its false-positive rate is the proportion of neutral simulations above it.</li>
       </ol>
     </div>
   </div>
   <div class="panel">
-    <h3>The test statistic</h3>
-    <p style="font-size:.92rem">Both statistics are the Cochran–Armitage trend test on allele counts. At sampling point i (time t<sub>i</sub> in generations), x<sub>i</sub> copies of the selected allele are called out of n<sub>i</sub> alleles:</p>
-    <div class="eq">Z = Σᵢ xᵢ (tᵢ − t̄) / √( p̄(1 − p̄) Σᵢ nᵢ (tᵢ − t̄)² )      t̄ = Σ nᵢtᵢ / Σ nᵢ ,  p̄ = Σ xᵢ / Σ nᵢ</div>
-    <p style="font-size:.92rem">The <b>trend</b> version uses all sampling points. The <b>first-versus-last</b> version uses only the first and last points, which reduces to a one-sided two-proportion z-test. Both are one-sided, testing for an increase of the selected allele. With sampling noise alone, Z approximately follows N(0, 1); with few copies of a rare allele, Z takes only a few values and is far from normal. Drift, related individuals and genotype-call errors add variance, which widens the real neutral distribution of Z. That is why the sampling-only threshold z₁₋α′ lets through too many false positives in those cases, and why the threshold is taken from neutral simulations instead.</p>
-    <p class="hint">With real data, the equivalent of the neutral simulations is an empirical null from genome-wide SNPs, matched on starting frequency and measured in the same samples. It absorbs drift, structure and sample-specific error together, without needing an estimate of N<sub>e</sub>.</p>
-  </div>
-
-  <div><div class="eyebrow">Design</div><h2>What moves the power</h2></div>
-  <div class="panel scroll-x" style="padding:6px 8px">
-    <table>
-      <thead><tr><th>Factor</th><th>Mechanism</th><th>Direction</th></tr></thead>
-      <tbody>
-        <tr><td>Individuals per point</td><td>Each diploid individual adds 2 alleles, so sampling variance per point is about p(1−p)/2n (haploid individuals: 1 allele, p(1−p)/n). The last point usually counts most because the change is largest there.</td><td>More is better, with diminishing returns once drift dominates.</td></tr>
-        <tr><td>Intermediate points</td><td>The trend test also uses the points between the first and the last. These help most when selection acts steadily from early on. If selection starts after the last intermediate point, they add little to detecting change, although they still help date it.</td><td>Usually a modest gain.</td></tr>
-        <tr><td>Timing of selection onset</td><td>The number of generations under selection sets the size of Δp. Samples taken before onset only measure the baseline.</td><td>Later onset gives less power.</td></tr>
-        <tr><td>Breeding numbers (N<sub>e</sub>)</td><td>Drift widens the neutral distribution and raises the drift-aware threshold. Rare favoured alleles are also often lost before selection can act.</td><td>Small N<sub>e</sub> means much less real power and a strongly inflated false-positive rate for the sampling-only threshold.</td></tr>
-        <tr><td>Haplodiploidy</td><td>Haploid males express every allele, so even recessive favoured alleles are exposed to selection. N<sub>e</sub> = 9N<sub>f</sub>N<sub>m</sub>/(4N<sub>m</sub>+2N<sub>f</sub>) instead of 4N<sub>f</sub>N<sub>m</sub>/(N<sub>f</sub>+N<sub>m</sub>).</td><td>Recessive alleles rise much faster than in diploids. Dominant alleles behave similarly in both systems.</td></tr>
-        <tr><td>Dominance</td><td>Rare recessive alleles are almost invisible to selection in diploid individuals.</td><td>Dominant is fastest from low p₀, recessive is slowest.</td></tr>
-        <tr><td>Selection in males</td><td>In haplodiploids, males carry one third of the gene copies and pass their single copy to all their daughters. Because selection on haploid males is fully exposed, it contributes about half of the response for additive alleles, and most of it for recessive alleles.</td><td>Setting it to 0 (a trait not expressed in males) slows the response.</td></tr>
-        <tr><td>Depth and errors</td><td>At low depth, heterozygotes are often called homozygous (allelic dropout), and individuals below the minimum depth drop out. Both add noise and reduce the effective sample size. Unequal depth between sampling points shifts the called frequency of a rare allele and can mimic or hide a trend.</td><td>Below about 4–6×, missing calls and heterozygote dropout rise steeply.</td></tr>
-        <tr><td>Sampling haploid males</td><td>Among haploid males with enough reads, the single allele is called almost perfectly even at 2–3×, because there is no heterozygote to miss; but at that depth many males fall below the minimum depth and are dropped. His allele comes from his mother, so the male frequency reflects the female population after selection on males.</td><td>Per individual, about the same power as diploid females at moderate depth (one allele vs two, but cleaner calls). Haploid males pull ahead at very low depth.</td></tr>
-        <tr><td>Siblings in the sample</td><td>Related individuals carry correlated alleles, so k siblings give less information than k unrelated individuals.</td><td>A smaller effective sample size, giving lower power and more false positives with the sampling-only threshold.</td></tr>
-        <tr><td>Haploid system</td><td>Every allele is exposed to selection, as in haplodiploid males, and each sampled individual carries one allele. Ne equals the number of breeding individuals.</td><td>Fast response even from low frequency; half as many alleles per sampled individual as a diploid.</td></tr>
-        <tr><td>Ne per interval</td><td>Ne is held at a chosen value between two sampling points, for example a bottleneck between two dates. Drift is strongest in the intervals with low Ne.</td><td>A short, severe bottleneck can cost more power than a long, mild decline.</td></tr>
-        <tr><td>Population decline</td><td>Breeding numbers shrink exponentially to the chosen fraction by the last point, so drift speeds up late in the series.</td><td>Lower power and more genetic diversity lost.</td></tr>
-        <tr><td>Migration</td><td>Each generation, a fraction of breeding adults is replaced by migrants from a source at a fixed frequency.</td><td>Migrants at the same frequency as p₀ pull the trajectory back and reduce power. A source where the allele is fixed mimics selection.</td></tr>
-        <tr><td>Candidate loci tested</td><td>The per-locus significance level becomes α′ = α/L, which needs a larger Z to reject.</td><td>Costs power, especially when the effect is marginal.</td></tr>
-        <tr><td>Generation time</td><td>Fewer years per generation means more generations between the sampling dates, so more time for both selection and drift. Long-lived species go through few generations even over centuries.</td><td>Shorter generations: larger Δp, and also more drift.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="panel">
-    <h3>Model details</h3>
-    <div class="eq">Haploid system:                weights 1+s, 1 → p* = p(1+s) / (1 + p·s);  drift p' = Bin(N(g), p*) / N(g);  Ne = N;  each sampled individual carries one allele
-Female zygotes (diploid, haplodiploid):  AA = p_f·p_m   Aa = p_f(1−p_m) + p_m(1−p_f)   aa = (1−p_f)(1−p_m)
-Selection in females:          weights 1+s, 1+hs, 1      → p_f* = (AA(1+s) + ½Aa(1+hs)) / w̄
-Males, haplodiploid:           allele from the mother only, haploid weights 1+s♂, 1  → p_m* = p_f(1+s♂) / (p_f(1+s♂) + 1 − p_f)
-Males, diploid:                same zygote frequencies as females, weights 1+s♂, 1+hs♂, 1
-Male selection:                s♂ = s × (male multiplier)
-Drift (breeding adults):       p_f' = Bin(2N_f(g), p_f*) / 2N_f(g)     p_m' = Bin(N_m(g), p_m*) / N_m(g)  (haplodiploid)  or  Bin(2N_m(g), p_m*) / 2N_m(g)
-Generations:                   g(year) = round((year − first year) / years per generation),  G = g(last year)
-Population change:             N(g) = N(first point) × D^(g/G)      D = breeding numbers at the last point relative to the first
-                               or, with Ne set per interval, breeding numbers scaled so that Ne(g) = Ne of the interval containing g
-Migration (after drift):       p' ← (1 − m)·p' + m·p_source   in both sexes
-Sampled individuals, k = 1:    male with probability "males in the sample"; diploid individuals drawn from their sex's post-selection genotype frequencies;
-                               haploid males carry one allele, A with probability p_m*, called by majority of reads
-Sampled families, k > 1:       mother and father drawn from the post-selection genotype frequencies of their sex; each daughter gets one random maternal and one paternal allele;
-                               a haploid son gets one maternal allele only; in diploids, siblings are not assigned a sex ("Males in the sample" is ignored)
-Genetic diversity retained:   2p(1−p) at the last point / at the first = Π_g (1 − 1 / 2Ne(g))   (haploid: Π_g (1 − 1/N(g)));  migration not included</div>
-    <p class="hint">Selection starts in the generation after the onset year, so a sample taken in the onset year is not yet affected by selection. Not modelled: population structure, linked selection, random fluctuation in population size, overlapping generations, and mapping reference bias.</p>
-  </div>
-
-  <div class="panel" id="cite">
-    <h3>How to cite</h3>
-    <p style="font-size:.92rem">Please cite the software and the version used:</p>
-    <p class="cite">Benchehida, Y. et al. (2026). SPOT: Selection Power Over Time, version <span class="spot-version"></span>. https://github.com/yacinebenchehida/SPOT-simulator</p>
-    <p class="hint">The version number is also written into saved settings files and the results CSV, so results can be traced to the version that produced them. Source code, documentation and validation: <a href="https://github.com/yacinebenchehida/SPOT-simulator">github.com/yacinebenchehida/SPOT-simulator</a>. Released under the MIT licence.</p>
+    <h3>The score Z</h3>
+    <p style="font-size:.92rem">Both tests use the Cochran–Armitage test for trend<sup>1,2</sup> on counts of gene copies. At sampling date i (time t<sub>i</sub>, in generations), x<sub>i</sub> of the n<sub>i</sub> called gene copies carry the favoured allele:</p>
+    <div class="math"><math display="block"><mrow><mi>Z</mi><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">(</mo><msub><mi>t</mi><mi>i</mi></msub><mo>−</mo><mover><mi>t</mi><mo>‾</mo></mover><mo stretchy="false">)</mo></mrow><msqrt><mover><mi>p</mi><mo>‾</mo></mover><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo>‾</mo></mover><mo stretchy="false">)</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>n</mi><mi>i</mi></msub><msup><mrow><mo stretchy="false">(</mo><msub><mi>t</mi><mi>i</mi></msub><mo>−</mo><mover><mi>t</mi><mo>‾</mo></mover><mo stretchy="false">)</mo></mrow><mn>2</mn></msup></msqrt></mfrac></mrow></math><math display="block"><mrow><mover><mi>t</mi><mo>‾</mo></mover><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>n</mi><mi>i</mi></msub><msub><mi>t</mi><mi>i</mi></msub></mrow><mrow><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>n</mi><mi>i</mi></msub></mrow></mfrac><mo>,</mo><mspace width="2em"/><mover><mi>p</mi><mo>‾</mo></mover><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>x</mi><mi>i</mi></msub></mrow><mrow><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>n</mi><mi>i</mi></msub></mrow></mfrac></mrow></math></div>
+    <p style="font-size:.92rem">The numerator is positive when the favoured allele is more common at later dates than at earlier ones. The denominator is the standard deviation the numerator would have if the random sampling of gene copies were the only source of chance. The <b>trend test</b> uses all dates; the <b>first-versus-last test</b> uses only the first and last, and is then the usual comparison of two proportions. Both are one-sided: they test for an increase of the favoured allele.</p>
+    <p style="font-size:.92rem">When sampling is the only source of chance and enough copies are sampled, Z follows approximately a standard normal distribution: this is what the sampling-only threshold assumes. Drift, siblings in the sample and genotype-call errors make Z vary more, and with few copies of a rare allele Z takes only a few values. In both cases the real distribution of Z without selection differs from the standard normal, which is why SPOT reads the threshold from neutral simulations.</p>
+    <p class="hint">SPOT does not analyse data. With real data, the counterpart of the neutral simulations is an empirical null distribution: Z computed for genome-wide SNPs with a similar starting frequency, in the same samples. It includes drift, population structure and sample-specific errors, without needing an estimate of N<sub>e</sub>.</p>
+    <p class="hint" style="font-size:.74rem;margin-top:10px">1. Cochran, W. G. (1954). Some methods for strengthening the common χ² tests. <i>Biometrics</i>, 10, 417–451.<br>2. Armitage, P. (1955). Tests for linear trends in proportions and frequencies. <i>Biometrics</i>, 11, 375–386.</p>
   </div>
 </section>
 
