@@ -312,7 +312,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
           <select id="sweepvar" style="width:auto">
             <option value="nHist">Individuals at each earlier point</option>
             <option value="nMod">Individuals at the last point</option>
-            <option value="N" id="sweep-N-opt">Breeding females = males</option>
+            <option value="N" id="sweep-N-opt">Effective population size Ne</option>
             <option value="genTime">Years per generation</option>
             <option value="depth">Mean depth (all points)</option>
             <option value="onset">Selection onset year</option>
@@ -329,7 +329,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
         <button type="button" class="primary" id="sweep-run">Draw curve</button>
         <button type="button" id="sweep-csv">CSV</button>
       </div></div>
-    <p class="hint">Every value set in the parameter panel stays fixed except the parameter chosen here, which is stepped through a range of values. At each value the full power calculation is rerun from scratch (new simulations with and without selection, new threshold), and the power of the whole design is plotted. Example: with "Individuals at the last point", the earlier points keep their current sample sizes while the last point takes 10, 20, 30, 40, 60, 80 and 120 individuals; each dot is the power of that complete design. The upper panel shows power. The lower panel shows a different quantity: how often the sampling-only threshold calls a neutral locus "selected", against the intended rate α′. The vertical line marks the current value. Varying the breeding numbers or the population change switches drift on; varying depth switches perfect genotypes off.</p>
+    <p class="hint">Every value set in the parameter panel stays fixed except the parameter chosen here, which is stepped through a range of values. At each value the full power calculation is rerun from scratch (new simulations with and without selection, new threshold), and the power of the whole design is plotted. Example: with "Individuals at the last point", the earlier points keep their current sample sizes while the last point takes 10, 20, 30, 40, 60, 80 and 120 individuals; each dot is the power of that complete design. The upper panel shows power. The lower panel shows a different quantity: how often the sampling-only threshold calls a neutral locus "selected", against the intended rate α′. The vertical line marks the current value. Varying Ne or its change over time switches drift on; varying depth switches perfect genotypes off.</p>
     <svg id="ch-sweep" viewBox="0 0 720 520" role="img" aria-label="Power as a function of the chosen parameter"></svg>
     <p class="hint">Hollow markers: too few neutral simulations for α′, so the threshold is extrapolated by a normal fit; such points can be far off.</p>
     <p class="status" id="sweep-status">All other parameters stay at their current values. Each point uses up to 1,000 selection simulations and 2,000 neutral (up to 20,000 neutral when many loci are tested; beyond that the threshold is extrapolated by a normal fit, shown by hollow markers).</p>
@@ -844,7 +844,7 @@ function labels(){
   $('mfrac-hint').innerHTML=st.system==='haplodiploid'?'Haplodiploid: sampled males are haploid and contribute one allele each; females contribute two. 0% = females only.':'Diploid: both sexes carry two alleles. The proportion of males only matters if selection in males differs from females, and it is ignored when more than one individual per family is sampled.';
   $('ksib-hint').textContent=st.system==='haplodiploid'?'1 means every individual comes from a different family. Values above 1 sample groups of siblings: sisters share both parents, brothers only their mother. Siblings are not independent.':'1 means every individual comes from a different family. Values above 1 sample groups of full siblings (same mother and father), which are not independent; siblings are not assigned a sex.';
   $('s-hint').textContent=HAPL()?'Fitness 1 + s for individuals carrying the favoured allele, 1 otherwise.':st.system==='haplodiploid'?'Females (diploid): fitness 1 + s, 1 + hs and 1 for two, one and zero copies of the favoured allele. Males (haploid): 1 + s with the allele and 1 without, with s multiplied by "Selection in males".':'Fitness 1 + s, 1 + hs and 1 for two, one and zero copies of the favoured allele. In males, s is multiplied by "Selection in males".';
-  $('sweep-N-opt').textContent=HAPL()?'Breeding individuals':'Breeding females = males'; 
+   
   $('plan-h-opt').hidden=$('plan-h-opt').disabled=HAPL(); if(HAPL()&&$('plan-var').value==='h') $('plan-var').value='s';
   /* show only the settings that act with the current choices */
   const dip=st.system==='diploid', drift=!st.noDrift, blocks=drift&&st.neByBlock;
@@ -1016,28 +1016,28 @@ function drawDist(r){
 
 /* ---------- sweep ---------- */
 const SWEEPS={
-  nHist:{label:'individuals at each earlier point',vals:[5,10,15,20,30,40,60],apply:(p,v)=>{const K=p.n.length;p.n=p.n.map((x,i)=>i===K-1?x:(i>0&&x===0?0:v))},cur:p=>p.n[0]},
-  nMod:{label:'individuals at the last point',vals:[10,20,30,40,60,80,120],apply:(p,v)=>{p.n[p.n.length-1]=v},cur:p=>last(p.n)},
-  N:{label:'breeding females = breeding males (per generation)',labelHap:'breeding individuals (per generation)',vals:[100,300,1000,3000,10000,30000,100000],log:true,apply:(p,v)=>{p.Nf=v;p.Nm=v;p.noDrift=false;p.neByBlock=false},cur:p=>p.Nf},
-  genTime:{label:'years per generation',log:true,valsFn:p=>{const span=last(p.years)-p.years[0];return [0.001,0.01,0.1,0.25,0.5,1,2,5,10,20,30,50].filter(v=>span/v<=MAXG&&Math.round(span/v)>=2)},vals:[],apply:(p,v)=>{p.genTime=v},cur:p=>p.genTime},
-  depth:{label:'mean depth (×), all points',vals:[2,3,4,6,8,10,13,20,30],apply:(p,v)=>{p.depthEarly=v;p.depthLast=v;p.perfect=false},cur:p=>p.depthEarly},
+  nHist:{label:'individuals at each earlier point',vals:[2,5,10,15,20,40,60,100,150,200],log:true,apply:(p,v)=>{const K=p.n.length;p.n=p.n.map((x,i)=>i===K-1?x:(i>0&&x===0?0:v))},cur:p=>p.n[0]},
+  nMod:{label:'individuals at the last point',vals:[2,5,10,15,20,40,60,100,150,200],log:true,apply:(p,v)=>{p.n[p.n.length-1]=v},cur:p=>last(p.n)},
+  N:{label:'effective population size Ne (constant)',vals:[100,300,1000,3000,10000,30000,100000,300000,1000000],log:true,apply:(p,v)=>{const k=neFor({system:p.system,Nf:1,Nm:1}); p.Nf=p.Nm=Math.max(2,Math.round(v/k)); p.noDrift=false; p.neByBlock=false; p.decline=1},cur:p=>p.noDrift||p.neByBlock||p.decline!==1?NaN:neFor(p)},
+  genTime:{label:'years per generation',log:true,valsFn:p=>{const span=last(p.years)-p.years[0];return [0.001,0.003,0.01,0.03,0.1,0.3,1,3,10,30].filter(v=>span/v<=MAXG&&Math.round(span/v)>=2)},vals:[],apply:(p,v)=>{p.genTime=v},cur:p=>p.genTime},
+  depth:{label:'mean depth (×), all points',vals:[1,2,4,8,15,30],log:true,apply:(p,v)=>{p.depthEarly=v;p.depthLast=v;p.perfect=false},cur:p=>p.depthEarly},
   onset:{label:'year selection starts',year:true,valsFn:p=>{const a=p.years[0],b=last(p.years);return [...new Set([0,1,2,3,4,5,6,7].map(i=>Math.round(a+(b-a)*i/8)))]},vals:[],apply:(p,v)=>{p.onset=v},cur:p=>p.onset},
   s:{label:'selection coefficient s',log:true,vals:[0.0001,0.0003,0.001,0.003,0.01,0.03,0.1,0.3],apply:(p,v)=>{p.s=v},cur:p=>p.s},
-  p0:{label:'allele frequency at the first point (p₀)',vals:[0.002,0.005,0.01,0.02,0.05,0.1,0.2,0.4],log:true,apply:(p,v)=>{p.p0=v},cur:p=>p.p0},
+  p0:{label:'allele frequency at the first point (p₀)',vals:[0.001,0.003,0.01,0.03,0.1,0.3,0.5],log:true,apply:(p,v)=>{p.p0=v},cur:p=>p.p0},
   h:{label:'dominance h (in females)',vals:[0,0.25,0.5,0.75,1],apply:(p,v)=>{p.h=v},cur:p=>p.h},
   sMale:{label:'selection in males (× s)',vals:[0,0.25,0.5,0.75,1,1.25,1.5],apply:(p,v)=>{p.sMale=v},cur:p=>p.sMale},
   decline:{label:'Ne at the last point relative to the first',vals:[0.01,0.03,0.1,0.3,1,3,10],log:true,apply:(p,v)=>{p.decline=v;p.noDrift=false;p.neByBlock=false},cur:p=>p.decline},
-  mig:{label:'migrants per generation, m',vals:[0,0.005,0.01,0.02,0.04,0.06,0.1],apply:(p,v)=>{p.mig=v},cur:p=>p.mig},
+  mig:{label:'migrants per generation, m',vals:[0.0001,0.0003,0.001,0.003,0.01,0.03,0.1],log:true,apply:(p,v)=>{p.mig=v},cur:p=>p.mig},
   maleFrac:{label:'fraction of males in the sample',vals:[0,0.25,0.5,0.75,1],apply:(p,v)=>{p.maleFrac=v},cur:p=>p.maleFrac},
-  kSib:{label:'sampled individuals per family (siblings)',vals:[1,2,3,4,5,6,8,10],apply:(p,v)=>{p.kSib=v},cur:p=>p.kSib},
-  m:{label:'candidate loci tested, L',vals:[1,2,5,10,20,50,100,500],log:true,apply:(p,v)=>{p.m=v},cur:p=>p.m}
+  kSib:{label:'sampled individuals per family (siblings)',vals:[1,2,3,4,5,6,7,8,9,10],apply:(p,v)=>{p.kSib=v},cur:p=>p.kSib},
+  m:{label:'candidate loci tested, L',vals:[1,3,10,30,100,300,1000],log:true,apply:(p,v)=>{p.m=v},cur:p=>p.m}
 };
 let lastSweep=null;
 $('sweep-run').onclick=()=>{
   const key=$('sweepvar').value, def=Object.assign({},SWEEPS[key]);
   if(def.valsFn) def.vals=def.valsFn(st); if(HAPL()&&def.labelHap) def.label=def.labelHap;
   $('ch-sweep').style.opacity='';
-  const forced=(key==='N'||key==='decline')&&(st.noDrift||st.neByBlock)?' Note: varying this setting switches drift on and per-interval Ne off.':key==='depth'&&st.perfect?' Note: varying depth switches perfect genotypes off.':'';
+  const forced=key==='N'&&(st.noDrift||st.neByBlock||st.decline!==1)?' Note: Ne is held constant along this curve: drift on, Ne per interval and change of Ne off.':key==='decline'&&(st.noDrift||st.neByBlock)?' Note: varying this setting switches drift on and per-interval Ne off.':key==='depth'&&st.perfect?' Note: varying depth switches perfect genotypes off.':'';
   const reps=Math.min(st.reps,1000), t0=performance.now(), N=def.vals.length, out=new Array(N); let n=0;
   const plist=def.vals.map(v=>{const p=JSON.parse(JSON.stringify(st)); p.reps=reps; p.neutralMax=20000; def.apply(p,v); return p;});
   lastSweep=null; drawSweep(def,[]); $('sweep-status').textContent=`Running 0 / ${N}…`;
