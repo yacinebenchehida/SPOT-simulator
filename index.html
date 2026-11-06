@@ -491,26 +491,28 @@ function simulateRep(P,s,R,keep){
   const x=new Array(K).fill(0), n=new Array(K).fill(0), traj=keep?[]:null, trajM=keep?[]:null;
   let hetTrue=0, hetCalled=0, missing=0, sampled=0, hapTot=0, hapOk=0;
   const mf=P.maleFrac||0;
-  const callOne=(gt,dep)=>{ // returns called genotype or -1 (missing)
+  const callOne=(gt,dep,last)=>{ // returns called genotype or -1 (missing); last: sampled at the last date (error rate P.errLast)
     sampled++;
     if(P.perfect){ if(gt===1){hetTrue++;hetCalled++} return gt; }
     const d=R.pois(dep);
     if(d<P.minDP){missing++;return -1}
     if(gt===1) hetTrue++;
-    const q=gt===0?P.err:gt===1?0.5:1-P.err;
+    const e=last?P.errLast:P.err, lE=last?P.lEL:P.lE, l1E=last?P.l1EL:P.l1E;
+    const q=gt===0?e:gt===1?0.5:1-e;
     const k=R.binom(d,q);
-    const l0=k*P.lE+(d-k)*P.l1E, l1=-d*Math.LN2, l2=k*P.l1E+(d-k)*P.lE;
+    const l0=k*lE+(d-k)*l1E, l1=-d*Math.LN2, l2=k*l1E+(d-k)*lE;
     const c=(l1>=l0&&l1>=l2)?1:(l2>l0?2:0);
     if(gt===1&&c===1) hetCalled++;
     return c;
   };
-  const callHap=(a,dep)=>{ // haploid male: returns called allele or -1
+  const callHap=(a,dep,last)=>{ // haploid individual or male: returns called allele or -1
     sampled++;
     if(P.perfect){hapTot++;hapOk++;return a}
     const d=R.pois(dep);
     if(d<P.minDP){missing++;return -1}
     hapTot++;
-    const k=R.binom(d,a?1-P.err:P.err);
+    const e=last?P.errLast:P.err;
+    const k=R.binom(d,a?1-e:e);
     const c=2*k>d?1:(2*k<d?0:(R.u()<0.5?1:0));
     if(c===a) hapOk++;
     return c;
@@ -528,15 +530,15 @@ function simulateRep(P,s,R,keep){
     }
     if(keep){traj.push(pfs);trajM.push(pms)}
     while(si<K&&g===gens[si]){ // several sampling years can fall in the same generation
-      const ni=P.n[si], dep=si===K-1?P.depthLast:P.depthEarly, k=P.kSib;
+      const ni=P.n[si], last=si===K-1, dep=last?P.depthLast:P.depthEarly, k=P.kSib;
       if(hpl){
-        for(let i=0;i<ni;i++){const c=callHap(R.u()<pfs?1:0,dep);if(c>=0){x[si]+=c;n[si]+=1}}
+        for(let i=0;i<ni;i++){const c=callHap(R.u()<pfs?1:0,dep,last);if(c>=0){x[si]+=c;n[si]+=1}}
       }else if(k<=1&&!P.famPath){ // unrelated individuals (P.famPath: send k = 1 through the family branch, validation/sibling_path_check.js)
         for(let i=0;i<ni;i++){
           if(mf>0&&R.u()<mf){ // male
-            if(hap){const c=callHap(R.u()<pms?1:0,dep);if(c>=0){x[si]+=c;n[si]+=1}}
-            else{const r=R.u();const gt=r<mAA?2:(r<mAA+mAa?1:0);const c=callOne(gt,dep);if(c>=0){x[si]+=c;n[si]+=2}}
-          }else{const r=R.u();const gt=r<fAA?2:(r<fAA+fAa?1:0);const c=callOne(gt,dep);if(c>=0){x[si]+=c;n[si]+=2}}
+            if(hap){const c=callHap(R.u()<pms?1:0,dep,last);if(c>=0){x[si]+=c;n[si]+=1}}
+            else{const r=R.u();const gt=r<mAA?2:(r<mAA+mAa?1:0);const c=callOne(gt,dep,last);if(c>=0){x[si]+=c;n[si]+=2}}
+          }else{const r=R.u();const gt=r<fAA?2:(r<fAA+fAa?1:0);const c=callOne(gt,dep,last);if(c>=0){x[si]+=c;n[si]+=2}}
         }
       }else{
         let left=ni;
@@ -548,8 +550,8 @@ function simulateRep(P,s,R,keep){
           for(let j=0;j<kk;j++){
             const mat=mg===2?1:mg===0?0:(R.u()<0.5?1:0);
             const pat=hap?fa:(fg===2?1:fg===0?0:(R.u()<0.5?1:0));
-            if(hap&&mf>0&&R.u()<mf){const c=callHap(mat,dep);if(c>=0){x[si]+=c;n[si]+=1};continue} // son: maternal allele only
-            const c=callOne(mat+pat,dep); if(c>=0){x[si]+=c;n[si]+=2}
+            if(hap&&mf>0&&R.u()<mf){const c=callHap(mat,dep,last);if(c>=0){x[si]+=c;n[si]+=1};continue} // son: maternal allele only
+            const c=callOne(mat+pat,dep,last); if(c>=0){x[si]+=c;n[si]+=2}
           }
         }
       }
@@ -624,7 +626,9 @@ function rescale(P){
 }
 function prep(P){
   const Q=Object.assign({},P);
-  Q.lE=Math.log(Q.err); Q.l1E=Math.log(1-Q.err);
+  /* per-read error rate: P.err at the earlier sampling dates, P.errLast at the last date (same as P.err when not set) */
+  if(!(Q.errLast>0)) Q.errLast=Q.err;
+  Q.lE=Math.log(Q.err); Q.l1E=Math.log(1-Q.err); Q.lEL=Math.log(Q.errLast); Q.l1EL=Math.log(1-Q.errLast);
   if(Q.noDrift) Q.N=Infinity; else Q.N=Q.Nf;
   return Q;
 }
