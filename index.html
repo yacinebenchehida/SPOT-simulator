@@ -229,7 +229,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
     <label class="check" for="perfect"><input id="perfect" type="checkbox"> Perfect genotypes (ignore sequencing)</label>
     <label for="dh"><span class="row"><span>Mean depth, earlier points</span><output id="o-dh"></output></span><input id="dh" type="range" min="1" max="30" step="0.5"></label>
     <label for="dm"><span class="row"><span>Mean depth, last point</span><output id="o-dm"></output></span><input id="dm" type="range" min="1" max="30" step="0.5"></label>
-    <p class="hint" id="depth-hint">At low depth, many heterozygous individuals are called homozygous, and read errors create copies of the other allele. A difference in depth between the earlier points and the last point therefore shifts the called frequency of a rare allele, which the sampling-only threshold can mistake for a trend. The neutral-simulation threshold includes these effects.</p>
+    <p class="hint" id="depth-hint">At low depth, many heterozygous individuals are called homozygous, and read errors create copies of the other allele. A difference in depth between the earlier points and the last point therefore shifts the called frequency of a rare allele, which the sampling-only threshold can mistake for a trend. The drift-aware threshold includes these effects.</p>
     <label for="err">Per-read error rate
       <select id="err"><option value="0.001">0.1%</option><option value="0.005">0.5%</option><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.05">5%</option></select></label>
     <label for="mindp"><span class="row"><span>Minimum depth to call a genotype</span><output id="o-mindp"></output></span><input id="mindp" type="range" min="1" max="10" step="1"></label>
@@ -260,8 +260,8 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
 
 <div class="out">
   <div class="tiles" aria-live="polite">
-    <div class="tile key"><div class="ring" id="ring"><b id="t-pe">–</b></div><span class="lab"><strong>Power</strong> · trend test across all sampling points, neutral-simulation threshold<span id="t-pe-fp" style="display:block;font-size:.78rem;color:var(--muted);margin-top:4px"></span></span></div>
-    <div class="tile"><b id="t-p2">–</b><span class="lab">Power · first-versus-last test, neutral-simulation threshold<span id="t-p2-fp" style="display:block;margin-top:2px"></span></span></div>
+    <div class="tile key"><div class="ring" id="ring"><b id="t-pe">–</b></div><span class="lab"><strong>Power</strong> · trend test across all sampling points, drift-aware threshold<span id="t-pe-fp" style="display:block;font-size:.78rem;color:var(--muted);margin-top:4px"></span></span></div>
+    <div class="tile"><b id="t-p2">–</b><span class="lab">Power · first-versus-last test, drift-aware threshold<span id="t-p2-fp" style="display:block;margin-top:2px"></span></span></div>
     <div class="tile" id="tile-fpr"><b id="t-fpr">–</b><span class="lab">False-positive rate of the trend test with the sampling-only threshold (z₁₋α′). Intended: <span id="t-aadj"></span></span></div>
     <div class="tile"><b id="t-pn">–</b><span class="lab">Power with the sampling-only threshold (trend test); trustworthy only if its false-positive rate is close to the intended one</span></div>
     <div class="tile"><b id="t-pend">–</b><span class="lab" id="t-pend-lab">Allele frequency at the last point if there were no drift</span></div>
@@ -299,7 +299,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
     <div class="panel-head"><h3>How power is read off</h3>
       <div class="seg" role="group" aria-label="Statistic" style="min-width:240px"><button type="button" id="st-trend" aria-pressed="true">Trend, all points</button><button type="button" id="st-two" aria-pressed="false">First vs last</button></div></div>
     <svg id="ch-dist" viewBox="0 0 720 280" role="img" aria-label="Distributions of the test statistic under neutrality and under selection, with the critical values marked"></svg>
-    <div class="legend"><span><i style="background:var(--neutral)"></i>neutral replicates</span><span><i style="background:var(--accent)"></i>replicates under selection</span><span><i style="background:var(--ink)"></i>neutral-simulation threshold</span><span><i class="dash"></i>sampling-only threshold z₁₋α′</span></div>
+    <div class="legend"><span><i style="background:var(--neutral)"></i>neutral replicates</span><span><i style="background:var(--accent)"></i>replicates under selection</span><span><i style="background:var(--ink)"></i>drift-aware threshold</span><span><i class="dash"></i>sampling-only threshold z₁₋α′</span></div>
     <p class="hint" id="dist-hint"></p>
   </section>
 
@@ -329,7 +329,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
       </div></div>
     <p class="hint">Every value set in the parameter panel stays fixed except the parameter chosen here, which is stepped through a range of values. At each value the full power calculation is rerun from scratch (new replays with and without selection, new threshold), and the power of the whole design is plotted. Example: with "Individuals at the last point", the earlier points keep their current sample sizes while the last point takes 10, 20, 30, 40, 60, 80 and 120 individuals; each dot is the power of that complete design. The upper panel shows power, the lower panel the false-positive rate of the sampling-only threshold. The vertical line marks the current value and the dashed line marks 80% power. Varying the breeding numbers or the population change switches drift on; varying depth switches perfect genotypes off.</p>
     <svg id="ch-sweep" viewBox="0 0 720 390" role="img" aria-label="Power as a function of the chosen parameter"></svg>
-    <div class="legend"><span><i style="background:var(--accent)"></i>power, trend test (neutral-simulation threshold)</span><span><i style="background:var(--modern)"></i>power, first-versus-last test (neutral-simulation threshold)</span><span><i class="dash" style="border-color:var(--warn)"></i>power, trend test (sampling-only threshold)</span><span><i style="background:var(--warn)"></i>lower panel: false-positive rate, sampling-only threshold (trend)</span><span>Hollow marker: too few neutral replicates for α′, threshold extrapolated by a normal fit; can be far off</span></div>
+    <div class="legend"><span><i style="background:var(--accent)"></i>power, trend test (drift-aware threshold)</span><span><i style="background:var(--modern)"></i>power, first-versus-last test (drift-aware threshold)</span><span><i class="dash" style="border-color:var(--warn)"></i>power, trend test (sampling-only threshold)</span><span><i style="background:var(--warn)"></i>lower panel: false-positive rate, sampling-only threshold (trend)</span><span>Hollow marker: too few neutral replicates for α′, threshold extrapolated by a normal fit; can be far off</span></div>
     <p class="status" id="sweep-status">All other parameters stay at their current values. Each point uses up to 1,000 replicates under selection and 2,000 neutral (up to 20,000 neutral when many loci are tested; beyond that the threshold is extrapolated by a normal fit, shown by hollow markers).</p>
   </section>
 
@@ -347,7 +347,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
         <button type="button" id="plan-csv">CSV</button>
       </div></div>
     <div class="scroll-x"><svg id="ch-plan" viewBox="0 0 720 280" role="img" aria-label="Power of the trend test for several sample sizes (rows) and values of the chosen parameter (columns)" style="min-width:560px"></svg></div>
-    <p class="hint">Rows scale the current sampling design (all points together) and columns vary one parameter. Every other setting stays at its current value. Each cell is the power of the trend test across all points, with the neutral-simulation threshold, from up to 1,000 replicates under selection, so the current-design cell can differ from the headline tile by a few points. Outlined cells reach 80%; hatched cells use a threshold extrapolated by a normal fit (too few neutral replicates for α′) and can be far off. The breeding-numbers column switches drift on.</p>
+    <p class="hint">Rows scale the current sampling design (all points together) and columns vary one parameter. Every other setting stays at its current value. Each cell is the power of the trend test across all points, with the drift-aware threshold, from up to 1,000 replicates under selection, so the current-design cell can differ from the headline tile by a few points. Outlined cells reach 80%; hatched cells use a threshold extrapolated by a normal fit (too few neutral replicates for α′) and can be far off. The breeding-numbers column switches drift on.</p>
     <p class="status" id="plan-status"></p>
   </section>
 
@@ -355,7 +355,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
     <div id="sex-block" style="display:grid;gap:12px">
     <div class="panel-head"><h3>Sampling haploid males vs diploid females</h3><button type="button" class="primary" id="sex-run">Compare sampling designs</button></div>
     <svg id="ch-sexs" viewBox="0 0 720 210" role="img" aria-label="Power for four sampling designs under haplodiploidy: females only, males only with the same number of individuals, males only with the same number of alleles, and half males"></svg>
-    <p class="hint">Compares sampling females (two alleles each) with sampling haploid males (one allele each), with the other parameters at their current values. Shown for haplodiploid populations only. "Same individuals" keeps the number sampled and halves the alleles. "Same alleles" doubles the males so the allele count matches. Bars show the power of the trend test with the neutral-simulation threshold. Hover a bar for the share of heterozygous females and of haploid males called correctly.</p>
+    <p class="hint">Compares sampling females (two alleles each) with sampling haploid males (one allele each), with the other parameters at their current values. Shown for haplodiploid populations only. "Same individuals" keeps the number sampled and halves the alleles. "Same alleles" doubles the males so the allele count matches. Bars show the power of the trend test with the drift-aware threshold. Hover a bar for the share of heterozygous females and of haploid males called correctly.</p>
     <p class="status" id="sexs-status"></p>
     </div>
   </section>
@@ -378,7 +378,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
         <li>At each sampling point, draw the chosen number of individuals. Diploid individuals (diploids, haplodiploid females) carry two alleles; haploid individuals (haploid system, haplodiploid males) carry one.</li>
         <li>Pass each individual through <b>sequencing</b>: depth ~ Poisson(mean), alt reads ~ Binomial(depth, expected allele fraction). Diploid genotypes are called by maximum likelihood, haploid ones by the majority of reads (ties at random). Individuals below the minimum depth are dropped.</li>
         <li>Compute the <b>test statistic</b> Z for each replicate from the called allele counts.</li>
-        <li>Set the <b>neutral-simulation threshold</b> at the 1 − α/m quantile of the neutral Z values (extrapolated by a normal fit when too few neutral replicates lie beyond it; this can be far off for a rare allele).</li>
+        <li>Set the <b>drift-aware threshold</b> at the 1 − α/m quantile of the neutral Z values (extrapolated by a normal fit when too few neutral replicates lie beyond it; this can be far off for a rare allele).</li>
         <li><b>Power</b> is the fraction of replicates under selection whose Z exceeds that threshold. The false-positive rate of the sampling-only threshold is the fraction of neutral replicates that exceed z₁₋α/m.</li>
       </ol>
     </div>
@@ -399,7 +399,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
         <tr><td>Individuals per point</td><td>Each diploid individual adds 2 alleles, so sampling variance per point is about p(1−p)/2n (haploid individuals: 1 allele, p(1−p)/n). The last point usually counts most because the change is largest there.</td><td>More is better, with diminishing returns once drift dominates.</td></tr>
         <tr><td>Intermediate points</td><td>The trend test also uses the points between the first and the last. These help most when selection acts steadily from early on. If selection starts after the last intermediate point, they add little to detecting change, although they still help date it.</td><td>Usually a modest gain.</td></tr>
         <tr><td>Timing of selection onset</td><td>The number of generations under selection sets the size of Δp. Samples taken before onset only measure the baseline.</td><td>Later onset gives less power.</td></tr>
-        <tr><td>Breeding numbers (N<sub>e</sub>)</td><td>Drift widens the neutral distribution and raises the neutral-simulation threshold. Rare favoured alleles are also often lost before selection can act.</td><td>Small N<sub>e</sub> means much less real power and a strongly inflated false-positive rate for the sampling-only threshold.</td></tr>
+        <tr><td>Breeding numbers (N<sub>e</sub>)</td><td>Drift widens the neutral distribution and raises the drift-aware threshold. Rare favoured alleles are also often lost before selection can act.</td><td>Small N<sub>e</sub> means much less real power and a strongly inflated false-positive rate for the sampling-only threshold.</td></tr>
         <tr><td>Haplodiploidy</td><td>Haploid males express every allele, so even recessive favoured alleles are exposed to selection. N<sub>e</sub> = 9N<sub>f</sub>N<sub>m</sub>/(4N<sub>m</sub>+2N<sub>f</sub>) instead of 4N<sub>f</sub>N<sub>m</sub>/(N<sub>f</sub>+N<sub>m</sub>).</td><td>Recessive alleles rise much faster than in diploids. Dominant alleles behave similarly in both systems.</td></tr>
         <tr><td>Dominance</td><td>Rare recessive alleles are almost invisible to selection in diploid individuals.</td><td>Dominant is fastest from low p₀, recessive is slowest.</td></tr>
         <tr><td>Selection in males</td><td>In haplodiploids, males carry one third of the gene copies and pass their single copy to all their daughters. Because selection on haploid males is fully exposed, it contributes about half of the response for additive alleles, and most of it for recessive alleles.</td><td>Setting it to 0 (a trait not expressed in males) slows the response.</td></tr>
@@ -939,10 +939,10 @@ function render(r,ms,snap){
   const dn=$('drift-note');
   const causes=[]; if(!st.noDrift) causes.push('drift'); if(!HAPL()&&st.kSib>1) causes.push('siblings sampled together'); if(!st.perfect&&(Math.min(st.depthEarly,st.depthLast)<6||st.depthEarly!==st.depthLast)) causes.push('genotype calls at low or unequal depth');
   const cTxt=causes.length?causes.join(', ').replace(/, ([^,]*)$/,' and $1'):'sources of chance it ignores';
-  if(inflated){dn.hidden=false;dn.innerHTML=`<b>The sampling-only threshold gives too many false positives here.</b> With these settings, it would call ${pctS(r.trend.fprNaive)} of neutral loci "selected" instead of ${aP}, because the change between sampling points contains chance variation that it ignores (here possibly: ${cTxt}). The power it reports (${pct(r.trend.powerNaive)}) is therefore too optimistic; the power with the neutral-simulation threshold (${pct(r.trend.powerEmp)}) is a more realistic figure.`}
+  if(inflated){dn.hidden=false;dn.innerHTML=`<b>The sampling-only threshold gives too many false positives here.</b> With these settings, it would call ${pctS(r.trend.fprNaive)} of neutral loci "selected" instead of ${aP}, because the change between sampling points contains chance variation that it ignores (here possibly: ${cTxt}). The power it reports (${pct(r.trend.powerNaive)}) is therefore too optimistic; the power with the drift-aware threshold (${pct(r.trend.powerEmp)}) is a more realistic figure.`}
   else dn.hidden=true;
   { const sn=$('same-note'); const same=st.noDrift&&(HAPL()||st.kSib===1)&&st.perfect;
-    sn.hidden=!same; if(same) sn.textContent=`Without drift, related individuals or sequencing, both thresholds aim at the same value, so the two powers differ only slightly (${pct(r.trend.powerEmp)} and ${pct(r.trend.powerNaive)}): the fixed threshold 1.645 assumes a normal distribution of Z, while the neutral-simulation threshold (${r.trend.crit.toFixed(3)}) is read from the simulated scores, which take few distinct values when few copies of the favoured allele are sampled.`; }
+    sn.hidden=!same; if(same) sn.textContent=`Without drift, related individuals or sequencing, both thresholds aim at the same value, so the two powers differ only slightly (${pct(r.trend.powerEmp)} and ${pct(r.trend.powerNaive)}): the fixed threshold 1.645 assumes a normal distribution of Z, while the drift-aware threshold (${r.trend.crit.toFixed(3)}) is read from the simulated scores, which take few distinct values when few copies of the favoured allele are sampled.`; }
   drawTraj(r,det); drawDist(r);
   try{ history.replaceState(null,'',location.pathname+location.search+'#s='+encodeSettings(st)); }catch(e){}
 }
@@ -985,14 +985,14 @@ function drawDist(r){
   s+=`<text x="${(L+W-R)/2}" y="${B+36}" text-anchor="middle" font-size="10.5" fill="var(--muted)">test statistic Z (${stat==='trend'?'trend across all points':'first vs last point'})</text>`;
   const bars=(h,fill,op,clipFrom)=>h.map((d,i)=>{const x0=lo+i*bw;if(clipFrom!==undefined&&x0+bw<=clipFrom)return'';const xs=clipFrom!==undefined?Math.max(x0,clipFrom):x0;return d>0?`<rect x="${X(xs).toFixed(1)}" y="${Y(d).toFixed(1)}" width="${(X(x0+bw)-X(xs)).toFixed(1)}" height="${(B-Y(d)).toFixed(1)}" fill="${fill}" opacity="${op}"/>`:''}).join('');
   s+=bars(hn,'var(--neutral)',.55)+bars(hs,'var(--accent)',.28)+bars(hs,'var(--accent)',.75,res.crit);
-  s+=`<line x1="${X(res.crit)}" x2="${X(res.crit)}" y1="${T}" y2="${B}" stroke="var(--ink)" stroke-width="2"/><text x="${X(res.crit)+5}" y="${T+10}" font-size="10.5" fill="var(--ink)">neutral-simulation threshold ${res.crit.toFixed(2)}</text>`;
+  s+=`<line x1="${X(res.crit)}" x2="${X(res.crit)}" y1="${T}" y2="${B}" stroke="var(--ink)" stroke-width="2"/><text x="${X(res.crit)+5}" y="${T+10}" font-size="10.5" fill="var(--ink)">drift-aware threshold ${res.crit.toFixed(2)}</text>`;
   s+=`<line x1="${X(r.zNaive)}" x2="${X(r.zNaive)}" y1="${T+18}" y2="${B}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${X(r.zNaive)+5}" y="${T+30}" font-size="10.5" fill="var(--muted)">sampling-only threshold ${r.zNaive.toFixed(2)}</text>`;
   s+=`<text transform="translate(14 ${(T+B)/2}) rotate(-90)" text-anchor="middle" font-size="10.5" fill="var(--muted)">share of replicates (density)</text>`;
   svg.innerHTML=s;
   const pq=+(100*(1-r.alphaAdj)).toPrecision(Math.max(3,Math.ceil(-Math.log10(r.alphaAdj))+2));
   const first=res.method==='empirical'?`Power is the blue area to the right of the solid line: <b>${pct(res.powerEmp)}</b> of replicates under selection exceed the ${pq}th percentile of the neutral replicates, which ${pctS(fpK)} of the neutral replicates exceed.`:`Power is the blue area to the right of the solid line: <b>${pct(res.powerEmp)}</b> of replicates under selection exceed a threshold extrapolated from the neutral replicates by a normal fit (too few neutral replicates for α′; can be far off).`;
   const d=res.crit-r.zNaive;
-  const second=res.method!=='empirical'?'':d>0.02?'The neutral scores vary more than sampling of independent individuals alone predicts (drift, siblings or genotype calls), so the neutral-simulation threshold lies to the right of the sampling-only one.':d<-0.02?'Here the neutral-simulation threshold lies to the left of the sampling-only one: the neutral scores vary less than the normal distribution assumed by the fixed threshold (for example because, with few copies of the favoured allele, the score takes only a few distinct values), so the fixed threshold is too strict.':'Here the two thresholds almost coincide.';
+  const second=res.method!=='empirical'?'':d>0.02?'The neutral scores vary more than sampling of independent individuals alone predicts (drift, siblings or genotype calls), so the drift-aware threshold lies to the right of the sampling-only one.':d<-0.02?'Here the drift-aware threshold lies to the left of the sampling-only one: the neutral scores vary less than the normal distribution assumed by the fixed threshold (for example because, with few copies of the favoured allele, the score takes only a few distinct values), so the fixed threshold is too strict.':'Here the two thresholds almost coincide.';
   $('dist-hint').innerHTML=first+' '+second;
 }
 
@@ -1073,8 +1073,8 @@ function drawSexS(out,N){
   [0,.25,.5,.75,1].forEach(p=>s+=`<line x1="${X(p)}" x2="${X(p)}" y1="${T}" y2="${T+rh*N}" stroke="var(--line)"/><text x="${X(p)}" y="${T+rh*N+14}" text-anchor="middle" font-size="10" fill="var(--muted)">${p*100}%</text>`);
   out.forEach((o,i)=>{const y=T+i*rh+8;
     s+=`<text x="${L-10}" y="${y+14}" text-anchor="end" font-size="11.5" fill="var(--ink)">${o.lab}</text><text x="${L-10}" y="${y+28}" text-anchor="end" font-size="10" fill="var(--muted)">≈${Math.round(o.alleles)} alleles sampled</text>`;
-    s+=`<rect x="${L}" y="${y}" width="${X(o.v)-L}" height="28" rx="3" fill="${i===0?'var(--accent)':'var(--heather)'}"><title>${o.lab}: power ${(o.v*100).toFixed(1)}% (trend test, neutral-simulation threshold); ${accTxt(o)}</title></rect><text x="${X(o.v)+6}" y="${y+18}" font-size="11" fill="var(--ink)">${(o.v*100).toFixed(0)}%</text>`;});
-  s+=`<text x="${(L+W-R)/2}" y="${T+rh*N+30}" text-anchor="middle" font-size="10.5" fill="var(--muted)">power (trend test, neutral-simulation threshold)</text>`;
+    s+=`<rect x="${L}" y="${y}" width="${X(o.v)-L}" height="28" rx="3" fill="${i===0?'var(--accent)':'var(--heather)'}"><title>${o.lab}: power ${(o.v*100).toFixed(1)}% (trend test, drift-aware threshold); ${accTxt(o)}</title></rect><text x="${X(o.v)+6}" y="${y+18}" font-size="11" fill="var(--ink)">${(o.v*100).toFixed(0)}%</text>`;});
+  s+=`<text x="${(L+W-R)/2}" y="${T+rh*N+30}" text-anchor="middle" font-size="10.5" fill="var(--muted)">power (trend test, drift-aware threshold)</text>`;
   svg.setAttribute('viewBox','0 0 720 '+(T+rh*N+40));
   svg.innerHTML=s;
 }
@@ -1120,9 +1120,9 @@ $('res-csv').onclick=()=>{ if(!lastRes||!lastSt||$('res-csv').disabled) return; 
   const setS=[['spot_version',VERSION],...Object.keys(DEFAULTS).filter(k=>!(hp&&['Nm','h','sMale','kSib','maleFrac'].includes(k))).map(k=>[k,Array.isArray(S[k])?S[k].join(';'):S[k]===null?'':S[k]])];
   const rows=[['item','value'],...setS,
     ['replicates_under_selection',S.reps],['neutral_replicates',r.nNeutral],['rescaling_factor_lambda',r.lambda],
-    ['power_trend_neutral_simulation_threshold',r.trend.powerEmp],['power_first_vs_last_neutral_simulation_threshold',r.two.powerEmp],
+    ['power_trend_drift_aware_threshold',r.trend.powerEmp],['power_first_vs_last_drift_aware_threshold',r.two.powerEmp],
     ['threshold_trend',r.trend.crit],['threshold_trend_method',r.trend.method==='empirical'?'percentile of neutral simulations':'normal extrapolation (unreliable)'],['threshold_first_vs_last',r.two.crit],
-    ['false_positive_rate_trend_neutral_simulation_threshold',r.trend.fpEmp],['false_positive_rate_first_vs_last_neutral_simulation_threshold',r.two.fpEmp],
+    ['false_positive_rate_trend_drift_aware_threshold',r.trend.fpEmp],['false_positive_rate_first_vs_last_drift_aware_threshold',r.two.fpEmp],
     ['false_positive_rate_trend_sampling_only_threshold',r.trend.fprNaive],['power_trend_sampling_only_threshold',r.trend.powerNaive],
     ['false_positive_rate_first_vs_last_sampling_only_threshold',r.two.fprNaive],['power_first_vs_last_sampling_only_threshold',r.two.powerNaive],['alpha_per_locus',r.alphaAdj],
     [hp?'frequency_last_point_no_drift':'frequency_last_point_no_drift_females',det[det.length-1]],['neutral_genetic_diversity_lost_expected',1-hetRetained(S)],
@@ -1130,10 +1130,10 @@ $('res-csv').onclick=()=>{ if(!lastRes||!lastSt||$('res-csv').disabled) return; 
     ['heterozygotes_called_correctly',S.perfect||isNaN(r.hetAcc)?(S.perfect&&!hp?1:''):r.hetAcc],['haploid_genotypes_called_correctly',isNaN(r.hapAcc)?'':r.hapAcc],['share_below_min_depth',r.missRate],['link',location.href]];
   download('spot_results.csv',rows.map(csvRow).join('\n')+'\n'); };
 $('sweep-csv').onclick=()=>{ if(!lastSweep){$('sweep-status').textContent='Draw the curve first, then download it.';return}
-  const rows=[[lastSweep.label,'power_trend_neutral_simulation_threshold','power_first_vs_last_neutral_simulation_threshold','power_trend_sampling_only_threshold','false_positive_rate_trend_sampling_only_threshold','alpha_per_locus','replicates_under_selection','neutral_replicates','threshold_extrapolated_normal_fit'],...lastSweep.pts.map(p=>[p.v,p.te,p.tw,p.pn,p.fp,p.a,lastSweep.reps,p.nn,p.gauss])];
+  const rows=[[lastSweep.label,'power_trend_drift_aware_threshold','power_first_vs_last_drift_aware_threshold','power_trend_sampling_only_threshold','false_positive_rate_trend_sampling_only_threshold','alpha_per_locus','replicates_under_selection','neutral_replicates','threshold_extrapolated_normal_fit'],...lastSweep.pts.map(p=>[p.v,p.te,p.tw,p.pn,p.fp,p.a,lastSweep.reps,p.nn,p.gauss])];
   download('spot_power_curve_'+lastSweep.key+'.csv',rows.map(csvRow).join('\n')+'\n'); };
 $('plan-csv').onclick=()=>{ const P=window.__lastPlan; if(!P){$('plan-status').textContent='Run the planner first, then download it.';return}
-  const rows=[['design_factor','individuals_per_point',P.label,'power_trend_neutral_simulation_threshold','replicates_under_selection','threshold_extrapolated_normal_fit']];
+  const rows=[['design_factor','individuals_per_point',P.label,'power_trend_drift_aware_threshold','replicates_under_selection','threshold_extrapolated_normal_fit']];
   P.rows.forEach((r,i)=>P.vals.forEach((v,j)=>rows.push([r.factor,r.n.join(';'),v,P.grid[i][j],P.reps,P.gauss[i][j]])));
   download('spot_planner_'+P.key+'.csv',rows.map(csvRow).join('\n')+'\n'); };
 { const m=location.hash.match(/^#s=([A-Za-z0-9_-]+)$/); if(m){ let err; try{ err=applySettings(decodeSettings(m[1])) }catch(x){ err='The link could not be read.' }
