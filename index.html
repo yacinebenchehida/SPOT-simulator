@@ -1011,8 +1011,10 @@ function drawDist(r){
   s+=`<text x="${(L+W-R)/2}" y="${B+36}" text-anchor="middle" font-size="10.5" fill="var(--muted)">test statistic Z (${stat==='trend'?'trend across all points':'first vs last point'})</text>`;
   const bars=(h,fill,op,clipFrom)=>h.map((d,i)=>{const x0=lo+i*bw;if(clipFrom!==undefined&&x0+bw<=clipFrom)return'';const xs=clipFrom!==undefined?Math.max(x0,clipFrom):x0;return d>0?`<rect x="${X(xs).toFixed(1)}" y="${Y(d).toFixed(1)}" width="${(X(x0+bw)-X(xs)).toFixed(1)}" height="${(B-Y(d)).toFixed(1)}" fill="${fill}" opacity="${op}"/>`:''}).join('');
   s+=bars(hn,'var(--neutral)',.55)+bars(hs,'var(--accent)',.28)+bars(hs,'var(--accent)',.75,res.crit);
-  s+=`<line x1="${X(res.crit)}" x2="${X(res.crit)}" y1="${T}" y2="${B}" stroke="var(--ink)" stroke-width="2"/><text x="${X(res.crit)+5}" y="${T+10}" font-size="10.5" fill="var(--ink)">drift-aware threshold ${res.crit.toFixed(2)}</text>`;
-  s+=`<line x1="${X(r.zNaive)}" x2="${X(r.zNaive)}" y1="${T+18}" y2="${B}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${X(r.zNaive)+5}" y="${T+30}" font-size="10.5" fill="var(--muted)">sampling-only threshold ${r.zNaive.toFixed(2)}</text>`;
+  { const naiveLeft=r.zNaive<=res.crit, halo='paint-order="stroke" stroke="var(--surface)" stroke-width="3" stroke-linejoin="round"';
+    const lab=(x,left)=>left?`x="${x-5}" text-anchor="end"`:`x="${x+5}"`;   // the left-hand line is labelled on its left
+    s+=`<line x1="${X(res.crit)}" x2="${X(res.crit)}" y1="${T}" y2="${B}" stroke="var(--ink)" stroke-width="2"/><text ${lab(X(res.crit),!naiveLeft)} y="${T+10}" font-size="10.5" fill="var(--ink)" ${halo}>drift-aware threshold ${res.crit.toFixed(2)}</text>`;
+    s+=`<line x1="${X(r.zNaive)}" x2="${X(r.zNaive)}" y1="${T+18}" y2="${B}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4"/><text ${lab(X(r.zNaive),naiveLeft)} y="${T+30}" font-size="10.5" fill="var(--muted)" ${halo}>sampling-only threshold ${r.zNaive.toFixed(3)}</text>`; }
   s+=`<text transform="translate(14 ${(T+B)/2}) rotate(-90)" text-anchor="middle" font-size="10.5" fill="var(--muted)">share of simulations (density)</text>`;
   svg.innerHTML=s;
   const pq=+(100*(1-r.alphaAdj)).toPrecision(Math.max(3,Math.ceil(-Math.log10(r.alphaAdj))+2));
