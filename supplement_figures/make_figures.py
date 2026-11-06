@@ -86,8 +86,8 @@ NAME = {'diploid_N1000_s0.02': 'diploid, Ne = 1,000, s = 0.02', 'diploid_N1000_s
 R = rd('validation/slim_power_runs.tsv')
 scen = list(dict.fromkeys(r['scenario'] for r in R))
 assert set(scen) == set(NAME)
-F = Fig(1200, 830)
-a = Ax(F, 205, 50, 330, 330, (0.15, 0.8), (0.15, 0.8), title='Power in each of the 20 runs', label='a')   # centred over panels b-d
+F = Fig(1170, 830)
+a = Ax(F, 335, 50, 330, 330, (0.15, 0.8), (0.15, 0.8), title='Power in each of the 20 runs', label='a')   # panel a and its legend centred over panels b-d
 a.frame([.2, .3, .4, .5, .6, .7, .8], [.2, .3, .4, .5, .6, .7, .8], 'power with SLiM', 'power with SPOT', xfmt=pct, yfmt=pct)
 a.line([0.15, 0.8], [0.15, 0.8], COL['muted'], 1, '4 4')
 for k, s in enumerate(scen):
@@ -143,7 +143,7 @@ print('FigS3', F.save(OUT + 'FigS3_precision.svg'))
 Rs = rd('validation/rescale_results.tsv')
 Tm = rd('validation/rescale_times.tsv')   # run times measured with nothing else running, same order as Rs
 assert [(r['G'], r['system'], r['N'], r['s'], r['p0']) for r in Tm] == [(r['G'], r['system'], r['N'], r['s'], r['p0']) for r in Rs]
-F = Fig(1060, 820)
+F = Fig(975, 820)
 a = Ax(F, 75, 50, 300, 300, (0, 1), (0, 1), title='Power of the trend test', label='a')
 a.frame([0, .2, .4, .6, .8, 1], [0, .2, .4, .6, .8, 1], 'every generation simulated', 'with rescaling', xfmt=pct, yfmt=pct)
 xs = [i / 100 for i in range(101)]
@@ -170,7 +170,7 @@ for G in ('5000', '20000', '60000'):
 b.legend([('every generation simulated', COL['ink'], 'oh'), ('with rescaling', COL['blue'], 'oh')], b.x + 10, b.y + 18)
 # (c) limits of rescaling: lambda forced from 2 to 200 (validation/rescale_limits.tsv)
 L = rd('validation/rescale_limits.tsv')
-c = Ax(F, 200, 460, 360, 300, (1.5, 280), (-0.12, 0.12), xlog=True, title='Rescaling forced beyond its limits', label='c')
+c = Ax(F, 240, 460, 360, 300, (1.5, 280), (-0.12, 0.12), xlog=True, title='Rescaling forced beyond its limits', label='c')
 c.frame([2, 5, 10, 20, 50, 100, 200], [-.1, -.05, 0, .05, .1], 'rescaling factor λ (forced)',
         'power with rescaling minus without (points)', xfmt=lambda v: f'{v:g}', yfmt=lambda v: f'{v * 100:+.0f}' if v else '0')
 c.line([1.5, 280], [0, 0], COL['muted'], 1, '4 4')

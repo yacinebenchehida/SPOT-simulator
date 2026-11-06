@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="820" viewBox="0 0 1060 820" font-family="Helvetica,Arial,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="975" height="820" viewBox="0 0 975 820" font-family="Helvetica,Arial,sans-serif">
 <defs><g id="m0"><circle r="3.4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m1"><rect x="-3.4" y="-3.4" width="6.8" height="6.8" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m2"><path d="M0 -4.4L3.9 2.9H-3.9Z" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m3"><circle r="4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m4"><rect x="-4" y="-4" width="8" height="8" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m5"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m6"><circle r="2.6" fill="#fff" stroke="#0F1730" stroke-width="1.5"/></g><g id="m7"><circle r="2.6" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m8"><circle r="4" fill="#fff" stroke="#0F1730" stroke-width="1.5"/></g><g id="m9"><circle r="4" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m10"><circle r="3.6" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m11"><circle r="3.6" fill="#fff" stroke="#2B59D9" stroke-width="1.5"/></g><g id="m12"><circle r="3.6" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m13"><circle r="3.6" fill="#fff" stroke="#8B4FD6" stroke-width="1.5"/></g><g id="m14"><rect x="-3.6" y="-3.6" width="7.2" height="7.2" fill="#0E9F6E" stroke="#fff" stroke-width="0.6"/></g><g id="m15"><rect x="-3.6" y="-3.6" width="7.2" height="7.2" fill="#fff" stroke="#0E9F6E" stroke-width="1.5"/></g><g id="m16"><rect x="-3.6" y="-3.6" width="7.2" height="7.2" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m17"><rect x="-3.6" y="-3.6" width="7.2" height="7.2" fill="#fff" stroke="#C27A12" stroke-width="1.5"/></g><g id="m18"><circle r="4" fill="#8B4FD6" stroke="#fff" stroke-width="0.6"/></g><g id="m19"><rect x="-4" y="-4" width="8" height="8" fill="#C27A12" stroke="#fff" stroke-width="0.6"/></g><g id="m20"><circle r="4" fill="#5A6480" stroke="#fff" stroke-width="0.6"/></g><g id="m21"><circle r="4" fill="#fff" stroke="#5A6480" stroke-width="1.5"/></g></defs>
-<rect width="1060" height="820" fill="#fff"/>
+<rect width="975" height="820" fill="#fff"/>
 <text x="75.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Power of the trend test</text>
 <text x="23.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">a</text>
 <line x1="75" x2="375" y1="350.0" y2="350.0" stroke="#E1E5EF"/>
@@ -436,104 +436,104 @@
 <text x="677.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">every generation simulated</text>
 <use href="#m9" x="660.0" y="81.0"/>
 <text x="677.0" y="85.0" font-size="11" text-anchor="start" fill="#0F1730">with rescaling</text>
-<text x="200.0" y="450.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Rescaling forced beyond its limits</text>
-<text x="148.0" y="450.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">c</text>
-<line x1="200" x2="560" y1="735.0" y2="735.0" stroke="#E1E5EF"/>
-<text x="194" y="739.0" font-size="11" text-anchor="end" fill="#5A6480">-10</text>
-<line x1="200" x2="560" y1="672.5" y2="672.5" stroke="#E1E5EF"/>
-<text x="194" y="676.5" font-size="11" text-anchor="end" fill="#5A6480">-5</text>
-<line x1="200" x2="560" y1="610.0" y2="610.0" stroke="#E1E5EF"/>
-<text x="194" y="614.0" font-size="11" text-anchor="end" fill="#5A6480">0</text>
-<line x1="200" x2="560" y1="547.5" y2="547.5" stroke="#E1E5EF"/>
-<text x="194" y="551.5" font-size="11" text-anchor="end" fill="#5A6480">+5</text>
-<line x1="200" x2="560" y1="485.0" y2="485.0" stroke="#E1E5EF"/>
-<text x="194" y="489.0" font-size="11" text-anchor="end" fill="#5A6480">+10</text>
-<line x1="219.8" x2="219.8" y1="760" y2="764" stroke="#5A6480"/>
-<text x="219.8" y="777" font-size="11" text-anchor="middle" fill="#5A6480">2</text>
-<line x1="282.9" x2="282.9" y1="760" y2="764" stroke="#5A6480"/>
-<text x="282.9" y="777" font-size="11" text-anchor="middle" fill="#5A6480">5</text>
-<line x1="330.6" x2="330.6" y1="760" y2="764" stroke="#5A6480"/>
-<text x="330.6" y="777" font-size="11" text-anchor="middle" fill="#5A6480">10</text>
-<line x1="378.3" x2="378.3" y1="760" y2="764" stroke="#5A6480"/>
-<text x="378.3" y="777" font-size="11" text-anchor="middle" fill="#5A6480">20</text>
-<line x1="441.4" x2="441.4" y1="760" y2="764" stroke="#5A6480"/>
-<text x="441.4" y="777" font-size="11" text-anchor="middle" fill="#5A6480">50</text>
-<line x1="489.1" x2="489.1" y1="760" y2="764" stroke="#5A6480"/>
-<text x="489.1" y="777" font-size="11" text-anchor="middle" fill="#5A6480">100</text>
-<line x1="536.8" x2="536.8" y1="760" y2="764" stroke="#5A6480"/>
-<text x="536.8" y="777" font-size="11" text-anchor="middle" fill="#5A6480">200</text>
-<rect x="200" y="460" width="360" height="300" fill="none" stroke="#0F1730" stroke-width=".8"/>
-<text x="380.0" y="796.0" font-size="12" text-anchor="middle" fill="#0F1730">rescaling factor λ (forced)</text>
-<text x="156.0" y="610.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 156.0 610.0)">power with rescaling minus without (points)</text>
-<path d="M200.0 610.0L560.0 610.0" fill="none" stroke="#5A6480" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="1"/>
-<line x1="211.0" x2="211.0" y1="652.5" y2="572.5" stroke="#2B59D9" stroke-width="1.1"/>
-<use href="#m10" x="211.0" y="612.5"/>
-<line x1="274.1" x2="274.1" y1="638.8" y2="558.8" stroke="#2B59D9" stroke-width="1.1"/>
-<use href="#m10" x="274.1" y="598.8"/>
-<line x1="321.8" x2="321.8" y1="655.0" y2="575.0" stroke="#2B59D9" stroke-width="1.1"/>
-<use href="#m10" x="321.8" y="615.0"/>
-<line x1="369.5" x2="369.5" y1="661.2" y2="581.2" stroke="#2B59D9" stroke-width="1.1"/>
-<use href="#m10" x="369.5" y="621.2"/>
-<line x1="432.6" x2="432.6" y1="638.8" y2="558.8" stroke="#2B59D9" stroke-width="1.1"/>
-<use href="#m11" x="432.6" y="598.8"/>
-<line x1="480.3" x2="480.3" y1="568.8" y2="488.8" stroke="#2B59D9" stroke-width="1.1"/>
-<use href="#m11" x="480.3" y="528.8"/>
-<line x1="528.0" x2="528.0" y1="695.0" y2="615.0" stroke="#2B59D9" stroke-width="1.1"/>
-<use href="#m11" x="528.0" y="655.0"/>
-<line x1="217.0" x2="217.0" y1="645.0" y2="585.0" stroke="#8B4FD6" stroke-width="1.1"/>
-<use href="#m12" x="217.0" y="615.0"/>
-<line x1="280.1" x2="280.1" y1="666.2" y2="606.2" stroke="#8B4FD6" stroke-width="1.1"/>
-<use href="#m12" x="280.1" y="636.2"/>
-<line x1="327.8" x2="327.8" y1="660.0" y2="600.0" stroke="#8B4FD6" stroke-width="1.1"/>
-<use href="#m13" x="327.8" y="630.0"/>
-<line x1="375.5" x2="375.5" y1="675.0" y2="615.0" stroke="#8B4FD6" stroke-width="1.1"/>
-<use href="#m13" x="375.5" y="645.0"/>
-<line x1="438.6" x2="438.6" y1="651.2" y2="591.2" stroke="#8B4FD6" stroke-width="1.1"/>
-<use href="#m13" x="438.6" y="621.2"/>
-<line x1="486.3" x2="486.3" y1="696.2" y2="641.2" stroke="#8B4FD6" stroke-width="1.1"/>
-<use href="#m13" x="486.3" y="668.8"/>
-<line x1="534.0" x2="534.0" y1="710.0" y2="655.0" stroke="#8B4FD6" stroke-width="1.1"/>
-<use href="#m13" x="534.0" y="682.5"/>
-<line x1="222.5" x2="222.5" y1="631.2" y2="571.2" stroke="#0E9F6E" stroke-width="1.1"/>
-<use href="#m14" x="222.5" y="601.2"/>
-<line x1="285.6" x2="285.6" y1="647.5" y2="587.5" stroke="#0E9F6E" stroke-width="1.1"/>
-<use href="#m14" x="285.6" y="617.5"/>
-<line x1="333.3" x2="333.3" y1="650.0" y2="590.0" stroke="#0E9F6E" stroke-width="1.1"/>
-<use href="#m14" x="333.3" y="620.0"/>
-<line x1="381.0" x2="381.0" y1="655.0" y2="595.0" stroke="#0E9F6E" stroke-width="1.1"/>
-<use href="#m14" x="381.0" y="625.0"/>
-<line x1="444.1" x2="444.1" y1="642.5" y2="582.5" stroke="#0E9F6E" stroke-width="1.1"/>
-<use href="#m15" x="444.1" y="612.5"/>
-<line x1="491.8" x2="491.8" y1="642.5" y2="582.5" stroke="#0E9F6E" stroke-width="1.1"/>
-<use href="#m15" x="491.8" y="612.5"/>
-<line x1="539.5" x2="539.5" y1="630.0" y2="570.0" stroke="#0E9F6E" stroke-width="1.1"/>
-<use href="#m15" x="539.5" y="600.0"/>
-<line x1="227.6" x2="227.6" y1="635.0" y2="590.0" stroke="#C27A12" stroke-width="1.1"/>
-<use href="#m16" x="227.6" y="612.5"/>
-<line x1="290.7" x2="290.7" y1="620.0" y2="575.0" stroke="#C27A12" stroke-width="1.1"/>
-<use href="#m16" x="290.7" y="597.5"/>
-<line x1="338.4" x2="338.4" y1="620.0" y2="575.0" stroke="#C27A12" stroke-width="1.1"/>
-<use href="#m17" x="338.4" y="597.5"/>
-<line x1="386.1" x2="386.1" y1="635.0" y2="590.0" stroke="#C27A12" stroke-width="1.1"/>
-<use href="#m17" x="386.1" y="612.5"/>
-<line x1="449.2" x2="449.2" y1="622.5" y2="577.5" stroke="#C27A12" stroke-width="1.1"/>
-<use href="#m17" x="449.2" y="600.0"/>
-<line x1="496.9" x2="496.9" y1="618.8" y2="573.8" stroke="#C27A12" stroke-width="1.1"/>
-<use href="#m17" x="496.9" y="596.2"/>
-<line x1="544.6" x2="544.6" y1="641.2" y2="596.2" stroke="#C27A12" stroke-width="1.1"/>
-<use href="#m17" x="544.6" y="618.8"/>
-<use href="#m3" x="588.0" y="472.0"/>
-<text x="605.0" y="476.0" font-size="11" text-anchor="start" fill="#0F1730">haploid, N = 10,000</text>
-<use href="#m18" x="588.0" y="489.0"/>
-<text x="605.0" y="493.0" font-size="11" text-anchor="start" fill="#0F1730">haploid, N = 1,000</text>
-<use href="#m4" x="588.0" y="506.0"/>
-<text x="605.0" y="510.0" font-size="11" text-anchor="start" fill="#0F1730">diploid, Nf = Nm = 100,000</text>
-<use href="#m19" x="588.0" y="523.0"/>
-<text x="605.0" y="527.0" font-size="11" text-anchor="start" fill="#0F1730">diploid, Nf = Nm = 1,000</text>
-<use href="#m20" x="588.0" y="540.0"/>
-<text x="605.0" y="544.0" font-size="11" text-anchor="start" fill="#0F1730">filled: within SPOT's limits</text>
-<use href="#m21" x="588.0" y="557.0"/>
-<text x="605.0" y="561.0" font-size="11" text-anchor="start" fill="#0F1730">hollow: beyond them</text>
-<line x1="578" x2="598" y1="574" y2="574" stroke="#5A6480" stroke-width="2"/>
-<text x="605.0" y="578.0" font-size="11" text-anchor="start" fill="#0F1730">bars: ±2 standard errors</text>
+<text x="240.0" y="450.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Rescaling forced beyond its limits</text>
+<text x="188.0" y="450.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">c</text>
+<line x1="240" x2="600" y1="735.0" y2="735.0" stroke="#E1E5EF"/>
+<text x="234" y="739.0" font-size="11" text-anchor="end" fill="#5A6480">-10</text>
+<line x1="240" x2="600" y1="672.5" y2="672.5" stroke="#E1E5EF"/>
+<text x="234" y="676.5" font-size="11" text-anchor="end" fill="#5A6480">-5</text>
+<line x1="240" x2="600" y1="610.0" y2="610.0" stroke="#E1E5EF"/>
+<text x="234" y="614.0" font-size="11" text-anchor="end" fill="#5A6480">0</text>
+<line x1="240" x2="600" y1="547.5" y2="547.5" stroke="#E1E5EF"/>
+<text x="234" y="551.5" font-size="11" text-anchor="end" fill="#5A6480">+5</text>
+<line x1="240" x2="600" y1="485.0" y2="485.0" stroke="#E1E5EF"/>
+<text x="234" y="489.0" font-size="11" text-anchor="end" fill="#5A6480">+10</text>
+<line x1="259.8" x2="259.8" y1="760" y2="764" stroke="#5A6480"/>
+<text x="259.8" y="777" font-size="11" text-anchor="middle" fill="#5A6480">2</text>
+<line x1="322.9" x2="322.9" y1="760" y2="764" stroke="#5A6480"/>
+<text x="322.9" y="777" font-size="11" text-anchor="middle" fill="#5A6480">5</text>
+<line x1="370.6" x2="370.6" y1="760" y2="764" stroke="#5A6480"/>
+<text x="370.6" y="777" font-size="11" text-anchor="middle" fill="#5A6480">10</text>
+<line x1="418.3" x2="418.3" y1="760" y2="764" stroke="#5A6480"/>
+<text x="418.3" y="777" font-size="11" text-anchor="middle" fill="#5A6480">20</text>
+<line x1="481.4" x2="481.4" y1="760" y2="764" stroke="#5A6480"/>
+<text x="481.4" y="777" font-size="11" text-anchor="middle" fill="#5A6480">50</text>
+<line x1="529.1" x2="529.1" y1="760" y2="764" stroke="#5A6480"/>
+<text x="529.1" y="777" font-size="11" text-anchor="middle" fill="#5A6480">100</text>
+<line x1="576.8" x2="576.8" y1="760" y2="764" stroke="#5A6480"/>
+<text x="576.8" y="777" font-size="11" text-anchor="middle" fill="#5A6480">200</text>
+<rect x="240" y="460" width="360" height="300" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="420.0" y="796.0" font-size="12" text-anchor="middle" fill="#0F1730">rescaling factor λ (forced)</text>
+<text x="196.0" y="610.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 196.0 610.0)">power with rescaling minus without (points)</text>
+<path d="M240.0 610.0L600.0 610.0" fill="none" stroke="#5A6480" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="1"/>
+<line x1="251.0" x2="251.0" y1="652.5" y2="572.5" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m10" x="251.0" y="612.5"/>
+<line x1="314.1" x2="314.1" y1="638.8" y2="558.8" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m10" x="314.1" y="598.8"/>
+<line x1="361.8" x2="361.8" y1="655.0" y2="575.0" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m10" x="361.8" y="615.0"/>
+<line x1="409.5" x2="409.5" y1="661.2" y2="581.2" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m10" x="409.5" y="621.2"/>
+<line x1="472.6" x2="472.6" y1="638.8" y2="558.8" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m11" x="472.6" y="598.8"/>
+<line x1="520.3" x2="520.3" y1="568.8" y2="488.8" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m11" x="520.3" y="528.8"/>
+<line x1="568.0" x2="568.0" y1="695.0" y2="615.0" stroke="#2B59D9" stroke-width="1.1"/>
+<use href="#m11" x="568.0" y="655.0"/>
+<line x1="257.0" x2="257.0" y1="645.0" y2="585.0" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m12" x="257.0" y="615.0"/>
+<line x1="320.1" x2="320.1" y1="666.2" y2="606.2" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m12" x="320.1" y="636.2"/>
+<line x1="367.8" x2="367.8" y1="660.0" y2="600.0" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m13" x="367.8" y="630.0"/>
+<line x1="415.5" x2="415.5" y1="675.0" y2="615.0" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m13" x="415.5" y="645.0"/>
+<line x1="478.6" x2="478.6" y1="651.2" y2="591.2" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m13" x="478.6" y="621.2"/>
+<line x1="526.3" x2="526.3" y1="696.2" y2="641.2" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m13" x="526.3" y="668.8"/>
+<line x1="574.0" x2="574.0" y1="710.0" y2="655.0" stroke="#8B4FD6" stroke-width="1.1"/>
+<use href="#m13" x="574.0" y="682.5"/>
+<line x1="262.5" x2="262.5" y1="631.2" y2="571.2" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m14" x="262.5" y="601.2"/>
+<line x1="325.6" x2="325.6" y1="647.5" y2="587.5" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m14" x="325.6" y="617.5"/>
+<line x1="373.3" x2="373.3" y1="650.0" y2="590.0" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m14" x="373.3" y="620.0"/>
+<line x1="421.0" x2="421.0" y1="655.0" y2="595.0" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m14" x="421.0" y="625.0"/>
+<line x1="484.1" x2="484.1" y1="642.5" y2="582.5" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m15" x="484.1" y="612.5"/>
+<line x1="531.8" x2="531.8" y1="642.5" y2="582.5" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m15" x="531.8" y="612.5"/>
+<line x1="579.5" x2="579.5" y1="630.0" y2="570.0" stroke="#0E9F6E" stroke-width="1.1"/>
+<use href="#m15" x="579.5" y="600.0"/>
+<line x1="267.6" x2="267.6" y1="635.0" y2="590.0" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m16" x="267.6" y="612.5"/>
+<line x1="330.7" x2="330.7" y1="620.0" y2="575.0" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m16" x="330.7" y="597.5"/>
+<line x1="378.4" x2="378.4" y1="620.0" y2="575.0" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m17" x="378.4" y="597.5"/>
+<line x1="426.1" x2="426.1" y1="635.0" y2="590.0" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m17" x="426.1" y="612.5"/>
+<line x1="489.2" x2="489.2" y1="622.5" y2="577.5" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m17" x="489.2" y="600.0"/>
+<line x1="536.9" x2="536.9" y1="618.8" y2="573.8" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m17" x="536.9" y="596.2"/>
+<line x1="584.6" x2="584.6" y1="641.2" y2="596.2" stroke="#C27A12" stroke-width="1.1"/>
+<use href="#m17" x="584.6" y="618.8"/>
+<use href="#m3" x="628.0" y="472.0"/>
+<text x="645.0" y="476.0" font-size="11" text-anchor="start" fill="#0F1730">haploid, N = 10,000</text>
+<use href="#m18" x="628.0" y="489.0"/>
+<text x="645.0" y="493.0" font-size="11" text-anchor="start" fill="#0F1730">haploid, N = 1,000</text>
+<use href="#m4" x="628.0" y="506.0"/>
+<text x="645.0" y="510.0" font-size="11" text-anchor="start" fill="#0F1730">diploid, Nf = Nm = 100,000</text>
+<use href="#m19" x="628.0" y="523.0"/>
+<text x="645.0" y="527.0" font-size="11" text-anchor="start" fill="#0F1730">diploid, Nf = Nm = 1,000</text>
+<use href="#m20" x="628.0" y="540.0"/>
+<text x="645.0" y="544.0" font-size="11" text-anchor="start" fill="#0F1730">filled: within SPOT's limits</text>
+<use href="#m21" x="628.0" y="557.0"/>
+<text x="645.0" y="561.0" font-size="11" text-anchor="start" fill="#0F1730">hollow: beyond them</text>
+<line x1="618" x2="638" y1="574" y2="574" stroke="#5A6480" stroke-width="2"/>
+<text x="645.0" y="578.0" font-size="11" text-anchor="start" fill="#0F1730">bars: ±2 standard errors</text>
 </svg>
