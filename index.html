@@ -111,7 +111,9 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:4px;align-content:start;min-width:0}
 .tile b{font-family:var(--f-display);font-weight:600;font-size:1.75rem;line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .tile .lab{font-size:.78rem;color:var(--muted);line-height:1.35}
-.tile.wide{grid-column:1/-1}
+.tile.wide{}
+.tile.key .fvl{display:flex;gap:12px;align-items:center;justify-content:center;text-align:left;border-top:1px solid var(--line);padding-top:12px;width:100%}
+.tile.key .fvl b{font-size:1.6rem;color:var(--modern)}.tile.key .fvl-t{display:block;font-size:.85rem;color:var(--ink)}.tile.key .fvl-s{display:block;font-size:.78rem;color:var(--muted)}
 .tile .pair{display:flex;gap:22px;align-items:baseline}.tile .pair small{display:block;font-size:.78rem;color:var(--muted);font-weight:400;font-family:inherit;letter-spacing:0}
 .tile.key{grid-row:span 2;grid-template-columns:1fr;justify-items:center;text-align:center;align-content:center;gap:12px;padding:18px 20px;box-shadow:var(--shadow);border-color:color-mix(in oklab,var(--accent) 35%,var(--line))}
 .tile.key .lab{font-size:.95rem;color:var(--ink)}
@@ -127,7 +129,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .panel-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--muted)}
 .legend i{display:inline-block;width:16px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
-.legend i.dash{background:repeating-linear-gradient(90deg,var(--ink) 0 4px,transparent 4px 7px)!important}
+.legend i.dash{background:repeating-linear-gradient(90deg,var(--dc,var(--ink)) 0 4px,transparent 4px 7px)!important}
 svg{display:block;width:100%;height:auto}
 svg text{font-family:var(--f-mono)}
 .status{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
@@ -265,9 +267,8 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
 
 <div class="out">
   <div class="tiles" aria-live="polite">
-    <div class="tile key"><div class="ring" id="ring"><b id="t-pe">–</b></div><span class="lab"><strong>Power</strong> · trend test across all sampling points, drift-aware threshold<span id="t-pe-fp" style="display:block;font-size:.78rem;color:var(--muted);margin-top:4px"></span><span id="t-p2-line" style="display:block;font-size:.9rem;color:var(--ink);margin-top:8px"></span><span id="t-nodrift" style="display:block;font-size:.78rem;color:var(--muted);margin-top:4px" hidden></span></span></div>
+    <div class="tile key"><div class="ring" id="ring"><b id="t-pe">–</b></div><span class="lab"><strong>Power</strong> · trend test across all sampling points, drift-aware threshold<span id="t-pe-fp" style="display:block;font-size:.78rem;color:var(--muted);margin-top:4px"></span><span id="t-nodrift" style="display:block;font-size:.78rem;color:var(--muted);margin-top:4px" hidden></span></span><div class="fvl"><b id="t-p2">–</b><span><span class="fvl-t">Power · first-versus-last test, drift-aware threshold</span><span id="t-p2-fp" class="fvl-s"></span></span></div></div>
     <div class="tile" id="tile-fpr"><b id="t-pn">–</b><span class="lab">Power · trend test, sampling-only threshold<span id="t-pn-fp" style="display:block;margin-top:2px"></span></span></div>
-    <div class="tile"><b id="t-pend">–</b><span class="lab" id="t-pend-lab"></span></div>
     <div class="tile" id="tile-hl"><b id="t-hl">–</b><span class="lab" id="t-hl-lab"></span></div>
     <div class="tile"><b id="t-ne">–</b><span class="lab" id="t-ne-lab">Effective population size Ne</span></div>
     <div class="tile wide" id="tile-het"><b id="t-het">–</b><span class="lab" id="t-het-lab">Heterozygotes called correctly</span></div>
@@ -319,18 +320,18 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
             <option value="p0">Allele frequency at the first point (p₀)</option>
             <option value="h">Dominance h</option>
             <option value="sMale">Selection in males (× s)</option>
-            <option value="decline">Breeding numbers at the last point relative to the first</option>
-            <option value="mig">Migration rate</option>
+            <option value="decline">Ne at the last point relative to the first</option>
+            <option value="mig">Migrants per generation, m</option>
             <option value="maleFrac">Males in the sample</option>
             <option value="kSib">Sampled individuals per family</option>
-            <option value="m">Candidate loci m</option>
+            <option value="m">Candidate loci tested, L</option>
           </select></label>
         <button type="button" class="primary" id="sweep-run">Draw curve</button>
         <button type="button" id="sweep-csv">CSV</button>
       </div></div>
-    <p class="hint">Every value set in the parameter panel stays fixed except the parameter chosen here, which is stepped through a range of values. At each value the full power calculation is rerun from scratch (new simulations with and without selection, new threshold), and the power of the whole design is plotted. Example: with "Individuals at the last point", the earlier points keep their current sample sizes while the last point takes 10, 20, 30, 40, 60, 80 and 120 individuals; each dot is the power of that complete design. The upper panel shows power, the lower panel the false-positive rate of the sampling-only threshold. The vertical line marks the current value and the dashed line marks 80% power. Varying the breeding numbers or the population change switches drift on; varying depth switches perfect genotypes off.</p>
-    <svg id="ch-sweep" viewBox="0 0 720 390" role="img" aria-label="Power as a function of the chosen parameter"></svg>
-    <div class="legend"><span><i style="background:var(--accent)"></i>power, trend test (drift-aware threshold)</span><span><i style="background:var(--modern)"></i>power, first-versus-last test (drift-aware threshold)</span><span><i class="dash" style="border-color:var(--warn)"></i>power, trend test (sampling-only threshold)</span><span><i style="background:var(--warn)"></i>lower panel: false-positive rate, sampling-only threshold (trend)</span><span>Hollow marker: too few neutral simulations for α′, threshold extrapolated by a normal fit; can be far off</span></div>
+    <p class="hint">Every value set in the parameter panel stays fixed except the parameter chosen here, which is stepped through a range of values. At each value the full power calculation is rerun from scratch (new simulations with and without selection, new threshold), and the power of the whole design is plotted. Example: with "Individuals at the last point", the earlier points keep their current sample sizes while the last point takes 10, 20, 30, 40, 60, 80 and 120 individuals; each dot is the power of that complete design. The upper panel shows power (lines). The lower panel, drawn as bars, shows a different quantity: how often the sampling-only threshold calls a neutral locus "selected", against the intended rate α′. The vertical line marks the current value and the dashed line marks 80% power. Varying the breeding numbers or the population change switches drift on; varying depth switches perfect genotypes off.</p>
+    <svg id="ch-sweep" viewBox="0 0 720 400" role="img" aria-label="Power as a function of the chosen parameter"></svg>
+    <div class="legend"><span><i style="background:var(--accent)"></i>power, trend test (drift-aware threshold)</span><span><i style="background:var(--modern)"></i>power, first-versus-last test (drift-aware threshold)</span><span><i class="dash" style="--dc:var(--warn)"></i>power, trend test (sampling-only threshold)</span><span><i style="background:color-mix(in oklab,var(--warn) 30%,transparent);border:1px solid var(--warn);border-radius:1px"></i>bars, lower panel: false-positive rate of the sampling-only threshold (not power)</span><span><i class="dash"></i>lower panel: intended false-positive rate α′</span><span>Hollow marker: too few neutral simulations for α′, threshold extrapolated by a normal fit; can be far off</span></div>
     <p class="status" id="sweep-status">All other parameters stay at their current values. Each point uses up to 1,000 selection simulations and 2,000 neutral (up to 20,000 neutral when many loci are tested; beyond that the threshold is extrapolated by a normal fit, shown by hollow markers).</p>
   </section>
 
@@ -921,18 +922,18 @@ function render(r,ms,snap){
   const aP=pctS(r.alphaAdj);
   $('t-pe').textContent=pct(r.trend.powerEmp);
   $('t-pe-fp').textContent=r.trend.method==='empirical'?`Threshold from the ${r.nNeutral.toLocaleString()} neutral simulations: z = ${r.trend.crit.toFixed(3)}.`:`Threshold extrapolated by a normal fit: unreliable (see note below).`;
-  $('t-p2-line').textContent=`First-versus-last test: ${pct(r.two.powerEmp)} (`+(r.two.method==='empirical'?`threshold z = ${r.two.crit.toFixed(3)}`:'threshold extrapolated by a normal fit: unreliable')+').';
+  $('t-p2').textContent=pct(r.two.powerEmp);
+  $('t-p2-fp').textContent=r.two.method==='empirical'?`Threshold from the ${r.nNeutral.toLocaleString()} neutral simulations: z = ${r.two.crit.toFixed(3)}.`:'Threshold extrapolated by a normal fit: unreliable.';
   { const nd=$('t-nodrift'); nd.hidden=!st.noDrift;
     if(st.noDrift){ const src=['the random choice of individuals']; if(!HAPL()&&st.kSib>1) src.push('siblings sampled together'); if(!st.perfect) src.push('genotype calls');
       const extra=src.length>1?src.slice(1).join(' and '):'';
-      nd.textContent=`No drift: the threshold (z = ${r.trend.crit.toFixed(3)}) still comes from neutral simulations, which keep ${src.join(', ').replace(/, ([^,]*)$/,' and $1')}. It differs from 1.645 because `+(extra?`${extra} add chance (raising it) and because `:'')+`with few copies of the favoured allele sampled, Z takes few distinct values instead of following the normal distribution that 1.645 assumes (moving it either way).`; } }
+      nd.textContent=`No drift: the threshold (z = ${r.trend.crit.toFixed(3)}) still comes from neutral simulations, which keep ${src.join(', ').replace(/, ([^,]*)$/,' and $1')}. It differs from 1.645 because `+(extra?`${extra} add chance and because `:'')+`with few copies of the favoured allele sampled, Z takes few distinct values instead of following the normal distribution that 1.645 assumes.`; } }
   $('t-pn').textContent=pct(r.trend.powerNaive);
   /* filled below, after the false-positive check */
   const se=Math.sqrt(r.alphaAdj*(1-r.alphaAdj)/r.nNeutral);
   const inflated=r.trend.fprNaive>1.5*r.alphaAdj && r.trend.fprNaive-r.alphaAdj>2*se, deflated=r.trend.fprNaive<r.alphaAdj/1.5 && r.alphaAdj-r.trend.fprNaive>2*se;
-  $('tile-fpr').classList.toggle('bad',inflated);
-  const det=deterministic(st); $('t-pend').textContent=`${(+st.p0).toFixed(3)} → ${det[det.length-1].toFixed(3)}`;
-  $('t-pend-lab').textContent='Frequency of the favoured allele at the first → last point, expected from selection'+(st.mig>0?' and migration':'')+' alone (no drift, infinite population)'+(st.system==='haplodiploid'||(!HAPL()&&st.sMale!==1)?'; in females':'');
+  $('tile-fpr').classList.toggle('bad',inflated&&r.trend.powerNaive-r.trend.powerEmp>=0.05);
+  const det=deterministic(st);
   { const n1=neFor(st), n2=neFor({system:st.system,Nf:st.Nf*st.decline,Nm:st.Nm*st.decline}); const bl=st.neBlocks||[], bmin=Math.min(...bl), bmax=Math.max(...bl);
     $('t-ne').textContent=st.noDrift?'∞':st.neByBlock?(bmin===bmax?fmtN(bmin):fmtN(bmin)+'–'+fmtN(bmax)):(st.decline!==1?fmtN(Math.round(n1))+'→'+fmtN(Math.round(n2)):fmtN(Math.round(n1)));
     $('t-ne-lab').textContent=st.noDrift?'Effective population size Ne':st.neByBlock?'Effective population size Ne, range over intervals':st.decline!==1?'Effective population size Ne, first → last point':'Effective population size Ne'; }
@@ -955,9 +956,9 @@ function render(r,ms,snap){
   const causes=[]; if(!st.noDrift) causes.push('drift'); if(!HAPL()&&st.kSib>1) causes.push('siblings sampled together'); if(!st.perfect&&(Math.min(st.depthEarly,st.depthLast)<6||st.depthEarly!==st.depthLast)) causes.push('genotype calls at low or unequal depth');
   const cTxt=causes.length?causes.join(', ').replace(/, ([^,]*)$/,' and $1'):'sources of chance it ignores';
   $('t-pn-fp').innerHTML=`The usual fixed threshold z = ${r.zNaive.toFixed(3)}, which treats the random choice of independent individuals as the only source of chance. `+
-    (inflated?`<strong style="color:var(--warn)">Too many false positives here:</strong> it would call ${pctS(r.trend.fprNaive)} of neutral loci "selected" instead of ${aP} (chance it ignores: ${cTxt}), so this power is too optimistic; the drift-aware power (${pct(r.trend.powerEmp)}) is the realistic figure.`
-             :deflated?`Its false-positive rate here: ${pctS(r.trend.fprNaive)}, below the intended ${aP}, so this power is somewhat pessimistic.`
-             :`Its false-positive rate here: ${pctS(r.trend.fprNaive)} (intended: ${aP}), close enough for this power to be trusted.`);
+    (inflated&&r.trend.powerNaive-r.trend.powerEmp>=0.05?`<strong style="color:var(--warn)">Too many false positives here:</strong> it would call ${pctS(r.trend.fprNaive)} of neutral loci "selected" instead of ${aP} (chance it ignores: ${cTxt}), so this power is too optimistic; the drift-aware power (${pct(r.trend.powerEmp)}) is the realistic figure.`
+     :deflated&&r.trend.powerEmp-r.trend.powerNaive>=0.05?`Its false-positive rate here: ${pctS(r.trend.fprNaive)}, below the intended ${aP}, so this power is too pessimistic; the drift-aware power (${pct(r.trend.powerEmp)}) is the realistic figure.`
+     :`Its false-positive rate here: ${pctS(r.trend.fprNaive)} (intended: ${aP}); this power is within 5 percentage points of the drift-aware power.`);
   drawTraj(r,det); drawDist(r);
   try{ history.replaceState(null,'',location.pathname+location.search+'#s='+encodeSettings(st)); }catch(e){}
 }
@@ -971,7 +972,7 @@ function drawTraj(r,det){
   const ym=niceMax(Math.max(mx,0.02));
   const Y0=st.years[0], Gt=gens[K-1], X=g=>L+(g/Gt)*(W-L-R), Y=p=>B-p/ym*(B-T);
   let s='', lastLab=1e9; const cw=Math.min(14,Math.max(4,(W-L-R)/Gt));
-  for(let i=K-1;i>=0;i--){if(st.n[i]===0) continue; const g=gens[i], c=i===K-1?'var(--modern)':'var(--hist)', x=X(g);s+=`<rect x="${x-cw/2}" y="${T}" width="${cw}" height="${B-T}" fill="${c}" opacity=".14"/>`; if(lastLab-x>=34){s+=`<text x="${x}" y="${B+30}" text-anchor="middle" font-size="10" fill="${c}">n = ${st.n[i]}</text>`;lastLab=x}}
+  for(let i=K-1;i>=0;i--){if(st.n[i]===0) continue; const g=gens[i], c=i===K-1?'var(--modern)':'var(--hist)', x=X(g);s+=`<rect x="${x-cw/2}" y="${T}" width="${cw}" height="${B-T}" fill="${c}" opacity=".14"/>`; if(lastLab-x>=34){s+=`<text x="${x}" y="${B+30}" text-anchor="${i===K-1?'end':'middle'}" font-size="10" fill="${c}">n = ${st.n[i]}</text>`;lastLab=i===K-1?x-30:x}}
   for(let k=0;k<=4;k++){const p=ym*k/4;s+=`<line x1="${L}" x2="${W-R}" y1="${Y(p)}" y2="${Y(p)}" stroke="var(--line)"/><text x="${L-8}" y="${Y(p)+4}" text-anchor="end" font-size="10.5" fill="var(--muted)">${+p.toFixed(3)}</text>`}
   yearTicks(Y0,last(st.years),7).forEach(y=>s+=`<text x="${X((y-Y0)/gt)}" y="${B+16}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${y}</text>`);
   if(st.onset>Y0){const xo=X((st.onset-Y0)/gt);s+=`<line x1="${xo}" x2="${xo}" y1="${T}" y2="${B}" stroke="var(--accent)" stroke-dasharray="2 3"/><text x="${xo>W-130?xo-4:xo+4}" y="${T+10}" font-size="10" fill="var(--accent)"${xo>W-130?' text-anchor="end"':''}>selection starts</text>`}
@@ -982,7 +983,9 @@ function drawTraj(r,det){
   s+=`<text transform="translate(14 ${(T+B)/2}) rotate(-90)" text-anchor="middle" font-size="10.5" fill="var(--muted)">allele frequency</text>`;
   s+=`<text x="${W-R}" y="${B+44}" text-anchor="end" font-size="10.5" fill="var(--muted)">year (n = individuals sampled)</text>`;
   svg.innerHTML=s;
-  $('traj-hint').textContent=HAPL()?'Shaded columns mark the sampling points. Each line is the true allele frequency in the population after selection, in one simulation; 40 selection and 40 neutral simulations are drawn, out of all those used for power. Samples are drawn from these trajectories and then pass through the genotype-calling step.':'Shaded columns mark the sampling points. Each line is the true allele frequency in females after selection, in one simulation; 40 selection and 40 neutral simulations are drawn, out of all those used for power. Samples are drawn from these frequencies and then pass through the genotype-calling step.';
+  const fem=st.system==='haplodiploid'||(!HAPL()&&st.sMale!==1);
+  const detTxt=`Without drift (dashed line), selection${st.mig>0?' and migration':''} alone would take the favoured allele from ${(+st.p0).toFixed(3)} at the first point to ${det[det.length-1].toFixed(3)} at the last${fem?' in females':''}. `;
+  $('traj-hint').textContent=detTxt+(HAPL()?'Shaded columns mark the sampling points. Each line is the true allele frequency in the population after selection, in one simulation; 40 selection and 40 neutral simulations are drawn, out of all those used for power. Samples are drawn from these trajectories and then pass through the genotype-calling step.':'Shaded columns mark the sampling points. Each line is the true allele frequency in females after selection, in one simulation; 40 selection and 40 neutral simulations are drawn, out of all those used for power. Samples are drawn from these frequencies and then pass through the genotype-calling step.');
 }
 function drawDist(r){
   const svg=$('ch-dist'),W=720,H=280,L=40,R=16,T=16,B=236;
@@ -1023,8 +1026,8 @@ const SWEEPS={
   p0:{label:'allele frequency at the first point (p₀)',vals:[0.002,0.005,0.01,0.02,0.05,0.1,0.2,0.4],log:true,apply:(p,v)=>{p.p0=v},cur:p=>p.p0},
   h:{label:'dominance h (in females)',vals:[0,0.25,0.5,0.75,1],apply:(p,v)=>{p.h=v},cur:p=>p.h},
   sMale:{label:'selection in males (× s)',vals:[0,0.25,0.5,0.75,1,1.25,1.5],apply:(p,v)=>{p.sMale=v},cur:p=>p.sMale},
-  decline:{label:'breeding numbers at the last point relative to the first',vals:[0.01,0.03,0.1,0.3,1,3,10],log:true,apply:(p,v)=>{p.decline=v;p.noDrift=false;p.neByBlock=false},cur:p=>p.decline},
-  mig:{label:'migrant fraction per generation',vals:[0,0.005,0.01,0.02,0.04,0.06,0.1],apply:(p,v)=>{p.mig=v},cur:p=>p.mig},
+  decline:{label:'Ne at the last point relative to the first',vals:[0.01,0.03,0.1,0.3,1,3,10],log:true,apply:(p,v)=>{p.decline=v;p.noDrift=false;p.neByBlock=false},cur:p=>p.decline},
+  mig:{label:'migrants per generation, m',vals:[0,0.005,0.01,0.02,0.04,0.06,0.1],apply:(p,v)=>{p.mig=v},cur:p=>p.mig},
   maleFrac:{label:'fraction of males in the sample',vals:[0,0.25,0.5,0.75,1],apply:(p,v)=>{p.maleFrac=v},cur:p=>p.maleFrac},
   kSib:{label:'sampled individuals per family (siblings)',vals:[1,2,3,4,5,6,8,10],apply:(p,v)=>{p.kSib=v},cur:p=>p.kSib},
   m:{label:'candidate loci tested, L',vals:[1,2,5,10,20,50,100,500],log:true,apply:(p,v)=>{p.m=v},cur:p=>p.m}
@@ -1048,23 +1051,30 @@ $('sweep-run').onclick=()=>{
   });
 };
 function drawSweep(def,pts){
-  const svg=$('ch-sweep'),W=720,L=56,R=20,T=14,B=210,T2=244,B2=330, vals=def.vals;
+  const svg=$('ch-sweep'),W=720,L=56,R=20,T=14,B=210,T2=270,B2=350, vals=def.vals;
   const pos=def.log?(v=>Math.log(v)):(v=>v), a=pos(vals[0]), b=pos(vals[vals.length-1]);
-  const X=v=>L+(pos(v)-a)/(b-a)*(W-L-R), Y=p=>B-p*(B-T);
+  const PAD=18, X=v=>L+PAD+(pos(v)-a)/(b-a)*(W-L-R-2*PAD), Y=p=>B-p*(B-T);
   let s='';
   [0,.2,.4,.6,.8,1].forEach(p=>s+=`<line x1="${L}" x2="${W-R}" y1="${Y(p)}" y2="${Y(p)}" stroke="var(--line)"/><text x="${L-8}" y="${Y(p)+4}" text-anchor="end" font-size="10.5" fill="var(--muted)">${p*100}%</text>`);
   s+=`<line x1="${L}" x2="${W-R}" y1="${Y(.8)}" y2="${Y(.8)}" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
   s+=`<text transform="translate(14 ${(T+B)/2}) rotate(-90)" text-anchor="middle" font-size="10.5" fill="var(--muted)">power</text>`;
-  // lower panel: false-positive rate of the sampling-only threshold, on its own axis
+  // lower panel: false-positive rate of the sampling-only threshold. A different quantity from power, so a different
+  // look: bars, no line, no markers, its own title and axis.
   const fmax=niceMax(Math.max(0.1,...pts.map(p=>p.fp),...pts.map(p=>2*p.a))), Y2=f=>B2-f/fmax*(B2-T2);
+  s+=`<line x1="${L}" x2="${W-R}" y1="${B+24}" y2="${B+24}" stroke="var(--line)" stroke-width="1.5"/>`;
+  s+=`<text x="${L}" y="${T2-10}" font-size="11" font-weight="600" fill="var(--ink)">False-positive rate of the sampling-only threshold (trend test), not power</text>`;
   [0,fmax/2,fmax].forEach(f=>s+=`<line x1="${L}" x2="${W-R}" y1="${Y2(f)}" y2="${Y2(f)}" stroke="var(--line)"/><text x="${L-8}" y="${Y2(f)+4}" text-anchor="end" font-size="10.5" fill="var(--muted)">${+(f*100).toFixed(1)}%</text>`);
   s+=`<text transform="translate(14 ${(T2+B2)/2}) rotate(-90)" text-anchor="middle" font-size="10" fill="var(--muted)">false positives</text>`;
-  if(pts.length){const dA=pts.map((p,i)=>(i?'L':'M')+X(p.v).toFixed(1)+' '+Y2(p.a).toFixed(1)).join(''); s+=`<path d="${dA}" fill="none" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${L+4}" y="${Y2(pts[0].a)-4}" font-size="10" fill="var(--muted)">intended rate (α′)</text>`;}
+  if(pts.length){
+    const xs=pts.map(p=>X(p.v)), gap=xs.length>1?Math.min(...xs.slice(1).map((x,i)=>x-xs[i])):60, bw=Math.max(6,Math.min(26,gap*0.45));
+    pts.forEach(p=>{const y=Y2(p.fp); s+=`<rect x="${(X(p.v)-bw/2).toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${(B2-y).toFixed(1)}" fill="color-mix(in oklab,var(--warn) 30%,transparent)" stroke="var(--warn)" stroke-width="1"><title>${p.v}: false-positive rate ${(p.fp*100).toFixed(1)}% (intended ${(p.a*100).toFixed(1)}%)</title></rect>`});
+    const dA=pts.map((p,i)=>(i?'L':'M')+(i?X(p.v):L).toFixed(1)+' '+Y2(p.a).toFixed(1)).join('')+'L'+(W-R)+' '+Y2(pts[pts.length-1].a).toFixed(1);
+    s+=`<path d="${dA}" fill="none" stroke="var(--ink)" stroke-dasharray="4 3"/>`;}
   vals.forEach(v=>s+=`<text x="${X(v)}" y="${B2+16}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${def.year?v:(v>=1000?fmtK(v):v)}</text>`);
   s+=`<text x="${(L+W-R)/2}" y="${B2+36}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${def.label}</text>`;
   const cur=def.cur(st); if(cur>=vals[0]&&cur<=vals[vals.length-1]) s+=`<line x1="${X(cur)}" x2="${X(cur)}" y1="${T}" y2="${B2}" stroke="var(--heather)" stroke-width="1.5"/><text x="${X(cur)+4}" y="${T+10}" font-size="10" fill="var(--heather)">current</text>`;
   const line=(k,c,gk,dash,yf)=>{yf=yf||Y; const d=pts.map((p,i)=>(i?'L':'M')+X(p.v).toFixed(1)+' '+yf(p[k]).toFixed(1)).join('');return `<path d="${d}" fill="none" stroke="${c}" stroke-width="2.2"${dash?' stroke-dasharray="6 4"':''}/>`+(dash?'':pts.map(p=>`<circle cx="${X(p.v)}" cy="${yf(p[k])}" r="4" fill="${gk&&p[gk]?'var(--surface)':c}" stroke="${c}" stroke-width="2"><title>${p.v}: ${(p[k]*100).toFixed(1)}%</title></circle>`).join(''))};
-  s+=line('pn','var(--warn)',null,true)+line('tw','var(--modern)','gauss2')+line('te','var(--accent)','gauss')+line('fp','var(--warn)',null,false,Y2);
+  s+=line('pn','var(--warn)',null,true)+line('tw','var(--modern)','gauss2')+line('te','var(--accent)','gauss');
   svg.innerHTML=s;
 }
 
