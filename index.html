@@ -329,9 +329,9 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
         <button type="button" class="primary" id="sweep-run">Draw curve</button>
         <button type="button" id="sweep-csv">CSV</button>
       </div></div>
-    <p class="hint">Every value set in the parameter panel stays fixed except the parameter chosen here, which is stepped through a range of values. At each value the full power calculation is rerun from scratch (new simulations with and without selection, new threshold), and the power of the whole design is plotted. Example: with "Individuals at the last point", the earlier points keep their current sample sizes while the last point takes 10, 20, 30, 40, 60, 80 and 120 individuals; each dot is the power of that complete design. The upper panel shows power (lines). The lower panel, drawn as bars, shows a different quantity: how often the sampling-only threshold calls a neutral locus "selected", against the intended rate α′. The vertical line marks the current value and the dashed line marks 80% power. Varying the breeding numbers or the population change switches drift on; varying depth switches perfect genotypes off.</p>
-    <svg id="ch-sweep" viewBox="0 0 720 400" role="img" aria-label="Power as a function of the chosen parameter"></svg>
-    <div class="legend"><span><i style="background:var(--accent)"></i>power, trend test (drift-aware threshold)</span><span><i style="background:var(--modern)"></i>power, first-versus-last test (drift-aware threshold)</span><span><i class="dash" style="--dc:var(--warn)"></i>power, trend test (sampling-only threshold)</span><span><i style="background:color-mix(in oklab,var(--warn) 30%,transparent);border:1px solid var(--warn);border-radius:1px"></i>bars, lower panel: false-positive rate of the sampling-only threshold (not power)</span><span><i class="dash"></i>lower panel: intended false-positive rate α′</span><span>Hollow marker: too few neutral simulations for α′, threshold extrapolated by a normal fit; can be far off</span></div>
+    <p class="hint">Every value set in the parameter panel stays fixed except the parameter chosen here, which is stepped through a range of values. At each value the full power calculation is rerun from scratch (new simulations with and without selection, new threshold), and the power of the whole design is plotted. Example: with "Individuals at the last point", the earlier points keep their current sample sizes while the last point takes 10, 20, 30, 40, 60, 80 and 120 individuals; each dot is the power of that complete design. The upper panel shows power. The lower panel shows a different quantity: how often the sampling-only threshold calls a neutral locus "selected", against the intended rate α′. The vertical line marks the current value. Varying the breeding numbers or the population change switches drift on; varying depth switches perfect genotypes off.</p>
+    <svg id="ch-sweep" viewBox="0 0 720 520" role="img" aria-label="Power as a function of the chosen parameter"></svg>
+    <p class="hint">Hollow markers: too few neutral simulations for α′, so the threshold is extrapolated by a normal fit; such points can be far off.</p>
     <p class="status" id="sweep-status">All other parameters stay at their current values. Each point uses up to 1,000 selection simulations and 2,000 neutral (up to 20,000 neutral when many loci are tested; beyond that the threshold is extrapolated by a normal fit, shown by hollow markers).</p>
   </section>
 
@@ -1051,30 +1051,40 @@ $('sweep-run').onclick=()=>{
   });
 };
 function drawSweep(def,pts){
-  const svg=$('ch-sweep'),W=720,L=56,R=20,T=14,B=210,T2=270,B2=350, vals=def.vals;
+  /* two separate panels, each with its own title, x axis and legend:
+     top, power; bottom, false-positive rate of the sampling-only threshold (a different quantity) */
+  const svg=$('ch-sweep'),W=720,L=56,R=20, vals=def.vals;
+  const T=32,B=222, LG=18, T2=B+52+3*LG+60,B2=T2+96, H=B2+52+LG+14;
   const pos=def.log?(v=>Math.log(v)):(v=>v), a=pos(vals[0]), b=pos(vals[vals.length-1]);
   const PAD=18, X=v=>L+PAD+(pos(v)-a)/(b-a)*(W-L-R-2*PAD), Y=p=>B-p*(B-T);
+  const fmax=niceMax(Math.max(0.1,...pts.map(p=>p.fp),...pts.map(p=>2*p.a))), Y2=f=>B2-f/fmax*(B2-T2);
+  const ticks=(yb)=>vals.map(v=>`<text x="${X(v)}" y="${yb+16}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${def.year?v:(v>=1000?fmtK(v):v)}</text>`).join('')
+    +`<text x="${(L+W-R)/2}" y="${yb+32}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${def.label}</text>`;
+  const cur=def.cur(st), hasCur=cur>=vals[0]&&cur<=vals[vals.length-1];
+  const curLine=(y1,y2,lab)=>hasCur?`<line x1="${X(cur)}" x2="${X(cur)}" y1="${y1}" y2="${y2}" stroke="var(--heather)" stroke-width="1.5"/>`+(lab?`<text x="${X(cur)+4}" y="${y1+10}" font-size="10" fill="var(--heather)">current</text>`:''):'';
+  const line=(k,c,gk,dash,yf,unit)=>{const d=pts.map((p,i)=>(i?'L':'M')+X(p.v).toFixed(1)+' '+yf(p[k]).toFixed(1)).join('');
+    return `<path d="${d}" fill="none" stroke="${c}" stroke-width="2.2"${dash?' stroke-dasharray="6 4"':''}/>`+(dash?'':pts.map(p=>`<circle cx="${X(p.v)}" cy="${yf(p[k])}" r="4" fill="${gk&&p[gk]?'var(--surface)':c}" stroke="${c}" stroke-width="2"><title>${p.v}: ${(p[k]*100).toFixed(1)}%</title></circle>`).join(''))};
+  const key=(x,y,c,dash,dot,txt)=>`<line x1="${x}" x2="${x+22}" y1="${y}" y2="${y}" stroke="${c}" stroke-width="2.2"${dash?' stroke-dasharray="5 3"':''}/>`+(dot?`<circle cx="${x+11}" cy="${y}" r="3.5" fill="${c}"/>`:'')+`<text x="${x+28}" y="${y+4}" font-size="10.5" fill="var(--ink)">${txt}</text>`;
   let s='';
+  // ---- top: power ----
+  s+=`<text x="${L}" y="${T-14}" font-size="12" font-weight="600" fill="var(--ink)">Power</text>`;
   [0,.2,.4,.6,.8,1].forEach(p=>s+=`<line x1="${L}" x2="${W-R}" y1="${Y(p)}" y2="${Y(p)}" stroke="var(--line)"/><text x="${L-8}" y="${Y(p)+4}" text-anchor="end" font-size="10.5" fill="var(--muted)">${p*100}%</text>`);
   s+=`<line x1="${L}" x2="${W-R}" y1="${Y(.8)}" y2="${Y(.8)}" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
   s+=`<text transform="translate(14 ${(T+B)/2}) rotate(-90)" text-anchor="middle" font-size="10.5" fill="var(--muted)">power</text>`;
-  // lower panel: false-positive rate of the sampling-only threshold. A different quantity from power, so a different
-  // look: bars, no line, no markers, its own title and axis.
-  const fmax=niceMax(Math.max(0.1,...pts.map(p=>p.fp),...pts.map(p=>2*p.a))), Y2=f=>B2-f/fmax*(B2-T2);
-  s+=`<line x1="${L}" x2="${W-R}" y1="${B+24}" y2="${B+24}" stroke="var(--line)" stroke-width="1.5"/>`;
-  s+=`<text x="${L}" y="${T2-10}" font-size="11" font-weight="600" fill="var(--ink)">False-positive rate of the sampling-only threshold (trend test), not power</text>`;
+  s+=curLine(T,B,true)+ticks(B);
+  s+=line('pn','var(--warn)',null,true,Y)+line('tw','var(--modern)','gauss2',false,Y)+line('te','var(--accent)','gauss',false,Y);
+  s+=key(L,B+52,'var(--accent)',false,true,'trend test, drift-aware threshold')+key(L,B+52+LG,'var(--modern)',false,true,'first-versus-last test, drift-aware threshold')
+    +key(L,B+52+2*LG,'var(--warn)',true,false,'trend test, sampling-only threshold')+key(L,B+52+3*LG,'var(--muted)',true,false,'80% power');
+  // ---- bottom: false-positive rate of the sampling-only threshold ----
+  s+=`<line x1="0" x2="${W}" y1="${T2-34}" y2="${T2-34}" stroke="var(--line)" stroke-width="1.5"/>`;
+  s+=`<text x="${L}" y="${T2-14}" font-size="12" font-weight="600" fill="var(--ink)">False-positive rate of the sampling-only threshold (trend test)</text>`;
   [0,fmax/2,fmax].forEach(f=>s+=`<line x1="${L}" x2="${W-R}" y1="${Y2(f)}" y2="${Y2(f)}" stroke="var(--line)"/><text x="${L-8}" y="${Y2(f)+4}" text-anchor="end" font-size="10.5" fill="var(--muted)">${+(f*100).toFixed(1)}%</text>`);
   s+=`<text transform="translate(14 ${(T2+B2)/2}) rotate(-90)" text-anchor="middle" font-size="10" fill="var(--muted)">false positives</text>`;
-  if(pts.length){
-    const xs=pts.map(p=>X(p.v)), gap=xs.length>1?Math.min(...xs.slice(1).map((x,i)=>x-xs[i])):60, bw=Math.max(6,Math.min(26,gap*0.45));
-    pts.forEach(p=>{const y=Y2(p.fp); s+=`<rect x="${(X(p.v)-bw/2).toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${(B2-y).toFixed(1)}" fill="color-mix(in oklab,var(--warn) 30%,transparent)" stroke="var(--warn)" stroke-width="1"><title>${p.v}: false-positive rate ${(p.fp*100).toFixed(1)}% (intended ${(p.a*100).toFixed(1)}%)</title></rect>`});
-    const dA=pts.map((p,i)=>(i?'L':'M')+(i?X(p.v):L).toFixed(1)+' '+Y2(p.a).toFixed(1)).join('')+'L'+(W-R)+' '+Y2(pts[pts.length-1].a).toFixed(1);
-    s+=`<path d="${dA}" fill="none" stroke="var(--ink)" stroke-dasharray="4 3"/>`;}
-  vals.forEach(v=>s+=`<text x="${X(v)}" y="${B2+16}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${def.year?v:(v>=1000?fmtK(v):v)}</text>`);
-  s+=`<text x="${(L+W-R)/2}" y="${B2+36}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${def.label}</text>`;
-  const cur=def.cur(st); if(cur>=vals[0]&&cur<=vals[vals.length-1]) s+=`<line x1="${X(cur)}" x2="${X(cur)}" y1="${T}" y2="${B2}" stroke="var(--heather)" stroke-width="1.5"/><text x="${X(cur)+4}" y="${T+10}" font-size="10" fill="var(--heather)">current</text>`;
-  const line=(k,c,gk,dash,yf)=>{yf=yf||Y; const d=pts.map((p,i)=>(i?'L':'M')+X(p.v).toFixed(1)+' '+yf(p[k]).toFixed(1)).join('');return `<path d="${d}" fill="none" stroke="${c}" stroke-width="2.2"${dash?' stroke-dasharray="6 4"':''}/>`+(dash?'':pts.map(p=>`<circle cx="${X(p.v)}" cy="${yf(p[k])}" r="4" fill="${gk&&p[gk]?'var(--surface)':c}" stroke="${c}" stroke-width="2"><title>${p.v}: ${(p[k]*100).toFixed(1)}%</title></circle>`).join(''))};
-  s+=line('pn','var(--warn)',null,true)+line('tw','var(--modern)','gauss2')+line('te','var(--accent)','gauss');
+  s+=curLine(T2,B2,false)+ticks(B2);
+  if(pts.length){const dA=pts.map((p,i)=>(i?'L':'M')+X(p.v).toFixed(1)+' '+Y2(p.a).toFixed(1)).join(''); s+=`<path d="${dA}" fill="none" stroke="var(--ink)" stroke-dasharray="4 3"/>`;}
+  s+=line('fp','var(--warn)',null,false,Y2);
+  s+=key(L,B2+52,'var(--warn)',false,true,'false-positive rate, sampling-only threshold (trend test)')+key(L,B2+52+LG,'var(--ink)',true,false,'intended rate α′');
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
   svg.innerHTML=s;
 }
 
