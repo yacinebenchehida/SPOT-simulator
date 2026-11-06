@@ -680,12 +680,21 @@ function deterministic(P0,both){ // exact up to 200,000 generations, rescaled be
   const P=prep(g[g.length-1]>200000?rescale(D).P:D);
   const R=makeRng(1); const o=simulateRep(Object.assign(P,{n:(P.years||YEARS).map(()=>0)}),P.s,R,true); return both?{f:o.traj,m:o.trajM}:o.traj;
 }
-/* neutral diversity retained between first and last sampling point: prod (1 - 1/(2 Ne_g)), or prod (1 - 1/N_g) for haploids */
+/* expected neutral genetic diversity at the last sampling point relative to the first, H_G/H_0 (1 - H_G/H_0 is the
+   proportion lost). Each generation, drift then migration (as in simulateRep), with F = 1 - H/H_0:
+     F <- 1/(2 Ne_g) + (1 - 1/(2 Ne_g)) F   (haploids: 1/N_g instead of 1/(2 Ne_g)), then F <- (1 - m)^2 F,
+   where m is the proportion of migrants (P.mig) and migrants come from a source that keeps the diversity of the first point
+   (continent-island model; Wright 1931). With m = 0: H_G/H_0 = prod (1 - 1/(2 Ne_g)), or prod (1 - 1/N_g) for haploids.
+   Neutral genome-wide diversity: it does not depend on the source frequency of the favoured allele (P.pMig). */
 function hetRetained(P){
   if(P.noDrift) return 1;
-  const gens=gensOf(P), G=gens[gens.length-1], step=Math.max(1,Math.ceil(G/100000)); let H=1;
-  for(let g=0;g<G;g+=step){const k=Math.min(step,G-g), f=sizeFactor(P,gens,g), ne=neFor({system:P.system,Nf:Math.max(2,P.Nf*f),Nm:Math.max(2,P.Nm*f)}); H*=Math.pow(P.system==='haploid'?1-1/ne:1-1/(2*ne),k)}
-  return H;
+  const gens=gensOf(P), G=gens[gens.length-1], step=Math.max(1,Math.ceil(G/100000)), w=P.mig>0?(1-P.mig)*(1-P.mig):1; let F=0;
+  for(let g=0;g<G;g+=step){
+    const k=Math.min(step,G-g), f=sizeFactor(P,gens,g), ne=neFor({system:P.system,Nf:Math.max(2,P.Nf*f),Nm:Math.max(2,P.Nm*f)});
+    const d=P.system==='haploid'?1/ne:1/(2*ne), a=w*(1-d), b=w*d;     // one generation: F <- a F + b
+    F=Math.pow(a,k)*F+(a<1?b*(1-Math.pow(a,k))/(1-a):b*k);             // k generations with the same Ne
+  }
+  return 1-F;
 }
 /* Ne: diploid 4NfNm/(Nf+Nm); haplodiploid 9NfNm/(4Nm+2Nf); haploid N (= Nf, number of breeding individuals) */
 function neFor(P){return P.system==='haploid'? P.Nf : P.system==='haplodiploid'? 9*P.Nf*P.Nm/(4*P.Nm+2*P.Nf) : 4*P.Nf*P.Nm/(P.Nf+P.Nm)}

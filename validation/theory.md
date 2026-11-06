@@ -31,6 +31,23 @@ Without selection, expected heterozygosity declines as H(t)/H(0) = ∏ (1 − 1/
 
 At every generation the simulated value was within 0.75% of the formula (largest standardised difference at any single generation: 3.5, diploid with Nf = 100 and Nm = 20, where the formula is the long-run rate and the first generations differ slightly). The "neutral heterozygosity lost" tile on the page uses the same formula and reproduces the theoretical values above (to within 0.0001).
 
+## b2. Neutral drift with migration
+
+With migration (continent–island model: each generation, after drift, a proportion m of the breeding adults is replaced by migrants from a source that keeps the starting diversity), F = 1 − H/H₀ follows Wright's recursion F ← (1 − m)² [1/(2Ne) + (1 − 1/(2Ne)) F] (1/N for haploids), and diversity levels off instead of declining to zero. SPOT's "diversity lost" value uses this recursion (`hetRetained` in `sim.js`; with m = 0 it is the product above). `migration_diversity_check.js` compares it with SPOT's mean of p(1 − p) over 100,000 neutral trajectories (p₀ = 0.3, migrants at frequency p₀, 90 generations):
+
+| Scenario | H(90)/H(0), SPOT simulations | Recursion (= SPOT value) | Without migration | Standardised difference |
+|---|---|---|---|---|
+| diploid, Nf = Nm = 50, m = 0.001 | 0.6634 ± 0.0014 | 0.6658 | 0.6369 | -1.8 |
+| diploid, Nf = Nm = 50, m = 0.01 | 0.8223 ± 0.0011 | 0.8230 | 0.6369 | -0.7 |
+| diploid, Nf = Nm = 50, m = 0.05 | 0.9555 ± 0.0006 | 0.9558 | 0.6369 | -0.4 |
+| haploid, N = 100, m = 0.01 | 0.6915 ± 0.0013 | 0.6919 | 0.4047 | -0.3 |
+| haploid, N = 100, m = 0.05 | 0.9166 ± 0.0008 | 0.9153 | 0.4047 | +1.7 |
+| haplodiploid, Nf = Nm = 100, m = 0.01 | 0.8767 ± 0.0009 | 0.8761 | 0.7404 | +0.7 |
+| haplodiploid, Nf = Nm = 100, m = 0.05 | 0.9698 ± 0.0005 | 0.9701 | 0.7404 | -0.7 |
+| diploid, Ne per interval 1,000 / 50 / 1,000, m = 0.01 | 0.9304 ± 0.0007 | 0.9296 | 0.7898 | +1.1 |
+
+At every generation of every scenario, the simulated value was within 0.0024 of the recursion.
+
 ## c. Selection without drift
 
 - **Haploid:** SPOT's deterministic trajectories match the closed form p_t = p₀(1 + s)ᵗ / (1 − p₀ + p₀(1 + s)ᵗ).
@@ -43,9 +60,11 @@ At every generation the simulated value was within 0.75% of the formula (largest
 | File | Content |
 |---|---|
 | `theory_spot.js` | SPOT runs for the three checks; writes `theory_spot.json`. |
+| `migration_diversity_check.js` | Drift with migration: SPOT's neutral simulations against Wright's recursion; writes `migration_diversity.tsv`. |
 | `theory_check.py` | Independent theoretical values, comparison and figure (needs NumPy); writes `theory_power.tsv`, `theory_drift.tsv`, `theory_selection.tsv` and `theory_check.svg`. |
 
 ```
 node validation/theory_spot.js          # about 30 seconds
 python3 validation/theory_check.py      # about 40 seconds
+node validation/migration_diversity_check.js   # about 20 seconds
 ```
