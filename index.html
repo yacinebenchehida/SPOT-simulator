@@ -162,7 +162,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
   <div class="hero-in">
   <div class="eyebrow"><span class="base a">A</span><span class="base c">C</span><span class="base g">G</span><span class="base t">T</span> Temporal population genomics · power analysis</div>
   <h1><em>SPOT</em>: Selection Power Over Time</h1>
-  <p class="lede">Estimates the power to detect selection at one candidate locus from allele frequencies sampled at two or more points in time. It accounts for genetic drift, migration, changes in population size, haploid, diploid or haplodiploid inheritance, the sex and relatedness of the sampled individuals, and genotype calls from low-coverage sequencing. Every change of a setting reruns all simulations in the browser, usually in well under a second.</p>
+  <p class="lede">Estimates the power to detect selection at one candidate locus from allele frequencies sampled at two or more points in time. It accounts for genetic drift, migration, changes in population size, haploid, diploid or haplodiploid inheritance, the sex and relatedness of the sampled individuals, and genotype calls from low-coverage sequencing. Every change of a setting reruns all simulations in the browser.</p>
   <p class="hint">Model: one locus with two alleles, discrete generations, separate numbers of breeding females and males (or a single haploid population), migrants from a source population, and selection that can differ between the sexes. Power is the proportion of simulations under selection in which selection is detected. The detection threshold is set from neutral simulations (no selection) that contain the same drift, migration, sampling, relatedness and genotype-call errors as the study design, so it is not fooled by them. The Method section below and the README explain every setting.</p>
   </div>
   <div class="hero-art"><canvas id="trace" role="img" aria-label="Illustration: allele frequencies drifting through time above a DNA helix, with one allele rising under selection, a bee and a hoverfly"></canvas></div>
@@ -180,7 +180,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
       <button type="button" data-preset="large">Large diploid population</button>
       <button type="button" data-preset="analytic">Analytic baseline</button>
     </div>
-    <p class="hint" id="preset-hint">Illustrative starting points, not estimates for real species. Every value can be changed afterwards.</p>
+    <p class="hint" id="preset-hint"></p>
   </fieldset>
   <fieldset>
     <legend>Inheritance &amp; population</legend>
@@ -191,16 +191,16 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
     </div>
     <label for="gentime">Years per generation<input id="gentime" type="number" min="0.0001" max="100" step="any"></label>
     <p class="hint">Average age of parents when their offspring are born: for example 1 for one generation a year, 0.5 for two a year, around 25–30 for humans, and down to 0.0001 (about one hour) for fast-reproducing microbes. Long series are simulated with rescaling (see Method below).</p>
-    <label for="nf"><span class="row"><span id="lab-nf">Breeding females per generation</span><output id="o-nf"></output></span><input id="nf" type="range" min="0" max="100" step="1"></label>
-    <label for="nm" id="row-nm"><span class="row"><span>Breeding males per generation</span><output id="o-nm"></output></span><input id="nm" type="range" min="0" max="100" step="1"></label>
+    <label for="nf" id="row-nf"><span class="row"><span id="lab-nf">Breeding females per generation (Nf)</span><output id="o-nf"></output></span><input id="nf" type="range" min="0" max="100" step="1"></label>
+    <label for="nm" id="row-nm"><span class="row"><span>Breeding males per generation (Nm)</span><output id="o-nm"></output></span><input id="nm" type="range" min="0" max="100" step="1"></label>
     <p class="hint" id="ne-hint"></p>
     <label class="check" for="nodrift"><input id="nodrift" type="checkbox"> No drift (infinite population)</label>
-    <label for="decline"><span class="row"><span>Breeding numbers at the last point relative to the first</span><output id="o-decline"></output></span><input id="decline" type="range" min="0" max="100" step="1"></label>
-    <label class="check" for="neblock"><input id="neblock" type="checkbox"> Set Ne separately for each interval</label>
-    <p class="hint">When ticked, an "Ne to next" column appears in the sampling design, and Ne stays at the chosen value from one sampling point to the next (for example a bottleneck between two dates). It replaces the breeding numbers and the change above.</p>
+    <label for="decline" id="row-decline"><span class="row"><span>Ne at the last point relative to the first</span><output id="o-decline"></output></span><input id="decline" type="range" min="0" max="100" step="1"></label>
+    <label class="check" for="neblock" id="row-neblock"><input id="neblock" type="checkbox"> Set Ne separately for each interval</label>
+    <p class="hint" id="neblock-hint">When ticked, an "Ne to next" column appears in the sampling design, and Ne stays at the chosen value from one sampling point to the next (for example a bottleneck between two dates). It replaces the breeding numbers and the change above.</p>
     <label for="mig"><span class="row"><span>Migrants per generation, m</span><output id="o-mig"></output></span><input id="mig" type="range" min="0" max="0.1" step="0.0025"></label>
-    <p class="hint">Each generation, after drift, this fraction of the breeding adults is replaced by migrants from a source population. Migration slows the loss of genetic diversity and pulls the allele frequency towards that of the source.</p>
-    <label for="pmig">Allele frequency in the migrant source
+    <p class="hint">Each generation, this fraction of the breeding adults is replaced by migrants from a source population. Migration slows the loss of genetic diversity and pulls the allele frequency towards that of the source.</p>
+    <label for="pmig" id="row-pmig">Allele frequency in the migrant source
       <select id="pmig"><option value="-1">Same as p₀ (constant)</option><option value="0">0 (allele absent)</option><option value="0.5">0.5</option><option value="1">1 (fixed)</option></select></label>
   </fieldset>
   <fieldset>
@@ -229,16 +229,15 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
   <fieldset>
     <legend>Sequencing &amp; genotype calls</legend>
     <label class="check" for="perfect"><input id="perfect" type="checkbox"> Perfect genotypes (ignore sequencing)</label>
-    <label for="dh"><span class="row"><span>Mean depth, earlier points</span><output id="o-dh"></output></span><input id="dh" type="range" min="1" max="30" step="0.5"></label>
-    <label for="dm"><span class="row"><span>Mean depth, last point</span><output id="o-dm"></output></span><input id="dm" type="range" min="1" max="30" step="0.5"></label>
-    <p class="hint" id="depth-hint">At low depth, many heterozygous individuals are called homozygous, and read errors create copies of the other allele. A difference in depth between the earlier points and the last point therefore shifts the called frequency of a rare allele, which the sampling-only threshold can mistake for a trend. The drift-aware threshold includes these effects.</p>
-    <label for="err">Per-read error rate, earlier points
+    <label for="dh" id="row-dh"><span class="row"><span>Mean depth, earlier points</span><output id="o-dh"></output></span><input id="dh" type="range" min="1" max="30" step="0.5"></label>
+    <label for="dm" id="row-dm"><span class="row"><span>Mean depth, last point</span><output id="o-dm"></output></span><input id="dm" type="range" min="1" max="30" step="0.5"></label>
+    <label for="err" id="row-err">Per-read error rate, earlier points
       <select id="err"><option value="0.001">0.1%</option><option value="0.005">0.5%</option><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.05">5%</option></select></label>
-    <label for="errl">Per-read error rate, last point
+    <label for="errl" id="row-errl">Per-read error rate, last point
       <select id="errl"><option value="0.001">0.1%</option><option value="0.005">0.5%</option><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.05">5%</option></select></label>
-    <p class="hint">Historical samples often carry more errors (DNA damage): set a higher rate for the earlier points if needed.</p>
-    <label for="mindp"><span class="row"><span>Minimum depth to call a genotype</span><output id="o-mindp"></output></span><input id="mindp" type="range" min="1" max="10" step="1"></label>
-    <p class="hint">Individuals with fewer reads at the locus are left out of the analysis.</p>
+    <p class="hint" id="err-hint">Historical samples often carry more errors (DNA damage): set a higher rate for the earlier points if needed.</p>
+    <label for="mindp" id="row-mindp"><span class="row"><span>Minimum depth to call a genotype</span><output id="o-mindp"></output></span><input id="mindp" type="range" min="1" max="10" step="1"></label>
+    <p class="hint" id="mindp-hint">Individuals with fewer reads at the locus are left out of the analysis.</p>
   </fieldset>
   <fieldset>
     <legend>Test &amp; simulation</legend>
@@ -269,9 +268,9 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
     <div class="tile"><b id="t-p2">–</b><span class="lab">Power · first-versus-last test, drift-aware threshold<span id="t-p2-fp" style="display:block;margin-top:2px"></span></span></div>
     <div class="tile" id="tile-fpr"><b id="t-pn">–</b><span class="lab">Power · trend test, sampling-only threshold<span id="t-pn-fp" style="display:block;margin-top:2px"></span></span></div>
     <div class="tile"><b id="t-pend">–</b><span class="lab" id="t-pend-lab">Allele frequency at the last point if there were no drift</span></div>
-    <div class="tile"><b id="t-hl">–</b><span class="lab">Neutral genetic diversity lost from the first to the last point (expected, from Ne and migration)<span id="t-hl-nm" style="display:block;margin-top:2px"></span></span></div>
+    <div class="tile" id="tile-hl"><b id="t-hl">–</b><span class="lab">Neutral genetic diversity lost from the first to the last point (expected, from Ne and migration)<span id="t-hl-nm" style="display:block;margin-top:2px"></span></span></div>
     <div class="tile"><b id="t-ne">–</b><span class="lab" id="t-ne-lab">Effective population size Ne</span></div>
-    <div class="tile wide"><b id="t-het">–</b><span class="lab" id="t-het-lab">Heterozygotes called correctly</span></div>
+    <div class="tile wide" id="tile-het"><b id="t-het">–</b><span class="lab" id="t-het-lab">Heterozygotes called correctly</span></div>
   </div>
   <div class="panel-head"><p class="status" id="status">Running…</p><button type="button" id="res-csv">Download results (CSV)</button></div>
   <div class="note" id="rescale-note" hidden></div>
@@ -820,7 +819,7 @@ const HAPL=()=>st.system==='haploid';
 function ensureBlocks(){const K=st.years.length, d=Math.max(2,Math.round(neFor(st))); if(!Array.isArray(st.neBlocks)) st.neBlocks=[]; while(st.neBlocks.length<K-1) st.neBlocks.push(st.neBlocks.length?last(st.neBlocks):d); st.neBlocks.length=K-1;}
 function buildTP(){
   ensureBlocks();
-  const Lst=$('tp-list'), K=st.years.length, nb=st.neByBlock; let h='';
+  const Lst=$('tp-list'), K=st.years.length, nb=st.neByBlock&&!st.noDrift; let h='';
   Lst.parentElement.classList.toggle('tp-ne',nb);
   $('tp-head').innerHTML='<span>#</span><span>Year</span><span>Individuals</span>'+(nb?'<span>Ne to next</span>':'')+'<span></span>';
   st.years.forEach((y,i)=>{h+=`<div class="tp-row"><span class="idx">${i+1}</span><input type="number" step="1" id="y${i}" value="${y}" aria-label="Year of point ${i+1}"><input type="number" min="${i===0||i===K-1?1:0}" max="${MAXN}" step="1" id="n${i}" value="${st.n[i]}" aria-label="Individuals sampled at point ${i+1}">${nb?(i<K-1?`<input type="number" min="2" max="${MAXNE}" step="1" id="ne${i}" value="${st.neBlocks[i]}" aria-label="Ne between point ${i+1} and point ${i+2}">`:'<span class="idx">–</span>'):''}<button type="button" class="del" data-del="${i}" aria-label="Remove point ${i+1}"${K<=2?' disabled':''}>×</button></div>`});
@@ -844,31 +843,37 @@ function labels(){
   $('o-decline').textContent=(st.decline*100<10?(st.decline*100).toFixed(1):Math.round(st.decline*100))+'%'; $('o-mig').textContent=String(+st.mig.toFixed(4)); $('o-smale').textContent=st.sMale.toFixed(2)+'×'; $('o-ksib').textContent=st.kSib; $('o-mfrac').textContent=Math.round(st.maleFrac*100)+'%';
   $('mfrac-hint').innerHTML=st.system==='haplodiploid'?'Haplodiploid: sampled males are haploid and contribute one allele each; females contribute two. 0% = females only.':'Diploid: both sexes carry two alleles. The proportion of males only matters if selection in males differs from females, and it is ignored when more than one individual per family is sampled.';
   $('ksib-hint').textContent=st.system==='haplodiploid'?'1 means every individual comes from a different family. Values above 1 sample groups of siblings: sisters share both parents, brothers only their mother. Siblings are not independent.':'1 means every individual comes from a different family. Values above 1 sample groups of full siblings (same mother and father), which are not independent; siblings are not assigned a sex.';
-  $('s-hint').textContent=HAPL()?'Fitness 1 + s for individuals carrying the favoured allele, 1 otherwise.':st.system==='haplodiploid'?'Females (diploid): fitness 1 + s, 1 + hs and 1 for two, one and zero copies of the favoured allele. Males (haploid): 1 + s with the allele and 1 without, with s multiplied by "Selection in males".':'Fitness 1 + s, 1 + hs and 1 for two, one and zero copies of the favoured allele In males, s is multiplied by "Selection in males".';
+  $('s-hint').textContent=HAPL()?'Fitness 1 + s for individuals carrying the favoured allele, 1 otherwise.':st.system==='haplodiploid'?'Females (diploid): fitness 1 + s, 1 + hs and 1 for two, one and zero copies of the favoured allele. Males (haploid): 1 + s with the allele and 1 without, with s multiplied by "Selection in males".':'Fitness 1 + s, 1 + hs and 1 for two, one and zero copies of the favoured allele. In males, s is multiplied by "Selection in males".';
   $('sweep-N-opt').textContent=HAPL()?'Breeding individuals':'Breeding females = males'; $('plan-N-opt').textContent=HAPL()?'Breeding individuals':'Breeding females = males';
   $('plan-h-opt').hidden=$('plan-h-opt').disabled=HAPL(); if(HAPL()&&$('plan-var').value==='h') $('plan-var').value='s';
   $('t-pend-lab').textContent='Expected frequency at the last point without drift'+(st.system==='haplodiploid'||(!HAPL()&&st.sMale!==1)?' (females)':'');
-  $('decline').disabled=st.noDrift||st.neByBlock; $('neblock').disabled=st.noDrift;
-  $('lab-nf').textContent=HAPL()?'Breeding individuals per generation':'Breeding females per generation';
-  ['row-nm','row-h','row-smale','row-mfrac','mfrac-hint','row-ksib','ksib-hint'].forEach(id=>$(id).hidden=HAPL());
+  /* show only the settings that act with the current choices */
+  const dip=st.system==='diploid', drift=!st.noDrift, blocks=drift&&st.neByBlock;
+  ['row-nf','row-nm'].forEach(id=>$(id).hidden=!drift||blocks);
+  $('row-decline').hidden=!drift||blocks; $('row-neblock').hidden=$('neblock-hint').hidden=!drift;
+  $('row-pmig').hidden=!(st.mig>0);
+  ['row-dh','row-dm','row-err','row-errl','err-hint','row-mindp','mindp-hint'].forEach(id=>$(id).hidden=st.perfect);
+  $('lab-nf').textContent=HAPL()?'Breeding individuals per generation (N)':'Breeding females per generation (Nf)';
+  ['row-h','row-smale','row-ksib','ksib-hint'].forEach(id=>$(id).hidden=HAPL());
+  if(HAPL()) $('row-nm').hidden=true;
+  // males in the sample: haplodiploids always; diploids only when selection differs in males and individuals are unrelated
+  $('row-mfrac').hidden=$('mfrac-hint').hidden=HAPL()||(dip&&(st.sMale===1||st.kSib>1));
   [...$('sweepvar').options].forEach(o=>{o.hidden=o.disabled=HAPL()&&['h','sMale','maleFrac','kSib'].includes(o.value)}); if($('sweepvar').selectedOptions[0].disabled) $('sweepvar').value='nMod';
   $('o-dh').textContent=st.depthEarly+'×'; $('o-dm').textContent=st.depthLast+'×'; $('o-mindp').textContent=st.minDP+' reads';
-  ['nf','nm'].forEach(k=>$(k).disabled=st.noDrift||st.neByBlock);
-  ['dh','dm','err','errl','mindp'].forEach(k=>$(k).disabled=st.perfect);
   { const nn=neutralReps(st), a=st.alpha/st.m, mh=$('m-hint');
     if(a*nn<10){mh.hidden=false; mh.textContent=`α′ = α/L = ${+a.toPrecision(2)} is too strict for ${nn.toLocaleString()} neutral simulations (the maximum): the threshold is then extrapolated with a normal fit, which can be far off, especially for a rare allele (power over- or underestimated). Treat the result as unreliable. Each run may take 10–30 seconds.`}
     else if(nn>100000){mh.hidden=false; mh.textContent=`${nn.toLocaleString()} neutral simulations are needed to set the threshold for α′ = α/L = ${+a.toPrecision(2)}: each run may take 10–30 seconds.`}
     else mh.hidden=true; }
   const ne=neFor(st), ne2=neFor({system:st.system,Nf:st.Nf*st.decline,Nm:st.Nm*st.decline});
   const form=st.system==='haploid'?'haploid: Ne = N':st.system==='haplodiploid'?'haplodiploid: 9NfNm/(4Nm+2Nf)':'diploid: 4NfNm/(Nf+Nm)';
-  $('ne-hint').textContent=st.noDrift?'Drift switched off: the population is infinite, so breeding numbers, population change and Ne per interval are ignored; only sampling, relatedness and genotype calls add chance.':(st.neByBlock?`Ne set per interval in the sampling design: ${st.neBlocks.map(v=>fmtN(v)).join(' → ')}. ${nGen().toLocaleString()} generations from ${st.years[0]} to ${last(st.years)}.`:`Effective size Ne ≈ ${fmtN(Math.round(ne))}${st.decline!==1?' at the first point → '+fmtN(Math.round(ne2))+' at the last':''} (${form}). ${nGen().toLocaleString()} generations from ${st.years[0]} to ${last(st.years)}.`);
+  $('ne-hint').textContent=st.noDrift?'Drift switched off: the population is infinite; only sampling, relatedness and genotype calls add chance.':(st.neByBlock?`Ne set per interval in the sampling design: ${st.neBlocks.map(v=>fmtN(v)).join(' → ')}. ${nGen().toLocaleString()} generations from ${st.years[0]} to ${last(st.years)}.`:`Effective size Ne ≈ ${fmtN(Math.round(ne))}${st.decline!==1?' at the first point → '+fmtN(Math.round(ne2))+' at the last':''} (${form}). ${nGen().toLocaleString()} generations from ${st.years[0]} to ${last(st.years)}.`);
   const tot=st.n.reduce((a,b)=>a+b,0), hapM=st.system==='haplodiploid'?st.maleFrac:0, al=Math.round(tot*(HAPL()?1:2-hapM));
   $('n-hint').textContent=`${st.n.length} time points, ${tot} individuals ≈ ${al} gene copies sampled (before the depth filter)${HAPL()?' (one per haploid individual)':hapM>0?' (haploid males count once)':''}.${st.n.length>2?' Set an intermediate point to 0 to leave it out.':''}`;
   const g=gensOf(st), same=[]; for(let i=1;i<g.length;i++) if(g[i]===g[i-1]) same.push((i)+' and '+(i+1));
   $('tp-note').textContent=same.length?`Points ${same.join(', ')} fall in the same generation, so they sample the same population.`:'';
 }
 function readUI(){
-  {const a=+$('nf').value,b=+$('nm').value; if(a!==NMAP.from(st.Nf)) st.Nf=roundN(NMAP.to(a)); if(b!==NMAP.from(st.Nm)) st.Nm=roundN(NMAP.to(b));} st.noDrift=$('nodrift').checked;
+  {const a=+$('nf').value,b=+$('nm').value; if(a!==NMAP.from(st.Nf)) st.Nf=roundN(NMAP.to(a)); if(b!==NMAP.from(st.Nm)) st.Nm=roundN(NMAP.to(b));} {const nd=$('nodrift').checked; if(nd!==st.noDrift){st.noDrift=nd; buildTP();}}  // the Ne column only shows with drift
   {const a=+$('p0').value; if(a!==PMAP.from(st.p0)) st.p0=roundP(PMAP.to(a));} {const a=+$('s').value; if(a!==SMAP.from(st.s)) st.s=+SMAP.to(a).toPrecision(2);} st.h=+$('h').value;
   { const nb=$('neblock').checked; if(nb!==st.neByBlock){st.neByBlock=nb; ensureBlocks(); if(nb&&st.neBlocks.every(v=>v===st.neBlocks[0])) st.neBlocks=st.neBlocks.map(()=>Math.max(2,Math.round(neFor(st)))); buildTP();} }
   if(document.querySelectorAll('#tp-list .tp-row').length!==st.years.length) buildTP();
@@ -900,7 +905,7 @@ $('tp-add').onclick=()=>{ if(st.years.length>=MAXP) return; const K=st.years.len
 $('tx-hym').onclick=()=>{st.system='haplodiploid';writeUI();schedule()};
 $('tx-dip').onclick=()=>{st.system='diploid';writeUI();schedule()};
 $('tx-hap').onclick=()=>{st.system='haploid';writeUI();schedule()};
-document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{st=JSON.parse(JSON.stringify(PRESETS[b.dataset.preset]));$('preset-hint').textContent=PRESET_INFO[b.dataset.preset]+' Every value can be changed afterwards.';writeUI();schedule()});
+document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{st=JSON.parse(JSON.stringify(PRESETS[b.dataset.preset]));$('preset-hint').textContent=PRESET_INFO[b.dataset.preset];writeUI();schedule()});
 $('st-trend').onclick=()=>{stat='trend';$('st-trend').setAttribute('aria-pressed',true);$('st-two').setAttribute('aria-pressed',false);if(lastRes)drawDist(lastRes)};
 $('st-two').onclick=()=>{stat='two';$('st-two').setAttribute('aria-pressed',true);$('st-trend').setAttribute('aria-pressed',false);if(lastRes)drawDist(lastRes)};
 
@@ -929,7 +934,7 @@ function render(r,ms,snap){
     $('t-ne').textContent=st.noDrift?'∞':st.neByBlock?(bmin===bmax?fmtN(bmin):fmtN(bmin)+'–'+fmtN(bmax)):(st.decline!==1?fmtN(Math.round(n1))+'→'+fmtN(Math.round(n2)):fmtN(Math.round(n1)));
     $('t-ne-lab').textContent=st.noDrift?'Effective population size Ne':st.neByBlock?'Effective population size Ne, range over intervals':st.decline!==1?'Effective population size Ne, first → last point':'Effective population size Ne'; }
   const pctD=x=>x<0.1?(x*100).toFixed(1)+'%':pct(x); // one decimal below 10%
-  const hr=hetRetained(st); $('t-hl').textContent=pctD(1-hr);
+  const hr=hetRetained(st); $('t-hl').textContent=pctD(1-hr); $('tile-hl').hidden=st.noDrift; $('tile-het').hidden=st.perfect;
   $('t-hl-nm').textContent=st.mig>0&&!st.noDrift?`Without migration: ${pctD(1-hetRetained(Object.assign({},st,{mig:0})))}.`:'';
   $('t-het').textContent=st.perfect?'100%':pct(r.hetAcc);
   const onlyHap=isNaN(r.hetAcc)&&!isNaN(r.hapAcc);
