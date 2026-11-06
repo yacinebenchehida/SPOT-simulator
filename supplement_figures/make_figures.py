@@ -42,7 +42,7 @@ for r in TP:
     col = TH['sampling'] if r['threshold'].startswith('naive') else TH['neutral']
     first_last = r['statistic'] == 'two' or r['design'] == '2 points'
     b.points([fl(r['power_exact_at_spot_threshold'])], [fl(r['power_spot'])], col, 's' if first_last else 'o', 3.2)
-b.legend([('neutral-simulation threshold', TH['neutral'], 'o'), ('sampling-only threshold', TH['sampling'], 'o'),
+b.legend([('drift-aware threshold', TH['neutral'], 'o'), ('sampling-only threshold', TH['sampling'], 'o'),
           ('trend test', COL['muted'], 'o'), ('first-versus-last test', COL['muted'], 's')], b.x + 8, b.y + 16)
 # (b) drift: proportion of genetic diversity LOST (as reported by SPOT), all nine scenarios of Table S4
 DR = rd('validation/theory_drift.tsv')
@@ -118,7 +118,7 @@ for k, (data, lim, ticks, title, lab, f_) in enumerate([
         ax.legend([('haploid', COL['ink'], 'o'), ('diploid', COL['ink'], 's'), ('haplodiploid', COL['ink'], '^'),
                    ('filled: with selection', COL['ink'], 'o'), ('hollow: without selection', COL['ink'], 'oh')], ax.x + 8, ax.Y(0.415))
     if lab == 'd':
-        ax.legend([('neutral-simulation threshold', TH['neutral'], 'o'), ('sampling-only threshold', TH['sampling'], 'o')], ax.X(0.09), ax.Y(0.06))
+        ax.legend([('drift-aware threshold', TH['neutral'], 'o'), ('sampling-only threshold', TH['sampling'], 'o')], ax.X(0.09), ax.Y(0.06))
 print('FigS2', F.save(OUT + 'FigS2_slim.svg'))
 
 # =============== Figure S3: variation of power between runs ===============

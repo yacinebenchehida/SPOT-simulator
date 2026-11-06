@@ -24,7 +24,7 @@ for sysm, sh in SH.items():
     a.errbar(ne, [x - y for x, y in zip(m, s)], [x + y for x, y in zip(m, s)], COL['blue'])
     a.line(ne, m, COL['blue'], 1.4)
     a.points(ne, m, COL['blue'], sh, 4)
-a.legend([('sampling-only threshold', COL['red'], 'o-'), ('neutral-simulation threshold (±1 SD)', COL['blue'], 'o-'),
+a.legend([('sampling-only threshold', COL['red'], 'o-'), ('drift-aware threshold (±1 SD)', COL['blue'], 'o-'),
           ('haploid', COL['muted'], 'o'), ('diploid', COL['muted'], 's'), ('haplodiploid', COL['muted'], '^')], a.X(4000), a.Y(0.175))
 
 # (b) one design factor at a time (haplodiploid, Ne = 1,500), trend test

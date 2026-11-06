@@ -222,7 +222,7 @@ A.band(xs, [x - e for x, e in zip(xs, se)], [x + e for x, e in zip(xs, se)], COL
 A.line([0, 1], [0, 1], COL['muted'], 1, '4 4')
 for p in pts:
     A.points([p[0]], [p[1]], COL['blue'] if p[2] == 'powerEmp' else COL['red'], 'o' if p[3] == 'trend' else 's', 3.2)
-A.legend([('neutral-simulation threshold (SPOT\'s own)', COL['blue'], 'o'), ('sampling-only threshold z₀.₉₅', COL['red'], 'o'),
+A.legend([('drift-aware threshold (SPOT\'s own)', COL['blue'], 'o'), ('sampling-only threshold z₀.₉₅', COL['red'], 'o'),
           ('trend test, all points', COL['muted'], 'o'), ('first vs last point', COL['muted'], 's')], A.x + 8, A.y + 16)
 # (b) heterozygosity
 B = Ax(F, 470, 50, 300, 300, (0, 90), (0, 1), title='Neutral drift: heterozygosity retained', label='b')

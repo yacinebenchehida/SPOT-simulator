@@ -192,7 +192,7 @@ function prep(P){
    capped at NEUTRAL_MAX, beyond which a Gaussian fit to the neutral values is used (see validation/false_positive_rate.md) */
 const NEUTRAL_MAX=200000;
 function neutralReps(P){const a=P.alpha/P.m; return Math.max(2*P.reps, Math.min(P.neutralMax||NEUTRAL_MAX, Math.ceil(10/a)));}
-/* Weight of one Z value against the neutral-simulation threshold: 1 above it, gamma when tied with it, 0 below.
+/* Weight of one Z value against the drift-aware threshold: 1 above it, gamma when tied with it, 0 below.
    Ties use a relative tolerance, |z - c| <= TIE_TOL * max(1, |c|), because different configurations can give the same Z
    up to rounding errors. Evaluation scripts use the same rule. */
 const TIE_TOL=1e-9;
