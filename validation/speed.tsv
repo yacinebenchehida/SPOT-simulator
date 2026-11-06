@@ -1,0 +1,8 @@
+scenario	loci	selection_simulations	neutral_simulations	median_s	min_s	max_s	cpu	node
+Bumblebees	1	1000	2000	0.112	0.110	0.138	Intel(R) Xeon(R) Processor @ 2.10GHz	v22.23.4
+Long-lived mammal	1	1000	2000	0.050	0.050	0.067	Intel(R) Xeon(R) Processor @ 2.10GHz	v22.23.4
+Human ancient DNA	1	1000	2000	0.330	0.324	0.348	Intel(R) Xeon(R) Processor @ 2.10GHz	v22.23.4
+Bacterial pathogen	1	1000	2000	0.571	0.553	0.589	Intel(R) Xeon(R) Processor @ 2.10GHz	v22.23.4
+Large diploid population	1	1000	2000	0.142	0.136	0.148	Intel(R) Xeon(R) Processor @ 2.10GHz	v22.23.4
+Reference case	1	1000	2000	0.105	0.104	0.142	Intel(R) Xeon(R) Processor @ 2.10GHz	v22.23.4
+Reference case, 1,000 candidate loci	1000	1000	200000	6.904	6.493	7.196	Intel(R) Xeon(R) Processor @ 2.10GHz	v22.23.4
