@@ -713,9 +713,9 @@ const runMany=(function(){
   let workers=null, failed=false, nextId=1;
   const queue=[], inflight=new Map(), gen={};
   const nCores=()=>Math.max(1,Math.min(8,(navigator.hardwareConcurrency||2)-1));
-  const slim=r=>{const fe=k=>{let c=0;for(const z of r.neu[k]) if(z>r[k].crit) c++; return r.neu[k].length?c/r.neu[k].length:NaN};
-    return {trend:{powerEmp:r.trend.powerEmp,powerNaive:r.trend.powerNaive,fprNaive:r.trend.fprNaive,method:r.trend.method,crit:r.trend.crit,fpEmp:fe('trend')},
-    two:{powerEmp:r.two.powerEmp,powerNaive:r.two.powerNaive,fprNaive:r.two.fprNaive,method:r.two.method,crit:r.two.crit,fpEmp:fe('two')},hetAcc:r.hetAcc,hapAcc:r.hapAcc,missRate:r.missRate,nNeutral:r.nNeutral,alphaAdj:r.alphaAdj,lambda:r.lambda};};
+  const slim=r=>{
+    return {trend:{powerEmp:r.trend.powerEmp,powerNaive:r.trend.powerNaive,fprNaive:r.trend.fprNaive,method:r.trend.method,crit:r.trend.crit},
+    two:{powerEmp:r.two.powerEmp,powerNaive:r.two.powerNaive,fprNaive:r.two.fprNaive,method:r.two.method,crit:r.two.crit},hetAcc:r.hetAcc,hapAcc:r.hapAcc,missRate:r.missRate,nNeutral:r.nNeutral,alphaAdj:r.alphaAdj,lambda:r.lambda};};
   function init(){
     if(workers||failed) return;
     try{
@@ -910,12 +910,10 @@ function run(){
 }
 function render(r,ms,snap){
   lastRes=r; lastSt=snap||JSON.parse(JSON.stringify(st)); $('res-csv').disabled=false;
-  const fpE=k=>{let c=0;for(const z of r.neu[k]) if(z>r[k].crit) c++; return c/r.neu[k].length};
-  r.trend.fpEmp=fpE('trend'); r.two.fpEmp=fpE('two');
   const aP=pctS(r.alphaAdj);
   $('t-pe').textContent=pct(r.trend.powerEmp); $('t-p2').textContent=pct(r.two.powerEmp);
-  $('t-pe-fp').textContent=r.trend.method==='empirical'?`False positives among the neutral simulations: ${pctS(r.trend.fpEmp)} (at most ${aP}; less when many neutral scores are tied).`:`Threshold extrapolated by a normal fit: unreliable (see note below).`;
-  $('t-p2-fp').textContent=r.two.method==='empirical'?`False positives among the neutral simulations: ${pctS(r.two.fpEmp)}.`:`Threshold extrapolated by a normal fit: unreliable.`;
+  $('t-pe-fp').textContent=r.trend.method==='empirical'?`Threshold from the ${r.nNeutral.toLocaleString()} neutral simulations: z = ${r.trend.crit.toFixed(2)}.`:`Threshold extrapolated by a normal fit: unreliable (see note below).`;
+  $('t-p2-fp').textContent=r.two.method==='empirical'?`Threshold from the ${r.nNeutral.toLocaleString()} neutral simulations: z = ${r.two.crit.toFixed(2)}.`:`Threshold extrapolated by a normal fit: unreliable.`;
   $('t-fpr').textContent=pctS(r.trend.fprNaive); $('t-pn').textContent=pct(r.trend.powerNaive);
   $('t-aadj').textContent=aP;
   const se=Math.sqrt(r.alphaAdj*(1-r.alphaAdj)/r.nNeutral);
@@ -970,7 +968,7 @@ function drawTraj(r,det){
   $('traj-hint').textContent=HAPL()?'Shaded columns mark the sampling points. Each line is the true allele frequency in the population after selection, in one replicate. Samples are drawn from these trajectories and then pass through the genotype-calling step.':'Shaded columns mark the sampling points. Each line is the true allele frequency in females after selection, in one replicate. Samples are drawn from these frequencies and then pass through the genotype-calling step.';
 }
 function drawDist(r){
-  const svg=$('ch-dist'),W=720,H=280,L=40,R=16,T=16,B=236; const fpK=r[stat].fpEmp!==undefined?r[stat].fpEmp:NaN;
+  const svg=$('ch-dist'),W=720,H=280,L=40,R=16,T=16,B=236;
   const zs=r.sel[stat], zn=r.neu[stat], res=r[stat];
   const both=Float64Array.from([...zs,...zn]).sort();
   let lo=both[Math.floor(both.length*0.002)], hi=both[Math.ceil(both.length*0.998)-1];
@@ -990,7 +988,7 @@ function drawDist(r){
   s+=`<text transform="translate(14 ${(T+B)/2}) rotate(-90)" text-anchor="middle" font-size="10.5" fill="var(--muted)">share of replicates (density)</text>`;
   svg.innerHTML=s;
   const pq=+(100*(1-r.alphaAdj)).toPrecision(Math.max(3,Math.ceil(-Math.log10(r.alphaAdj))+2));
-  const first=res.method==='empirical'?`Power is the blue area to the right of the solid line: <b>${pct(res.powerEmp)}</b> of replicates under selection exceed the ${pq}th percentile of the neutral replicates, which ${pctS(fpK)} of the neutral replicates exceed.`:`Power is the blue area to the right of the solid line: <b>${pct(res.powerEmp)}</b> of replicates under selection exceed a threshold extrapolated from the neutral replicates by a normal fit (too few neutral replicates for α′; can be far off).`;
+  const first=res.method==='empirical'?`Power is the blue area to the right of the solid line: <b>${pct(res.powerEmp)}</b> of replicates under selection exceed the ${pq}th percentile of the neutral replicates.`:`Power is the blue area to the right of the solid line: <b>${pct(res.powerEmp)}</b> of replicates under selection exceed a threshold extrapolated from the neutral replicates by a normal fit (too few neutral replicates for α′; can be far off).`;
   const d=res.crit-r.zNaive;
   const second=res.method!=='empirical'?'':d>0.02?'The neutral scores vary more than sampling of independent individuals alone predicts (drift, siblings or genotype calls), so the drift-aware threshold lies to the right of the sampling-only one.':d<-0.02?'Here the drift-aware threshold lies to the left of the sampling-only one: the neutral scores vary less than the normal distribution assumed by the fixed threshold (for example because, with few copies of the favoured allele, the score takes only a few distinct values), so the fixed threshold is too strict.':'Here the two thresholds almost coincide.';
   $('dist-hint').innerHTML=first+' '+second;
@@ -1122,7 +1120,6 @@ $('res-csv').onclick=()=>{ if(!lastRes||!lastSt||$('res-csv').disabled) return; 
     ['replicates_under_selection',S.reps],['neutral_replicates',r.nNeutral],['rescaling_factor_lambda',r.lambda],
     ['power_trend_drift_aware_threshold',r.trend.powerEmp],['power_first_vs_last_drift_aware_threshold',r.two.powerEmp],
     ['threshold_trend',r.trend.crit],['threshold_trend_method',r.trend.method==='empirical'?'percentile of neutral simulations':'normal extrapolation (unreliable)'],['threshold_first_vs_last',r.two.crit],
-    ['false_positive_rate_trend_drift_aware_threshold',r.trend.fpEmp],['false_positive_rate_first_vs_last_drift_aware_threshold',r.two.fpEmp],
     ['false_positive_rate_trend_sampling_only_threshold',r.trend.fprNaive],['power_trend_sampling_only_threshold',r.trend.powerNaive],
     ['false_positive_rate_first_vs_last_sampling_only_threshold',r.two.fprNaive],['power_first_vs_last_sampling_only_threshold',r.two.powerNaive],['alpha_per_locus',r.alphaAdj],
     [hp?'frequency_last_point_no_drift':'frequency_last_point_no_drift_females',det[det.length-1]],['neutral_genetic_diversity_lost_expected',1-hetRetained(S)],
