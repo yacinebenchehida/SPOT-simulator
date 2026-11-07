@@ -1,10 +1,10 @@
 # How the simulations work: a guide with worked examples
 
-This guide explains, step by step and with real numbers, what SPOT (Selection Power Over Time) does under the hood: how allele frequencies are simulated, how individuals are sampled, how a power value is produced, and what the more technical pieces of the tool do. It complements the [README](README.md), which describes the parameters and the interface.
+This guide explains, step by step and with real numbers, what SPOT (Selection Power Over Time) does under the hood: how allele frequencies are simulated, how individuals are sampled, how a power value is produced, and what the more technical pieces of the tool do. Section 15 lists every setting and output of the application.
 
 Every number in this guide was produced with the simulator's own code (`sim.js`) or with the short R scripts mentioned at the end. Settings are given with each example so that it can be reproduced.
 
-The examples use the default design: four sampling points (1935, 1955, 1975 and 2025) and one generation per year. The simulator itself accepts 2 to 20 sampling points, any generation time from 0.0001 (about one hour) to 100 years (long series are simulated with rescaling, see the README), haploid, diploid or haplodiploid inheritance, and an Ne set separately for each interval between sampling points; the logic explained here is the same for any design.
+The examples use the reference settings of this guide, which are those of the "Bumblebees" example scenario of the application (haplodiploid; 1,000 breeding females and 1,000 breeding males; p₀ = 0.01; s = 0.05; four sampling points, in 1935, 1955, 1975 and 2025; one generation per year). The application itself opens with other settings (diploid, p₀ = 0.1, s = 0.03). The simulator itself accepts 2 to 20 sampling points, any generation time from 0.0001 (about one hour) to 100 years (long series are simulated with rescaling, see Section 15.8), haploid, diploid or haplodiploid inheritance, and an Ne set separately for each interval between sampling points; the logic explained here is the same for any design.
 
 ---
 
@@ -24,6 +24,7 @@ The examples use the default design: four sampling points (1935, 1955, 1975 and 
 12. [How each setting moves the power: reference numbers](#12-how-each-setting-moves-the-power-reference-numbers)
 13. [Glossary](#13-glossary)
 14. [Reproducing the examples](#14-reproducing-the-examples)
+15. [Settings and outputs of the application](#15-settings-and-outputs-of-the-application)
 
 ---
 
@@ -400,7 +401,7 @@ p ≈ 1%, 90 generations, 40 individuals at the end (sampling noise computed at 
 
 ### Example 14: the planner's message
 
-| Design (individuals at the 4 points) | Default settings (haplodiploid, Ne ≈ 1,500, p₀ = 0.01, s = 0.05) | Diploid, Ne = 10,000, p₀ = 0.30, s = 0.01 |
+| Design (individuals at the 4 points) | Reference settings (haplodiploid, Ne ≈ 1,500, p₀ = 0.01, s = 0.05) | Diploid, Ne = 10,000, p₀ = 0.30, s = 0.01 |
 |---|---|---|
 | 10 / 10 / 10 / 20 | 62% | 20% |
 | 20 / 20 / 20 / 40 | 67% | 29% |
@@ -417,7 +418,7 @@ A standard ("naive") test assumes that the only noise is sampling noise. It uses
 
 ### Example 15: how often the sampling-only threshold is fooled
 
-Haplodiploid, p₀ = 0.30, s = 0.02, default sampling, equal numbers of breeding females and males:
+Haplodiploid, p₀ = 0.30, s = 0.02, reference sampling, equal numbers of breeding females and males:
 
 | Breeding females = males | Ne | Sampling-only threshold: false positives (should be 5%) | Power the sampling-only threshold reports | Real (drift-aware) power |
 |---|---|---|---|---|
@@ -459,13 +460,13 @@ In the simulator, the no-selection simulations define the threshold. With real d
 
 ### 11.3 Testing several candidate loci (Bonferroni)
 
-Testing m loci at 5% each would produce false alarms much more often than 5% overall. The Bonferroni correction tests each locus at 5% / m instead, which raises the threshold.
+Testing L loci at 5% each would produce false alarms much more often than 5% overall. The Bonferroni correction tests each locus at 5% / L instead, which raises the threshold.
 
-**Example 17** (default settings): m = 1 → threshold 1.63, power 67%; m = 10 → threshold 2.86, power 50%; m = 100 → threshold 3.79, power 34%.
+**Example 17** (reference settings): L = 1 → threshold 1.63, power 67%; L = 10 → threshold 2.86, power 50%; L = 100 → threshold 3.79, power 34%.
 
 ### 11.4 Very strict cuts: more neutral simulations
 
-With a very strict cut, too few neutral simulations remain above it to place the threshold reliably (with 2,000 simulations and α/m = 0.0005, only one would). The tool then runs more neutral simulations, enough for about 10 to land above the cut: 20,000 for α/m = 0.0005 (m = 100), up to a maximum of 200,000. In Example 17, m = 100 uses 20,000 neutral simulations.
+With a very strict cut, too few neutral simulations remain above it to place the threshold reliably (with 2,000 simulations and α/L = 0.0005, only one would). The tool then runs more neutral simulations, enough for about 10 to land above the cut: 20,000 for α/L = 0.0005 (L = 100), up to a maximum of 200,000. In Example 17, L = 100 uses 20,000 neutral simulations.
 
 Only beyond that maximum does the tool fall back on a shortcut: it fits a bell curve (normal distribution) to the neutral scores and reads the threshold from the curve. This shortcut is approximate. With strong drift or a rare allele, the real neutral scores have a longer upper tail than the bell curve, so the threshold comes out too low and false positives are more frequent than intended (see `validation/false_positive_rate.md`). The status line says when the shortcut is used, and the parameter power curve marks such points with hollow markers.
 
@@ -499,7 +500,7 @@ Measuring genome-wide heterozygosity in the first and last samples therefore giv
 
 **Intuition.** In a diploid, a rare allele sits almost entirely in heterozygotes. If it is recessive (h = 0), heterozygotes look normal, so selection barely sees it. In a haplodiploid, males are haploid: every allele a male carries is expressed, so even a recessive allele is exposed to selection through males.
 
-**Example 19:** default settings (p₀ = 0.01, s = 0.05, 90 generations):
+**Example 19:** reference settings (p₀ = 0.01, s = 0.05, 90 generations):
 
 | Dominance h | Final frequency, haplodiploid | Final frequency, diploid | Power, haplodiploid | Power, diploid |
 |---|---|---|---|---|
@@ -509,13 +510,13 @@ Measuring genome-wide heterozygosity in the first and last samples therefore giv
 
 (The diploid can do slightly better for dominant alleles because, with the same breeding numbers, its Ne is larger: 2N versus 1.5N.)
 
-Setting selection in males to 0 (a trait not expressed in males) removes this advantage: power drops from 67% to 26% with default settings.
+Setting selection in males to 0 (a trait not expressed in males) removes this advantage: power drops from 67% to 26% with the reference settings.
 
 ### 11.8 Genotype calling at low coverage
 
 **Intuition.** Each individual is "sequenced": the number of reads covering the locus is random (Poisson with the chosen mean depth), and each read shows one of the two gene copies, with a small error rate. With few reads, a heterozygote can by chance show only one allele and be called homozygous (**allelic dropout**). Individuals with fewer reads than the minimum depth are dropped.
 
-**Example 20:** default settings, minimum depth 3, same mean depth at all points:
+**Example 20:** reference settings, minimum depth 3, same mean depth at all points:
 
 | Mean depth | Heterozygotes called correctly | Individuals dropped | Power |
 |---|---|---|---|
@@ -531,11 +532,11 @@ Haploid males have no heterozygotes, so their calls are essentially always corre
 
 Siblings share parents, so their alleles are correlated: in haplodiploids, sisters share their father's allele exactly. Ten sisters therefore carry less independent information than ten unrelated females, and the sample behaves as if it were smaller.
 
-**Example 21** (default settings): 1 per family → 67%; 2 → 60%; 5 → 54%; 10 → 48%. The false-positive rate of the sampling-only threshold also rises (from 4.5% to about 8%).
+**Example 21** (reference settings): 1 per family → 67%; 2 → 60%; 5 → 54%; 10 → 48%. The false-positive rate of the sampling-only threshold also rises (from 4.5% to about 8%).
 
 ### 11.10 Population decline, migration and timing
 
-**Example 22** (default settings unless stated):
+**Example 22** (reference settings unless stated):
 
 | Change | Power |
 |---|---|
@@ -553,7 +554,7 @@ Siblings share parents, so their alleles are correlated: in haplodiploids, siste
 
 ### 11.11 Sampling haploid males (haplodiploids only)
 
-**Example 23** (default settings, haplodiploid):
+**Example 23** (reference settings, haplodiploid):
 
 | Design | Gene copies | Power |
 |---|---|---|
@@ -567,7 +568,7 @@ A male gives one copy instead of two, so per individual males carry less informa
 
 ## 12. How each setting moves the power: reference numbers
 
-Default settings (haplodiploid, 1,000 breeding females and 1,000 breeding males, Ne = 1,500, p₀ = 0.01, s = 0.05, h = 0.5, sampling 20/20/20/40 at 1935/1955/1975/2025, depth 10×/15×) give a trend-test power (all four points) of **67%** and a first-versus-last power of **62%**. Switching only to diploid gives 51% (first-versus-last test: 50%).
+Reference settings (haplodiploid, 1,000 breeding females and 1,000 breeding males, Ne = 1,500, p₀ = 0.01, s = 0.05, h = 0.5, sampling 20/20/20/40 at 1935/1955/1975/2025, depth 10×/15×) give a trend-test power (all four points) of **67%** and a first-versus-last power of **62%**. Switching only to diploid gives 51% (first-versus-last test: 50%).
 
 | Setting changed | New power | Section |
 |---|---|---|
@@ -609,17 +610,195 @@ Default settings (haplodiploid, 1,000 breeding females and 1,000 breeding males,
 
 ## 14. Reproducing the examples
 
-All scripts are in the [`examples/`](examples/) folder.
+All scripts are in the [`guide_scripts/`](guide_scripts/) folder.
 
 | Script | What it does | Examples |
 |---|---|---|
 | `selection_only_sampling.R` | Selection without drift: one deterministic trajectory, then repeated sampling of individuals from it. Plain loops, so every step is visible. | 3–4 |
 | `drift_only_sampling.R` | Drift without selection: the population is re-simulated in every simulation, then sampled. | 6 |
 | `selection_drift_power.R` | Selection and drift together, then the full power calculation (no-selection simulations → threshold → selection simulations → count), with the observed change as the score. | 7–10 (same logic) |
-| `guide_examples.js` | Runs the simulator's own functions (`sim.js`) for every other number in this guide. Run from the repository root with `node examples/guide_examples.js`. | 11, 12, 14, 15, 17 and 19–23, and the reference table |
+| `guide_examples.js` | Runs the simulator's own functions (`sim.js`) for every other number in this guide. Run from the repository root with `node guide_scripts/guide_examples.js`. | 11, 12, 14, 15, 17 and 19–23, and the reference table |
 
 Notes:
 
 - Examples 1, 2, 5, 13, 16 and 18 are direct calculations from the formulas given next to them, and need no script.
-- `guide_examples.js` uses the default parameters listed in the README, changing only the settings stated in each example, with 2,000 selection simulations and 4,000 neutral simulations (seed 1). Small differences (± 1–2 points) from the web page are expected, because the page uses 1,000 and 2,000 simulations by default.
+- `guide_examples.js` uses the reference settings of this guide (Section 12), changing only the settings stated in each example, with 2,000 selection simulations and 4,000 neutral simulations (seed 1). Small differences (± 1–2 points) from the web page are expected, because the page uses 1,000 and 2,000 simulations by default.
 - Examples 7–10 were first worked out with a minimal script of the same model; `selection_drift_power.R` implements that logic. Its numbers differ somewhat from the guide because random draws differ, and because it scores simulations by the simple observed change rather than the trend score used for Example 10.
+
+---
+
+## 15. Settings and outputs of the application
+
+This section lists every setting of the application, with its label on the page, its name in the code (`sim.js`, for scripts that call the simulation directly) and the value the page opens with. The step-by-step logic behind them is explained in Sections 1–11.
+
+### 15.1 Inheritance and population
+
+| Label on the page | Name in the code | Opens with | Meaning |
+|---|---|---|---|
+| Haplodiploid / Diploid / Haploid | `system` | Diploid | Inheritance system. **Haplodiploid**: females are diploid and males are haploid, developing from unfertilised eggs, so a son inherits only his mother's allele. **Diploid**: both sexes are diploid. **Haploid**: every individual carries one copy of the locus; there are no sexes, no dominance and no families, so the settings for males, dominance and families are hidden. |
+| Years per generation | `genTime` | 1 | Average age of parents when their offspring are born, from 0.0001 (about one hour) to 100 years. The number of generations between the first and last points is (last year − first year) / this value, rounded. Periods longer than 2,000 generations are simulated with rescaling (Section 15.8). |
+| Breeding females per generation (Nf) | `Nf` | 1,000 | Number of females that actually reproduce each generation (haploid system: "Breeding individuals per generation (N)"). This is not a census count of all individuals, and it is not Ne itself (see below). In social insects, it is roughly the number of successful reproductive females, not the number of workers. |
+| Breeding males per generation (Nm) | `Nm` | 1,000 | Number of males that actually reproduce each generation. Raise it relative to Nf to approximate multiple mating by females. Not used in the haploid system. |
+| No drift (infinite population) | `noDrift` | off | Switches drift off. Only useful to reproduce a calculation without drift (Section 8). Leave it off for realistic power. |
+| Set Ne separately for each interval | `neByBlock`, `neBlocks` | off | When ticked, a column "Ne to next" appears in the sampling design. Each value is Ne from that sampling point to the next, which gives simple histories such as a bottleneck between two dates followed by recovery. Breeding females and males are scaled to give exactly that Ne, keeping their ratio. This replaces the breeding numbers and "Ne at the last point relative to the first". |
+| Ne at the last point relative to the first | `decline` | 1 | Exponential change of the breeding numbers, and therefore of Ne, between the first and last sampling years: 1 means a constant size, 0.1 a ten-fold decline, 2 a doubling. |
+| Migrants per generation, m | `mig` | 0 | Each generation, this fraction of the breeding adults is replaced by migrants from a source population. Keep it at 0 unless immigration from another population is to be modelled. |
+| Allele frequency in the migrant source | `pMig` | Same as p₀ (`-1` in the code) | Allele frequency among migrants. "Same as p₀" is a source where the allele is not under selection. Only used when m > 0. |
+
+**How breeding numbers relate to Ne.** The application converts the breeding numbers into an effective population size, shown under the sliders and in the Ne tile:
+
+- haplodiploid: **Ne = 9·Nf·Nm / (4·Nm + 2·Nf)**; with equal numbers N of each sex, Ne = 1.5 N;
+- diploid: **Ne = 4·Nf·Nm / (Nf + Nm)**; with equal numbers N of each sex, Ne = 2 N;
+- haploid: **Ne = N**.
+
+For most purposes, Ne is the only thing that matters. If the numbers of each sex are unknown, keep Nf = Nm and treat the pair as a single dial for Ne.
+
+### 15.2 Selection
+
+| Label on the page | Name in the code | Opens with | Meaning |
+|---|---|---|---|
+| Allele frequency at the first point (p₀) | `p0` | 0.1 | Frequency of the favoured allele at the first sampling year, from 0.001 to 0.5. Values of 0.01 or less represent a rare variant; values around 0.1 represent common standing variation. |
+| Selection coefficient s | `s` | 0.03 | Relative fitness advantage per generation, from 0.0001 to 0.6. In diploids, the genotype fitnesses are 1 + s (AA), 1 + hs (Aa) and 1 (aa). Values of 0.01–0.05 are common for natural selection; strong selection, such as insecticide resistance, can be ten times higher. Organisms with very short generations (for example bacteria sampled over centuries) need much smaller values per generation (0.0001–0.001). |
+| Dominance in diploid individuals | `h` | Additive (h = 0.5) | Effect of the allele in heterozygotes: 1 = dominant, 0.5 = additive, 0 = recessive. Haploid individuals have no heterozygotes. If unknown, keep 0.5 and check 0 and 1 with the parameter power curve. |
+| Selection in males (× s) | `sMale` | 1 | Selection in males as a multiple of s (0 to 1.5). Keep it at 1 when the trait is expressed in both sexes; set 0 if it is not expressed in males. |
+| Selection starts in year | `onset` | first sampling year | Calendar year when selection begins. Before it, the allele only drifts. Selection acts from the generation after this year. |
+
+### 15.3 Sampling design
+
+| Label on the page | Name in the code | Opens with | Meaning |
+|---|---|---|---|
+| Year (sampling design) | `years` | 1935, 1955, 1975, 2025 | Calendar years of the sampling points: 2 to 20 points, added with "+ Add time point" and removed with ×. Years must increase and can be negative (before year 0). Samples collected over a period (for example a decade) can be pooled and given one representative year, such as the median. For long-lived species, an individual's alleles reflect the population at its birth, so the birth year (or an estimate of it) is the better date to enter. |
+| Individuals (sampling design) | `n` | 20, 20, 20, 40 | Number of individuals sampled at each point (up to 1,000). The first and last points need at least 1. Intermediate points can be set to 0 to drop them; with only the first and last points sampled, the trend test equals the first-versus-last test. |
+| Males in the sample | `maleFrac` | 0 | Probability that each sampled individual is male. In haplodiploids, males are haploid and carry one allele instead of two. In diploids, males carry two alleles and differ from females only if "Selection in males" is not 1. 0 means females only. |
+| Sampled individuals per family | `kSib` | 1 | 1 means that all sampled individuals are unrelated. Larger values sample families of this size: brothers and sisters with the same mother and father. Siblings carry correlated alleles (in haplodiploids, sisters share their father's allele exactly), which lowers the information in the sample. Raise it only if related individuals are expected in the sample. |
+
+### 15.4 Sequencing and genotype calls
+
+| Label on the page | Name in the code | Opens with | Meaning |
+|---|---|---|---|
+| Perfect genotypes (ignore sequencing) | `perfect` | off | True genotypes are observed directly, without reads or errors. |
+| Mean depth, earlier points | `depthEarly` | 10 | Mean number of reads at the locus for individuals sampled at every point except the last (1 to 30). The number of reads of each individual is drawn from a Poisson distribution with this mean. |
+| Mean depth, last point | `depthLast` | 15 | The same for the last point, so that older material can have a lower coverage. |
+| Per-read error rate, earlier points | `err` | 0.5% | Probability that a read shows the wrong allele (sequencing error and damage), for every point except the last. |
+| Per-read error rate, last point | `errLast` | 0.5% | The same for the last point. Historical samples often carry more errors, so the earlier points can be given a higher rate. All earlier points share the same rate, whatever their age. |
+| Minimum depth to call a genotype | `minDP` | 3 | Individuals with fewer reads at the locus are left out of the analysis, so at a low mean depth fewer individuals enter the test. |
+
+Diploid genotypes are called by maximum likelihood among the three genotypes, with a flat prior. At low depth, heterozygotes are often called homozygous because, by chance, only one allele was read (allelic dropout). Haploid individuals are called by the majority of reads, with ties broken at random.
+
+### 15.5 Test and simulation
+
+| Label on the page | Name in the code | Opens with | Meaning |
+|---|---|---|---|
+| Significance level α | `alpha` | 0.05 | Significance level of the study (0.05, 0.01 or 0.001). |
+| Candidate loci tested, L (each tested at α′ = α/L) | `m` | 1 | Number of candidate loci to be tested. Each is tested at α′ = α/L (Bonferroni correction). |
+| Selection simulations (at least twice as many neutral) | `reps` | 1,000 | Number of simulations with selection (500, 1,000, 2,000 or 5,000). At least twice as many neutral simulations are run. More simulations give a more precise estimate, not a different answer: with 1,000, power varies between runs by about 1.5–2 percentage points (one standard deviation; [`validation/monte_carlo_precision.md`](validation/monte_carlo_precision.md)). For a final estimate, use 5,000. |
+| Random seed | `seed` | 1 | The same seed and the same settings always give exactly the same results, on any computer. |
+
+**Many candidate loci.** The drift-aware threshold is the value of Z exceeded by a proportion α′ of the neutral simulations, which needs about 10 neutral simulations beyond it. When α′ is small, SPOT therefore runs more neutral simulations: 10/α′, up to 200,000 (for example 20,000 for L = 100 and 200,000 for L = 1,000 at α = 0.05). Runs with more than 20,000 neutral simulations are computed in the background, so the page stays responsive. Only beyond 200,000 (more than 1,000 loci at α = 0.05) is the threshold taken from a normal distribution fitted to the neutral values of Z; the status line then says so. To stay fast, the parameter power curve, the planner and the sampling comparison use at most 20,000 neutral simulations per setting; hollow markers in the power curve show points where the normal fit was needed.
+
+### 15.6 Example scenarios
+
+One-click starting points that show the range of designs SPOT covers. They are illustrative values, not estimates for real species, and every value can be changed afterwards.
+
+| Scenario | Settings |
+|---|---|
+| **Bumblebees** | Haplodiploid; sampling in 1935, 1955, 1975 and 2025 (20, 20, 20 and 40 females); one generation a year; 1,000 breeding females and 1,000 males; p₀ = 0.01, s = 0.05. These are the reference settings of this guide. |
+| **Long-lived mammal** | Diploid; 20 years per generation, so only 7 generations from 1880 to 2020; Ne 5,000, then a bottleneck to 200 after 1950 ("Set Ne separately for each interval"); p₀ = 0.1, s = 0.2. Few generations limit power even under strong selection. |
+| **Human ancient DNA** | Diploid; 28 years per generation; six sampling dates from 7000 BCE (entered as −7000) to 2000; 50 ancient individuals per date at 2× and 100 present-day individuals at 20×; per-read error rate 1%, minimum depth 1; Ne 10,000; p₀ = 0.1, s = 0.005. |
+| **Bacterial pathogen** | Haploid; genomes sampled from 1850 to 2020; 0.01 years (about 4 days) per generation, so about 17,000 generations, simulated with rescaling (Section 15.8); Ne 100,000; p₀ = 0.05, s = 0.0002. |
+| **Large diploid population** | Diploid; one generation a year; 1 million breeding females and males, so drift is weak and the sampling-only threshold is almost right; p₀ = 0.05, s = 0.02. |
+| **Analytic baseline** | Diploid, with no drift, perfect genotypes and a dominant allele; p₀ = 0.01, s = 0.05. Only the random choice of individuals remains, which reproduces the usual calculation of power without drift (Section 15.9). |
+
+### 15.7 Outputs
+
+**Tiles**
+
+| Tile | Meaning |
+|---|---|
+| **Power · trend test across all sampling points, drift-aware threshold** | Main result: the proportion of selection simulations whose score Z, computed from all sampling points, exceeds the drift-aware threshold. Below it, the same for the first-versus-last test. A note appears when, in more than half of the neutral simulations, drift has lost or fixed the allele by the last point. |
+| Power · trend test, sampling-only threshold | Power with the fixed threshold of a standard test that ignores drift (1.645 for α′ = 5%), and the false-positive rate of that threshold: the proportion of neutral simulations it calls "selected". A warning appears when this threshold overstates power by 5 points or more. |
+| Genetic diversity expected to be lost between the first and the last point | Average over neutral loci, from Ne (Section 15.9). With migration, the value with migration is shown next to the value without it. |
+| Effective population size Ne | Computed from the breeding numbers (first → last point if the population changes), or the lowest and highest values when Ne is set for each interval. |
+| Heterozygotes called correctly | Proportion of true heterozygotes called heterozygous (haploid system: gene copies called correctly), with the proportion of homozygotes called correctly and of sampled individuals below the minimum depth. |
+
+**Charts**
+
+- **Allele trajectories:** 40 of the selection simulations, 40 of the neutral simulations, and the sampling points. The text under the chart gives the expected frequencies without drift.
+- **Scores Z with and without selection:** distributions of Z in the neutral simulations and in the selection simulations, with the drift-aware threshold (solid line) and the sampling-only threshold (dashed line). Power is the proportion of the selection distribution beyond the solid line.
+- **Parameter power curve:** every setting stays fixed except the parameter chosen, which is stepped through a range of values; at each value, the whole power calculation is rerun (new simulations with and without selection, new threshold). The upper panel shows power (trend test and first-versus-last test, drift-aware threshold); the lower panel shows the false-positive rate of the sampling-only threshold. The vertical line marks the current value.
+- **Sample-size planner:** a grid of power (trend test, drift-aware threshold). Rows scale the whole sampling design (×0.5 to ×4); columns vary one parameter (s, h, Ne or p₀). Cells reaching 80% are outlined. Each cell uses up to 1,000 selection simulations.
+- **Sampling haploid males vs diploid females:** power for four sampling designs, with the genotype calls shown on hover. Shown only for haplodiploids (in diploids, both sexes carry two alleles).
+
+**Saving, sharing and exporting**
+
+- **Copy link.** The page address always contains the current settings, so the copied link reopens SPOT with exactly the same design, which makes any result reproducible, for example in a paper or a report.
+- **Save settings / Load settings.** Saves the current settings as a small file and loads them back later. Values outside the allowed ranges are adjusted when loaded, and invalid designs are rejected with a message.
+- **Download results (CSV).** Every setting, the main results and the link to the settings.
+- **CSV buttons** in the parameter power curve and the sample-size planner download the values behind each chart.
+- **PNG and SVG buttons** on the charts download them as images, with their titles and legends.
+- **Version.** The SPOT version, shown at the bottom of the page, is written into saved settings files and the results file.
+
+### 15.8 Very long series: rescaling
+
+Historical DNA of organisms with short generations (for example bacteria sampled over decades to centuries) can span hundreds of thousands of generations. Simulating each of them would take minutes, so SPOT uses the standard rescaling of forward population-genetic simulators (as in SLiM): when the period spans more than 2,000 generations, each simulated generation stands for λ real ones, with
+
+```
+selection          s'   = (1 + s)^λ − 1          (same for selection in males)
+breeding numbers   N'   = N / λ                   (also Ne for each interval)
+migration          m'   = 1 − (1 − m)^λ
+sampling times     t'   = t / λ
+```
+
+This keeps Ne·s and the total drift over the period unchanged; sampling, genotype calling and the test are not affected. λ is chosen so that about 2,000 generations are simulated, but it is capped so that the rescaled selection stays at or below 0.025 and the rescaled breeding numbers at or above 200. These limits come from comparisons with simulations of every generation ([`validation/rescaling.md`](validation/rescaling.md); Supporting Information S6 of the article). The status line says when rescaling is used. If the caps would require simulating more than 10,000 generations, λ is raised anyway to keep the page fast, and a note marks the result as approximate.
+
+### 15.9 Model equations
+
+The equations of the model, with their references, are in the "Model details" panel at the bottom of the application. Two quantities are worth repeating here.
+
+**Genetic diversity expected to be lost.** Without migration, neutral diversity (heterozygosity) is lost at a rate of 1/(2Ne) per generation (1/N in haploids):
+
+```
+lost = 1 − H_G/H_0 = 1 − Π_g (1 − 1/(2·Ne_g))        G = number of generations
+```
+
+With migration at rate m, each generation a proportion 1 − (1 − m)² of the diversity is restored to its initial value, so the loss slows down and levels off.
+
+**The usual calculation of power, without drift** (the "Analytic baseline" scenario). The frequency follows a fixed path from p₀ to p_t, and the only source of chance is the random choice of n₁ gene copies at the first date and n₂ at the last:
+
+```
+Power = Σ_x Σ_y Bin(x; n₁, p₀) · Bin(y; n₂, p_t) · 1[ the test detects the change with counts x and y ]
+```
+
+### 15.10 Choosing values that are unknown
+
+**Set these to match the study design:** inheritance system, years per generation, sampling years and number of individuals at each point, sex of the sampled individuals, sequencing depth and error rates, and number of candidate loci.
+
+**Explore these with the parameter power curve and the planner:** Ne (through the breeding numbers, or for each interval for a known demographic history), p₀, s, h and the year selection starts. They are rarely known, and power depends strongly on them.
+
+**Leave these as the page opens unless there is a specific reason:** "No drift" (off), "Ne at the last point relative to the first" (1), "Set Ne separately for each interval" (off), "Migrants per generation, m" (0), "Selection in males" (1), "Sampled individuals per family" (1), minimum depth, α, number of simulations and seed.
+
+**Anchoring Ne with diversity data.** If the change in genome-wide heterozygosity between the first and last sampling points can be measured, it gives a plausible Ne (without migration):
+
+```
+H_G/H_0 = (1 − 1/(2·Ne))^G          Ne = 1 / ( 2 · (1 − (H_G/H_0)^(1/G)) )
+```
+
+Diversity lost over 100 generations for a range of Ne:
+
+| Ne | 50 | 100 | 250 | 500 | 1,000 | 2,500 | 5,000 | 10,000 |
+|---|---|---|---|---|---|---|---|---|
+| Diversity lost | 63% | 39% | 18% | 9.5% | 4.9% | 2.0% | 1.0% | 0.5% |
+
+The tile "Genetic diversity expected to be lost between the first and the last point" shows this value for the current settings, so the breeding numbers can be adjusted until it matches observed data.
+
+### 15.11 Assumptions and limitations
+
+- One biallelic locus. There is no linkage, so hitchhiking and background selection are not modelled.
+- Discrete, non-overlapping generations. For long-lived species with overlapping generations, the generation time and Ne absorb most of the effect.
+- Selection is constant in strength from the year it starts and acts on survival before breeding.
+- One population, apart from the optional source of migrants: no population structure.
+- Population size is constant, changes exponentially between the first and last points, or is set for each interval between sampling points. There is no random fluctuation.
+- Families have one mother and one father, so there is no multiple paternity within a family.
+- Genotype calling uses a simple per-read error model with a flat prior, with one error rate for the earlier points and one for the last point. Reference bias, mapping quality and damage patterns that depend on the age of each sample are not modelled.
+- Periods longer than 2,000 generations are simulated with rescaling: accurate within the tested limits, approximate beyond them (flagged on the page).
+- Power is computed for one locus at a time. Testing several candidate loci is handled with the Bonferroni correction (L); genome-wide scans need dedicated methods.

@@ -8,9 +8,9 @@ p0          <- 0.01          # allele frequency at the start (generation 0)
 s           <- 0.05          # selection coefficient
 h           <- 0.5           # dominance (0.5 = additive)
 n_gen       <- 90            # number of generations (e.g. 1935 -> 2025, one per year)
-sample_gens <- c(0, 45, 90)  # generations at which specimens are collected
+sample_gens <- c(0, 45, 90)  # generations at which individuals are collected
 n_ind       <- c(20, 20, 40) # diploid individuals sampled at each point
-n_rep       <- 5             # number of replays
+n_sim       <- 5             # number of simulations
 
 # ---- STEP 1: the population (deterministic, computed ONCE) ----
 p <- numeric(n_gen + 1)      # p[g + 1] = allele frequency in generation g
@@ -38,11 +38,11 @@ true_p <- p[sample_gens + 1]   # true population frequency at the 3 sampling poi
 cat("True population frequency at the 3 points:\n")
 print(round(true_p, 4))
 
-# ---- STEP 2: the sampling (random, repeated n_rep times) ----
-sample_counts <- matrix(NA, nrow = n_rep, ncol = length(sample_gens))
-sample_freq   <- matrix(NA, nrow = n_rep, ncol = length(sample_gens))
+# ---- STEP 2: the sampling (random, repeated n_sim times) ----
+sample_counts <- matrix(NA, nrow = n_sim, ncol = length(sample_gens))
+sample_freq   <- matrix(NA, nrow = n_sim, ncol = length(sample_gens))
 
-for (r in 1:n_rep) {
+for (r in 1:n_sim) {
   for (k in 1:length(sample_gens)) {
     n_copies <- 2 * n_ind[k]   # diploid: 2 gene copies per individual
 
@@ -52,7 +52,7 @@ for (r in 1:n_rep) {
   }
 }
 
-cat("\nAllele copies found in the sample (rows = replays, columns = points):\n")
+cat("\nAllele copies found in the sample (rows = simulations, columns = points):\n")
 print(sample_counts)
 cat("\nSample allele frequency:\n")
 print(round(sample_freq, 3))
