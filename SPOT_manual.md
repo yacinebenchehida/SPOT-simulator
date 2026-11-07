@@ -22,11 +22,9 @@ SPOT is designed for planning studies that compare allele frequencies over time:
 
 ### 1.2 How to cite
 
-Please cite the version of SPOT you used. Its number is shown at the bottom of the application page.
+Please cite SPOT as:
 
 > Ben Chehida, Y. et al. (2026). SPOT: Selection Power Over Time, version 0.9.2. https://github.com/yacinebenchehida/SPOT-simulator
-
-The article describing SPOT is in preparation (Ben Chehida et al.); its Supporting Information describes the full model and all validation analyses.
 
 ### 1.3 The model in brief
 
@@ -52,8 +50,6 @@ The equations are given, with their references, in "Model details" at the bottom
 - Genotype calling uses a simple per-read error model with a flat prior, with one error rate for the earlier points and one for the last point. Reference bias, mapping quality and damage patterns that depend on the age of each sample are not modelled.
 - Periods longer than 2,000 generations are simulated with rescaling: accurate within the tested limits, approximate beyond them (flagged on the page).
 - Power is computed for one locus at a time. Testing several candidate loci is handled with the Bonferroni correction (L); genome-wide scans need dedicated methods.
-
----
 
 ---
 
@@ -134,7 +130,7 @@ Diploid genotypes are called by maximum likelihood among the three genotypes, wi
 |---|---|---|---|
 | Significance level α | `alpha` | 0.05 | Significance level of the study (0.05, 0.01 or 0.001). |
 | Candidate loci tested, L (each tested at α′ = α/L) | `m` | 1 | Number of candidate loci to be tested. Each is tested at α′ = α/L (Bonferroni correction). |
-| Selection simulations (at least twice as many neutral) | `reps` | 1,000 | Number of simulations with selection (500, 1,000, 2,000 or 5,000). At least twice as many neutral simulations are run. More simulations give a more precise estimate, not a different answer: with 1,000, power varies between runs by about 1.5–2 percentage points (one standard deviation; [`validation/monte_carlo_precision.md`](validation/monte_carlo_precision.md)). For a final estimate, use 5,000. |
+| Selection simulations (at least twice as many neutral) | `reps` | 1,000 | Number of simulations with selection (500, 1,000, 2,000 or 5,000). At least twice as many neutral simulations are run. More simulations give a more precise estimate, not a different answer: with 1,000, power varies between runs by about 1.5–2 percentage points (one standard deviation; [`validation/monte_carlo_precision.md`](validation/monte_carlo_precision.md)). For a final estimate, we recommend 5,000. |
 | Random seed | `seed` | 1 | The same seed and the same settings always give exactly the same results, on any computer. |
 
 **Many candidate loci.** The drift-aware threshold is the value of Z exceeded by a proportion α′ of the neutral simulations, which needs about 10 neutral simulations beyond it. When α′ is small, SPOT therefore runs more neutral simulations: 10/α′, up to 200,000 (for example 20,000 for L = 100 and 200,000 for L = 1,000 at α = 0.05). Runs with more than 20,000 neutral simulations are computed in the background, so the page stays responsive. Only beyond 200,000 (more than 1,000 loci at α = 0.05) is the threshold taken from a normal distribution fitted to the neutral values of Z; the status line then says so. To stay fast, the parameter power curve, the planner and the sampling comparison use at most 20,000 neutral simulations per setting; hollow markers in the power curve show points where the normal fit was needed.
@@ -170,7 +166,7 @@ With the settings the page opens with, power is 69% for the trend test and 67% f
 
 In "Parameter power curve", choose the parameter to vary and click "Draw curve". Every other setting stays fixed, and the whole power calculation is rerun at each value.
 
-For example, varying "Individuals at the last point" (the earlier points keep 20 individuals each) gives a power of about 47% with 10 individuals, 60% with 20, 69% with 40, 75% with 100 and 80% with 200: beyond about 40 individuals, adding individuals at the last point gains little, because the earlier samples and drift limit the information.
+For example, varying "Individuals at the last point" (the earlier points keep 20 individuals each) gives a power of about 47% with 10 individuals, 60% with 20, 69% with 40, 75% with 100 and 80% with 200: each additional individual at the last point adds less and less power, because the earlier samples and drift limit the information.
 
 Varying Ne shows how much drift matters: power is about 42% with Ne = 500, 69% with Ne = 2,000, 84% with Ne = 10,000 and 87% with Ne = 50,000. The lower panel shows that the false-positive rate of the sampling-only threshold rises as Ne falls (16% at Ne = 500, 5% at Ne = 50,000).
 
@@ -182,7 +178,7 @@ With the settings the page opens with, doubling every sample (40, 40, 40 and 80 
 
 ### 4.4 Haplodiploids: sampling males or females
 
-For haplodiploid species, the panel "Sampling haploid males vs diploid females" ("Compare sampling designs") gives the power of four designs: females only, males only with the same number of individuals, males only with the same number of gene copies (twice as many males), and half males. Males carry one gene copy instead of two, but their genotype is called almost without error. At low depth (up to about 6 reads per individual), males and females give about the same power per individual; at higher depth, females give slightly more.
+For haplodiploid species, the panel "Sampling haploid males vs diploid females" ("Compare sampling designs") gives the power of four designs: females only, males only with the same number of individuals, males only with the same number of gene copies (twice as many males), and half males. Males carry one gene copy instead of two, but their genotype is called almost without error. At a low mean depth (up to about 6×), males and females give about the same power per individual; at higher depth, females give slightly more.
 
 ### 4.5 Choosing values that are unknown
 
@@ -304,7 +300,7 @@ const S = require('./sim.js');
 const P = {
   system: 'diploid',                  // 'haploid', 'diploid' or 'haplodiploid'
   genTime: 1,                         // years per generation
-  Nf: 750, Nm: 750,                   // breeding females and males per generation
+  Nf: 1000, Nm: 1000,                 // breeding females and males per generation
   decline: 1,                         // Ne at the last date relative to the first
   mig: 0, pMig: -1,                   // migrants per generation; their allele frequency (-1 = p0)
   p0: 0.1, s: 0.03, h: 0.5, sMale: 1, // starting frequency, selection, dominance, selection in males (multiple of s)
@@ -316,7 +312,7 @@ const P = {
   kSib: 1, maleFrac: 0,               // individuals per family (1 = unrelated); proportion of males sampled
   perfect: false, noDrift: false,     // genotypes from simulated reads; drift on
   neByBlock: false, neBlocks: null,   // or Ne for each interval between dates
-  alpha: 0.05, m: 1,                  // significance level; m = number of candidate loci L
+  alpha: 0.05, m: 1,                  // significance level; number of candidate loci L (m in the code; migration is mig)
   reps: 1000, seed: 1                 // selection simulations (neutral: at least twice as many); random seed
 };
 const r = S.runPower(P);
