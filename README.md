@@ -32,7 +32,8 @@ A standard test ignores drift and sets the threshold too low, so it often finds 
 
 ## Documentation
 
-The [SPOT manual](SPOT_manual.md) explains how to use the application and how to read its results: every setting, step-by-step uses, interpretation, and questions and answers.
+- The [SPOT manual](SPOT_manual.md) explains how to use the application and how to read its results: every setting, step-by-step uses, interpretation, and questions and answers.
+- The [explained guide](miscellaneous/simulations_explained.md) describes how the simulations work, step by step, with worked examples and real numbers, for readers who want to understand the method in more depth.
 
 ## How to cite
 
