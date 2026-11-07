@@ -36,11 +36,9 @@ The [SPOT manual](SPOT_manual.md) explains how to use the application and how to
 
 ## How to cite
 
-Please cite the version of SPOT you used. Its number is shown at the bottom of the application page.
+Please cite SPOT as:
 
 > Ben Chehida, Y. et al. (2026). SPOT: Selection Power Over Time, version 0.9.2. https://github.com/yacinebenchehida/SPOT-simulator
-
-The article describing SPOT is in preparation (Ben Chehida et al.); its Supporting Information describes the full model and all validation analyses.
 
 ## Licence
 
