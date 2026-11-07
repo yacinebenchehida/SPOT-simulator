@@ -467,7 +467,7 @@ Testing L loci at 5% each would produce false alarms much more often than 5% ove
 
 With a very strict cut, too few neutral simulations remain above it to place the threshold reliably (with 2,000 simulations and α/L = 0.0005, only one would). The tool then runs more neutral simulations, enough for about 10 to land above the cut: 20,000 for α/L = 0.0005 (L = 100), up to a maximum of 200,000. In Example 17, L = 100 uses 20,000 neutral simulations.
 
-Only beyond that maximum does the tool fall back on a shortcut: it fits a bell curve (normal distribution) to the neutral scores and reads the threshold from the curve. This shortcut is approximate. With strong drift or a rare allele, the real neutral scores have a longer upper tail than the bell curve, so the threshold comes out too low and false positives are more frequent than intended (see `validation/false_positive_rate.md`). The status line says when the shortcut is used, and the parameter power curve marks such points with hollow markers.
+Only beyond that maximum does the tool fall back on a shortcut: it fits a bell curve (normal distribution) to the neutral scores and reads the threshold from the curve. This shortcut is approximate. With strong drift or a rare allele, the real neutral scores have a longer upper tail than the bell curve, so the threshold comes out too low and false positives are more frequent than intended (Supporting Information S2 of the article). The status line says when the shortcut is used, and the parameter power curve marks such points with hollow markers.
 
 ### 11.5 Effective population size Ne
 
