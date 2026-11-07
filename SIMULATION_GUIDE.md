@@ -25,6 +25,7 @@ The examples use the reference settings of this guide, which are those of the "B
 13. [Glossary](#13-glossary)
 14. [Reproducing the examples](#14-reproducing-the-examples)
 15. [Settings and outputs of the application](#15-settings-and-outputs-of-the-application)
+16. [Running the simulations from a script](#16-running-the-simulations-from-a-script)
 
 ---
 
@@ -707,7 +708,7 @@ One-click starting points that show the range of designs SPOT covers. They are i
 | **Human ancient DNA** | Diploid; 28 years per generation; six sampling dates from 7000 BCE (entered as −7000) to 2000; 50 ancient individuals per date at 2× and 100 present-day individuals at 20×; per-read error rate 1%, minimum depth 1; Ne 10,000; p₀ = 0.1, s = 0.005. |
 | **Bacterial pathogen** | Haploid; genomes sampled from 1850 to 2020; 0.01 years (about 4 days) per generation, so about 17,000 generations, simulated with rescaling (Section 15.8); Ne 100,000; p₀ = 0.05, s = 0.0002. |
 | **Large diploid population** | Diploid; one generation a year; 1 million breeding females and males, so drift is weak and the sampling-only threshold is almost right; p₀ = 0.05, s = 0.02. |
-| **Analytic baseline** | Diploid, with no drift, perfect genotypes and a dominant allele; p₀ = 0.01, s = 0.05. Only the random choice of individuals remains, which reproduces the usual calculation of power without drift (Section 15.9). |
+| **Analytic baseline** | Diploid, with no drift, perfect genotypes and a dominant allele; p₀ = 0.01, s = 0.05. Only the random choice of individuals remains, which reproduces the usual calculation of power without drift (see "How power is computed" in the application). |
 
 ### 15.7 Outputs
 
@@ -717,7 +718,7 @@ One-click starting points that show the range of designs SPOT covers. They are i
 |---|---|
 | **Power · trend test across all sampling points, drift-aware threshold** | Main result: the proportion of selection simulations whose score Z, computed from all sampling points, exceeds the drift-aware threshold. Below it, the same for the first-versus-last test. A note appears when, in more than half of the neutral simulations, drift has lost or fixed the allele by the last point. |
 | Power · trend test, sampling-only threshold | Power with the fixed threshold of a standard test that ignores drift (1.645 for α′ = 5%), and the false-positive rate of that threshold: the proportion of neutral simulations it calls "selected". A warning appears when this threshold overstates power by 5 points or more. |
-| Genetic diversity expected to be lost between the first and the last point | Average over neutral loci, from Ne (Section 15.9). With migration, the value with migration is shown next to the value without it. |
+| Genetic diversity expected to be lost between the first and the last point | Average over neutral loci, from Ne (formula in "Model details" in the application). With migration, the value with migration is shown next to the value without it. |
 | Effective population size Ne | Computed from the breeding numbers (first → last point if the population changes), or the lowest and highest values when Ne is set for each interval. |
 | Heterozygotes called correctly | Proportion of true heterozygotes called heterozygous (haploid system: gene copies called correctly), with the proportion of homozygotes called correctly and of sampled individuals below the minimum depth. |
 
@@ -753,21 +754,7 @@ This keeps Ne·s and the total drift over the period unchanged; sampling, genoty
 
 ### 15.9 Model equations
 
-The equations of the model, with their references, are in the "Model details" panel at the bottom of the application. Two quantities are worth repeating here.
-
-**Genetic diversity expected to be lost.** Without migration, neutral diversity (heterozygosity) is lost at a rate of 1/(2Ne) per generation (1/N in haploids):
-
-```
-lost = 1 − H_G/H_0 = 1 − Π_g (1 − 1/(2·Ne_g))        G = number of generations
-```
-
-With migration at rate m, each generation a proportion 1 − (1 − m)² of the diversity is restored to its initial value, so the loss slows down and levels off.
-
-**The usual calculation of power, without drift** (the "Analytic baseline" scenario). The frequency follows a fixed path from p₀ to p_t, and the only source of chance is the random choice of n₁ gene copies at the first date and n₂ at the last:
-
-```
-Power = Σ_x Σ_y Bin(x; n₁, p₀) · Bin(y; n₂, p_t) · 1[ the test detects the change with counts x and y ]
-```
+The equations of the model are given, with their references, in the "Model details" panel at the bottom of the application, and in full in the Supporting Information of the article.
 
 ### 15.10 Choosing values that are unknown
 
@@ -802,3 +789,37 @@ The tile "Genetic diversity expected to be lost between the first and the last p
 - Genotype calling uses a simple per-read error model with a flat prior, with one error rate for the earlier points and one for the last point. Reference bias, mapping quality and damage patterns that depend on the age of each sample are not modelled.
 - Periods longer than 2,000 generations are simulated with rescaling: accurate within the tested limits, approximate beyond them (flagged on the page).
 - Power is computed for one locus at a time. Testing several candidate loci is handled with the Bonferroni correction (L); genome-wide scans need dedicated methods.
+
+---
+
+## 16. Running the simulations from a script
+
+The application is all that is needed to use SPOT. For many runs (for example a large grid of designs), the simulations can also be run from a script with [Node.js](https://nodejs.org). `sim.js` holds the simulation functions of the application, with no interface code; the page runs exactly the same code (checked by `validation/engine_sync_check.js`). The settings are those of Section 15, under their names in the code.
+
+```js
+const S = require('./sim.js');
+const P = {
+  system: 'diploid',                  // 'haploid', 'diploid' or 'haplodiploid'
+  genTime: 1,                         // years per generation
+  Nf: 750, Nm: 750,                   // breeding females and males per generation
+  decline: 1,                         // Ne at the last date relative to the first
+  mig: 0, pMig: -1,                   // migrants per generation; their allele frequency (-1 = p0)
+  p0: 0.1, s: 0.03, h: 0.5, sMale: 1, // starting frequency, selection, dominance, selection in males (multiple of s)
+  onset: 1935,                        // year selection starts
+  years: [1935, 1955, 1975, 2025],    // sampling years
+  n: [20, 20, 20, 40],                // individuals per date
+  depthEarly: 10, depthLast: 15,      // mean depth, earlier dates and last date
+  err: 0.005, errLast: 0.005, minDP: 3, // per-read error rates and minimum depth
+  kSib: 1, maleFrac: 0,               // individuals per family (1 = unrelated); proportion of males sampled
+  perfect: false, noDrift: false,     // genotypes from simulated reads; drift on
+  neByBlock: false, neBlocks: null,   // or Ne for each interval between dates
+  alpha: 0.05, m: 1,                  // significance level; m = number of candidate loci L
+  reps: 1000, seed: 1                 // selection simulations (neutral: at least twice as many); random seed
+};
+const r = S.runPower(P);
+console.log(r.trend.powerEmp, r.two.powerEmp);  // power, trend and first-versus-last tests, drift-aware threshold
+console.log(r.trend.crit, r.trend.fprNaive);    // drift-aware threshold; false-positive rate of the sampling-only threshold
+console.log(1 - S.hetRetained(P), S.neFor(P));  // genetic diversity expected to be lost; Ne
+```
+
+`runPower` returns, for the trend test (`trend`) and the first-versus-last test (`two`): the threshold (`crit`), the power with the drift-aware threshold (`powerEmp`) and with the sampling-only threshold (`powerNaive`), and the false-positive rate of the sampling-only threshold (`fprNaive`). It also returns the genotype-call summaries (`hetAcc`, `homAcc`, `hapAcc`, `missRate`) and the proportion of neutral simulations in which drift lost or fixed the allele by the last date (`neutralFixed`). `hetRetained(params)` gives the expected proportion of neutral genetic diversity kept between the first and the last date, and `neFor(params)` the effective population size.
