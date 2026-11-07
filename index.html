@@ -425,9 +425,9 @@ Generations:                   g(year) = round((year − first year) / years per
 Population change:             N(g) = N(first point) × D^(g/G)      D = "Ne at the last point relative to the first"
                                or, with Ne set per interval, breeding numbers scaled so that Ne(g) = Ne of the interval containing g
 Migration (after drift):<sup>4</sup>      p' ← (1 − m)·p' + m·p_source   in both sexes
-Sampled individuals, k = 1:<sup>7</sup>   male with probability "males in the sample"; diploid individuals drawn from their sex's post-selection genotype frequencies;
+Unrelated individuals (k = 1): male with probability "males in the sample"; diploid individuals drawn from their sex's post-selection genotype frequencies;
                                haploid males carry one allele, A with probability p_m*, called by majority of reads
-Sampled families, k > 1:       mother and father drawn from the post-selection genotype frequencies of their sex; each daughter gets one random maternal and one paternal allele;
+Families of k siblings:        k = "Sampled individuals per family" (k > 1); mother and father drawn from the post-selection genotype frequencies of their sex; each daughter gets one random maternal and one paternal allele;
                                a haploid son gets one maternal allele only; in diploids, siblings are not assigned a sex ("Males in the sample" is ignored)
 Genetic diversity lost:<sup>4,5</sup>     1 − H_G/H_0, with H_g = (1 − m)² (1 − 1/2Ne(g)) H_(g−1) + [1 − (1 − m)²] H_0   (haploid: 1/N(g) instead of 1/2Ne(g));
                                without migration (m = 0): 1 − Π_g (1 − 1/2Ne(g))</div>
