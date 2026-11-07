@@ -30,7 +30,7 @@ A standard test ignores drift and sets the threshold too low, so it often finds 
 ## Documentation
 
 - **[SPOT manual](SIMULATION_GUIDE.md)**: how the simulations work, step by step with worked examples, and every setting and output of the application.
-- **Article**: Benchehida et al., in preparation. Its Supporting Information describes the model in full and all validation analyses.
+- **Article**: Ben Chehida et al., in preparation. Its Supporting Information describes the model in full and all validation analyses.
 
 ## Using the simulation code in Node.js
 
@@ -86,7 +86,7 @@ Every number, table and figure of the article comes from a script in this reposi
 
 Please cite the version of SPOT used (shown at the bottom of the page and written into saved settings and results files):
 
-> Benchehida, Y. et al. (2026). SPOT: Selection Power Over Time, version 0.9.2. https://github.com/yacinebenchehida/SPOT-simulator
+> Ben Chehida, Y. et al. (2026). SPOT: Selection Power Over Time, version 0.9.2. https://github.com/yacinebenchehida/SPOT-simulator
 
 GitHub's "Cite this repository" button gives the same reference in other formats (`CITATION.cff`). The article reference will be added on publication.
 
