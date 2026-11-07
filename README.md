@@ -71,14 +71,15 @@ Every number, table and figure of the article comes from a script in this reposi
 | Result | Script | Results file |
 |---|---|---|
 | Figure 1 | `figures/make_figure1.js`, `figures/assemble_figure1.py` | `figures/Figure1.png` |
-| Figure 2; Tables S1–S3 | `validation/false_positive_rate.js` (A, B, C, G); `validation/fpr_figure.py` | `fpr_A.tsv`, `fpr_B.tsv`, `fpr_C.tsv`, `fpr_C_gaussian.tsv` |
-| Figure 3 | `worked_examples/worked_examples.js` (A–C), `validation/depth_case.js`; `worked_examples/figures.py` | `bee_s_p0.tsv`, `bee_ne.tsv`, `bee_allocation.tsv`, `depth_case.tsv` |
+| Figure 2; Tables S1–S3 | `validation/false_positive_rate.js` (letters A, B, C and G); `validation/fpr_figure.py` | `fpr_A.tsv`, `fpr_B.tsv`, `fpr_C.tsv`, `fpr_C_gaussian.tsv` |
+| Figure 3; Table S9 (museum insect case study) | `worked_examples/worked_examples.js` (letters A, B, C), `validation/depth_case.js`; `worked_examples/figures.py` | `bee_s_p0.tsv`, `bee_allocation.tsv`, `bee_ne.tsv`, `depth_case.tsv` |
 | Example without drift (Section 3.1) | `validation/nodrift_example.js` | `nodrift_example.tsv` |
-| Agreement with theory (S3; Figure S1) | `validation/theory_spot.js`, `validation/theory_check.py`, `validation/sibling_path_check.js`, `validation/migration_diversity_check.js` | `theory_*.tsv`, `sibling_path_check.tsv`, `migration_diversity.tsv` |
-| Comparison with SLiM (S4; Figure S2) | `validation/slim_check.slim`, `slim_runs*.sh`, `slim_compare*.js`, `slim_power_spot_threshold.js`, `slim_regression.py` | `slim_*.tsv` |
-| Precision and speed (S5; Figure S3) | `validation/monte_carlo_precision.js`, `validation/speed.js` | `mc_precision.tsv`, `speed.tsv` |
-| Rescaling (S6; Figure S4) | `validation/rescale_validation.js`, `rescale_hd_repeat.js`, `rescale_fpr.js`, `rescale_limits.js` | `rescale_*.tsv` |
-| Case studies (S7; Figures S5–S6) | `worked_examples/worked_examples.js` (E, F, G) | `pathogen.tsv`, `human_depth.tsv`, `human_budget.tsv` |
+| Agreement with theory (S3; Table S4, Figure S1) | `validation/theory_spot.js`, `validation/theory_check.py`, `validation/sibling_path_check.js`, `validation/migration_diversity_check.js` | `theory_spot.json`, `theory_power.tsv`, `theory_drift.tsv`, `sibling_path_check.tsv`, `migration_diversity.tsv` |
+| Comparison with SLiM (S4; Tables S5–S6, Figure S2) | `validation/slim_check.slim`, `slim_runs.sh`, `slim_runs_v2.sh`, `slim_compare.js`, `slim_compare_v2.js`, `slim_power_spot_threshold.js`, `slim_regression.py` | `slim_*.tsv` |
+| Precision and speed (S5; Table S7, Figure S3) | `validation/monte_carlo_precision.js`, `validation/speed.js` | `mc_precision.tsv`, `speed.tsv` |
+| Rescaling (S6; Table S8, Figure S4) | `validation/rescale_validation.js`, `rescale_hd_repeat.js`, `rescale_fpr.js`, `rescale_limits.js` | `rescale_*.tsv` |
+| Bacterial pathogen (S6.4; Figure S5) | `worked_examples/worked_examples.js` (letter E) | `pathogen.tsv` |
+| Human ancient DNA (S7; Table S10, Figure S6) | `worked_examples/worked_examples.js` (letters F, G) | `human_depth.tsv`, `human_budget.tsv` |
 | Supplement figures | `supplement_figures/make_figures.py` | `supplement_figures/` |
 
 ## How to cite
@@ -100,7 +101,9 @@ MIT; see [`LICENSE`](LICENSE).
 | `index.html` | The application: one self-contained page. |
 | `sim.js` | The simulation code, also usable in Node.js. |
 | `SIMULATION_GUIDE.md` | The manual. |
-| `figures/`, `supplement_figures/` | Figures of the article and of the Supporting Information, with their scripts. |
-| `validation/` | Validation analyses: scripts and results files. |
-| `worked_examples/` | Case studies of the article: scripts and results files. |
+| `guide_scripts/` | Scripts that reproduce the numbers of the manual: R scripts for examples 3, 4 and 6, written step by step for teaching; a Node.js script for the others. |
+| `figures/` | Figure 1 of the article and its scripts. |
+| `validation/` | Validation analyses (scripts and results files), and Figure 2 of the article. |
+| `worked_examples/` | Case studies of the article (scripts and results files), and Figure 3. |
+| `supplement_figures/` | Figures of the Supporting Information and their script. |
 | `LICENSE`, `CITATION.cff` | Licence and citation information. |

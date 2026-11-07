@@ -7,16 +7,16 @@ set.seed(1)
 p0          <- 0.10          # allele frequency at the start (generation 0)
 N           <- 500           # breeding individuals per generation (diploid: 2N gene copies)
 n_gen       <- 90            # number of generations
-sample_gens <- c(0, 45, 90)  # generations at which specimens are collected
+sample_gens <- c(0, 45, 90)  # generations at which individuals are collected
 n_ind       <- c(20, 20, 40) # diploid individuals sampled at each point
-n_rep       <- 5             # number of replays
+n_sim       <- 5             # number of simulations
 
-pop_p_at_samples <- matrix(NA, nrow = n_rep, ncol = length(sample_gens))
-sample_counts    <- matrix(NA, nrow = n_rep, ncol = length(sample_gens))
+pop_p_at_samples <- matrix(NA, nrow = n_sim, ncol = length(sample_gens))
+sample_counts    <- matrix(NA, nrow = n_sim, ncol = length(sample_gens))
 
-for (r in 1:n_rep) {
+for (r in 1:n_sim) {
 
-  # ---- STEP 1: the population (random, re-simulated in EVERY replay) ----
+  # ---- STEP 1: the population (random, re-simulated in EVERY simulation) ----
   p <- numeric(n_gen + 1)    # p[g + 1] = population allele frequency in generation g
   p[1] <- p0
 
@@ -26,7 +26,7 @@ for (r in 1:n_rep) {
     p[g + 1] <- copies_with_allele / (2 * N)
   }
 
-  # ---- STEP 2: the sampling (from this replay's own population) ----
+  # ---- STEP 2: the sampling (from this simulation's own population) ----
   for (k in 1:length(sample_gens)) {
     p_now    <- p[sample_gens[k] + 1]   # population frequency at this sampling point
     n_copies <- 2 * n_ind[k]
@@ -35,7 +35,7 @@ for (r in 1:n_rep) {
   }
 }
 
-cat("TRUE population frequency at the 3 points (differs between replays = drift):\n")
+cat("TRUE population frequency at the 3 points (differs between simulations = drift):\n")
 print(round(pop_p_at_samples, 3))
 cat("\nAllele copies found in the sample (sampling noise on top of drift):\n")
 print(sample_counts)

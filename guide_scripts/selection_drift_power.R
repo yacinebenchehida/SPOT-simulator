@@ -3,10 +3,10 @@
 #
 # Each generation: (1) selection pushes the allele frequency deterministically,
 #                  (2) drift redraws 2N gene copies from that pushed frequency.
-# At the sampling generations, specimens are drawn from the population of that replay.
+# At the sampling generations, individuals are drawn from the population of that simulation.
 # Score = observed change in sample frequency between the first and last points.
-# Threshold = score exceeded by only 5% of the no-selection replays.
-# Power = share of selection replays whose score is above the threshold.
+# Threshold = score exceeded by only 5% of the no-selection simulations.
+# Power = share of selection simulations whose score is above the threshold.
 
 set.seed(1)
 
@@ -16,14 +16,14 @@ N           <- 10000         # breeding individuals per generation (diploid: 2N 
 s           <- 0.01          # selection coefficient
 h           <- 0.5           # dominance (0.5 = additive)
 n_gen       <- 100           # number of generations
-sample_gens <- c(0, 50, 100) # generations at which specimens are collected
+sample_gens <- c(0, 50, 100) # generations at which individuals are collected
 n_ind       <- c(20, 20, 40) # diploid individuals sampled at each point
 alpha       <- 0.05          # significance level
-n_neutral   <- 2000          # replays without selection (set the threshold)
-n_selection <- 1000          # replays with selection (estimate power)
+n_neutral   <- 2000          # simulations without selection (set the threshold)
+n_selection <- 1000          # simulations with selection (estimate power)
 
-# ---- one replay: population history, then sampling; returns the sample frequencies ----
-one_replay <- function(s_used) {
+# ---- one simulation: population history, then sampling; returns the sample frequencies ----
+one_simulation <- function(s_used) {
   p <- p0
   sample_freq <- numeric(length(sample_gens))
 
@@ -52,10 +52,10 @@ one_replay <- function(s_used) {
   sample_freq
 }
 
-# ---- step 1: no-selection replays ----
+# ---- step 1: no-selection simulations ----
 score_neutral <- numeric(n_neutral)
 for (r in 1:n_neutral) {
-  f <- one_replay(0)
+  f <- one_simulation(0)
   score_neutral[r] <- f[length(f)] - f[1]   # observed change, last minus first
 }
 
@@ -63,10 +63,10 @@ for (r in 1:n_neutral) {
 sorted <- sort(score_neutral)
 threshold <- sorted[ceiling((1 - alpha) * n_neutral)]
 
-# ---- step 3: selection replays ----
+# ---- step 3: selection simulations ----
 score_selection <- numeric(n_selection)
 for (r in 1:n_selection) {
-  f <- one_replay(s)
+  f <- one_simulation(s)
   score_selection[r] <- f[length(f)] - f[1]
 }
 
@@ -75,5 +75,5 @@ power <- mean(score_selection > threshold)
 false_alarm <- mean(score_neutral > threshold)
 
 cat("Threshold (observed change):", round(threshold, 3), "\n")
-cat("Neutral replays above it:   ", round(100 * false_alarm, 1), "%  (should be about", 100 * alpha, "%)\n")
+cat("Neutral simulations above it:   ", round(100 * false_alarm, 1), "%  (should be about", 100 * alpha, "%)\n")
 cat("Power:                      ", round(100 * power, 1), "%\n")
