@@ -242,7 +242,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
       <select id="errl"><option value="0.001">0.1%</option><option value="0.005">0.5%</option><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.05">5%</option></select></label>
     <p class="hint" id="err-hint">Historical samples often carry more errors (DNA damage): set a higher rate for the earlier points if needed.</p>
     <label for="mindp" id="row-mindp"><span class="row"><span>Minimum depth to call a genotype</span><output id="o-mindp"></output></span><input id="mindp" type="range" min="1" max="10" step="1"></label>
-    <p class="hint" id="mindp-hint">Individuals with fewer reads at the locus are left out of the analysis.</p>
+    <p class="hint" id="mindp-hint">Individuals with fewer reads at the locus are left out of the analysis, so at a low mean depth fewer individuals enter the test.</p>
   </fieldset>
   <fieldset>
     <legend>Test &amp; simulation</legend>
