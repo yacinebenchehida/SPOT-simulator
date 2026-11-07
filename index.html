@@ -426,11 +426,13 @@ Population change:             N(g) = N(first point) × D^(g/G)      D = "Ne at 
                                or, with "Set Ne separately for each interval", breeding numbers scaled so that Ne(g) = Ne of the interval containing g
 Migration (after drift):<sup>4</sup>      p' ← (1 − m)·p' + m·p_source   in both sexes
 Sampled individuals per family = 1:
-                               male with probability "Males in the sample"; diploid individuals drawn from their sex's post-selection genotype frequencies;
-                               haploid males carry one allele, A with probability p_m*, called by majority of reads
+                               all sampled individuals are unrelated: each is drawn independently from the population.
+                               Its sex is drawn at random (male with probability "Males in the sample"). A diploid individual gets two alleles,
+                               drawn from the genotype frequencies of its sex after selection; a haploid male gets one allele.
 Sampled individuals per family > 1:
-                               mother and father drawn from the post-selection genotype frequencies of their sex; each daughter gets one random maternal and one paternal allele;
-                               a haploid son gets one maternal allele only; in diploids, siblings are not assigned a sex ("Males in the sample" is ignored)
+                               individuals are sampled in families of this size (brothers and sisters with the same parents). For each family,
+                               a mother and a father are drawn from the population; each daughter gets one allele from each parent, and a haploid
+                               son one allele from his mother. In diploids, the sex of siblings is not drawn ("Males in the sample" is not used).
 Genetic diversity lost:<sup>4,5</sup>     1 − H_G/H_0, with H_g = (1 − m)² (1 − 1/2Ne(g)) H_(g−1) + [1 − (1 − m)²] H_0   (haploid: 1/N(g) instead of 1/2Ne(g));
                                without migration (m = 0): 1 − Π_g (1 − 1/2Ne(g))</div>
     <p class="hint">Selection starts in the generation after the onset year, so a sample taken in the onset year is not yet affected by selection. Not modelled: population structure, linked selection, random fluctuation in population size, overlapping generations, and mapping reference bias.</p>
