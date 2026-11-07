@@ -57,4 +57,5 @@ Please open an [issue](https://github.com/yacinebenchehida/SPOT-simulator/issues
 | `sim.js` | The simulation code used by the application. |
 | `SPOT_manual.md` | The SPOT manual. |
 | `miscellaneous/` | An explained guide to the simulations, written for teaching, with the scripts that reproduce its numbers. |
-| `validation/`, `worked_examples/`, `figures/`, `supplement_figures/` | Analyses and figures of the article. |
+| `paper/` | Analyses and figures of the article, with the scripts that produce them. |
+| `tests/` | Checks that the application runs exactly the simulation code in `sim.js`. |

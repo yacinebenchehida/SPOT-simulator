@@ -130,7 +130,7 @@ Diploid genotypes are called by maximum likelihood among the three genotypes, wi
 |---|---|---|---|
 | Significance level α | `alpha` | 0.05 | Significance level of the study (0.05, 0.01 or 0.001). |
 | Candidate loci tested, L (each tested at α′ = α/L) | `m` | 1 | Number of candidate loci to be tested. Each is tested at α′ = α/L (Bonferroni correction). |
-| Selection simulations (at least twice as many neutral) | `reps` | 1,000 | Number of simulations with selection (500, 1,000, 2,000 or 5,000). At least twice as many neutral simulations are run. More simulations give a more precise estimate, not a different answer: with 1,000, power varies between runs by about 1.5–2 percentage points (one standard deviation; [`validation/monte_carlo_precision.md`](validation/monte_carlo_precision.md)). For a final estimate, we recommend 5,000. |
+| Selection simulations (at least twice as many neutral) | `reps` | 1,000 | Number of simulations with selection (500, 1,000, 2,000 or 5,000). At least twice as many neutral simulations are run. More simulations give a more precise estimate, not a different answer: with 1,000, power varies between runs by about 1.5–2 percentage points (one standard deviation; Supporting Information S5 of the article). For a final estimate, we recommend 5,000. |
 | Random seed | `seed` | 1 | The same seed and the same settings always give exactly the same results, on any computer. |
 
 **Many candidate loci.** The drift-aware threshold is the value of Z exceeded by a proportion α′ of the neutral simulations, which needs about 10 neutral simulations beyond it. When α′ is small, SPOT therefore runs more neutral simulations: 10/α′, up to 200,000 (for example 20,000 for L = 100 and 200,000 for L = 1,000 at α = 0.05). Runs with more than 20,000 neutral simulations are computed in the background, so the page stays responsive. Only beyond 200,000 (more than 1,000 loci at α = 0.05) is the threshold taken from a normal distribution fitted to the neutral values of Z; the status line then says so. To stay fast, the parameter power curve, the planner and the sampling comparison use at most 20,000 neutral simulations per setting; hollow markers in the power curve show points where the normal fit was needed.
@@ -281,7 +281,7 @@ migration          m'   = 1 − (1 − m)^λ
 sampling times     t'   = t / λ
 ```
 
-This keeps Ne·s and the total drift over the period unchanged; sampling, genotype calling and the test are not affected. λ is chosen so that about 2,000 generations are simulated, but it is capped so that the rescaled selection stays at or below 0.025 and the rescaled breeding numbers at or above 200. These limits come from comparisons with simulations of every generation ([`validation/rescaling.md`](validation/rescaling.md); Supporting Information S6 of the article). The status line says when rescaling is used. If the caps would require simulating more than 10,000 generations, λ is raised anyway to keep the page fast, and a note marks the result as approximate.
+This keeps Ne·s and the total drift over the period unchanged; sampling, genotype calling and the test are not affected. λ is chosen so that about 2,000 generations are simulated, but it is capped so that the rescaled selection stays at or below 0.025 and the rescaled breeding numbers at or above 200. These limits come from comparisons with simulations of every generation (Supporting Information S6 of the article). The status line says when rescaling is used. If the caps would require simulating more than 10,000 generations, λ is raised anyway to keep the page fast, and a note marks the result as approximate.
 
 **Can SPOT analyse my data?**
 No. SPOT is for planning: it estimates power for a design before the data exist. To test real data in the same spirit, the counterpart of the neutral simulations is an empirical null distribution: the score Z computed for genome-wide SNPs with a similar starting frequency, in the same samples.
@@ -293,7 +293,7 @@ Each run draws new random simulations. With the same settings and the same rando
 
 ## 7. Running SPOT from a script
 
-The application is all that is needed to use SPOT. For many runs (for example a large grid of designs), the simulations can also be run from a script with [Node.js](https://nodejs.org). `sim.js` holds the simulation functions of the application, with no interface code; the page runs exactly the same code (checked by `validation/engine_sync_check.js`). The settings are those of Section 3, under their names in the code.
+The application is all that is needed to use SPOT. For many runs (for example a large grid of designs), the simulations can also be run from a script with [Node.js](https://nodejs.org). `sim.js` holds the simulation functions of the application, with no interface code; the page runs exactly the same code (checked by `tests/engine_sync_check.js`). The settings are those of Section 3, under their names in the code.
 
 ```js
 const S = require('./sim.js');
