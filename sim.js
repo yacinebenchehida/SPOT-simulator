@@ -1,5 +1,5 @@
 /* ===== SPOT (Selection Power Over Time): core (pure functions, no DOM) =====
-   Usable in the browser or in Node (module.exports at the bottom). See README.md. */
+   Usable in the browser or in Node (module.exports at the bottom). See SPOT_manual.md, Section 7. */
 function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 function makeRng(seed){
   const u=mulberry32(seed>>>0); let spare=null;
