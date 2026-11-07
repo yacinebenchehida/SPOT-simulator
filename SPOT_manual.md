@@ -1,10 +1,10 @@
-# How the simulations work: a guide with worked examples
+# SPOT manual: how the simulations work, with worked examples
 
-This guide explains, step by step and with real numbers, what SPOT (Selection Power Over Time) does under the hood: how allele frequencies are simulated, how individuals are sampled, how a power value is produced, and what the more technical pieces of the tool do. Section 15 lists every setting and output of the application.
+This manual explains, step by step and with real numbers, what SPOT (Selection Power Over Time) does under the hood: how allele frequencies are simulated, how individuals are sampled, how a power value is produced, and what the more technical pieces of the tool do. Section 15 lists every setting and output of the application.
 
-Every number in this guide was produced with the simulator's own code (`sim.js`) or with the short R scripts mentioned at the end. Settings are given with each example so that it can be reproduced.
+Every number in this manual was produced with the simulator's own code (`sim.js`) or with the short R scripts mentioned at the end. Settings are given with each example so that it can be reproduced.
 
-The examples use the reference settings of this guide, which are those of the "Bumblebees" example scenario of the application (haplodiploid; 1,000 breeding females and 1,000 breeding males; p₀ = 0.01; s = 0.05; four sampling points, in 1935, 1955, 1975 and 2025; one generation per year). The application itself opens with other settings (diploid, p₀ = 0.1, s = 0.03). The simulator itself accepts 2 to 20 sampling points, any generation time from 0.0001 (about one hour) to 100 years (long series are simulated with rescaling, see Section 15.8), haploid, diploid or haplodiploid inheritance, and an Ne set separately for each interval between sampling points; the logic explained here is the same for any design.
+The examples use the reference settings of this manual, which are those of the "Bumblebees" example scenario of the application (haplodiploid; 1,000 breeding females and 1,000 breeding males; p₀ = 0.01; s = 0.05; four sampling points, in 1935, 1955, 1975 and 2025; one generation per year). The application itself opens with other settings (diploid, p₀ = 0.1, s = 0.03). The simulator itself accepts 2 to 20 sampling points, any generation time from 0.0001 (about one hour) to 100 years (long series are simulated with rescaling, see Section 15.8), haploid, diploid or haplodiploid inheritance, and an Ne set separately for each interval between sampling points; the logic explained here is the same for any design.
 
 ---
 
@@ -50,7 +50,7 @@ Two sets of simulations are run, in the same world (same population size, same d
 | Without selection (s = 0) | drift + sampling | 2,000 | Shows how much apparent change happens **by chance**. Sets the threshold. |
 | With selection (chosen s) | selection + drift + sampling | 1,000 | Shows what the data look like **when selection acts**. Power = share above the threshold. |
 
-The rest of this guide builds this up piece by piece.
+The rest of this manual builds this up piece by piece.
 
 ---
 
@@ -611,20 +611,20 @@ Reference settings (haplodiploid, 1,000 breeding females and 1,000 breeding male
 
 ## 14. Reproducing the examples
 
-All scripts are in the [`guide_scripts/`](guide_scripts/) folder.
+All scripts are in the [`manual_scripts/`](manual_scripts/) folder.
 
 | Script | What it does | Examples |
 |---|---|---|
 | `selection_only_sampling.R` | Selection without drift: one deterministic trajectory, then repeated sampling of individuals from it. Plain loops, so every step is visible. | 3–4 |
 | `drift_only_sampling.R` | Drift without selection: the population is re-simulated in every simulation, then sampled. | 6 |
 | `selection_drift_power.R` | Selection and drift together, then the full power calculation (no-selection simulations → threshold → selection simulations → count), with the observed change as the score. | 7–10 (same logic) |
-| `guide_examples.js` | Runs the simulator's own functions (`sim.js`) for every other number in this guide. Run from the repository root with `node guide_scripts/guide_examples.js`. | 11, 12, 14, 15, 17 and 19–23, and the reference table |
+| `manual_examples.js` | Runs the simulator's own functions (`sim.js`) for every other number in this manual. Run from the repository root with `node manual_scripts/manual_examples.js`. | 11, 12, 14, 15, 17 and 19–23, and the reference table |
 
 Notes:
 
 - Examples 1, 2, 5, 13, 16 and 18 are direct calculations from the formulas given next to them, and need no script.
-- `guide_examples.js` uses the reference settings of this guide (Section 12), changing only the settings stated in each example, with 2,000 selection simulations and 4,000 neutral simulations (seed 1). Small differences (± 1–2 points) from the web page are expected, because the page uses 1,000 and 2,000 simulations by default.
-- Examples 7–10 were first worked out with a minimal script of the same model; `selection_drift_power.R` implements that logic. Its numbers differ somewhat from the guide because random draws differ, and because it scores simulations by the simple observed change rather than the trend score used for Example 10.
+- `manual_examples.js` uses the reference settings of this manual (Section 12), changing only the settings stated in each example, with 2,000 selection simulations and 4,000 neutral simulations (seed 1). Small differences (± 1–2 points) from the web page are expected, because the page uses 1,000 and 2,000 simulations by default.
+- Examples 7–10 were first worked out with a minimal script of the same model; `selection_drift_power.R` implements that logic. Its numbers differ somewhat from the manual because random draws differ, and because it scores simulations by the simple observed change rather than the trend score used for Example 10.
 
 ---
 
@@ -703,7 +703,7 @@ One-click starting points that show the range of designs SPOT covers. They are i
 
 | Scenario | Settings |
 |---|---|
-| **Bumblebees** | Haplodiploid; sampling in 1935, 1955, 1975 and 2025 (20, 20, 20 and 40 females); one generation a year; 1,000 breeding females and 1,000 males; p₀ = 0.01, s = 0.05. These are the reference settings of this guide. |
+| **Bumblebees** | Haplodiploid; sampling in 1935, 1955, 1975 and 2025 (20, 20, 20 and 40 females); one generation a year; 1,000 breeding females and 1,000 males; p₀ = 0.01, s = 0.05. These are the reference settings of this manual. |
 | **Long-lived mammal** | Diploid; 20 years per generation, so only 7 generations from 1880 to 2020; Ne 5,000, then a bottleneck to 200 after 1950 ("Set Ne separately for each interval"); p₀ = 0.1, s = 0.2. Few generations limit power even under strong selection. |
 | **Human ancient DNA** | Diploid; 28 years per generation; six sampling dates from 7000 BCE (entered as −7000) to 2000; 50 ancient individuals per date at 2× and 100 present-day individuals at 20×; per-read error rate 1%, minimum depth 1; Ne 10,000; p₀ = 0.1, s = 0.005. |
 | **Bacterial pathogen** | Haploid; genomes sampled from 1850 to 2020; 0.01 years (about 4 days) per generation, so about 17,000 generations, simulated with rescaling (Section 15.8); Ne 100,000; p₀ = 0.05, s = 0.0002. |
