@@ -32,7 +32,7 @@ A standard test ignores drift and sets the threshold too low, so it often finds 
 
 ## Documentation
 
-The [SPOT manual](SPOT_manual.md) explains step by step, with worked examples, how the simulations work and how each setting moves the power. It also lists every setting and output of the application (Section 15), and explains how to run the simulations from a script (Section 16).
+The [SPOT manual](SPOT_manual.md) explains how to use the application and how to read its results: every setting, step-by-step uses, interpretation, and questions and answers.
 
 ## How to cite
 
@@ -57,5 +57,5 @@ Please open an [issue](https://github.com/yacinebenchehida/SPOT-simulator/issues
 | `index.html` | The application. |
 | `sim.js` | The simulation code used by the application. |
 | `SPOT_manual.md` | The SPOT manual. |
-| `manual_scripts/` | Scripts that reproduce the numbers of the SPOT manual. |
+| `miscellaneous/` | An explained guide to the simulations, written for teaching, with the scripts that reproduce its numbers. |
 | `validation/`, `worked_examples/`, `figures/`, `supplement_figures/` | Analyses and figures of the article. |
