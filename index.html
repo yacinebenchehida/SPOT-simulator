@@ -454,12 +454,12 @@ Genetic diversity lost:<sup>4,5</sup>     1 − H_G/H_0, with H_g = (1 − m)² 
   <div class="panel" id="cite">
     <h3>How to cite</h3>
     <p style="font-size:.92rem">Please cite the software and the version used:</p>
-    <p class="cite">Benchehida, Y. et al. (2026). SPOT: Selection Power Over Time, version <span class="spot-version"></span>. https://github.com/yacinebenchehida/SPOT-simulator</p>
+    <p class="cite">Ben Chehida, Y. et al. (2026). SPOT: Selection Power Over Time, version <span class="spot-version"></span>. https://github.com/yacinebenchehida/SPOT-simulator</p>
     <p class="hint">The version number is also written into saved settings files and the results CSV, so results can be traced to the version that produced them. Source code, documentation and validation: <a href="https://github.com/yacinebenchehida/SPOT-simulator">github.com/yacinebenchehida/SPOT-simulator</a>. Released under the MIT licence.</p>
   </div>
 </section>
 
-<footer>SPOT version <span class="spot-version"></span> · Runs entirely in the browser. Results are Monte Carlo estimates: with the default 1,000 selection simulations, power varies between runs by about 1.5–2 percentage points (one standard deviation); more simulations reduce this. · <a href="#cite">How to cite</a></footer>
+<footer>SPOT version <span class="spot-version"></span> · Runs entirely in the browser. Results are estimated from simulations: with the default 1,000 selection simulations, power varies between runs by about 1.5–2 percentage points (one standard deviation); for a final estimate, use 5,000. · <a href="#cite">How to cite</a></footer>
 </div>
 
 <script id="spot-core">
@@ -804,7 +804,7 @@ const SYS=()=>st.system;
 const MAXP=20, MAXG=1e7, MAXN=1000, MINGT=0.0001;
 const MAXNE=1e8;
 const DEFAULTS={system:'diploid',neByBlock:false,neBlocks:null,genTime:1,Nf:1000,Nm:1000,noDrift:false,p0:0.1,s:0.03,h:0.5,onset:1935,years:[1935,1955,1975,2025],n:[20,20,20,40],perfect:false,depthEarly:10,depthLast:15,err:0.005,errLast:0.005,minDP:3,alpha:0.05,m:1,sMale:1,decline:1,mig:0,pMig:-1,kSib:1,maleFrac:0,reps:1000,seed:1};
-const VERSION='0.9.1';
+const VERSION='0.9.2';
 document.querySelectorAll('.spot-version').forEach(e=>e.textContent=VERSION);
 /* example scenarios: illustrative starting points, not estimates for real species */
 const PRESETS={

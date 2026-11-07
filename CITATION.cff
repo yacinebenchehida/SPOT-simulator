@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 message: "If you use SPOT, please cite it as below."
 title: "SPOT: Selection Power Over Time"
-version: 0.9.1
-date-released: 2026-10-22
+version: 0.9.2
+date-released: 2026-11-07
 authors:
-  - family-names: Benchehida
+  - family-names: "Ben Chehida"
     given-names: Yacine
 repository-code: "https://github.com/yacinebenchehida/SPOT-simulator"
 url: "https://yacinebenchehida.github.io/SPOT-simulator/"
