@@ -4,7 +4,7 @@ SPOT estimates the **power to detect selection at a candidate locus** from allel
 
 Power is measured against a **drift-aware threshold**: the detection threshold is set from simulations without selection that include the drift, sampling and genotyping of the design, not from the standard normal distribution.
 
-![The SPOT interface](figures/Figure1.png)
+![Allele frequency trajectories under selection and drift](assets/spot_illustration.png)
 
 ## Use it
 
@@ -16,7 +16,7 @@ Power is measured against a **drift-aware threshold**: the detection threshold i
 1. Describe the design: inheritance system, years per generation, sampling years and number of individuals at each date, sequencing depth, number of candidate loci.
 2. Explore what is unknown (Ne, starting frequency p₀, selection coefficient s, dominance, year selection starts) with the **parameter power curve** and the **sample-size planner**, rather than guessing one value.
 3. Read the main tile: power of the trend test with the drift-aware threshold.
-4. For a final estimate, use 5,000 selection simulations.
+4. For a final estimate, we recommend 5,000 selection simulations.
 
 ## What power means
 
@@ -32,11 +32,11 @@ A standard test ignores drift and sets the threshold too low, so it often finds 
 
 ## Documentation
 
-The [SPOT manual](SIMULATION_GUIDE.md) explains step by step, with worked examples, how the simulations work and how each setting moves the power. It also lists every setting and output of the application (Section 15), and explains how to run the simulations from a script (Section 16).
+The [SPOT manual](SPOT_manual.md) explains step by step, with worked examples, how the simulations work and how each setting moves the power. It also lists every setting and output of the application (Section 15), and explains how to run the simulations from a script (Section 16).
 
 ## How to cite
 
-Please cite the version of SPOT used (shown at the bottom of the page and written into saved settings and results files):
+Please cite the version of SPOT you used. Its number is shown at the bottom of the application page.
 
 > Ben Chehida, Y. et al. (2026). SPOT: Selection Power Over Time, version 0.9.2. https://github.com/yacinebenchehida/SPOT-simulator
 
@@ -56,6 +56,6 @@ Please open an [issue](https://github.com/yacinebenchehida/SPOT-simulator/issues
 |---|---|
 | `index.html` | The application. |
 | `sim.js` | The simulation code used by the application. |
-| `SIMULATION_GUIDE.md` | The manual. |
-| `guide_scripts/` | Scripts that reproduce the numbers of the manual. |
+| `SPOT_manual.md` | The SPOT manual. |
+| `manual_scripts/` | Scripts that reproduce the numbers of the SPOT manual. |
 | `validation/`, `worked_examples/`, `figures/`, `supplement_figures/` | Analyses and figures of the article. |

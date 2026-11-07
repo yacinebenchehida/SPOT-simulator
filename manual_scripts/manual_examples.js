@@ -1,5 +1,5 @@
-// Reproduces the simulator-based numbers in SIMULATION_GUIDE.md.
-// Run from the repository root:  node guide_scripts/guide_examples.js
+// Reproduces the simulator-based numbers in SPOT_manual.md.
+// Run from the repository root:  node manual_scripts/manual_examples.js
 // Uses 2,000 replicates under selection and 4,000 neutral (seed 1); takes about a minute.
 
 const S=require('../sim.js');
