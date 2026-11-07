@@ -103,5 +103,4 @@ MIT; see [`LICENSE`](LICENSE).
 | `figures/`, `supplement_figures/` | Figures of the article and of the Supporting Information, with their scripts. |
 | `validation/` | Validation analyses: scripts and results files. |
 | `worked_examples/` | Case studies of the article: scripts and results files. |
-| `examples/` | Short R and Node.js scripts that reproduce the worked examples of the manual. |
 | `LICENSE`, `CITATION.cff` | Licence and citation information. |
