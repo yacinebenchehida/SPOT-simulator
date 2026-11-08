@@ -43,7 +43,7 @@ function simulateRep(P,s,R,keep){
   const inf=P.N===Infinity, mig=P.mig, pMig=P.pMig;
   let pf=P.p0, pm=P.p0, si=0;
   const x=new Array(K).fill(0), n=new Array(K).fill(0), traj=keep?[]:null, trajM=keep?[]:null;
-  let hetTrue=0, hetCalled=0, homTrue=0, homCalled=0, missing=0, sampled=0, hapTot=0, hapOk=0, fixLast=false;
+  let hetTrue=0, hetCalled=0, homTrue=0, homCalled=0, missing=0, sampled=0, hapTot=0, hapOk=0, fixLast=false, fixAt=[];
   const mf=P.maleFrac||0;
   const callOne=(gt,dep,last)=>{ // returns called genotype or -1 (missing); last: sampled at the last date (error rate P.errLast)
     sampled++;
@@ -86,6 +86,7 @@ function simulateRep(P,s,R,keep){
     while(si<K&&g===gens[si]){ // several sampling years can fall in the same generation
       const ni=P.n[si], last=si===K-1, dep=last?P.depthLast:P.depthEarly, k=P.kSib;
       if(last) fixLast=(pfs<=0||pfs>=1)&&(pms<=0||pms>=1); // allele lost or fixed in the population at the last date
+      fixAt[si]=pfs>=1&&pms>=1;                                  // favoured allele fixed in the population at this date
       if(hpl){
         for(let i=0;i<ni;i++){const c=callHap(R.u()<pfs?1:0,dep,last);if(c>=0){x[si]+=c;n[si]+=1}}
       }else if(k<=1&&!P.famPath){ // unrelated individuals (P.famPath: send k = 1 through the family branch, validation/sibling_path_check.js)
@@ -123,7 +124,7 @@ function simulateRep(P,s,R,keep){
     }
     if(mig>0){const pmg=pMig<0?P.p0:pMig; pf=(1-mig)*pf+mig*pmg; pm=(1-mig)*pm+mig*pmg;}
   }
-  return {x,n,traj,trajM,hetTrue,hetCalled,homTrue,homCalled,missing,sampled,hapTot,hapOk,fixLast};
+  return {x,n,traj,trajM,hetTrue,hetCalled,homTrue,homCalled,missing,sampled,hapTot,hapOk,fixLast,fixAt};
 }
 /* Cochran–Armitage trend Z on allele counts; idx = which points to use */
 function trendZ(x,n,t,idx){
@@ -213,12 +214,12 @@ function runPower(P0,opt={}){
   const ALL=t.map((_,i)=>i), TWO=[0,K-1];
   const keepK=opt.keep||0;
   const sel={trend:new Float64Array(reps),two:new Float64Array(reps)}, neu={trend:new Float64Array(nn),two:new Float64Array(nn)};
-  const trajS=[],trajN=[]; let het=0,hetOk=0,hom=0,homOk=0,miss=0,samp=0,hT=0,hO=0,nFix=0;
-  for(let r=0;r<reps;r++){const o=simulateRep(P,P.s,R,r<keepK);sel.trend[r]=trendZ(o.x,o.n,t,ALL);sel.two[r]=trendZ(o.x,o.n,t,TWO);if(o.traj)trajS.push(o.traj);het+=o.hetTrue;hetOk+=o.hetCalled;hom+=o.homTrue;homOk+=o.homCalled;miss+=o.missing;samp+=o.sampled;hT+=o.hapTot;hO+=o.hapOk}
+  const trajS=[],trajN=[]; let het=0,hetOk=0,hom=0,homOk=0,miss=0,samp=0,hT=0,hO=0,nFix=0; const selFix=new Array(K).fill(0);
+  for(let r=0;r<reps;r++){const o=simulateRep(P,P.s,R,r<keepK);sel.trend[r]=trendZ(o.x,o.n,t,ALL);sel.two[r]=trendZ(o.x,o.n,t,TWO);o.fixAt.forEach((f,i)=>{if(f)selFix[i]++});if(o.traj)trajS.push(o.traj);het+=o.hetTrue;hetOk+=o.hetCalled;hom+=o.homTrue;homOk+=o.homCalled;miss+=o.missing;samp+=o.sampled;hT+=o.hapTot;hO+=o.hapOk}
   for(let r=0;r<nn;r++){const o=simulateRep(P,0,R,r<keepK);neu.trend[r]=trendZ(o.x,o.n,t,ALL);neu.two[r]=trendZ(o.x,o.n,t,TWO);if(o.fixLast)nFix++;if(o.traj)trajN.push(o.traj)}
   const a=P.alpha/P.m, zc=qnorm(1-a);
   const res={alphaAdj:a,zNaive:zc,trajS,trajN,sel,neu,nNeutral:nn,lambda:sc.lambda,genReal:sc.G,genSim:sc.Gsim,rescaleOutside:sc.outside,
-    hetAcc:P.perfect?1:(het?hetOk/het:NaN), homAcc:P.perfect?1:(hom?homOk/hom:NaN), missRate:P.perfect?0:miss/samp, hapAcc:hT?hO/hT:NaN, neutralFixed:nFix/nn};
+    hetAcc:P.perfect?1:(het?hetOk/het:NaN), homAcc:P.perfect?1:(hom?homOk/hom:NaN), missRate:P.perfect?0:miss/samp, hapAcc:hT?hO/hT:NaN, neutralFixed:nFix/nn, selectedFixedAt:selFix.map(c=>c/reps)};
   for(const k of ['trend','two']){
     let crit, method, gamma=0, ties=0;
     if(a*nn>=10){({crit,gamma,ties}=empiricalThreshold(neu[k],a));method='empirical'}
