@@ -9,7 +9,7 @@ Power is measured against a **drift-aware threshold**: the detection threshold i
 ## Use it
 
 - **Online:** <https://yacinebenchehida.github.io/SPOT-simulator/>
-- **Offline:** the application is one self-contained file. Save the online page (File → Save page as), or open [`SPOT.html`](index.html) here and click "Download raw file". Then open the file in any browser. No installation is needed, and everything runs on your own computer.
+- **Offline:** the application is one self-contained file. Save the online page (File → Save page as), or open [`index.html`](index.html) here and click "Download raw file". Then open the file in any browser. No installation is needed, and everything runs on your own computer.
 
 ## Quick start
 
