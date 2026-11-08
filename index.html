@@ -1246,8 +1246,8 @@ setTimeout(()=>{$('sweep-run').click();setTimeout(()=>{$('sex-run').click();ranO
     for(const sgn of [-1,1]) wing(c,5,2,sgn,Math.PI-0.42-0.25*flap,15,4);
     c.restore();
   }
-  function hoverfly(c,x,y,s,flap){ // generic hoverfly, seen from above, heading left
-    c.save(); c.translate(x,y); c.scale(-s,s);
+  function hoverfly(c,x,y,s,flap){ // generic hoverfly, seen from above, heading right (forward in time)
+    c.save(); c.translate(x,y); c.scale(s,s);
     // flat banded abdomen
     c.save(); c.beginPath(); c.ellipse(-5,0,9,4.8,0,0,Math.PI*2); c.clip();
     const bands=['#E58A1F','#1d1d1d','#E58A1F','#1d1d1d','#E58A1F','#1d1d1d','#E58A1F']; const wd=[3,1.4,3,1.4,3,1.4,6]; let xx=-14; bands.forEach((col,i)=>{c.fillStyle=col; c.fillRect(xx,-6,wd[i]+.2,12); xx+=wd[i];}); c.restore();
@@ -1290,7 +1290,7 @@ setTimeout(()=>{$('sweep-run').click();setTimeout(()=>{$('sex-run').click();ranO
     c.setLineDash([2,5]); c.strokeStyle=css('--muted'); c.globalAlpha=.6; c.lineWidth=1.2; c.beginPath();
     c.moveTo(bx-95,by+40); c.bezierCurveTo(bx-75,by-18,bx-42,by+24,bx-20,by); c.stroke(); c.setLineDash([]); c.globalAlpha=1;
     bee(c,bx,by,Math.max(1,Math.min(1.7,W/360)),flap);
-    const gH=Math.round(G*0.38), hx=X(gH/G), hy=Y(neutral[3][gH])-30-(reduce?0:Math.sin(t*1.7+1)*3);
+    const gH=Math.round(G*0.13), hx=X(gH/G), hy=Y(sel[gH])-34-(reduce?0:Math.sin(t*1.7+1)*3);
     hoverfly(c,hx,hy,Math.max(.95,Math.min(1.45,W/400)),flap2);
     if(!reduce) raf=requestAnimationFrame(frame);
   }
