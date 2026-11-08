@@ -4,7 +4,7 @@ SPOT estimates the **power to detect selection at a candidate locus** from allel
 
 Power is measured against a **drift-aware threshold**: the detection threshold is set from simulations without selection that include the drift, sampling and genotyping of the design, not from the standard normal distribution.
 
-![Allele frequency trajectories under selection and drift](assets/spot_illustration.png)
+<img src="assets/spot_illustration.gif" width="100%" alt="Allele frequency trajectories under selection and drift, above a DNA helix used as the time axis">
 
 ## Use it
 
