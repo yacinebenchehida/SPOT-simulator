@@ -946,7 +946,7 @@ function render(r,ms,snap){
   notBusy();
   lastRes=r; lastSt=snap||JSON.parse(JSON.stringify(st)); $('res-csv').disabled=false;
   const aP=pctS(r.alphaAdj);
-  $('t-pe').textContent=pct(r.trend.powerEmp);
+  $('t-pe').textContent=r.trend.powerEmp>=1?'100%':pct(r.trend.powerEmp); // '100.0%' does not fit in the ring
   $('t-pe-fp').textContent=r.trend.method==='empirical'?`Threshold from the ${r.nNeutral.toLocaleString()} neutral simulations: z = ${r.trend.crit.toFixed(3)}.`:`Threshold extrapolated by a normal fit: unreliable (see note below).`;
   $('t-p2').textContent=pct(r.two.powerEmp);
   $('t-p2-fp').textContent=r.two.method==='empirical'?`Threshold from the ${r.nNeutral.toLocaleString()} neutral simulations: z = ${r.two.crit.toFixed(3)}.`:'Threshold extrapolated by a normal fit: unreliable.';
