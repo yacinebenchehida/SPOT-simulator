@@ -107,7 +107,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 /* readouts */
 .out{display:grid;gap:18px;min-width:0}
 .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-/* shown only when a calculation takes more than about half a second */
+/* shown only when a calculation takes more than about 0.8 s */
 .out{position:relative}.out.busy>*:not(.busy-badge){opacity:.45;transition:opacity .2s}
 .busy-badge{position:sticky;top:10px;z-index:5;display:flex;align-items:center;gap:10px;width:max-content;max-width:100%;margin:0 auto 10px;padding:8px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);font-size:.9rem}
 .busy-badge[hidden]{display:none}.busy-badge i{width:14px;height:14px;border-radius:50%;border:2px solid var(--accent);border-right-color:transparent;animation:spin .8s linear infinite}
@@ -937,7 +937,7 @@ function run(){ // computed in a background worker, so the page stays responsive
   $('status').textContent=`Running: ${st.reps.toLocaleString()} selection simulations + ${nn.toLocaleString()} neutral…`;
   clearTimeout(busyT); busyT=setTimeout(()=>{ // long calculation: say so, and dim the results that are about to change
     $('busy-txt').textContent=`Running ${st.reps.toLocaleString()} selection simulations and ${nn.toLocaleString()} neutral simulations…`;
-    $('busy').hidden=false; document.querySelector('.out').classList.add('busy');},500);
+    $('busy').hidden=false; document.querySelector('.out').classList.add('busy');},800);
   runMany('main',[snap],(i,r)=>render(r,Math.round(performance.now()-t0),snap),{full:true});
 }
 let busyT=0;
