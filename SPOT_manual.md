@@ -265,6 +265,9 @@ Individuals with fewer reads than the minimum depth are left out, so fewer indiv
 **Why does the false-positive rate of the sampling-only threshold not rise at small Ne when the allele is rare?**
 With a rare starting allele (for example p₀ = 0.01), drift often loses it entirely; the score Z is then 0 and cannot exceed the threshold.
 
+**Why can adding a very late sampling date lower power when drift is strong?**
+When the period covered is long compared with Ne, drift alone can fix or lose many neutral alleles, and some neutral simulations then reach the same frequencies as the selected allele. For example, in a haploid population of 5,200 with p₀ = 0.14 and s = 0.01, the selected allele is fixed within a few hundred generations. With sampling dates in years 0, 1955 and 1975 (one generation per year), power is 100%. Adding a date in year 10,000 lowers it to 0% for the trend test and to about 50% for the first-versus-last test: over 10,000 generations, about 8% of neutral alleles also go from 14% to fixation, and the trend test gives most weight to that distant date. With a population of 50,000 or more, the same late date no longer lowers power. As a rule, dates long after selection has ended add no information on selection, and they can reduce power when the number of generations they add approaches Ne.
+
 **How many simulations should I use?**
 The default 1,000 selection simulations are enough to explore designs. For a final estimate, we recommend 5,000.
 
