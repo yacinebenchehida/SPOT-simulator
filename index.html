@@ -780,7 +780,8 @@ const runMany=(function(){
     return new Promise(resolve=>{
       let done=0;
       if(!list.length){resolve();return}
-      list.forEach((p,i)=>queue.push({id:nextId++,ch,g,p,full:!!(opt&&opt.full),cb:r=>{ if(gen[ch]!==g) return; onResult(i,r); if(++done===list.length) resolve(); }}));
+      const jobs=list.map((p,i)=>({id:nextId++,ch,g,p,full:!!(opt&&opt.full),cb:r=>{ if(gen[ch]!==g) return; onResult(i,r); if(++done===list.length) resolve(); }}));
+      if(ch==='main') queue.unshift(...jobs); else queue.push(...jobs); // the main result first
       pump();
     });
   }
@@ -910,7 +911,9 @@ function readUI(){
 let tmr=null;
 let ranOnce=false;
 function schedule(){clearTimeout(tmr);$('status').textContent='Running…';$('res-csv').disabled=true;tmr=setTimeout(run,180);if(ranOnce){$('sweep-status').textContent='Parameters changed: the chart below shows the previous settings. Press Draw curve to update it.';$('sexs-status').textContent='Parameters changed: the chart shows the previous settings. Press Compare sampling designs to update it.';$('ch-sweep').style.opacity='.35';$('ch-sexs').style.opacity='.35';}}
-document.querySelector('.params').addEventListener('input',e=>{if(e.target.matches('input,select')&&e.target.type!=='file'){readUI();schedule()}});
+const typed=t=>t.matches('input')&&(t.type==='number'||t.type==='text'); // boxes where a value is typed
+document.querySelector('.params').addEventListener('input',e=>{const t=e.target; if(t.matches('input,select')&&t.type!=='file'&&!typed(t)){readUI();schedule()}}); // sliders, menus, tick boxes: at once
+document.querySelector('.params').addEventListener('change',e=>{if(typed(e.target)){readUI();schedule()}}); // typed values: on Enter or when leaving the box
 $('tp-list').addEventListener('click',e=>{const b=e.target.closest('[data-del]'); if(!b||st.years.length<=2) return; const i=+b.dataset.del, K0=st.years.length; ensureBlocks(); st.neBlocks.splice(i===0?0:(i===K0-1?K0-2:i),1); st.years.splice(i,1); st.n.splice(i,1); fixEnds(); writeUI(); schedule();});
 $('tp-add').onclick=()=>{ if(st.years.length>=MAXP) return; const K=st.years.length, gap=Math.max(1,st.years[K-1]-st.years[K-2]); const y=st.years[K-1]+gap;
   if((y-st.years[0])/st.genTime>MAXG){$('y-hint').textContent=`Adding a point at ${y} would exceed ${MAXG.toLocaleString()} generations. Edit the years first.`;return}
@@ -922,14 +925,10 @@ document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{st=JSON.par
 $('st-trend').onclick=()=>{stat='trend';$('st-trend').setAttribute('aria-pressed',true);$('st-two').setAttribute('aria-pressed',false);if(lastRes)drawDist(lastRes)};
 $('st-two').onclick=()=>{stat='two';$('st-two').setAttribute('aria-pressed',true);$('st-trend').setAttribute('aria-pressed',false);if(lastRes)drawDist(lastRes)};
 
-function run(){
+function run(){ // computed in a background worker, so the page stays responsive; a newer change cancels this run
   const t0=performance.now(), nn=neutralReps(st); $('res-csv').disabled=true; const snap=JSON.parse(JSON.stringify(st));
-  if(nn>20000){ // long run (many loci tested): compute in a background worker so the page stays responsive
-    $('status').textContent=`Running: ${st.reps.toLocaleString()} selection simulations + ${nn.toLocaleString()} neutral…`;
-    runMany('main',[snap],(i,r)=>render(r,Math.round(performance.now()-t0),snap),{full:true}); return;
-  }
-  runMany('main',[],()=>{}); // cancels a background run still in progress, so its result cannot overwrite this one
-  render(runPower(st,{keep:40}),Math.round(performance.now()-t0),snap);
+  $('status').textContent=`Running: ${st.reps.toLocaleString()} selection simulations + ${nn.toLocaleString()} neutral…`;
+  runMany('main',[snap],(i,r)=>render(r,Math.round(performance.now()-t0),snap),{full:true});
 }
 function render(r,ms,snap){
   lastRes=r; lastSt=snap||JSON.parse(JSON.stringify(st)); $('res-csv').disabled=false;

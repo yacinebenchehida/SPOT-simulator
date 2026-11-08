@@ -60,7 +60,7 @@ SPOT runs in a web browser and needs no installation.
 - **Online:** open <https://yacinebenchehida.github.io/SPOT-simulator/>.
 - **Offline:** the application is a single file. Save the online page (File → Save page as), or download [`index.html`](index.html) from this repository ("Download raw file"), and open it in any browser. Everything runs on your own computer, and nothing is sent anywhere.
 
-The page has three parts: the **settings** on the left, the **results** on the right (tiles and charts, updated after each change), and, at the bottom, how power is computed, the effect of each setting on power, the model details and references.
+The page has three parts: the **settings** on the left, the **results** on the right (tiles and charts, updated after each change; a value typed in a box is applied when you press Enter or leave the box), and, at the bottom, how power is computed, the effect of each setting on power, the model details and references.
 
 The page opens with a diploid example: four sampling dates (1935, 1955, 1975 and 2025, with 20, 20, 20 and 40 individuals), one generation per year, Ne = 2,000, p₀ = 0.1 and s = 0.03. The "Example scenarios" buttons load other designs (Section 3.6).
 
