@@ -1101,8 +1101,8 @@ function drawSweep(def,pts){
     +`<text x="${(L+W-R)/2}" y="${yb+32}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${def.label}</text>`;
   const cur=def.cur(st), hasCur=cur>=vals[0]&&cur<=vals[vals.length-1];
   const curLine=(y1,y2,lab)=>hasCur?`<line x1="${X(cur)}" x2="${X(cur)}" y1="${y1}" y2="${y2}" stroke="var(--heather)" stroke-width="1.5"/>`+(lab?`<text x="${X(cur)+4}" y="${y1+10}" font-size="10" fill="var(--heather)">current</text>`:''):'';
-  const line=(k,c,gk,dash,yf,unit)=>{const d=pts.map((p,i)=>(i?'L':'M')+X(p.v).toFixed(1)+' '+yf(p[k]).toFixed(1)).join('');
-    return `<path d="${d}" fill="none" stroke="${c}" stroke-width="2.2"${dash?' stroke-dasharray="6 4"':''}/>`+(dash?'':pts.map(p=>`<circle cx="${X(p.v)}" cy="${yf(p[k])}" r="4" fill="${gk&&p[gk]?'var(--surface)':c}" stroke="${c}" stroke-width="2"><title>${p.v}: ${(p[k]*100).toFixed(1)}%</title></circle>`).join(''))};
+  const line=(k,c,gk,dash,yf,unit,rad=4,lw=2.2)=>{const d=pts.map((p,i)=>(i?'L':'M')+X(p.v).toFixed(1)+' '+yf(p[k]).toFixed(1)).join('');
+    return `<path d="${d}" fill="none" stroke="${c}" stroke-width="${lw}"${dash?' stroke-dasharray="6 4"':''}/>`+(dash?'':pts.map(p=>`<circle cx="${X(p.v)}" cy="${yf(p[k])}" r="${rad}" fill="${gk&&p[gk]?'var(--surface)':c}" stroke="${c}" stroke-width="2"><title>${p.v}: ${(p[k]*100).toFixed(1)}%</title></circle>`).join(''))};
   const key=(x,y,c,dash,dot,txt)=>`<line x1="${x}" x2="${x+22}" y1="${y}" y2="${y}" stroke="${c}" stroke-width="2.2"${dash?' stroke-dasharray="5 3"':''}/>`+(dot?`<circle cx="${x+11}" cy="${y}" r="3.5" fill="${c}"/>`:'')+`<text x="${x+28}" y="${y+4}" font-size="10.5" fill="var(--ink)">${txt}</text>`;
   let s='';
   // ---- top: power ----
@@ -1111,7 +1111,11 @@ function drawSweep(def,pts){
   s+=`<line x1="${L}" x2="${W-R}" y1="${Y(.8)}" y2="${Y(.8)}" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
   s+=`<text transform="translate(14 ${(T+B)/2}) rotate(-90)" text-anchor="middle" font-size="10.5" fill="var(--muted)">power</text>`;
   s+=curLine(T,B,true)+ticks(B);
-  s+=line('pn','var(--warn)',null,true,Y)+line('tw','var(--modern)','gauss2',false,Y)+line('te','var(--accent)','gauss',false,Y);
+  s+=line('te','var(--accent)','gauss',false,Y)+line('tw','var(--modern)','gauss2',false,Y,null,2.6,1.6)+line('pn','var(--warn)',null,true,Y); // smaller and later on top, so curves that coincide stay visible
+  { const same=(a,b)=>pts.length&&pts.every(p=>Math.abs(p[a]-p[b])<0.005), names=[];   // say so when curves coincide
+    if(same('te','tw')&&same('te','pn')) names.push('the three power curves coincide');
+    else { if(same('te','tw')) names.push('the two drift-aware curves coincide'); if(same('te','pn')) names.push('the trend-test curves with both thresholds coincide'); }
+    if(names.length) s+=`<text x="${L}" y="${B+52+3*LG+18}" font-size="10.5" fill="var(--muted)">Note: ${names.join('; ')} at every value.</text>`; }
   s+=key(L,B+52,'var(--accent)',false,true,'trend test, drift-aware threshold')+key(L,B+52+LG,'var(--modern)',false,true,'first-versus-last test, drift-aware threshold')
     +key(L,B+52+2*LG,'var(--warn)',true,false,'trend test, sampling-only threshold')+key(L,B+52+3*LG,'var(--muted)',true,false,'80% power');
   // ---- bottom: false-positive rate of the sampling-only threshold ----
