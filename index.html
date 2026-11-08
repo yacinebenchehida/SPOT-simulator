@@ -107,6 +107,11 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 /* readouts */
 .out{display:grid;gap:18px;min-width:0}
 .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+/* shown only when a calculation takes more than about half a second */
+.out{position:relative}.out.busy>*:not(.busy-badge){opacity:.45;transition:opacity .2s}
+.busy-badge{position:sticky;top:10px;z-index:5;display:flex;align-items:center;gap:10px;width:max-content;max-width:100%;margin:0 auto 10px;padding:8px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);font-size:.9rem}
+.busy-badge[hidden]{display:none}.busy-badge i{width:14px;height:14px;border-radius:50%;border:2px solid var(--accent);border-right-color:transparent;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){.busy-badge i{animation:none}}
 @media (max-width:640px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tiles .tile:last-child{grid-column:span 2}}
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:4px;align-content:start;min-width:0}
 .tile b{font-family:var(--f-display);font-weight:600;font-size:1.75rem;line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
@@ -268,6 +273,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
 </aside>
 
 <div class="out">
+  <div class="busy-badge" id="busy" role="status" hidden><i aria-hidden="true"></i><span id="busy-txt">Running…</span></div>
   <div class="tiles" aria-live="polite">
     <div class="tile key"><div class="ring" id="ring"><b id="t-pe">–</b></div><span class="lab"><strong>Power</strong> · trend test across all sampling points, drift-aware threshold<span id="t-pe-fp" style="display:block;font-size:.78rem;color:var(--muted);margin-top:4px"></span><span id="t-nodrift" style="display:block;font-size:.78rem;color:var(--muted);margin-top:4px" hidden></span><span id="t-fixed" style="display:block;font-size:.78rem;color:var(--warn);margin-top:4px" hidden></span><span id="t-selfix" style="display:block;font-size:.78rem;color:var(--warn);margin-top:4px" hidden></span></span><div class="fvl"><b id="t-p2">–</b><span><span class="fvl-t">Power · first-versus-last test, drift-aware threshold</span><span id="t-p2-fp" class="fvl-s"></span></span></div></div>
     <div class="tile" id="tile-fpr"><b id="t-pn">–</b><span class="lab">Power · trend test, sampling-only threshold<span id="t-pn-fp" style="display:block;margin-top:2px"></span></span></div>
@@ -929,9 +935,15 @@ $('st-two').onclick=()=>{stat='two';$('st-two').setAttribute('aria-pressed',true
 function run(){ // computed in a background worker, so the page stays responsive; a newer change cancels this run
   const t0=performance.now(), nn=neutralReps(st); $('res-csv').disabled=true; const snap=JSON.parse(JSON.stringify(st));
   $('status').textContent=`Running: ${st.reps.toLocaleString()} selection simulations + ${nn.toLocaleString()} neutral…`;
+  clearTimeout(busyT); busyT=setTimeout(()=>{ // long calculation: say so, and dim the results that are about to change
+    $('busy-txt').textContent=`Running ${st.reps.toLocaleString()} selection simulations and ${nn.toLocaleString()} neutral simulations…`;
+    $('busy').hidden=false; document.querySelector('.out').classList.add('busy');},500);
   runMany('main',[snap],(i,r)=>render(r,Math.round(performance.now()-t0),snap),{full:true});
 }
+let busyT=0;
+function notBusy(){clearTimeout(busyT); $('busy').hidden=true; document.querySelector('.out').classList.remove('busy');}
 function render(r,ms,snap){
+  notBusy();
   lastRes=r; lastSt=snap||JSON.parse(JSON.stringify(st)); $('res-csv').disabled=false;
   const aP=pctS(r.alphaAdj);
   $('t-pe').textContent=pct(r.trend.powerEmp);
