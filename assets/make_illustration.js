@@ -2,7 +2,7 @@
 // Run from the root of the repository: node assets/make_illustration.js   (needs Playwright and ffmpeg)
 // The drawing code is taken from index.html; only the motion speeds are rounded so that the animation loops without a jump.
 const {chromium}=require('playwright'), fs=require('fs'), path=require('path'), {execSync}=require('child_process');
-const W=900, H=300, DPR=2, FPS=20, SECONDS=6;                 // size in CSS pixels, pixel density, frames per second, loop length
+const W=900, H=420, DPR=2, FPS=20, SECONDS=6;                 // size in CSS pixels, pixel density, frames per second, loop length
 const OUT=path.resolve('assets'), TMP=fs.mkdtempSync('/tmp/spot_gif_');
 const html=fs.readFileSync('index.html','utf8');
 let code=html.slice(html.indexOf("const cv=document.getElementById('trace')"), html.indexOf("start(); let tm"));
