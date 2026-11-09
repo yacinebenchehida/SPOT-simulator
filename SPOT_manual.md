@@ -254,19 +254,20 @@ The tile "Genetic diversity expected to be lost between the first and the last p
 Explore a range of values with the parameter power curve. If the loss of genetic diversity between the first and last dates has been measured, it gives a plausible Ne (Section 4.5).
 
 **Which selection coefficient should I use?**
-s is the fitness advantage per generation. Values of 0.01–0.05 are common for natural selection; strong selection, such as insecticide resistance, can be ten times higher. For organisms with very short generations, values per generation are much smaller (0.0001–0.001). Exploring a range with the planner is usually more informative than a single guess.
+In diploids, s is the fitness advantage per generation of the favoured homozygote relative to the other homozygote. If you have no estimate for your study system, start with s = 0.001, 0.005, 0.01, 0.02 and 0.05. Try higher values if strong selection is plausible, for example at an insecticide-resistance locus.
+If selection could favour the same allele for hundreds or thousands of generations, try smaller values too. For example, with s = 0.001, the frequency of the favoured allele can rise much more over 1,000 generations than over 100. Use the planner to see which values of s your sampling design is likely to detect.
 
 **Why does power collapse when there are very many generations between the dates?**
 Over many generations, drift loses or fixes most neutral alleles, and selected alleles can be fixed before the first date or between dates; the frequencies then no longer change between samples. SPOT shows a note when this happens in most neutral simulations.
 
 **Why is the false-positive rate of the sampling-only threshold lower at low depth?**
-Individuals with fewer reads than the minimum depth are left out, so fewer individuals enter the test. Sampling then dominates the chance changes in frequency, and the standard threshold, which accounts for sampling only, is closer to correct.
+Individuals with fewer reads than the minimum depth are left out, so fewer individuals enter the test. Sampling then dominates the chance changes in frequency, and the sampling-only threshold, which does not account for drift, is closer to correct.
 
 **Why does the false-positive rate of the sampling-only threshold not rise at small Ne when the allele is rare?**
 With a rare starting allele (for example p₀ = 0.01), drift often loses it entirely; the score Z is then 0 and cannot exceed the threshold.
 
 **Why can adding a very late sampling date lower power when drift is strong?**
-When the period covered is long compared with Ne, drift alone can fix or lose many neutral alleles, and some neutral simulations then reach the same frequencies as the selected allele. For example, in a haploid population of 5,200 with p₀ = 0.14 and s = 0.01, the selected allele is fixed within a few hundred generations. With sampling dates in years 0, 1955 and 1975 (one generation per year), power is 100%. Adding a date in year 10,000 lowers it to 0% for the trend test and to about 50% for the first-versus-last test: over 10,000 generations, about 8% of neutral alleles also go from 14% to fixation, and the trend test gives most weight to that distant date. With a population of 50,000 or more, the same late date no longer lowers power. As a rule, dates long after selection has ended add no information on selection, and they can reduce power when the number of generations they add approaches Ne.
+When the period covered is long compared with Ne, drift alone can fix or lose many neutral alleles, and some neutral simulations then reach the same frequencies as the selected allele. For example, in an Ne of 5,000 with p₀ = 0.14 and s = 0.01, the selected allele is fixed within a few hundred generations. With sampling dates in years 0, 1955 and 1975 (one generation per year), power is 100%. Adding a date in year 10,000 lowers it to 0% for the trend test and to about 50% for the first-versus-last test: over 10,000 generations, about 8% of neutral alleles also go from 14% to fixation, and the trend test gives most weight to that distant date. With a population of 50,000 or more, the same late date no longer lowers power. As a rule, dates long after selection has ended add no information on selection, and they can reduce power when the number of generations they add approaches Ne.
 
 **How many simulations should I use?**
 The default 1,000 selection simulations are enough to explore designs. For a final estimate, we recommend 5,000.
@@ -284,7 +285,7 @@ migration          m'   = 1 − (1 − m)^λ
 sampling times     t'   = t / λ
 ```
 
-This keeps Ne·s and the total drift over the period unchanged; sampling, genotype calling and the test are not affected. λ is chosen so that about 2,000 generations are simulated, but it is capped so that the rescaled selection stays at or below 0.025 and the rescaled breeding numbers at or above 200. These limits come from comparisons with simulations of every generation (Supporting Information S6 of the article). The status line says when rescaling is used. If the caps would require simulating more than 10,000 generations, λ is raised anyway to keep the page fast, and a note marks the result as approximate.
+This keeps Ne·s and the total drift over the period unchanged; sampling, genotype calling and the test are not affected. λ is chosen so that about 2,000 generations are simulated, but it is capped so that the rescaled selection stays at or below 0.025 and the rescaled breeding numbers at or above 200. These limits come from comparisons with simulations of every generation (Supporting Information S6 in Ben Chehida *et al.* 2026, In preparation). The status line says when rescaling is used. If the caps would require simulating more than 10,000 generations, λ is raised anyway to keep the page fast, and a note marks the result as approximate.
 
 **Can SPOT analyse my data?**
 No. SPOT is for planning: it estimates power for a design before the data exist. To test real data in the same spirit, the counterpart of the neutral simulations is an empirical null distribution: the score Z computed for genome-wide SNPs with a similar starting frequency, in the same samples.
