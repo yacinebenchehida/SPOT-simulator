@@ -244,7 +244,7 @@ The tile "Genetic diversity expected to be lost between the first and the last p
 - *Drift switched off:* power then reflects sampling only, and the drift-aware threshold is close to the threshold of a standard test.
 - *Allele lost or fixed by drift:* shown when drift has lost or fixed the allele by the last date in more than half of the neutral simulations; little variation is then left to test.
 - *Hollow markers in the parameter power curve:* too few neutral simulations for the chosen α′, so the threshold was taken from a normal distribution fitted to the neutral values; these points can be far off.
-- *Rescaling:* very long series are simulated with rescaling (Section 6); results outside the tested limits are flagged as approximate.
+- *Rescaling:* very long series are simulated with rescaling; results outside the tested limits are flagged as approximate.
 
 ---
 
