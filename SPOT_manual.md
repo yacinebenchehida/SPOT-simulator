@@ -1,6 +1,6 @@
 # SPOT manual
 
-SPOT (Selection Power Over Time) estimates the power to detect selection at a candidate locus from allele frequencies sampled at two or more dates. This manual explains how to use the application and how to read its results. An [explained guide with worked examples](miscellaneous/simulations_explained.md), written for teaching, describes the simulations step by step.
+SPOT (Selection Power Over Time) estimates the power to detect selection at a candidate locus from allele frequencies sampled at two or more dates. This manual explains how to use the application and how to read its results. An [explained guide with worked examples](miscellaneous/simulations_explained.md), describes the simulations step by step.
 
 ## Contents
 
