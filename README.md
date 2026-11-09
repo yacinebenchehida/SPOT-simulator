@@ -2,7 +2,7 @@
 
 SPOT estimates the **power to detect selection at a candidate locus** from allele frequencies sampled at two or more dates: museum specimens and a modern sample, an ancient DNA series, or any time series of population samples. It simulates the population forward in time with selection, genetic drift and, optionally, migration and changes in population size, for haploid, diploid or haplodiploid inheritance. It then samples individuals and passes them through low-coverage sequencing and genotype calling, as in a real study.
 
-Power is measured against a **drift-aware threshold**: the detection threshold is set from simulations without selection that include the drift, sampling and genotyping of the design, not from the standard normal distribution.
+Power is measured against a **drift-aware threshold**: the detection threshold is set from simulations without selection that include the drift, sampling and genotyping of the design, not from a conventional standard normal distribution.
 
 <img src="assets/spot_illustration.gif" width="100%" alt="Allele frequency trajectories under selection and drift, above a DNA helix used as the time axis">
 
