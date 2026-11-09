@@ -37,7 +37,7 @@ For each run, SPOT:
 5. repeats steps 1–4 many times with selection (selection simulations) and without selection (neutral simulations);
 6. sets the detection threshold so that only a proportion α′ of the neutral simulations exceed it (the drift-aware threshold), and reports power as the proportion of selection simulations above this threshold.
 
-The equations are given, with their references, in "Model details" at the bottom of the application, and in full in the Supporting Information of the article.
+The equations are given, with their references, in "Model details" at the bottom of the application, and in full in the Supporting Information of Ben Chehida *et al.* (In preparation).
 
 ### 1.4 Assumptions and limitations
 
