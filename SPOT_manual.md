@@ -49,7 +49,7 @@ The equations are given, with their references, in "Model details" at the bottom
 - Families have one mother and one father, so there is no multiple paternity within a family.
 - Genotype calling uses a simple per-read error model with a flat prior, with one error rate for the earlier points and one for the last point. Reference bias, mapping quality and damage patterns that depend on the age of each sample are not modelled.
 - Periods longer than 2,000 generations are simulated with rescaling: accurate within the tested limits, approximate beyond them (flagged on the page).
-- Power is computed for one locus at a time. Testing several candidate loci is handled with the Bonferroni correction (L); genome-wide scans need dedicated methods.
+- Power is computed for one locus at a time. Testing several candidate loci is handled with the Bonferroni correction (L); genome-wide scans need dedicated methods beyond the scope of SPOT.
 
 ---
 
