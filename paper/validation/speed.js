@@ -1,16 +1,59 @@
-// Speed of one complete calculation (simulations, thresholds and power of both tests), as in Supporting Information S5:
-// the five example scenarios of the page and the reference case, with the default numbers of simulations
-// (1,000 selection, 2,000 neutral) and one locus, and the reference case with 1,000 candidate loci (200,000 neutral).
-// Each calculation is timed 5 times (seeds 1-5) after one warm-up run; one processor core (Node.js runs single-threaded);
-// run with no other calculation running on the computer.
-// Run from the repository root: node paper/validation/speed.js > paper/validation/speed.tsv
-const os = require('os');
-const S = require('../../sim.js');
-const {REF} = require('./base.js');
-const D = {system: 'haplodiploid', neByBlock: false, neBlocks: null, genTime: 1, Nf: 1000, Nm: 1000, noDrift: false,
-  p0: 0.01, s: 0.05, h: 0.5, onset: 1935, years: [1935, 1955, 1975, 2025], n: [20, 20, 20, 40], perfect: false,
-  depthEarly: 10, depthLast: 15, err: 0.005, minDP: 3, alpha: 0.05, m: 1, sMale: 1, decline: 1, mig: 0, pMig: -1,
-  kSib: 1, maleFrac: 0, reps: 1000, seed: 1};
+//////////////////////////////////////////////////////////////////////////////////////
+// Speed of one complete calculation (Supporting Information S5)                    //
+//                                                                                  //
+// One complete calculation = the simulations, the thresholds and the power of both //
+// tests. It is timed for the five example scenarios of the application and for the //
+// reference case, with the default numbers of simulations (1,000 selection, 2,000  //
+// neutral) and one locus, and for the reference case with 1,000 candidate loci     //
+// (200,000 neutral simulations).                                                   //
+//                                                                                  //
+// Each calculation is timed 5 times (seeds 1 to 5) after one warm-up run, on one   //
+// processor core (Node.js runs on a single core). Run it with no other             //
+// calculation running on the computer.                                             //
+//                                                                                  //
+// Run from the repository root:                                                    //
+//   node paper/validation/speed.js > paper/validation/speed.tsv                    //
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////
+// Load the dependencies //
+///////////////////////////
+const os = require('os');                    // To read the name of the processor
+const S = require('../../sim.js');           // Simulation code of SPOT
+const {REF} = require('./base.js');          // Settings of the reference case
+
+
+//////////////////////////////////////////////////////////////////////
+// Settings the application opens with for the "Bumblebees" example //
+//////////////////////////////////////////////////////////////////////
+const D = {system: 'haplodiploid',           // Inheritance system
+  neByBlock: false, neBlocks: null,          // Ne is not set separately for each interval
+  genTime: 1,                                // Years per generation
+  Nf: 1000, Nm: 1000,                        // Breeding females and males per generation
+  noDrift: false,                            // Drift is simulated
+  p0: 0.01,                                  // Starting frequency of the favoured allele
+  s: 0.05,                                   // Selection coefficient
+  h: 0.5,                                    // Dominance
+  onset: 1935,                               // Year selection starts
+  years: [1935, 1955, 1975, 2025],           // Sampling years
+  n: [20, 20, 20, 40],                       // Individuals sampled at each date
+  perfect: false,                            // Genotypes are called from sequencing reads
+  depthEarly: 10, depthLast: 15,             // Mean sequencing depth (earlier dates, last date)
+  err: 0.005,                                // Error rate per read
+  minDP: 3,                                  // Minimum number of reads to call a genotype
+  alpha: 0.05,                               // Significance level
+  m: 1,                                      // One candidate locus
+  sMale: 1, decline: 1, mig: 0, pMig: -1,    // No sex difference in selection, constant Ne, no migration
+  kSib: 1, maleFrac: 0,                      // Unrelated individuals, females only
+  reps: 1000,                                // Selection simulations
+  seed: 1};                                  // Random seed
+
+
+/////////////////////////////////////////////////////////////////////////
+// The scenarios timed: [name, settings]                               //
+// Each example scenario = the settings above with some values changed //
+/////////////////////////////////////////////////////////////////////////
 // the example scenarios of the page (same values as in monte_carlo_precision.js)
 const SC = [
   ['Bumblebees', D],
@@ -21,12 +64,28 @@ const SC = [
   ['Reference case', REF],
   ['Reference case, 1,000 candidate loci', Object.assign({}, REF, {m: 1000})],
 ];
-const cpu = os.cpus()[0].model.trim(), node = process.version;
-console.log(['scenario', 'loci', 'selection_simulations', 'neutral_simulations', 'median_s', 'min_s', 'max_s', 'cpu', 'node'].join('\t'));
-for (const [lab, P] of SC) {
+
+
+///////////////////
+// Computer used //
+///////////////////
+const cpu = os.cpus()[0].model.trim(),       // Name of the processor
+  node = process.version;                    // Version of Node.js
+
+
+///////////////////////////////////////////////////////////////////
+// Time each scenario 5 times and report the median, minimum and //
+// maximum (in seconds)                                          //
+///////////////////////////////////////////////////////////////////
+console.log(['scenario', 'loci', 'selection_simulations', 'neutral_simulations', 'median_s', 'min_s', 'max_s', 'cpu', 'node'].join('\t'));   // Header
+for (const [lab, P] of SC) {                 // Loop over the scenarios
   S.runPower(Object.assign({}, P, {seed: 99}));            // warm-up
-  const t = [];
-  for (let k = 1; k <= 5; k++) { const a = process.hrtime.bigint(); S.runPower(Object.assign({}, P, {seed: k})); t.push(Number(process.hrtime.bigint() - a) / 1e9); }
-  t.sort((x, y) => x - y);
-  console.log([lab, P.m, P.reps, S.neutralReps(P), t[2].toFixed(3), t[0].toFixed(3), t[4].toFixed(3), cpu, node].join('\t'));
+  const t = [];                              // The five run times
+  for (let k = 1; k <= 5; k++) {
+    const a = process.hrtime.bigint();       // Time before the calculation (nanoseconds)
+    S.runPower(Object.assign({}, P, {seed: k}));   // One complete calculation
+    t.push(Number(process.hrtime.bigint() - a) / 1e9);   // Time used, in seconds
+  }
+  t.sort((x, y) => x - y);                   // Sort the five times: t[2] is the median
+  console.log([lab, P.m, P.reps, S.neutralReps(P), t[2].toFixed(3), t[0].toFixed(3), t[4].toFixed(3), cpu, node].join('\t'));   // One results line
 }

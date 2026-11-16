@@ -1,7 +1,56 @@
-// Reference case (museum insect), as in the manuscript (Table 3) — shared by the new analyses.
-const S = require('../../sim.js');
-const REF = {system:'haplodiploid', neByBlock:false, neBlocks:null, genTime:1, Nf:1000, Nm:1000, noDrift:false,
-  p0:0.1, s:0.02, h:0.5, onset:1935, years:[1935,1955,1975,2025], n:[20,20,20,40], perfect:false,
-  depthEarly:10, depthLast:15, err:0.005, minDP:3, alpha:0.05, m:1, sMale:1, decline:1, mig:0, pMig:-1,
-  kSib:1, maleFrac:0, reps:1000, seed:1};
-module.exports = {S, REF, with: o => Object.assign({}, REF, o)};
+////////////////////////////////////////////////////////////////////////////////////
+// Reference case of the article (museum insect case study, Table 3)              //
+//                                                                                //
+// This file is loaded by the other scripts. It gives them:                       //
+//   S    : the simulation code of SPOT (sim.js)                                  //
+//   REF  : the settings of the reference case                                    //
+//   with : a function that returns the reference case with some settings changed //
+////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////
+// Load the simulation code of SPOT //
+//////////////////////////////////////
+const S = require('../../sim.js');   // Same code as the one used by the application
+
+
+////////////////////////////////////
+// Settings of the reference case //
+////////////////////////////////////
+const REF = {system:'haplodiploid',  // Inheritance system
+  neByBlock:false,                   // Ne is not set separately for each interval
+  neBlocks:null,                     // (no Ne per interval)
+  genTime:1,                         // Years per generation
+  Nf:1000,                           // Breeding females per generation
+  Nm:1000,                           // Breeding males per generation (Ne = 1,500 for a haplodiploid)
+  noDrift:false,                     // Drift is simulated
+  p0:0.1,                            // Starting frequency of the favoured allele
+  s:0.02,                            // Selection coefficient
+  h:0.5,                             // Dominance
+  onset:1935,                        // Year selection starts
+  years:[1935,1955,1975,2025],       // Sampling years
+  n:[20,20,20,40],                   // Individuals sampled at each date
+  perfect:false,                     // Genotypes are called from sequencing reads (not perfect)
+  depthEarly:10,                     // Mean sequencing depth of the earlier dates
+  depthLast:15,                      // Mean sequencing depth of the last date
+  err:0.005,                         // Error rate per read
+  minDP:3,                           // Minimum number of reads to call a genotype
+  alpha:0.05,                        // Significance level
+  m:1,                               // Number of candidate loci tested
+  sMale:1,                           // Selection in males relative to females
+  decline:1,                         // Ne at the last date relative to the first (1 = constant)
+  mig:0,                             // Migration rate per generation
+  pMig:-1,                           // Allele frequency of the migrants (-1 = same as the starting frequency)
+  kSib:1,                            // Sampled individuals per family (1 = unrelated individuals)
+  maleFrac:0,                        // Proportion of males in the samples
+  reps:1000,                         // Number of selection simulations
+  seed:1};                           // Random seed
+
+
+////////////////////////////////////
+// What the other scripts receive //
+////////////////////////////////////
+module.exports = {S,                    // The simulation code
+  REF,                                  // The reference case
+  with: o => Object.assign({}, REF, o)  // The reference case with the settings in "o" changed
+};
