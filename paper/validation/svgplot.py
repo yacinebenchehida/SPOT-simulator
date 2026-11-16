@@ -5,7 +5,7 @@ import math
 COL = {'blue': '#2B59D9', 'green': '#0E9F6E', 'red': '#D9363E', 'amber': '#C27A12', 'purple': '#8B4FD6',
        'grey': '#9AA3B8', 'ink': '#0F1730', 'muted': '#5A6480', 'line': '#E1E5EF'}
 # text sizes of the axes; a figure script can change them before drawing (see fpr_figure.py)
-STYLE = {'tick': 11, 'lab': 12}
+STYLE = {'tick': 11, 'lab': 12, 'title': 13, 'title_centred': False}
 
 
 def esc(t):
@@ -49,7 +49,10 @@ class Ax:
         self.f, self.x, self.y, self.w, self.h = fig, x, y, w, h
         self.xlim, self.ylim, self.xlog, self.ylog = xlim, ylim, xlog, ylog
         if title:
-            fig.text(x, y - 10, esc(title), 13, weight='600')
+            if STYLE['title_centred']:
+                fig.text(x + w / 2, y - 10, esc(title), STYLE['title'], 'middle', weight='600')
+            else:
+                fig.text(x, y - 10, esc(title), STYLE['title'], weight='600')
         if label:
             fig.text(x - 52, y - 10, label, 15, weight='700')
 

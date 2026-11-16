@@ -97,13 +97,13 @@
 <text x="740.0" y="376.0" font-size="12" text-anchor="middle" fill="#0F1730">selection coefficient s (per generation)</text>
 <text x="526.0" y="195.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 526.0 195.0)">power</text>
 <path d="M570.0 108.0L910.0 108.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
-<path d="M595.5 319.7L676.5 304.6L737.8 261.1L799.2 133.5L880.2 51.7" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
-<use href="#m0" x="595.5" y="319.7"/>
-<use href="#m0" x="676.5" y="304.6"/>
-<use href="#m0" x="737.8" y="261.1"/>
-<use href="#m0" x="799.2" y="133.5"/>
-<use href="#m0" x="880.2" y="51.7"/>
-<path d="M595.5 308.7L676.5 284.9L737.8 239.1L799.2 124.8L880.2 51.7" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity="1"/>
+<path d="M595.5 316.3L676.5 298.6L737.8 247.9L799.2 128.7L880.2 51.3" fill="none" stroke="#2B59D9" stroke-width="1.8" stroke-opacity="1"/>
+<use href="#m0" x="595.5" y="316.3"/>
+<use href="#m0" x="676.5" y="298.6"/>
+<use href="#m0" x="737.8" y="247.9"/>
+<use href="#m0" x="799.2" y="128.7"/>
+<use href="#m0" x="880.2" y="51.3"/>
+<path d="M595.5 307.1L676.5 285.0L737.8 232.1L799.2 121.6L880.2 51.3" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity="1"/>
 <line x1="580" x2="600" y1="64" y2="64" stroke="#2B59D9" stroke-width="2"/>
 <use href="#m3" x="590.0" y="64.0"/>
 <text x="607.0" y="68.0" font-size="11" text-anchor="start" fill="#0F1730">drift-aware threshold</text>
@@ -111,5 +111,5 @@
 <text x="607.0" y="85.0" font-size="11" text-anchor="start" fill="#0F1730">sampling-only threshold</text>
 <text x="75.0" y="392.0" font-size="11" text-anchor="start" fill="#5A6480">a: diploid, generation time 20 years, samples 1880/1950/2020 (20/20/40), Ne 5,000 before 1950 and as shown after; p₀ = 0.1.</text>
 <text x="75.0" y="408.0" font-size="11" text-anchor="start" fill="#5A6480">b: haploid, 100 generations per year, N = 100,000, samples 1850/1900/1950/2000/2020; p₀ = 0.05.</text>
-<text x="75.0" y="424.0" font-size="11" text-anchor="start" fill="#5A6480">Example scenarios of the page; 1,000 (a) and 500 (b) replicates under selection per point.</text>
+<text x="75.0" y="424.0" font-size="11" text-anchor="start" fill="#5A6480">Example scenarios of the page; 1,000 (a) and 5,000 (b) replicates under selection per point.</text>
 </svg>
