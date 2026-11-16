@@ -60,7 +60,7 @@ if (part === 'D') {
 }
 if (part === 'E') {
   console.log(['s_per_generation', 's_per_year', ...H].join('\t'));
-  for (const s of [0.00002, 0.00005, 0.0001, 0.0002, 0.0005]) { console.log([s, (s * 100).toPrecision(2), ...run(PATHOGEN, {s, reps: 500})].join('\t')); log('E ' + s); }
+  for (const s of [0.00002, 0.00005, 0.0001, 0.0002, 0.0005]) { console.log([s, (s * 100).toPrecision(2), ...run(PATHOGEN, {s, reps: 5000})].join('\t')); log('E ' + s); }
 }
 if (part === 'F') { // human aDNA: depth of the five ancient samples (present-day sample stays at 20x); minimum depth 1 read
   console.log(['ancient_depth', 's', ...HQ].join('\t'));
