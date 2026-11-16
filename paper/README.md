@@ -25,4 +25,6 @@ python3 paper/supplement_figures/make_figures.py
 
 The SLiM comparison also needs [SLiM](https://messerlab.org/slim/) (version 5).
 
+PDF versions of the main-text figures are in `figures/` (`Figure1.pdf`, `Figure2.pdf`), made with `figures/png_to_pdf.js` and `figures/svg_to_pdf.js`.
+
 `others/` holds files that were used during the development of the article but are no longer needed to reproduce it (see `others/README.md`).
