@@ -1,4 +1,4 @@
-// No-drift example (Results 3.1): the two thresholds still differ slightly without drift, with unrelated individuals
+// No-drift example (Supporting Information S1.11): the two thresholds still differ slightly without drift, with unrelated individuals
 // and perfect genotypes, when the favoured allele is rare (few distinct values of Z).
 // Diploid, p0 = 0.01, s = 0.05, sampling design of the reference case. One SPOT run with the default numbers of
 // simulations (1,000 selection, 2,000 neutral; seed 1) gives the threshold and the two powers; the false-positive

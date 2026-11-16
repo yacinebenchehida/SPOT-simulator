@@ -7,7 +7,7 @@ This folder contains everything needed to reproduce the results of the article d
 | Figure 1 | `figures/make_figure1.js`, `figures/assemble_figure1.py` | `figures/Figure1.png` |
 | Figure 2; Tables S1–S3 | `validation/false_positive_rate.js` (letters A, B, C and G); `validation/fpr_figure.py` | `validation/fpr_A.tsv`, `fpr_B.tsv`, `fpr_C.tsv`, `fpr_C_gaussian.tsv` |
 | Figure 3; Table S9 (museum insect case study) | `worked_examples/worked_examples.js` (letters A, B, C), `validation/depth_case.js`; `worked_examples/figures.py` | `worked_examples/bee_s_p0.tsv`, `bee_allocation.tsv`, `bee_ne.tsv`, `depth_case.tsv` |
-| Example without drift (Section 3.1) | `validation/nodrift_example.js` | `validation/nodrift_example.tsv` |
+| Example without drift (S1.11) | `validation/nodrift_example.js` | `validation/nodrift_example.tsv` |
 | Agreement with theory (S3; Table S4, Figure S1) | `validation/theory_spot.js`, `validation/theory_check.py`, `validation/sibling_path_check.js`, `validation/migration_diversity_check.js` | `validation/theory_spot.json`, `theory_power.tsv`, `theory_drift.tsv`, `sibling_path_check.tsv`, `migration_diversity.tsv` |
 | Comparison with SLiM (S4; Tables S5–S6, Figure S2) | `validation/slim_check.slim`, `slim_runs.sh`, `slim_runs_v2.sh`, `slim_compare.js`, `slim_compare_v2.js`, `slim_power_spot_threshold.js`, `slim_regression.py` | `validation/slim_*.tsv`; SLiM outputs in `validation/slim_out/` |
 | Precision and speed (S5; Table S7, Figure S3) | `validation/monte_carlo_precision.js`, `validation/speed.js` | `validation/mc_precision.tsv`, `speed.tsv` |
