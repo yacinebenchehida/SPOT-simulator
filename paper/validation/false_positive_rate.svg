@@ -1,294 +1,294 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1310" height="440" viewBox="0 0 1310 440" font-family="Helvetica,Arial,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1285" height="440" viewBox="0 0 1285 440" font-family="Helvetica,Arial,sans-serif">
 <defs><g id="m0"><circle r="4" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m1"><circle r="4" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m2"><rect x="-4" y="-4" width="8" height="8" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m3"><rect x="-4" y="-4" width="8" height="8" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m4"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m5"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m6"><circle r="3.5" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m7"><circle r="3.5" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m8"><circle r="4" fill="#5A6480" stroke="#fff" stroke-width="0.6"/></g><g id="m9"><rect x="-4" y="-4" width="8" height="8" fill="#5A6480" stroke="#fff" stroke-width="0.6"/></g><g id="m10"><path d="M0 -5L4.5 3.5H-4.5Z" fill="#5A6480" stroke="#fff" stroke-width="0.6"/></g><g id="m11"><circle r="3.4" fill="#fff" stroke="#9AA3B8" stroke-width="1.5"/></g><g id="m12"><circle r="3.8" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m13"><circle r="3.8" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m14"><rect x="-3.4" y="-3.4" width="6.8" height="6.8" fill="#fff" stroke="#9AA3B8" stroke-width="1.5"/></g><g id="m15"><rect x="-3.8" y="-3.8" width="7.6" height="7.6" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m16"><rect x="-3.8" y="-3.8" width="7.6" height="7.6" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m17"><path d="M0 -4.4L3.9 2.9H-3.9Z" fill="#fff" stroke="#9AA3B8" stroke-width="1.5"/></g><g id="m18"><path d="M0 -4.8L4.3 3.3H-4.3Z" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m19"><path d="M0 -4.8L4.3 3.3H-4.3Z" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m20"><path d="M0 -4.4L4.4 0L0 4.4L-4.4 0Z" fill="#fff" stroke="#9AA3B8" stroke-width="1.5"/></g><g id="m21"><path d="M0 -4.8L4.8 0L0 4.8L-4.8 0Z" fill="#D9363E" stroke="#fff" stroke-width="0.6"/></g><g id="m22"><path d="M0 -4.8L4.8 0L0 4.8L-4.8 0Z" fill="#2B59D9" stroke="#fff" stroke-width="0.6"/></g><g id="m23"><path d="M0 -5L5 0L0 5L-5 0Z" fill="#5A6480" stroke="#fff" stroke-width="0.6"/></g></defs>
-<rect width="1310" height="440" fill="#fff"/>
-<text x="75.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">False-positive rate against Ne</text>
-<text x="23.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">a</text>
-<line x1="75" x2="385" y1="370.0" y2="370.0" stroke="#E1E5EF"/>
-<text x="69" y="374.0" font-size="11" text-anchor="end" fill="#5A6480">0</text>
-<line x1="75" x2="385" y1="290.0" y2="290.0" stroke="#E1E5EF"/>
-<text x="69" y="294.0" font-size="11" text-anchor="end" fill="#5A6480">0.05</text>
-<line x1="75" x2="385" y1="210.0" y2="210.0" stroke="#E1E5EF"/>
-<text x="69" y="214.0" font-size="11" text-anchor="end" fill="#5A6480">0.1</text>
-<line x1="75" x2="385" y1="130.0" y2="130.0" stroke="#E1E5EF"/>
-<text x="69" y="134.0" font-size="11" text-anchor="end" fill="#5A6480">0.15</text>
-<line x1="75" x2="385" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
-<text x="69" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">0.2</text>
-<line x1="86.2" x2="86.2" y1="370" y2="374" stroke="#5A6480"/>
-<text x="86.2" y="387" font-size="11" text-anchor="middle" fill="#5A6480">100</text>
-<line x1="158.2" x2="158.2" y1="370" y2="374" stroke="#5A6480"/>
-<text x="158.2" y="387" font-size="11" text-anchor="middle" fill="#5A6480">1,000</text>
-<line x1="230.3" x2="230.3" y1="370" y2="374" stroke="#5A6480"/>
-<text x="230.3" y="387" font-size="11" text-anchor="middle" fill="#5A6480">10<tspan dy="-5" font-size="8">4</tspan></text>
-<line x1="302.4" x2="302.4" y1="370" y2="374" stroke="#5A6480"/>
-<text x="302.4" y="387" font-size="11" text-anchor="middle" fill="#5A6480">10<tspan dy="-5" font-size="8">5</tspan></text>
-<line x1="374.5" x2="374.5" y1="370" y2="374" stroke="#5A6480"/>
-<text x="374.5" y="387" font-size="11" text-anchor="middle" fill="#5A6480">10<tspan dy="-5" font-size="8">6</tspan></text>
-<rect x="75" y="50" width="310" height="320" fill="none" stroke="#0F1730" stroke-width=".8"/>
-<text x="230.0" y="406.0" font-size="12" text-anchor="middle" fill="#0F1730">effective population size Ne</text>
-<text x="31.0" y="210.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 31.0 210.0)">false-positive rate (α = 0.05)</text>
-<path d="M75.0 290.0L385.0 290.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
-<path d="M86.2 152.7L120.6 117.6L158.2 177.6L192.6 240.0L230.3 273.7L264.7 284.2L302.4 287.6L374.5 289.4" fill="none" stroke="#D9363E" stroke-width="1.4" stroke-opacity="1"/>
-<use href="#m0" x="86.2" y="152.7"/>
-<use href="#m0" x="120.6" y="117.6"/>
-<use href="#m0" x="158.2" y="177.6"/>
-<use href="#m0" x="192.6" y="240.0"/>
-<use href="#m0" x="230.3" y="273.7"/>
-<use href="#m0" x="264.7" y="284.2"/>
-<use href="#m0" x="302.4" y="287.6"/>
-<use href="#m0" x="374.5" y="289.4"/>
-<line x1="86.2" x2="86.2" y1="292.2" y2="279.2" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="120.6" x2="120.6" y1="299.5" y2="282.1" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="158.2" x2="158.2" y1="298.4" y2="287.1" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="192.6" x2="192.6" y1="296.0" y2="283.0" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="230.3" x2="230.3" y1="300.3" y2="284.5" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="264.7" x2="264.7" y1="297.7" y2="282.9" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="302.4" x2="302.4" y1="296.7" y2="281.7" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="374.5" x2="374.5" y1="297.4" y2="282.8" stroke="#2B59D9" stroke-width="1.2"/>
-<path d="M86.2 285.7L120.6 290.8L158.2 292.8L192.6 289.5L230.3 292.4L264.7 290.3L302.4 289.2L374.5 290.1" fill="none" stroke="#2B59D9" stroke-width="1.4" stroke-opacity="1"/>
-<use href="#m1" x="86.2" y="285.7"/>
-<use href="#m1" x="120.6" y="290.8"/>
-<use href="#m1" x="158.2" y="292.8"/>
-<use href="#m1" x="192.6" y="289.5"/>
-<use href="#m1" x="230.3" y="292.4"/>
-<use href="#m1" x="264.7" y="290.3"/>
-<use href="#m1" x="302.4" y="289.2"/>
-<use href="#m1" x="374.5" y="290.1"/>
-<path d="M86.2 76.3L120.6 76.6L158.2 176.8L192.6 243.8L230.3 278.5L264.7 289.0L302.4 292.9L374.5 294.4" fill="none" stroke="#D9363E" stroke-width="1.4" stroke-opacity="1"/>
-<use href="#m2" x="86.2" y="76.3"/>
-<use href="#m2" x="120.6" y="76.6"/>
-<use href="#m2" x="158.2" y="176.8"/>
-<use href="#m2" x="192.6" y="243.8"/>
-<use href="#m2" x="230.3" y="278.5"/>
-<use href="#m2" x="264.7" y="289.0"/>
-<use href="#m2" x="302.4" y="292.9"/>
-<use href="#m2" x="374.5" y="294.4"/>
-<line x1="86.2" x2="86.2" y1="299.3" y2="285.3" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="120.6" x2="120.6" y1="297.4" y2="280.0" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="158.2" x2="158.2" y1="297.4" y2="282.3" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="192.6" x2="192.6" y1="292.4" y2="282.2" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="230.3" x2="230.3" y1="294.9" y2="280.8" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="264.7" x2="264.7" y1="293.6" y2="280.2" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="302.4" x2="302.4" y1="295.4" y2="279.9" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="374.5" x2="374.5" y1="295.6" y2="279.6" stroke="#2B59D9" stroke-width="1.2"/>
-<path d="M86.2 292.3L120.6 288.7L158.2 289.9L192.6 287.3L230.3 287.8L264.7 286.9L302.4 287.7L374.5 287.6" fill="none" stroke="#2B59D9" stroke-width="1.4" stroke-opacity="1"/>
-<use href="#m3" x="86.2" y="292.3"/>
-<use href="#m3" x="120.6" y="288.7"/>
-<use href="#m3" x="158.2" y="289.9"/>
-<use href="#m3" x="192.6" y="287.3"/>
-<use href="#m3" x="230.3" y="287.8"/>
-<use href="#m3" x="264.7" y="286.9"/>
-<use href="#m3" x="302.4" y="287.7"/>
-<use href="#m3" x="374.5" y="287.6"/>
-<path d="M86.2 78.6L120.6 81.2L158.2 172.2L192.6 243.0L230.3 277.4L264.7 289.1L302.4 292.8L374.5 294.5" fill="none" stroke="#D9363E" stroke-width="1.4" stroke-opacity="1"/>
-<use href="#m4" x="86.2" y="78.6"/>
-<use href="#m4" x="120.6" y="81.2"/>
-<use href="#m4" x="158.2" y="172.2"/>
-<use href="#m4" x="192.6" y="243.0"/>
-<use href="#m4" x="230.3" y="277.4"/>
-<use href="#m4" x="264.7" y="289.1"/>
-<use href="#m4" x="302.4" y="292.8"/>
-<use href="#m4" x="374.5" y="294.5"/>
-<line x1="86.2" x2="86.2" y1="299.2" y2="280.2" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="120.6" x2="120.6" y1="297.2" y2="287.4" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="158.2" x2="158.2" y1="297.2" y2="280.0" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="192.6" x2="192.6" y1="294.8" y2="282.7" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="230.3" x2="230.3" y1="294.6" y2="279.6" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="264.7" x2="264.7" y1="293.5" y2="280.1" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="302.4" x2="302.4" y1="294.4" y2="280.7" stroke="#2B59D9" stroke-width="1.2"/>
-<line x1="374.5" x2="374.5" y1="295.6" y2="279.8" stroke="#2B59D9" stroke-width="1.2"/>
-<path d="M86.2 289.7L120.6 292.3L158.2 288.6L192.6 288.7L230.3 287.1L264.7 286.8L302.4 287.5L374.5 287.7" fill="none" stroke="#2B59D9" stroke-width="1.4" stroke-opacity="1"/>
-<use href="#m5" x="86.2" y="289.7"/>
-<use href="#m5" x="120.6" y="292.3"/>
-<use href="#m5" x="158.2" y="288.6"/>
-<use href="#m5" x="192.6" y="288.7"/>
-<use href="#m5" x="230.3" y="287.1"/>
-<use href="#m5" x="264.7" y="286.8"/>
-<use href="#m5" x="302.4" y="287.5"/>
-<use href="#m5" x="374.5" y="287.7"/>
-<line x1="201.6343655952964" x2="221.6343655952964" y1="86.00000000000006" y2="86.00000000000006" stroke="#D9363E" stroke-width="2"/>
-<use href="#m6" x="211.6" y="86.0"/>
-<text x="228.6" y="90.0" font-size="11" text-anchor="start" fill="#0F1730">sampling-only threshold</text>
-<line x1="201.6343655952964" x2="221.6343655952964" y1="103.00000000000006" y2="103.00000000000006" stroke="#2B59D9" stroke-width="2"/>
-<use href="#m7" x="211.6" y="103.0"/>
-<text x="228.6" y="107.0" font-size="11" text-anchor="start" fill="#0F1730">drift-aware threshold (±1 SD)</text>
-<use href="#m8" x="211.6" y="120.0"/>
-<text x="228.6" y="124.0" font-size="11" text-anchor="start" fill="#0F1730">haploid</text>
-<use href="#m9" x="211.6" y="137.0"/>
-<text x="228.6" y="141.0" font-size="11" text-anchor="start" fill="#0F1730">diploid</text>
-<use href="#m10" x="211.6" y="154.0"/>
-<text x="228.6" y="158.0" font-size="11" text-anchor="start" fill="#0F1730">haplodiploid</text>
+<rect width="1285" height="440" fill="#fff"/>
+<text x="85.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">False-positive rate against Ne</text>
+<text x="33.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">a</text>
+<line x1="85" x2="395" y1="370.0" y2="370.0" stroke="#E1E5EF"/>
+<text x="79" y="375.1" font-size="14" text-anchor="end" fill="#5A6480">0</text>
+<line x1="85" x2="395" y1="290.0" y2="290.0" stroke="#E1E5EF"/>
+<text x="79" y="295.1" font-size="14" text-anchor="end" fill="#5A6480">0.05</text>
+<line x1="85" x2="395" y1="210.0" y2="210.0" stroke="#E1E5EF"/>
+<text x="79" y="215.1" font-size="14" text-anchor="end" fill="#5A6480">0.1</text>
+<line x1="85" x2="395" y1="130.0" y2="130.0" stroke="#E1E5EF"/>
+<text x="79" y="135.1" font-size="14" text-anchor="end" fill="#5A6480">0.15</text>
+<line x1="85" x2="395" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
+<text x="79" y="55.1" font-size="14" text-anchor="end" fill="#5A6480">0.2</text>
+<line x1="96.2" x2="96.2" y1="370" y2="374" stroke="#5A6480"/>
+<text x="96.2" y="390" font-size="14" text-anchor="middle" fill="#5A6480">100</text>
+<line x1="168.2" x2="168.2" y1="370" y2="374" stroke="#5A6480"/>
+<text x="168.2" y="390" font-size="14" text-anchor="middle" fill="#5A6480">1,000</text>
+<line x1="240.3" x2="240.3" y1="370" y2="374" stroke="#5A6480"/>
+<text x="240.3" y="390" font-size="14" text-anchor="middle" fill="#5A6480">10<tspan dy="-5" font-size="10">4</tspan></text>
+<line x1="312.4" x2="312.4" y1="370" y2="374" stroke="#5A6480"/>
+<text x="312.4" y="390" font-size="14" text-anchor="middle" fill="#5A6480">10<tspan dy="-5" font-size="10">5</tspan></text>
+<line x1="384.5" x2="384.5" y1="370" y2="374" stroke="#5A6480"/>
+<text x="384.5" y="390" font-size="14" text-anchor="middle" fill="#5A6480">10<tspan dy="-5" font-size="10">6</tspan></text>
+<rect x="85" y="50" width="310" height="320" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="240.0" y="417.0" font-size="17" text-anchor="middle" fill="#0F1730">effective population size Ne</text>
+<text x="29.0" y="210.0" font-size="17" text-anchor="middle" fill="#0F1730" transform="rotate(-90 29.0 210.0)">false-positive rate (α = 0.05)</text>
+<path d="M85.0 290.0L395.0 290.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
+<path d="M96.2 152.7L130.6 117.6L168.2 177.6L202.6 240.0L240.3 273.7L274.7 284.2L312.4 287.6L384.5 289.4" fill="none" stroke="#D9363E" stroke-width="1.4" stroke-opacity="1"/>
+<use href="#m0" x="96.2" y="152.7"/>
+<use href="#m0" x="130.6" y="117.6"/>
+<use href="#m0" x="168.2" y="177.6"/>
+<use href="#m0" x="202.6" y="240.0"/>
+<use href="#m0" x="240.3" y="273.7"/>
+<use href="#m0" x="274.7" y="284.2"/>
+<use href="#m0" x="312.4" y="287.6"/>
+<use href="#m0" x="384.5" y="289.4"/>
+<line x1="96.2" x2="96.2" y1="292.2" y2="279.2" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="130.6" x2="130.6" y1="299.5" y2="282.1" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="168.2" x2="168.2" y1="298.4" y2="287.1" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="202.6" x2="202.6" y1="296.0" y2="283.0" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="240.3" x2="240.3" y1="300.3" y2="284.5" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="274.7" x2="274.7" y1="297.7" y2="282.9" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="312.4" x2="312.4" y1="296.7" y2="281.7" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="384.5" x2="384.5" y1="297.4" y2="282.8" stroke="#2B59D9" stroke-width="1.2"/>
+<path d="M96.2 285.7L130.6 290.8L168.2 292.8L202.6 289.5L240.3 292.4L274.7 290.3L312.4 289.2L384.5 290.1" fill="none" stroke="#2B59D9" stroke-width="1.4" stroke-opacity="1"/>
+<use href="#m1" x="96.2" y="285.7"/>
+<use href="#m1" x="130.6" y="290.8"/>
+<use href="#m1" x="168.2" y="292.8"/>
+<use href="#m1" x="202.6" y="289.5"/>
+<use href="#m1" x="240.3" y="292.4"/>
+<use href="#m1" x="274.7" y="290.3"/>
+<use href="#m1" x="312.4" y="289.2"/>
+<use href="#m1" x="384.5" y="290.1"/>
+<path d="M96.2 76.3L130.6 76.6L168.2 176.8L202.6 243.8L240.3 278.5L274.7 289.0L312.4 292.9L384.5 294.4" fill="none" stroke="#D9363E" stroke-width="1.4" stroke-opacity="1"/>
+<use href="#m2" x="96.2" y="76.3"/>
+<use href="#m2" x="130.6" y="76.6"/>
+<use href="#m2" x="168.2" y="176.8"/>
+<use href="#m2" x="202.6" y="243.8"/>
+<use href="#m2" x="240.3" y="278.5"/>
+<use href="#m2" x="274.7" y="289.0"/>
+<use href="#m2" x="312.4" y="292.9"/>
+<use href="#m2" x="384.5" y="294.4"/>
+<line x1="96.2" x2="96.2" y1="299.3" y2="285.3" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="130.6" x2="130.6" y1="297.4" y2="280.0" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="168.2" x2="168.2" y1="297.4" y2="282.3" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="202.6" x2="202.6" y1="292.4" y2="282.2" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="240.3" x2="240.3" y1="294.9" y2="280.8" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="274.7" x2="274.7" y1="293.6" y2="280.2" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="312.4" x2="312.4" y1="295.4" y2="279.9" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="384.5" x2="384.5" y1="295.6" y2="279.6" stroke="#2B59D9" stroke-width="1.2"/>
+<path d="M96.2 292.3L130.6 288.7L168.2 289.9L202.6 287.3L240.3 287.8L274.7 286.9L312.4 287.7L384.5 287.6" fill="none" stroke="#2B59D9" stroke-width="1.4" stroke-opacity="1"/>
+<use href="#m3" x="96.2" y="292.3"/>
+<use href="#m3" x="130.6" y="288.7"/>
+<use href="#m3" x="168.2" y="289.9"/>
+<use href="#m3" x="202.6" y="287.3"/>
+<use href="#m3" x="240.3" y="287.8"/>
+<use href="#m3" x="274.7" y="286.9"/>
+<use href="#m3" x="312.4" y="287.7"/>
+<use href="#m3" x="384.5" y="287.6"/>
+<path d="M96.2 78.6L130.6 81.2L168.2 172.2L202.6 243.0L240.3 277.4L274.7 289.1L312.4 292.8L384.5 294.5" fill="none" stroke="#D9363E" stroke-width="1.4" stroke-opacity="1"/>
+<use href="#m4" x="96.2" y="78.6"/>
+<use href="#m4" x="130.6" y="81.2"/>
+<use href="#m4" x="168.2" y="172.2"/>
+<use href="#m4" x="202.6" y="243.0"/>
+<use href="#m4" x="240.3" y="277.4"/>
+<use href="#m4" x="274.7" y="289.1"/>
+<use href="#m4" x="312.4" y="292.8"/>
+<use href="#m4" x="384.5" y="294.5"/>
+<line x1="96.2" x2="96.2" y1="299.2" y2="280.2" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="130.6" x2="130.6" y1="297.2" y2="287.4" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="168.2" x2="168.2" y1="297.2" y2="280.0" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="202.6" x2="202.6" y1="294.8" y2="282.7" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="240.3" x2="240.3" y1="294.6" y2="279.6" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="274.7" x2="274.7" y1="293.5" y2="280.1" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="312.4" x2="312.4" y1="294.4" y2="280.7" stroke="#2B59D9" stroke-width="1.2"/>
+<line x1="384.5" x2="384.5" y1="295.6" y2="279.8" stroke="#2B59D9" stroke-width="1.2"/>
+<path d="M96.2 289.7L130.6 292.3L168.2 288.6L202.6 288.7L240.3 287.1L274.7 286.8L312.4 287.5L384.5 287.7" fill="none" stroke="#2B59D9" stroke-width="1.4" stroke-opacity="1"/>
+<use href="#m5" x="96.2" y="289.7"/>
+<use href="#m5" x="130.6" y="292.3"/>
+<use href="#m5" x="168.2" y="288.6"/>
+<use href="#m5" x="202.6" y="288.7"/>
+<use href="#m5" x="240.3" y="287.1"/>
+<use href="#m5" x="274.7" y="286.8"/>
+<use href="#m5" x="312.4" y="287.5"/>
+<use href="#m5" x="384.5" y="287.7"/>
+<line x1="211.6343655952964" x2="231.6343655952964" y1="86.00000000000006" y2="86.00000000000006" stroke="#D9363E" stroke-width="2"/>
+<use href="#m6" x="221.6" y="86.0"/>
+<text x="238.6" y="90.0" font-size="11" text-anchor="start" fill="#0F1730">sampling-only threshold</text>
+<line x1="211.6343655952964" x2="231.6343655952964" y1="103.00000000000006" y2="103.00000000000006" stroke="#2B59D9" stroke-width="2"/>
+<use href="#m7" x="221.6" y="103.0"/>
+<text x="238.6" y="107.0" font-size="11" text-anchor="start" fill="#0F1730">drift-aware threshold (±1 SD)</text>
+<use href="#m8" x="221.6" y="120.0"/>
+<text x="238.6" y="124.0" font-size="11" text-anchor="start" fill="#0F1730">haploid</text>
+<use href="#m9" x="221.6" y="137.0"/>
+<text x="238.6" y="141.0" font-size="11" text-anchor="start" fill="#0F1730">diploid</text>
+<use href="#m10" x="221.6" y="154.0"/>
+<text x="238.6" y="158.0" font-size="11" text-anchor="start" fill="#0F1730">haplodiploid</text>
 <text x="630.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Design variations (Ne = 1,500)</text>
 <text x="578.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">b</text>
 <line x1="630.0" x2="630.0" y1="370" y2="374" stroke="#5A6480"/>
-<text x="630.0" y="387" font-size="11" text-anchor="middle" fill="#5A6480">0</text>
+<text x="630.0" y="390" font-size="14" text-anchor="middle" fill="#5A6480">0</text>
 <line x1="676.0" x2="676.0" y1="370" y2="374" stroke="#5A6480"/>
-<text x="676.0" y="387" font-size="11" text-anchor="middle" fill="#5A6480">0.05</text>
+<text x="676.0" y="390" font-size="14" text-anchor="middle" fill="#5A6480">0.05</text>
 <line x1="722.0" x2="722.0" y1="370" y2="374" stroke="#5A6480"/>
-<text x="722.0" y="387" font-size="11" text-anchor="middle" fill="#5A6480">0.1</text>
+<text x="722.0" y="390" font-size="14" text-anchor="middle" fill="#5A6480">0.1</text>
 <line x1="768.0" x2="768.0" y1="370" y2="374" stroke="#5A6480"/>
-<text x="768.0" y="387" font-size="11" text-anchor="middle" fill="#5A6480">0.15</text>
+<text x="768.0" y="390" font-size="14" text-anchor="middle" fill="#5A6480">0.15</text>
 <line x1="814.0" x2="814.0" y1="370" y2="374" stroke="#5A6480"/>
-<text x="814.0" y="387" font-size="11" text-anchor="middle" fill="#5A6480">0.2</text>
+<text x="814.0" y="390" font-size="14" text-anchor="middle" fill="#5A6480">0.2</text>
 <line x1="860.0" x2="860.0" y1="370" y2="374" stroke="#5A6480"/>
-<text x="860.0" y="387" font-size="11" text-anchor="middle" fill="#5A6480">0.25</text>
+<text x="860.0" y="390" font-size="14" text-anchor="middle" fill="#5A6480">0.25</text>
 <rect x="630" y="50" width="230" height="320" fill="none" stroke="#0F1730" stroke-width=".8"/>
-<text x="745.0" y="406.0" font-size="12" text-anchor="middle" fill="#0F1730">false-positive rate (α = 0.05)</text>
+<text x="745.0" y="417.0" font-size="17" text-anchor="middle" fill="#0F1730">false-positive rate (α = 0.05)</text>
 <path d="M676.0 370.0L676.0 50.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
 <line x1="630" x2="860" y1="63.3" y2="63.3" stroke="#E1E5EF"/>
-<text x="622.0" y="67.3" font-size="11" text-anchor="end" fill="#0F1730">reference design</text>
+<text x="622.0" y="67.3" font-size="13" text-anchor="end" fill="#0F1730">reference design</text>
 <line x1="671.7" x2="680.3" y1="63.3" y2="63.3" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="676.0" y="63.3"/>
 <use href="#m0" x="725.0" y="63.3"/>
 <line x1="630" x2="860" y1="90.0" y2="90.0" stroke="#E1E5EF"/>
-<text x="622.0" y="94.0" font-size="11" text-anchor="end" fill="#0F1730">2 points (1935, 2025)</text>
+<text x="622.0" y="94.0" font-size="13" text-anchor="end" fill="#0F1730">2 points (1935, 2025)</text>
 <line x1="672.3" x2="681.2" y1="90.0" y2="90.0" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="676.8" y="90.0"/>
 <use href="#m0" x="705.4" y="90.0"/>
 <line x1="630" x2="860" y1="116.7" y2="116.7" stroke="#E1E5EF"/>
-<text x="622.0" y="120.7" font-size="11" text-anchor="end" fill="#0F1730">10 points, 20 each</text>
+<text x="622.0" y="120.7" font-size="13" text-anchor="end" fill="#0F1730">10 points, 20 each</text>
 <line x1="671.7" x2="681.9" y1="116.7" y2="116.7" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="676.8" y="116.7"/>
 <use href="#m0" x="740.7" y="116.7"/>
 <line x1="630" x2="860" y1="143.3" y2="143.3" stroke="#E1E5EF"/>
-<text x="622.0" y="147.3" font-size="11" text-anchor="end" fill="#0F1730">p₀ = 0.01</text>
+<text x="622.0" y="147.3" font-size="13" text-anchor="end" fill="#0F1730">p₀ = 0.01</text>
 <line x1="670.2" x2="680.3" y1="143.3" y2="143.3" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="675.2" y="143.3"/>
 <use href="#m0" x="671.3" y="143.3"/>
 <line x1="630" x2="860" y1="170.0" y2="170.0" stroke="#E1E5EF"/>
-<text x="622.0" y="174.0" font-size="11" text-anchor="end" fill="#0F1730">p₀ = 0.5</text>
+<text x="622.0" y="174.0" font-size="13" text-anchor="end" fill="#0F1730">p₀ = 0.5</text>
 <line x1="671.6" x2="683.5" y1="170.0" y2="170.0" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="677.6" y="170.0"/>
 <use href="#m0" x="744.9" y="170.0"/>
 <line x1="630" x2="860" y1="196.7" y2="196.7" stroke="#E1E5EF"/>
-<text x="622.0" y="200.7" font-size="11" text-anchor="end" fill="#0F1730">depth 2× at all points</text>
+<text x="622.0" y="200.7" font-size="13" text-anchor="end" fill="#0F1730">depth 2× at all points</text>
 <line x1="670.7" x2="681.4" y1="196.7" y2="196.7" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="676.1" y="196.7"/>
 <use href="#m0" x="747.6" y="196.7"/>
 <line x1="630" x2="860" y1="223.3" y2="223.3" stroke="#E1E5EF"/>
-<text x="622.0" y="227.3" font-size="11" text-anchor="end" fill="#0F1730">perfect genotypes</text>
+<text x="622.0" y="227.3" font-size="13" text-anchor="end" fill="#0F1730">perfect genotypes</text>
 <line x1="673.0" x2="680.2" y1="223.3" y2="223.3" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="676.6" y="223.3"/>
 <use href="#m0" x="731.2" y="223.3"/>
 <line x1="630" x2="860" y1="250.0" y2="250.0" stroke="#E1E5EF"/>
-<text x="622.0" y="254.0" font-size="11" text-anchor="end" fill="#0F1730">siblings: 4 per family</text>
+<text x="622.0" y="254.0" font-size="13" text-anchor="end" fill="#0F1730">siblings: 4 per family</text>
 <line x1="671.5" x2="680.1" y1="250.0" y2="250.0" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="675.8" y="250.0"/>
 <use href="#m0" x="808.9" y="250.0"/>
 <line x1="630" x2="860" y1="276.7" y2="276.7" stroke="#E1E5EF"/>
-<text x="622.0" y="280.7" font-size="11" text-anchor="end" fill="#0F1730">decline to 10% by the last point</text>
+<text x="622.0" y="280.7" font-size="13" text-anchor="end" fill="#0F1730">decline to 10% by the last point</text>
 <line x1="671.6" x2="680.4" y1="276.7" y2="276.7" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="676.0" y="276.7"/>
 <use href="#m0" x="802.4" y="276.7"/>
 <line x1="630" x2="860" y1="303.3" y2="303.3" stroke="#E1E5EF"/>
-<text x="622.0" y="307.3" font-size="11" text-anchor="end" fill="#0F1730">bottleneck: Ne 1,500 / 100 / 1,500</text>
+<text x="622.0" y="307.3" font-size="13" text-anchor="end" fill="#0F1730">bottleneck: Ne 1,500 / 100 / 1,500</text>
 <line x1="671.1" x2="680.7" y1="303.3" y2="303.3" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="675.9" y="303.3"/>
 <use href="#m0" x="790.2" y="303.3"/>
 <line x1="630" x2="860" y1="330.0" y2="330.0" stroke="#E1E5EF"/>
-<text x="622.0" y="334.0" font-size="11" text-anchor="end" fill="#0F1730">migration 1% per generation</text>
+<text x="622.0" y="334.0" font-size="13" text-anchor="end" fill="#0F1730">migration 1% per generation</text>
 <line x1="674.3" x2="682.4" y1="330.0" y2="330.0" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="678.4" y="330.0"/>
 <use href="#m0" x="704.1" y="330.0"/>
 <line x1="630" x2="860" y1="356.7" y2="356.7" stroke="#E1E5EF"/>
-<text x="622.0" y="360.7" font-size="11" text-anchor="end" fill="#0F1730">200 individuals per point</text>
+<text x="622.0" y="360.7" font-size="13" text-anchor="end" fill="#0F1730">200 individuals per point</text>
 <line x1="671.5" x2="683.0" y1="356.7" y2="356.7" stroke="#2B59D9" stroke-width="1.4"/>
 <use href="#m1" x="677.2" y="356.7"/>
 <use href="#m0" x="844.1" y="356.7"/>
-<text x="1000.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Many loci tested (Bonferroni)</text>
-<text x="948.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">c</text>
-<line x1="1000" x2="1280" y1="370.0" y2="370.0" stroke="#E1E5EF"/>
-<text x="994" y="374.0" font-size="11" text-anchor="end" fill="#5A6480">0.1</text>
-<line x1="1000" x2="1280" y1="290.0" y2="290.0" stroke="#E1E5EF"/>
-<text x="994" y="294.0" font-size="11" text-anchor="end" fill="#5A6480">1</text>
-<line x1="1000" x2="1280" y1="210.0" y2="210.0" stroke="#E1E5EF"/>
-<text x="994" y="214.0" font-size="11" text-anchor="end" fill="#5A6480">10</text>
-<line x1="1000" x2="1280" y1="130.0" y2="130.0" stroke="#E1E5EF"/>
-<text x="994" y="134.0" font-size="11" text-anchor="end" fill="#5A6480">100</text>
-<line x1="1000" x2="1280" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
-<text x="994" y="54.0" font-size="11" text-anchor="end" fill="#5A6480">1,000</text>
-<line x1="1018.1" x2="1018.1" y1="370" y2="374" stroke="#5A6480"/>
-<text x="1018.1" y="387" font-size="11" text-anchor="middle" fill="#5A6480">5e-05</text>
-<line x1="1099.9" x2="1099.9" y1="370" y2="374" stroke="#5A6480"/>
-<text x="1099.9" y="387" font-size="11" text-anchor="middle" fill="#5A6480">0.0005</text>
-<line x1="1181.6" x2="1181.6" y1="370" y2="374" stroke="#5A6480"/>
-<text x="1181.6" y="387" font-size="11" text-anchor="middle" fill="#5A6480">0.005</text>
-<line x1="1263.3" x2="1263.3" y1="370" y2="374" stroke="#5A6480"/>
-<text x="1263.3" y="387" font-size="11" text-anchor="middle" fill="#5A6480">0.05</text>
-<rect x="1000" y="50" width="280" height="320" fill="none" stroke="#0F1730" stroke-width=".8"/>
-<text x="1140.0" y="406.0" font-size="12" text-anchor="middle" fill="#0F1730">per-locus α′ = 0.05 / L</text>
-<text x="956.0" y="210.0" font-size="12" text-anchor="middle" fill="#0F1730" transform="rotate(-90 956.0 210.0)">realised / intended false-positive rate</text>
-<rect x="1000.0" y="50" width="157.0" height="320" fill="#9AA3B8" fill-opacity=".12"/>
-<text x="1005.5" y="338.2" font-size="10" text-anchor="start" fill="#5A6480">more neutral simulations</text>
-<text x="1005.5" y="350.2" font-size="10" text-anchor="start" fill="#5A6480">(20,000 and 200,000)</text>
-<path d="M1000.0 290.0L1280.0 290.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
-<path d="M1263.3 291.0L1181.6 291.3L1099.9 257.4L1018.1 258.8" fill="none" stroke="#9AA3B8" stroke-width="1.1" stroke-dasharray="4 3" stroke-opacity="1"/>
-<use href="#m11" x="1263.3" y="291.0"/>
-<use href="#m11" x="1181.6" y="291.3"/>
-<use href="#m11" x="1099.9" y="257.4"/>
-<use href="#m11" x="1018.1" y="258.8"/>
-<path d="M1263.3 245.4L1181.6 184.7L1099.9 122.3L1018.1 59.4" fill="none" stroke="#D9363E" stroke-width="1.2" stroke-opacity="1"/>
-<use href="#m12" x="1263.3" y="245.4"/>
-<use href="#m12" x="1181.6" y="184.7"/>
-<use href="#m12" x="1099.9" y="122.3"/>
-<use href="#m12" x="1018.1" y="59.4"/>
-<path d="M1263.3 291.0L1181.6 291.3L1099.9 286.3L1018.1 288.0" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-opacity="1"/>
-<use href="#m13" x="1263.3" y="291.0"/>
-<use href="#m13" x="1181.6" y="291.3"/>
-<use href="#m13" x="1099.9" y="286.3"/>
-<use href="#m13" x="1018.1" y="288.0"/>
-<path d="M1263.3 290.0L1181.6 283.1L1099.9 291.7L1018.1 295.8" fill="none" stroke="#9AA3B8" stroke-width="1.1" stroke-dasharray="4 3" stroke-opacity="1"/>
-<use href="#m14" x="1263.3" y="290.0"/>
-<use href="#m14" x="1181.6" y="283.1"/>
-<use href="#m14" x="1099.9" y="291.7"/>
-<use href="#m14" x="1018.1" y="295.8"/>
-<path d="M1263.3 264.8L1181.6 230.6L1099.9 197.1L1018.1 162.7" fill="none" stroke="#D9363E" stroke-width="1.2" stroke-opacity="1"/>
-<use href="#m15" x="1263.3" y="264.8"/>
-<use href="#m15" x="1181.6" y="230.6"/>
-<use href="#m15" x="1099.9" y="197.1"/>
-<use href="#m15" x="1018.1" y="162.7"/>
-<path d="M1263.3 290.0L1181.6 283.1L1099.9 284.0L1018.1 288.3" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-opacity="1"/>
-<use href="#m16" x="1263.3" y="290.0"/>
-<use href="#m16" x="1181.6" y="283.1"/>
-<use href="#m16" x="1099.9" y="284.0"/>
-<use href="#m16" x="1018.1" y="288.3"/>
-<path d="M1263.3 288.9L1181.6 283.1L1099.9 296.2L1018.1 316.2" fill="none" stroke="#9AA3B8" stroke-width="1.1" stroke-dasharray="4 3" stroke-opacity="1"/>
-<use href="#m17" x="1263.3" y="288.9"/>
-<use href="#m17" x="1181.6" y="283.1"/>
-<use href="#m17" x="1099.9" y="296.2"/>
-<use href="#m17" x="1018.1" y="316.2"/>
-<path d="M1263.3 291.2L1181.6 294.4L1099.9 299.6L1018.1 321.8" fill="none" stroke="#D9363E" stroke-width="1.2" stroke-opacity="1"/>
-<use href="#m18" x="1263.3" y="291.2"/>
-<use href="#m18" x="1181.6" y="294.4"/>
-<use href="#m18" x="1099.9" y="299.6"/>
-<use href="#m18" x="1018.1" y="321.8"/>
-<path d="M1263.3 288.9L1181.6 283.1L1099.9 286.0L1018.1 290.6" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-opacity="1"/>
-<use href="#m19" x="1263.3" y="288.9"/>
-<use href="#m19" x="1181.6" y="283.1"/>
-<use href="#m19" x="1099.9" y="286.0"/>
-<use href="#m19" x="1018.1" y="290.6"/>
-<path d="M1263.3 290.6L1181.6 287.8L1099.9 235.2L1018.1 216.4" fill="none" stroke="#9AA3B8" stroke-width="1.1" stroke-dasharray="4 3" stroke-opacity="1"/>
-<use href="#m20" x="1263.3" y="290.6"/>
-<use href="#m20" x="1181.6" y="287.8"/>
-<use href="#m20" x="1099.9" y="235.2"/>
-<use href="#m20" x="1018.1" y="216.4"/>
-<path d="M1263.3 293.8L1181.6 265.9L1099.9 247.8L1018.1 226.2" fill="none" stroke="#D9363E" stroke-width="1.2" stroke-opacity="1"/>
-<use href="#m21" x="1263.3" y="293.8"/>
-<use href="#m21" x="1181.6" y="265.9"/>
-<use href="#m21" x="1099.9" y="247.8"/>
-<use href="#m21" x="1018.1" y="226.2"/>
-<path d="M1263.3 290.6L1181.6 287.8L1099.9 290.0L1018.1 288.1" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-opacity="1"/>
-<use href="#m22" x="1263.3" y="290.6"/>
-<use href="#m22" x="1181.6" y="287.8"/>
-<use href="#m22" x="1099.9" y="290.0"/>
-<use href="#m22" x="1018.1" y="288.1"/>
-<use href="#m8" x="1137.8" y="58.4"/>
-<text x="1154.8" y="62.4" font-size="11" text-anchor="start" fill="#0F1730">Ne = 300</text>
-<use href="#m9" x="1137.8" y="75.4"/>
-<text x="1154.8" y="79.4" font-size="11" text-anchor="start" fill="#0F1730">Ne = 1,500</text>
-<use href="#m10" x="1137.8" y="92.4"/>
-<text x="1154.8" y="96.4" font-size="11" text-anchor="start" fill="#0F1730">Ne = 100,000</text>
-<use href="#m23" x="1137.8" y="109.4"/>
-<text x="1154.8" y="113.4" font-size="11" text-anchor="start" fill="#0F1730">Ne = 1,500, p₀ 0.01</text>
-<line x1="1127.845883821682" x2="1147.845883821682" y1="126.39215679885945" y2="126.39215679885945" stroke="#9AA3B8" stroke-width="2" stroke-dasharray="5 3"/>
-<text x="1154.8" y="130.4" font-size="11" text-anchor="start" fill="#0F1730">normal fit (2,000 neutral)</text>
+<text x="975.0" y="40.0" font-size="13" text-anchor="start" fill="#0F1730" font-weight="600">Many loci tested (Bonferroni)</text>
+<text x="923.0" y="40.0" font-size="15" text-anchor="start" fill="#0F1730" font-weight="700">c</text>
+<line x1="975" x2="1255" y1="370.0" y2="370.0" stroke="#E1E5EF"/>
+<text x="969" y="375.1" font-size="14" text-anchor="end" fill="#5A6480">0.1</text>
+<line x1="975" x2="1255" y1="290.0" y2="290.0" stroke="#E1E5EF"/>
+<text x="969" y="295.1" font-size="14" text-anchor="end" fill="#5A6480">1</text>
+<line x1="975" x2="1255" y1="210.0" y2="210.0" stroke="#E1E5EF"/>
+<text x="969" y="215.1" font-size="14" text-anchor="end" fill="#5A6480">10</text>
+<line x1="975" x2="1255" y1="130.0" y2="130.0" stroke="#E1E5EF"/>
+<text x="969" y="135.1" font-size="14" text-anchor="end" fill="#5A6480">100</text>
+<line x1="975" x2="1255" y1="50.0" y2="50.0" stroke="#E1E5EF"/>
+<text x="969" y="55.1" font-size="14" text-anchor="end" fill="#5A6480">1,000</text>
+<line x1="993.1" x2="993.1" y1="370" y2="374" stroke="#5A6480"/>
+<text x="993.1" y="390" font-size="14" text-anchor="middle" fill="#5A6480">5×10<tspan dy="-6" font-size="10">−5</tspan></text>
+<line x1="1074.9" x2="1074.9" y1="370" y2="374" stroke="#5A6480"/>
+<text x="1074.9" y="390" font-size="14" text-anchor="middle" fill="#5A6480">5×10<tspan dy="-6" font-size="10">−4</tspan></text>
+<line x1="1156.6" x2="1156.6" y1="370" y2="374" stroke="#5A6480"/>
+<text x="1156.6" y="390" font-size="14" text-anchor="middle" fill="#5A6480">5×10<tspan dy="-6" font-size="10">−3</tspan></text>
+<line x1="1238.3" x2="1238.3" y1="370" y2="374" stroke="#5A6480"/>
+<text x="1238.3" y="390" font-size="14" text-anchor="middle" fill="#5A6480">5×10<tspan dy="-6" font-size="10">−2</tspan></text>
+<rect x="975" y="50" width="280" height="320" fill="none" stroke="#0F1730" stroke-width=".8"/>
+<text x="1115.0" y="417.0" font-size="17" text-anchor="middle" fill="#0F1730">per-locus α′ = 0.05 / L</text>
+<text x="919.0" y="210.0" font-size="17" text-anchor="middle" fill="#0F1730" transform="rotate(-90 919.0 210.0)">realised / intended false-positive rate</text>
+<rect x="975.0" y="50" width="157.0" height="320" fill="#9AA3B8" fill-opacity=".12"/>
+<text x="980.5" y="338.2" font-size="10" text-anchor="start" fill="#5A6480">more neutral simulations</text>
+<text x="980.5" y="350.2" font-size="10" text-anchor="start" fill="#5A6480">(20,000 and 200,000)</text>
+<path d="M975.0 290.0L1255.0 290.0" fill="none" stroke="#5A6480" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
+<path d="M1238.3 291.0L1156.6 291.3L1074.9 257.4L993.1 258.8" fill="none" stroke="#9AA3B8" stroke-width="1.1" stroke-dasharray="4 3" stroke-opacity="1"/>
+<use href="#m11" x="1238.3" y="291.0"/>
+<use href="#m11" x="1156.6" y="291.3"/>
+<use href="#m11" x="1074.9" y="257.4"/>
+<use href="#m11" x="993.1" y="258.8"/>
+<path d="M1238.3 245.4L1156.6 184.7L1074.9 122.3L993.1 59.4" fill="none" stroke="#D9363E" stroke-width="1.2" stroke-opacity="1"/>
+<use href="#m12" x="1238.3" y="245.4"/>
+<use href="#m12" x="1156.6" y="184.7"/>
+<use href="#m12" x="1074.9" y="122.3"/>
+<use href="#m12" x="993.1" y="59.4"/>
+<path d="M1238.3 291.0L1156.6 291.3L1074.9 286.3L993.1 288.0" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-opacity="1"/>
+<use href="#m13" x="1238.3" y="291.0"/>
+<use href="#m13" x="1156.6" y="291.3"/>
+<use href="#m13" x="1074.9" y="286.3"/>
+<use href="#m13" x="993.1" y="288.0"/>
+<path d="M1238.3 290.0L1156.6 283.1L1074.9 291.7L993.1 295.8" fill="none" stroke="#9AA3B8" stroke-width="1.1" stroke-dasharray="4 3" stroke-opacity="1"/>
+<use href="#m14" x="1238.3" y="290.0"/>
+<use href="#m14" x="1156.6" y="283.1"/>
+<use href="#m14" x="1074.9" y="291.7"/>
+<use href="#m14" x="993.1" y="295.8"/>
+<path d="M1238.3 264.8L1156.6 230.6L1074.9 197.1L993.1 162.7" fill="none" stroke="#D9363E" stroke-width="1.2" stroke-opacity="1"/>
+<use href="#m15" x="1238.3" y="264.8"/>
+<use href="#m15" x="1156.6" y="230.6"/>
+<use href="#m15" x="1074.9" y="197.1"/>
+<use href="#m15" x="993.1" y="162.7"/>
+<path d="M1238.3 290.0L1156.6 283.1L1074.9 284.0L993.1 288.3" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-opacity="1"/>
+<use href="#m16" x="1238.3" y="290.0"/>
+<use href="#m16" x="1156.6" y="283.1"/>
+<use href="#m16" x="1074.9" y="284.0"/>
+<use href="#m16" x="993.1" y="288.3"/>
+<path d="M1238.3 288.9L1156.6 283.1L1074.9 296.2L993.1 316.2" fill="none" stroke="#9AA3B8" stroke-width="1.1" stroke-dasharray="4 3" stroke-opacity="1"/>
+<use href="#m17" x="1238.3" y="288.9"/>
+<use href="#m17" x="1156.6" y="283.1"/>
+<use href="#m17" x="1074.9" y="296.2"/>
+<use href="#m17" x="993.1" y="316.2"/>
+<path d="M1238.3 291.2L1156.6 294.4L1074.9 299.6L993.1 321.8" fill="none" stroke="#D9363E" stroke-width="1.2" stroke-opacity="1"/>
+<use href="#m18" x="1238.3" y="291.2"/>
+<use href="#m18" x="1156.6" y="294.4"/>
+<use href="#m18" x="1074.9" y="299.6"/>
+<use href="#m18" x="993.1" y="321.8"/>
+<path d="M1238.3 288.9L1156.6 283.1L1074.9 286.0L993.1 290.6" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-opacity="1"/>
+<use href="#m19" x="1238.3" y="288.9"/>
+<use href="#m19" x="1156.6" y="283.1"/>
+<use href="#m19" x="1074.9" y="286.0"/>
+<use href="#m19" x="993.1" y="290.6"/>
+<path d="M1238.3 290.6L1156.6 287.8L1074.9 235.2L993.1 216.4" fill="none" stroke="#9AA3B8" stroke-width="1.1" stroke-dasharray="4 3" stroke-opacity="1"/>
+<use href="#m20" x="1238.3" y="290.6"/>
+<use href="#m20" x="1156.6" y="287.8"/>
+<use href="#m20" x="1074.9" y="235.2"/>
+<use href="#m20" x="993.1" y="216.4"/>
+<path d="M1238.3 293.8L1156.6 265.9L1074.9 247.8L993.1 226.2" fill="none" stroke="#D9363E" stroke-width="1.2" stroke-opacity="1"/>
+<use href="#m21" x="1238.3" y="293.8"/>
+<use href="#m21" x="1156.6" y="265.9"/>
+<use href="#m21" x="1074.9" y="247.8"/>
+<use href="#m21" x="993.1" y="226.2"/>
+<path d="M1238.3 290.6L1156.6 287.8L1074.9 290.0L993.1 288.1" fill="none" stroke="#2B59D9" stroke-width="1.2" stroke-opacity="1"/>
+<use href="#m22" x="1238.3" y="290.6"/>
+<use href="#m22" x="1156.6" y="287.8"/>
+<use href="#m22" x="1074.9" y="290.0"/>
+<use href="#m22" x="993.1" y="288.1"/>
+<use href="#m8" x="1112.8" y="58.4"/>
+<text x="1129.8" y="62.4" font-size="11" text-anchor="start" fill="#0F1730">Ne = 300</text>
+<use href="#m9" x="1112.8" y="75.4"/>
+<text x="1129.8" y="79.4" font-size="11" text-anchor="start" fill="#0F1730">Ne = 1,500</text>
+<use href="#m10" x="1112.8" y="92.4"/>
+<text x="1129.8" y="96.4" font-size="11" text-anchor="start" fill="#0F1730">Ne = 100,000</text>
+<use href="#m23" x="1112.8" y="109.4"/>
+<text x="1129.8" y="113.4" font-size="11" text-anchor="start" fill="#0F1730">Ne = 1,500, p₀ 0.01</text>
+<line x1="1102.845883821682" x2="1122.845883821682" y1="126.39215679885945" y2="126.39215679885945" stroke="#9AA3B8" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="1129.8" y="130.4" font-size="11" text-anchor="start" fill="#0F1730">normal fit (2,000 neutral)</text>
 </svg>

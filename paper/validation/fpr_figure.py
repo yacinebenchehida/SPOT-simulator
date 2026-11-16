@@ -2,17 +2,18 @@
 Run from the repository root: python3 paper/validation/fpr_figure.py  ->  paper/validation/false_positive_rate.svg"""
 import csv, sys
 sys.path.insert(0, 'paper/validation')
-from svgplot import Fig, Ax, COL, esc
+from svgplot import Fig, Ax, COL, esc, STYLE
+STYLE.update(tick=14, lab=17)   # larger tick numbers and axis titles than the default (11 and 12)
 
 rd = lambda f: list(csv.DictReader(open(f), delimiter='\t'))
 A_, B_, C_ = rd('paper/validation/fpr_A.tsv'), rd('paper/validation/fpr_B.tsv'), rd('paper/validation/fpr_C.tsv')
 G_ = rd('paper/validation/fpr_C_gaussian.tsv')   # same analysis with a normal fit to 2,000 neutral simulations, for comparison
 fl = lambda r, k: float(r[k])
-F = Fig(1310, 440)
+F = Fig(1285, 440)
 SH = {'haploid': 'o', 'diploid': 's', 'haplodiploid': '^'}
 
 # (a) false-positive rate against Ne, trend test
-a = Ax(F, 75, 50, 310, 320, (70, 1.4e6), (0, 0.2), xlog=True, title='False-positive rate against Ne', label='a')
+a = Ax(F, 85, 50, 310, 320, (70, 1.4e6), (0, 0.2), xlog=True, title='False-positive rate against Ne', label='a')
 a.frame([100, 1000, 10000, 100000, 1000000], [0, .05, .1, .15, .2], 'effective population size Ne', 'false-positive rate (α = 0.05)')
 a.hline(0.05, COL['muted'])
 for sysm, sh in SH.items():
@@ -36,15 +37,17 @@ b.line([0.05, 0.05], [len(rows) - 0.5, -0.5], COL['muted'], 1.2, '5 4')
 for i, r in enumerate(rows):
     y = i
     F.o.append(f'<line x1="{b.x}" x2="{b.x + b.w}" y1="{b.Y(y):.1f}" y2="{b.Y(y):.1f}" stroke="{COL["line"]}"/>')
-    F.text(b.x - 8, b.Y(y) + 4, esc(lab(r)), 11, 'end', COL['ink'])
+    F.text(b.x - 8, b.Y(y) + 4, esc(lab(r)), 13, 'end', COL['ink'])
     m, s = fl(r, 'fpr_drift_aware_mean'), fl(r, 'fpr_drift_aware_sd')
     F.o.append(f'<line x1="{b.X(m - s):.1f}" x2="{b.X(m + s):.1f}" y1="{b.Y(y):.1f}" y2="{b.Y(y):.1f}" stroke="{COL["blue"]}" stroke-width="1.4"/>')
     b.points([m], [y], COL['blue'], 'o', 4)
     b.points([fl(r, 'fpr_naive')], [y], COL['red'], 'o', 4)
 
 # (c) small per-locus alpha: realised / nominal false-positive rate, trend test
-c = Ax(F, 1000, 50, 280, 320, (3e-5, 0.08), (0.1, 1000), xlog=True, ylog=True, title='Many loci tested (Bonferroni)', label='c')
-c.frame([5e-5, 5e-4, 5e-3, 5e-2], [0.1, 1, 10, 100, 1000], 'per-locus α′ = 0.05 / L', 'realised / intended false-positive rate')
+c = Ax(F, 975, 50, 280, 320, (3e-5, 0.08), (0.1, 1000), xlog=True, ylog=True, title='Many loci tested (Bonferroni)', label='c')
+import math
+pw = lambda v: f'5×10<tspan dy="-6" font-size="10">−{-int(math.floor(math.log10(v)))}</tspan>'   # 5×10⁻⁵ ... 5×10⁻²
+c.frame([5e-5, 5e-4, 5e-3, 5e-2], [0.1, 1, 10, 100, 1000], 'per-locus α′ = 0.05 / L', 'realised / intended false-positive rate', xfmt=pw)
 F.o.append(f'<rect x="{c.X(3e-5):.1f}" y="{c.y}" width="{c.X(0.0025) - c.X(3e-5):.1f}" height="{c.h}" fill="{COL["grey"]}" fill-opacity=".12"/>')
 F.text(c.X(3.5e-5), c.Y(0.25), 'more neutral simulations', 10, color=COL['muted'])
 F.text(c.X(3.5e-5), c.Y(0.25) + 12, '(20,000 and 200,000)', 10, color=COL['muted'])

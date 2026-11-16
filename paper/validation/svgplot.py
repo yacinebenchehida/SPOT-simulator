@@ -4,6 +4,8 @@ import math
 
 COL = {'blue': '#2B59D9', 'green': '#0E9F6E', 'red': '#D9363E', 'amber': '#C27A12', 'purple': '#8B4FD6',
        'grey': '#9AA3B8', 'ink': '#0F1730', 'muted': '#5A6480', 'line': '#E1E5EF'}
+# text sizes of the axes; a figure script can change them before drawing (see fpr_figure.py)
+STYLE = {'tick': 11, 'lab': 12}
 
 
 def esc(t):
@@ -17,7 +19,7 @@ def fmt(v):
     if a >= 10000:
         e = int(math.floor(math.log10(a) + 1e-9))
         m = v / 10 ** e
-        return ('10' if abs(m - 1) < 1e-9 else f'{m:g}×10') + f'<tspan dy="-5" font-size="8">{e}</tspan>'
+        return ('10' if abs(m - 1) < 1e-9 else f'{m:g}×10') + f'<tspan dy="-5" font-size="{round(STYLE["tick"] * 8 / 11)}">{e}</tspan>'
     if a >= 1:
         return f'{v:,.0f}' if abs(v - round(v)) < 1e-9 else f'{v:g}'
     return f'{v:g}'
@@ -65,20 +67,21 @@ class Ax:
 
     def frame(self, xt, yt, xlab='', ylab='', xfmt=fmt, yfmt=fmt, grid=True):
         o, c = self.f.o, COL
+        ts, ls = STYLE['tick'], STYLE['lab']   # tick and axis-label sizes; the labels move out as the text grows
         for v in yt:
             yy = self.Y(v)
             if grid:
                 o.append(f'<line x1="{self.x}" x2="{self.x + self.w}" y1="{yy:.1f}" y2="{yy:.1f}" stroke="{c["line"]}"/>')
-            o.append(f'<text x="{self.x - 6}" y="{yy + 4:.1f}" font-size="11" text-anchor="end" fill="{c["muted"]}">{yfmt(v)}</text>')
+            o.append(f'<text x="{self.x - 6}" y="{yy + ts * 4 / 11:.1f}" font-size="{ts}" text-anchor="end" fill="{c["muted"]}">{yfmt(v)}</text>')
         for v in xt:
             xx = self.X(v)
             o.append(f'<line x1="{xx:.1f}" x2="{xx:.1f}" y1="{self.y + self.h}" y2="{self.y + self.h + 4}" stroke="{c["muted"]}"/>')
-            o.append(f'<text x="{xx:.1f}" y="{self.y + self.h + 17}" font-size="11" text-anchor="middle" fill="{c["muted"]}">{xfmt(v)}</text>')
+            o.append(f'<text x="{xx:.1f}" y="{self.y + self.h + 6 + ts}" font-size="{ts}" text-anchor="middle" fill="{c["muted"]}">{xfmt(v)}</text>')
         o.append(f'<rect x="{self.x}" y="{self.y}" width="{self.w}" height="{self.h}" fill="none" stroke="{c["ink"]}" stroke-width=".8"/>')
         if xlab:
-            self.f.text(self.x + self.w / 2, self.y + self.h + 36, xlab, 12, 'middle', c['ink'])
+            self.f.text(self.x + self.w / 2, self.y + self.h + 36 + 2 * (ts - 11) + (ls - 12), xlab, ls, 'middle', c['ink'])
         if ylab:
-            self.f.text(self.x - 44, self.y + self.h / 2, ylab, 12, 'middle', c['ink'], rot=-90)
+            self.f.text(self.x - 44 - 4 * (ts - 11), self.y + self.h / 2, ylab, ls, 'middle', c['ink'], rot=-90)
 
     def line(self, xs, ys, color, width=1.8, dash=None, opacity=1):
         d = 'M' + 'L'.join(f'{self.X(a):.1f} {self.Y(b):.1f}' for a, b in zip(xs, ys))
