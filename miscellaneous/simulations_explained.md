@@ -43,7 +43,7 @@ The simulator answers by brute force. It simulations the history of a population
  selection + drift                   (+ sequencing errors)        change          (the threshold)          = power
 ```
 
-Two sets of simulations are run, in the same world (same population size, same drift, same sampling), differing only in selection:
+Two sets of simulations are run, in the same world (same effective population size, same drift, same sampling), differing only in selection:
 
 | Set | What it contains | Default number | Purpose |
 |---|---|---|---|
@@ -234,7 +234,7 @@ Selection always pushes up by about +0.5 points; drift lands a little above or b
 
 The push accumulates in a straight line over time; the waves partly cancel and grow only like √time. So, given enough generations, selection dominates, unless the waves are large compared with the push.
 
-### Example 8: the same selection under two population sizes
+### Example 8: the same selection under two effective population sizes
 
 p₀ = 0.30, s = 0.05 additive, 100 generations, 2,000 simulations each (deterministic expectation: 0.83):
 
