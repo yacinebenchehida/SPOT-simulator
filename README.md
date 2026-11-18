@@ -39,7 +39,7 @@ A standard test ignores drift and sets the threshold too low, so it often finds 
 
 Please cite SPOT as:
 
-> Ben Chehida, Y. et al. (2026). SPOT: Selection Power Over Time, version 0.9.2. https://github.com/yacinebenchehida/SPOT-simulator
+> Ben Chehida, Y., Januszczak, I., Broad, G., Paul, A., Price, B., & Barnes, I. (2026). SPOT: Selection Power Over Time, version 0.9.2. https://github.com/yacinebenchehida/SPOT-simulator
 
 ## Licence
 

@@ -6,10 +6,20 @@ date-released: 2026-11-07
 authors:
   - family-names: "Ben Chehida"
     given-names: Yacine
+  - family-names: "Januszczak"
+    given-names: Inez
+  - family-names: "Broad"
+    given-names: Gavin
+  - family-names: "Paul"
+    given-names: Alyssa
+  - family-names: "Price"
+    given-names: Ben
+  - family-names: "Barnes"
+    given-names: Ian
 repository-code: "https://github.com/yacinebenchehida/SPOT-simulator"
 url: "https://yacinebenchehida.github.io/SPOT-simulator/"
 license: MIT
-abstract: "Browser-based simulator of the power to detect selection at a candidate locus from allele frequencies sampled at two or more points in time, with genetic drift, migration, haploid, diploid or haplodiploid inheritance, changing population size and low-coverage genotype calls."
+abstract: "Browser-based simulator of the power to detect selection at a candidate locus from allele frequencies sampled at two or more points in time, with genetic drift, migration, haploid, diploid or haplodiploid inheritance, changing effective population size and low-coverage genotype calls."
 keywords:
   - temporal population genomics
   - natural selection
