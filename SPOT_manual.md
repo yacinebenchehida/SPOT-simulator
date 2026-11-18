@@ -1,6 +1,6 @@
 # SPOT manual
 
-SPOT (Selection Power Over Time) estimates the power to detect selection at a candidate locus from allele frequencies sampled at two or more dates. This manual explains how to use the application and how to read its results. An [explained guide with worked examples](miscellaneous/simulations_explained.md), describes the simulations step by step.
+SPOT (Selection Power Over Time) estimates the power to detect selection at a candidate locus from allele frequencies sampled at two or more dates. This manual explains how to use the application and how to read its results. An [explained guide with worked examples](miscellaneous/simulations_explained.md) describes the simulations step by step.
 
 ## Contents
 
@@ -194,6 +194,8 @@ For haplodiploid species, the panel "Sampling haploid males vs diploid females" 
 H_G/H_0 = (1 − 1/(2·Ne))^G          Ne = 1 / ( 2 · (1 − (H_G/H_0)^(1/G)) )
 ```
 
+In haploids, replace 2·Ne by Ne: H_G/H_0 = (1 − 1/Ne)^G and Ne = 1 / (1 − (H_G/H_0)^(1/G)). A haploid population therefore loses as much diversity as a diploid population of half its Ne (in the table below, read 100 instead of 50, and so on).
+
 Diversity lost over 100 generations for a range of Ne:
 
 | Ne | 50 | 100 | 250 | 500 | 1,000 | 2,500 | 5,000 | 10,000 |
@@ -258,7 +260,7 @@ In diploids, s is the fitness advantage per generation of the favoured homozygot
 If selection could favour the same allele for hundreds or thousands of generations, try smaller values too. For example, with s = 0.001, the frequency of the favoured allele can rise much more over 1,000 generations than over 100. Use the planner to see which values of s your sampling design is likely to detect.
 
 **Why does power collapse when there are very many generations between the dates?**
-Over many generations, drift loses or fixes most neutral alleles, and selected alleles can be fixed before the first date or between dates; the frequencies then no longer change between samples. SPOT shows a note when this happens in most neutral simulations.
+Over many generations, drift loses or fixes most neutral alleles, and selected alleles can become fixed between sampling dates; the frequencies then no longer change between samples. SPOT shows a note when this happens in most neutral simulations.
 
 **Why is the false-positive rate of the sampling-only threshold lower at low depth?**
 Individuals with fewer reads than the minimum depth are left out, so fewer individuals enter the test. Sampling then dominates the chance changes in frequency, and the sampling-only threshold, which does not account for drift, is closer to correct.
@@ -285,13 +287,13 @@ migration          m'   = 1 − (1 − m)^λ
 sampling times     t'   = t / λ
 ```
 
-This keeps Ne·s and the total drift over the period unchanged; sampling, genotype calling and the test are not affected. λ is chosen so that about 2,000 generations are simulated, but it is capped so that the rescaled selection stays at or below 0.025 and the rescaled breeding numbers at or above 200. These limits come from comparisons with simulations of every generation (Supporting Information S6 in Ben Chehida *et al.* 2026, In preparation). The status line says when rescaling is used. If the caps would require simulating more than 10,000 generations, λ is raised anyway to keep the page fast, and a note marks the result as approximate.
+This approximately keeps the total amount of drift and the total effect of selection over the period; sampling, genotype calling and the test are not affected. λ is chosen so that about 2,000 generations are simulated, but it is capped so that the rescaled selection stays at or below 0.025 and the rescaled breeding numbers at or above 200. These limits come from comparisons with simulations of every generation (Supporting Information S6 in Ben Chehida *et al.* 2026, In preparation). The status line says when rescaling is used. If the caps would require simulating more than 10,000 generations, λ is raised anyway to keep the page fast, and a note marks the result as approximate.
 
 **Can SPOT analyse my data?**
 No. SPOT is for planning: it estimates power for a design before the data exist. To test real data in the same spirit, the counterpart of the neutral simulations is an empirical null distribution: the score Z computed for genome-wide SNPs with a similar starting frequency, in the same samples.
 
 **Why do two runs give slightly different results?**
-Each run draws new random simulations. With the same settings and the same random seed, the results are exactly the same.
+Different random seeds give different simulations, and therefore slightly different power estimates. With the same settings and the same random seed, the results are exactly the same. The power curve and the sample-size planner run fewer simulations per design than a single calculation, so their values can differ slightly from it.
 
 ---
 
