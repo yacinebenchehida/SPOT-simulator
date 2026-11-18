@@ -130,7 +130,7 @@ Diploid genotypes are called by maximum likelihood among the three genotypes, wi
 |---|---|---|---|
 | Significance level α | `alpha` | 0.05 | Significance level of the study (0.05, 0.01 or 0.001). |
 | Candidate loci tested, L (each tested at α′ = α/L) | `m` | 1 | Number of candidate loci to be tested. Each is tested at α′ = α/L (Bonferroni correction). |
-| Selection simulations (at least twice as many neutral) | `reps` | 1,000 | Number of simulations with selection (500, 1,000, 2,000 or 5,000). At least twice as many neutral simulations are run. More simulations give a more precise estimate, not a different answer: with 1,000, power varies between runs by about 1.5–2 percentage points (one standard deviation; Supporting Information S5 of the article). For a final estimate, we recommend 5,000. |
+| Selection simulations (at least twice as many neutral) | `reps` | 1,000 | Number of simulations with selection (500, 1,000, 2,000 or 5,000). At least twice as many neutral simulations are run. More simulations give a more precise estimate, not a different answer: with 1,000, power varies between runs by about 1.5–2.2 percentage points (one standard deviation; Supporting Information S5 of the article). For a final estimate, we recommend 5,000. |
 | Random seed | `seed` | 1 | The same seed and the same settings always give exactly the same results, on any computer. |
 
 **Many candidate loci.** The drift-aware threshold is the value of Z exceeded by a proportion α′ of the neutral simulations, which needs about 10 neutral simulations beyond it. When α′ is small, SPOT therefore runs more neutral simulations: 10/α′, up to 200,000 (for example 20,000 for L = 100 and 200,000 for L = 1,000 at α = 0.05). Runs with more than 20,000 neutral simulations are computed in the background, so the page stays responsive. Only beyond 200,000 (more than 1,000 loci at α = 0.05) is the threshold taken from a normal distribution fitted to the neutral values of Z; the status line then says so. To stay fast, the parameter power curve, the planner and the sampling comparison use at most 20,000 neutral simulations per setting; hollow markers in the power curve show points where the normal fit was needed.
@@ -178,7 +178,7 @@ With the settings the page opens with, doubling every sample (40, 40, 40 and 80 
 
 ### 4.4 Haplodiploids: sampling males or females
 
-For haplodiploid species, the panel "Sampling haploid males vs diploid females" ("Compare sampling designs") gives the power of four designs: females only, males only with the same number of individuals, males only with the same number of gene copies (twice as many males), and half males. Males carry one gene copy instead of two, but their genotype is called almost without error. At a low mean depth (up to about 6×), males and females give about the same power per individual; at higher depth, females give slightly more.
+For haplodiploid species, the panel "Sampling haploid males vs diploid females" ("Compare sampling designs") gives the power of four designs: females only, males only with the same number of individuals, males only with the same number of gene copies (twice as many males), and half males. Males carry one gene copy instead of two, but their genotype is called almost without error. With the same number of individuals, males give less power than females at every depth; with twice as many males (the same number of gene copies), they give about the same power.
 
 ### 4.5 Choosing values that are unknown
 
@@ -237,7 +237,7 @@ The tile "Genetic diversity expected to be lost between the first and the last p
 
 - The main result is the power of the trend test with the drift-aware threshold. Studies are usually planned to reach a power of at least 80%.
 - If the first-versus-last test gives almost the same power as the trend test, the intermediate dates add little information for this scenario.
-- Power is estimated from simulations. With the default 1,000 selection simulations, it varies by about 1.5–2 percentage points between runs; for a final estimate, we recommend 5,000 selection simulations.
+- Power is estimated from simulations. With the default 1,000 selection simulations, it varies by about 1.5–2.2 percentage points between runs; for a final estimate, we recommend 5,000 selection simulations.
 - The sampling-only tile shows what a standard test that ignores drift would conclude. When its power is much higher than the power with the drift-aware threshold, ignoring drift would overstate the power of the design, and its false-positive rate shows how often such a test would call neutral loci "selected".
 - Power applies to one candidate locus, for the chosen values of Ne, p₀, s, dominance and the year selection starts. When these are uncertain, the parameter power curve and the planner show how robust the design is (Section 4.5).
 
