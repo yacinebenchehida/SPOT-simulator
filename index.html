@@ -172,7 +172,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
   <div class="hero-in">
   <div class="eyebrow"><span class="base a">A</span><span class="base c">C</span><span class="base g">G</span><span class="base t">T</span> Temporal population genomics · power analysis</div>
   <h1><em>SPOT</em>: Selection Power Over Time</h1>
-  <p class="lede">Estimates the power to detect selection at one candidate locus from allele frequencies sampled at two or more points in time. It accounts for genetic drift, migration, changes in population size, the inheritance system, the sex and relatedness of the sampled individuals, and genotype calls from low-coverage sequencing. Every change of a setting reruns all simulations in the browser.</p>
+  <p class="lede">Estimates the power to detect selection at one candidate locus from allele frequencies sampled at two or more points in time. It accounts for genetic drift, migration, changes in effective population size, the inheritance system, the sex and relatedness of the sampled individuals, and genotype calls from low-coverage sequencing. Every change of a setting reruns all simulations in the browser.</p>
   <p class="hint">Model: one locus with two alleles, discrete generations, separate numbers of breeding females and males (or a single haploid population), migrants from a source population, and selection that can differ between the sexes. Power is the proportion of simulations under selection in which selection is detected. The detection threshold is set from neutral simulations (no selection) that contain the same drift, migration, sampling, relatedness and genotype-call errors as the study design, so it is not fooled by them. The sections at the bottom of this page explain how power is computed, and the <a href="https://github.com/yacinebenchehida/SPOT-simulator/blob/main/SPOT_manual.md">SPOT manual</a> explains every setting.</p>
   </div>
   <div class="hero-art"><canvas id="trace" role="img" aria-label="Illustration: allele frequencies drifting through time above a DNA helix, with one allele rising under selection, a bee and a hoverfly"></canvas></div>
@@ -296,7 +296,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
   <section class="panel">
     <div class="panel-head"><h3>Scores Z with and without selection</h3>
       <div class="seg" role="group" aria-label="Statistic" style="min-width:240px"><button type="button" id="st-trend" aria-pressed="true">Trend, all points</button><button type="button" id="st-two" aria-pressed="false">First vs last</button></div></div>
-    <svg id="ch-dist" viewBox="0 0 720 280" role="img" aria-label="Distributions of the test statistic under neutrality and under selection, with the critical values marked"></svg>
+    <svg id="ch-dist" viewBox="0 0 720 280" role="img" aria-label="Distributions of the score Z in neutral and selection simulations, with the two thresholds marked"></svg>
     <div class="legend"><span><i style="background:var(--neutral)"></i>neutral simulations</span><span><i style="background:var(--accent)"></i>selection simulations</span><span><i style="background:var(--ink)"></i>drift-aware threshold</span><span><i class="dash"></i>sampling-only threshold z₁₋α′</span></div>
     <p class="hint" id="dist-hint"></p>
     <p class="hint"><b>Why two thresholds.</b> A standard test assumes that the random choice of independent individuals is the only source of chance. Z then follows a standard normal distribution without selection, and the threshold is a fixed number, the sampling-only threshold: 1.645 for a one-sided test at 5% (z₁₋α′ in general). Drift, siblings in the sample and genotype calls at low or unequal depth make Z vary more than this, so the fixed threshold is too low and finds "selection" where there is none. The drift-aware threshold is read from the neutral simulations, which include these sources of chance. If power stays low whatever the sample size, drift is the limit, not the number of individuals: the sample-size planner below shows this.</p>
@@ -444,7 +444,7 @@ Sampled individuals per family > 1:
                                son one allele from his mother. In diploids, the sex of siblings is not drawn ("Males in the sample" is not used).
 Genetic diversity lost:<sup>5,6</sup>     1 − H_G/H_0, with H_g = (1 − m)² (1 − 1/2Ne(g)) H_(g−1) + [1 − (1 − m)²] H_0   (haploid: 1/N(g) instead of 1/2Ne(g));
                                without migration (m = 0): 1 − Π_g (1 − 1/2Ne(g))</div>
-    <p class="hint">Selection starts in the generation after the onset year, so a sample taken in the onset year is not yet affected by selection. Not modelled: population structure, linked selection, random fluctuation in population size, overlapping generations, and mapping reference bias.</p>
+    <p class="hint">Selection starts in the generation after the onset year, so a sample taken in the onset year is not yet affected by selection. Not modelled: population structure, linked selection, random fluctuation in effective population size, overlapping generations, and mapping reference bias.</p>
   </div>
 
   <div class="panel" id="refs">
@@ -891,7 +891,7 @@ function labels(){
     else mh.hidden=true; }
   const ne=neFor(st), ne2=neFor({system:st.system,Nf:st.Nf*st.decline,Nm:st.Nm*st.decline});
   const form=st.system==='haploid'?'haploid: Ne = N':st.system==='haplodiploid'?'haplodiploid: 9NfNm/(4Nm+2Nf)':'diploid: 4NfNm/(Nf+Nm)';
-  $('ne-hint').textContent=st.noDrift?'Drift switched off: the population is infinite; only sampling, relatedness and genotype calls add chance.':(st.neByBlock?`Ne set separately for each interval (column "Ne to next" of the sampling design): ${st.neBlocks.map(v=>fmtN(v)).join(' → ')}. ${nGen().toLocaleString()} generations from ${st.years[0]} to ${last(st.years)}.`:`Effective size Ne ≈ ${fmtN(Math.round(ne))}${st.decline!==1?' at the first point → '+fmtN(Math.round(ne2))+' at the last':''} (${form}). ${nGen().toLocaleString()} generations from ${st.years[0]} to ${last(st.years)}.`);
+  $('ne-hint').textContent=st.noDrift?'Drift switched off: the population is infinite; only sampling, relatedness and genotype calls add chance.':(st.neByBlock?`Ne set separately for each interval (column "Ne to next" of the sampling design): ${st.neBlocks.map(v=>fmtN(v)).join(' → ')}. ${nGen().toLocaleString()} generations from ${st.years[0]} to ${last(st.years)}.`:`Effective population size Ne ≈ ${fmtN(Math.round(ne))}${st.decline!==1?' at the first point → '+fmtN(Math.round(ne2))+' at the last':''} (${form}). ${nGen().toLocaleString()} generations from ${st.years[0]} to ${last(st.years)}.`);
   const tot=st.n.reduce((a,b)=>a+b,0), hapM=st.system==='haplodiploid'?st.maleFrac:0, al=Math.round(tot*(HAPL()?1:2-hapM));
   $('n-hint').textContent=`${st.n.length} time points, ${tot} individuals ≈ ${al} gene copies sampled (before the depth filter)${HAPL()?' (one per haploid individual)':hapM>0?' (haploid males count once)':''}.${st.n.length>2?' Set an intermediate point to 0 to leave it out.':''}`;
   const g=gensOf(st), same=[]; for(let i=1;i<g.length;i++) if(g[i]===g[i-1]) same.push((i)+' and '+(i+1));
@@ -1036,7 +1036,7 @@ function drawDist(r){
   let s=`<line x1="${L}" x2="${W-R}" y1="${B}" y2="${B}" stroke="var(--muted)"/>`;
   const step=(hi-lo)>16?4:(hi-lo)>8?2:1;
   for(let z=Math.ceil(lo/step)*step;z<=hi;z+=step) s+=`<line x1="${X(z)}" x2="${X(z)}" y1="${B}" y2="${B+4}" stroke="var(--muted)"/><text x="${X(z)}" y="${B+17}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${z}</text>`;
-  s+=`<text x="${(L+W-R)/2}" y="${B+36}" text-anchor="middle" font-size="10.5" fill="var(--muted)">test statistic Z (${stat==='trend'?'trend across all points':'first vs last point'})</text>`;
+  s+=`<text x="${(L+W-R)/2}" y="${B+36}" text-anchor="middle" font-size="10.5" fill="var(--muted)">score Z (${stat==='trend'?'trend across all points':'first vs last point'})</text>`;
   const bars=(h,fill,op,clipFrom)=>h.map((d,i)=>{const x0=lo+i*bw;if(clipFrom!==undefined&&x0+bw<=clipFrom)return'';const xs=clipFrom!==undefined?Math.max(x0,clipFrom):x0;return d>0?`<rect x="${X(xs).toFixed(1)}" y="${Y(d).toFixed(1)}" width="${(X(x0+bw)-X(xs)).toFixed(1)}" height="${(B-Y(d)).toFixed(1)}" fill="${fill}" opacity="${op}"/>`:''}).join('');
   s+=bars(hn,'var(--neutral)',.55)+bars(hs,'var(--accent)',.28)+bars(hs,'var(--accent)',.75,res.crit);
   { const naiveLeft=r.zNaive<=res.crit, halo='paint-order="stroke" stroke="var(--surface)" stroke-width="3" stroke-linejoin="round"';
