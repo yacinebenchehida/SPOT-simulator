@@ -1,0 +1,7 @@
+selection_simulations	runs	measure	mean_percent	sd_percent	min_percent	max_percent
+1000	20	power_drift_aware	54.9	2.1	51.6	58.7
+1000	20	power_sampling_only	69.0	1.2	66.3	71.2
+1000	20	false_positive_rate_sampling_only	10.6	0.6	9.5	11.6
+5000	20	power_drift_aware	55.2	1.2	53.1	57.5
+5000	20	power_sampling_only	68.6	0.6	67.3	69.5
+5000	20	false_positive_rate_sampling_only	10.4	0.3	9.8	11.1
