@@ -1,41 +1,17 @@
-part	design	Ne	s	individuals_per_date	depth	calls	power_trend	threshold	share_missing
-A	1x all dates	1500	0.02	20/20/20/40	1	SPOT (diploid genotypes)	0.3708	2.464	0.3666
-A	1x all dates	1500	0.02	20/20/20/40	1	pseudo-haploid	0.3520	1.834	0.3669
-A	2x all dates	1500	0.02	20/20/20/40	2	SPOT (diploid genotypes)	0.4450	2.458	0.1354
-A	2x all dates	1500	0.02	20/20/20/40	2	pseudo-haploid	0.3960	1.947	0.1350
-A	5x all dates	1500	0.02	20/20/20/40	5	SPOT (diploid genotypes)	0.5348	2.219	0.0066
-A	5x all dates	1500	0.02	20/20/20/40	5	pseudo-haploid	0.4487	1.920	0.0067
-A	10x all dates	1500	0.02	20/20/20/40	10	SPOT (diploid genotypes)	0.5660	2.223	0.0000
-A	10x all dates	1500	0.02	20/20/20/40	10	pseudo-haploid	0.4082	1.965	0.0000
-A	30x all dates	1500	0.02	20/20/20/40	30	SPOT (diploid genotypes)	0.5726	2.185	0.0000
-A	30x all dates	1500	0.02	20/20/20/40	30	pseudo-haploid	0.4498	1.894	0.0000
-A	1x all dates	100000	0.02	20/20/20/40	1	SPOT (diploid genotypes)	0.4526	2.190	0.3670
-A	1x all dates	100000	0.02	20/20/20/40	1	pseudo-haploid	0.4076	1.665	0.3684
-A	2x all dates	100000	0.02	20/20/20/40	2	SPOT (diploid genotypes)	0.5950	2.054	0.1357
-A	2x all dates	100000	0.02	20/20/20/40	2	pseudo-haploid	0.5062	1.653	0.1354
-A	5x all dates	100000	0.02	20/20/20/40	5	SPOT (diploid genotypes)	0.7540	1.741	0.0066
-A	5x all dates	100000	0.02	20/20/20/40	5	pseudo-haploid	0.5454	1.674	0.0066
-A	10x all dates	100000	0.02	20/20/20/40	10	SPOT (diploid genotypes)	0.8073	1.674	0.0000
-A	10x all dates	100000	0.02	20/20/20/40	10	pseudo-haploid	0.5588	1.674	0.0000
-A	30x all dates	100000	0.02	20/20/20/40	30	SPOT (diploid genotypes)	0.8237	1.638	0.0000
-A	30x all dates	100000	0.02	20/20/20/40	30	pseudo-haploid	0.5676	1.647	0.0000
-B	100 individuals at 1x	10000	0.005	100	1	SPOT (diploid genotypes)	0.5004	2.586	0.3069
-B	100 individuals at 1x	10000	0.005	100	1	pseudo-haploid	0.4270	2.166	0.3068
-B	50 individuals at 2x	10000	0.005	50	2	SPOT (diploid genotypes)	0.4672	2.338	0.0970
-B	50 individuals at 2x	10000	0.005	50	2	pseudo-haploid	0.3866	2.007	0.0967
-B	25 individuals at 4x	10000	0.005	25	4	SPOT (diploid genotypes)	0.4450	1.957	0.0102
-B	25 individuals at 4x	10000	0.005	25	4	pseudo-haploid	0.3288	1.906	0.0101
-B	20 individuals at 5x	10000	0.005	20	5	SPOT (diploid genotypes)	0.4428	1.833	0.0034
-B	20 individuals at 5x	10000	0.005	20	5	pseudo-haploid	0.3096	1.842	0.0034
-B	10 individuals at 10x	10000	0.005	10	10	SPOT (diploid genotypes)	0.3520	1.814	0.0000
-B	10 individuals at 10x	10000	0.005	10	10	pseudo-haploid	0.2563	1.653	0.0000
-B	100 individuals at 1x	10000	0.0075	100	1	SPOT (diploid genotypes)	0.7894	2.640	0.3063
-B	100 individuals at 1x	10000	0.0075	100	1	pseudo-haploid	0.7324	2.163	0.3064
-B	50 individuals at 2x	10000	0.0075	50	2	SPOT (diploid genotypes)	0.7908	2.328	0.0968
-B	50 individuals at 2x	10000	0.0075	50	2	pseudo-haploid	0.7092	1.973	0.0969
-B	25 individuals at 4x	10000	0.0075	25	4	SPOT (diploid genotypes)	0.7430	1.928	0.0100
-B	25 individuals at 4x	10000	0.0075	25	4	pseudo-haploid	0.6226	1.854	0.0103
-B	20 individuals at 5x	10000	0.0075	20	5	SPOT (diploid genotypes)	0.7410	1.826	0.0034
-B	20 individuals at 5x	10000	0.0075	20	5	pseudo-haploid	0.5862	1.820	0.0034
-B	10 individuals at 10x	10000	0.0075	10	10	SPOT (diploid genotypes)	0.6620	1.795	0.0000
-B	10 individuals at 10x	10000	0.0075	10	10	pseudo-haploid	0.4928	1.630	0.0000
+s	depth_ancient	depth_present_day	analysis	power_trend	threshold
+0.005	1	20	SPOT (diploid genotypes)	0.4324	2.269
+0.005	1	20	pseudo-haploid	0.3702	1.916
+0.005	2	20	SPOT (diploid genotypes)	0.4824	2.277
+0.005	2	20	pseudo-haploid	0.3986	1.998
+0.005	5	20	SPOT (diploid genotypes)	0.5232	2.149
+0.005	5	20	pseudo-haploid	0.4300	2.050
+0.005	10	20	SPOT (diploid genotypes)	0.5114	2.420
+0.005	10	20	pseudo-haploid	0.4188	2.052
+0.0075	1	20	SPOT (diploid genotypes)	0.7420	2.278
+0.0075	1	20	pseudo-haploid	0.6582	1.933
+0.0075	2	20	SPOT (diploid genotypes)	0.7894	2.275
+0.0075	2	20	pseudo-haploid	0.7010	1.991
+0.0075	5	20	SPOT (diploid genotypes)	0.8098	2.192
+0.0075	5	20	pseudo-haploid	0.6940	2.063
+0.0075	10	20	SPOT (diploid genotypes)	0.8402	2.368
+0.0075	10	20	pseudo-haploid	0.7244	2.054
