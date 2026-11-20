@@ -401,10 +401,10 @@
 <use href="#m25" x="597.1" y="1007.0"/>
 <use href="#m25" x="730.7" y="1002.0"/>
 <use href="#m26" x="815.0" y="1006.5"/>
-<use href="#m27" x="308.3" y="1051.8"/>
-<use href="#m27" x="392.6" y="1031.3"/>
-<use href="#m28" x="308.3" y="1056.7"/>
-<use href="#m28" x="392.6" y="1045.3"/>
+<use href="#m27" x="317.1" y="1051.8"/>
+<use href="#m27" x="401.4" y="1031.3"/>
+<use href="#m28" x="317.1" y="1056.7"/>
+<use href="#m28" x="401.4" y="1045.3"/>
 <path d="M317.1 1033.6L401.4 993.8L512.8 962.5L597.1 951.4L730.7 946.7" fill="none" stroke="#000000" stroke-width="1.8" stroke-opacity="1"/>
 <use href="#m29" x="317.1" y="1033.6"/>
 <use href="#m29" x="401.4" y="993.8"/>
@@ -412,10 +412,10 @@
 <use href="#m29" x="597.1" y="951.4"/>
 <use href="#m29" x="730.7" y="946.7"/>
 <use href="#m30" x="815.0" y="945.7"/>
-<use href="#m31" x="325.9" y="1035.7"/>
-<use href="#m31" x="410.2" y="1004.9"/>
-<use href="#m32" x="325.9" y="1049.2"/>
-<use href="#m32" x="410.2" y="1021.1"/>
+<use href="#m31" x="317.1" y="1035.7"/>
+<use href="#m31" x="401.4" y="1004.9"/>
+<use href="#m32" x="317.1" y="1049.2"/>
+<use href="#m32" x="401.4" y="1021.1"/>
 <text x="875.0" y="921.0" font-size="14" text-anchor="start" fill="#0F1730" font-weight="bold">Panel e:</text>
 <line x1="875" x2="903" y1="942" y2="942" stroke="#A0A0A0" stroke-width="1.8"/>
 <use href="#m33" x="889.0" y="942.0"/>
