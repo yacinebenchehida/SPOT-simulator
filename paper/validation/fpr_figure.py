@@ -81,11 +81,11 @@ for i, r in enumerate(rows):                  # One line per design
     b.points([fl(r, 'fpr_naive')], [y], COL['red'], 'o', 4)       # Sampling-only threshold
 
 
-#########################################################################################
-# Panel c: many candidate loci                                                          #
-# y: realised false-positive rate divided by the intended rate (1 = as intended)        #
-# Grey dashed: threshold from a normal distribution fitted to 2,000 neutral simulations #
-#########################################################################################
+##########################################################################################
+# Panel c: many candidate loci                                                           #
+# y: realised false-positive rate divided by the intended rate (1 = as intended)         #
+# Black dashed: threshold from a normal distribution fitted to 2,000 neutral simulations #
+##########################################################################################
 # (c) small per-locus alpha: realised / nominal false-positive rate, trend test
 c = Ax(F, 975, 50, 280, 320, (3e-5, 0.08), (0.1, 1000), xlog=True, ylog=True, title='Many loci tested (Bonferroni)', label='c')   # Axes: both in log scale
 import math
@@ -102,13 +102,13 @@ for key, sh, _ in DS:                         # One set of curves per design
     al = [fl(r, 'alpha_per_locus') for r in rows]                                                      # x values: alpha per locus
     old = [r for r in G_ if r['label'].startswith('G ' + key + ' m=') and r['statistic'] == 'trend']   # Results with the normal fit to 2,000 neutral simulations
     ys = [max(0.1, fl(r, 'fpr_drift_aware_mean') / x) for r, x in zip(old, al)]   # Realised / intended rate (values below 0.1 are drawn at 0.1, the bottom of the axis)
-    c.line(al, ys, COL['grey'], 1.1, '4 3')
-    c.points(al, ys, COL['grey'], sh, 3.4, True)
+    c.line(al, ys, COL['ink'], 1.1, '4 3')
+    c.points(al, ys, COL['ink'], sh, 3.4, True)
     for col, k in ((COL['red'], 'fpr_naive'), (COL['blue'], 'fpr_drift_aware_mean')):   # Red: sampling-only threshold; blue: drift-aware threshold
         ys = [max(0.1, fl(r, k) / x) for r, x in zip(rows, al)]
         c.line(al, ys, col, 1.2)
         c.points(al, ys, col, sh, 3.8)
-c.legend([(lab_, COL['muted'], sh) for _, sh, lab_ in DS] + [('normal fit (2,000 neutral)', COL['grey'], 'dash')], c.X(0.0011), c.Y(700))   # Legend
+c.legend([(lab_, COL['muted'], sh) for _, sh, lab_ in DS] + [('normal fit (2,000 neutral)', COL['ink'], 'dash')], c.X(0.0011), c.Y(700))   # Legend
 
 
 ###################

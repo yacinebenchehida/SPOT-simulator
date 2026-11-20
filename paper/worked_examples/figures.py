@@ -29,7 +29,7 @@ rd = lambda f: list(csv.DictReader(open('paper/worked_examples/' + f), delimiter
 fl = float                                    # Short name: text to number
 pct = lambda v: f'{v * 100:.0f}%'             # Function: write a proportion as a percentage (tick labels)
 pal = [COL['blue'], COL['green'], COL['amber'], COL['purple'], COL['red']]   # Colours used in turn for the curves of the two other figures
-NECOL = ['#6B6B6B', '#000000']   # panel e: dark grey and black for the two Ne (blue and green are p0 colours)
+NECOL = ['#A0A0A0', '#000000']   # panel e: light grey and black for the two Ne (blue, amber and purple are p0 colours)
 P0COL = {'0.01': COL['blue'], '0.05': COL['green'], '0.1': COL['amber'], '0.3': COL['purple']}   # same colour for each p0 in every panel
 
 
@@ -156,7 +156,8 @@ for k, Ne in enumerate(['1500', '100000']):   # One curve per level of drift
     e.points(xs, ys, col)
     e.points([PERF], [get('perfect')], col, 'd', 4.5)   # Perfect genotypes: diamond at the right of the panel
     for err, sh in (('0.02', 's'), ('0.05', '^')):      # Higher error rates per read, at 1x and 2x: hollow square and triangle
-        e.points([1, 2], [get(f'1x all dates, error {err}'), get(f'2x all dates, error {err}')], col, sh, 4.2, True)
+        off = 0.93 if k == 0 else 1.075               # Small shift to the left (Ne = 1,500) or right (Ne = 100,000), so that the markers do not overlap
+        e.points([1 * off, 2 * off], [get(f'1x all dates, error {err}'), get(f'2x all dates, error {err}')], col, sh, 4.2, True)
 
 # Legend of panel e, on its right
 ex, ey = e.x + e.w + 25, e.y + 18
