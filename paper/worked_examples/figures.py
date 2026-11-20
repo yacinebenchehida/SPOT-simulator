@@ -156,8 +156,7 @@ for k, Ne in enumerate(['1500', '100000']):   # One curve per level of drift
     e.points(xs, ys, col)
     e.points([PERF], [get('perfect')], col, 'd', 4.5)   # Perfect genotypes: diamond at the right of the panel
     for err, sh in (('0.02', 's'), ('0.05', '^')):      # Higher error rates per read, at 1x and 2x: hollow square and triangle
-        off = 0.93 if k == 0 else 1.075               # Small shift to the left (Ne = 1,500) or right (Ne = 100,000), so that the markers do not overlap
-        e.points([1 * off, 2 * off], [get(f'1x all dates, error {err}'), get(f'2x all dates, error {err}')], col, sh, 4.2, True)
+        e.points([1, 2], [get(f'1x all dates, error {err}'), get(f'2x all dates, error {err}')], col, sh, 4.2, True)
 
 # Legend of panel e, on its right
 ex, ey = e.x + e.w + 25, e.y + 18
