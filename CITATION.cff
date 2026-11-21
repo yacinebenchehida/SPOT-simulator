@@ -1,21 +1,27 @@
 cff-version: 1.2.0
 message: "If you use SPOT, please cite it as below."
 title: "SPOT: Selection Power Over Time"
-version: 0.9.2
-date-released: 2026-11-07
+version: 1.0.0
+date-released: 2026-11-21
 authors:
   - family-names: "Ben Chehida"
     given-names: Yacine
+    affiliation: "Natural History Museum, London, UK; Leverhulme Centre for Anthropocene Biodiversity, University of York, UK; School of Biosciences, University of Sheffield, UK"
   - family-names: "Januszczak"
     given-names: Inez
+    affiliation: "Natural History Museum, London, UK"
   - family-names: "Broad"
     given-names: Gavin
+    affiliation: "Natural History Museum, London, UK"
   - family-names: "Paul"
     given-names: Alyssa
+    affiliation: "Natural History Museum, London, UK"
   - family-names: "Price"
     given-names: Ben
+    affiliation: "Natural History Museum, London, UK"
   - family-names: "Barnes"
     given-names: Ian
+    affiliation: "Natural History Museum, London, UK"
 repository-code: "https://github.com/yacinebenchehida/SPOT-simulator"
 url: "https://yacinebenchehida.github.io/SPOT-simulator/"
 license: MIT
