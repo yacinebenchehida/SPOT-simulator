@@ -24,7 +24,7 @@ SPOT is designed for planning studies that compare allele frequencies over time:
 
 Please cite SPOT as:
 
-> Ben Chehida, Y., Januszczak, I., Broad, G., Paul, A., Price, B., & Barnes, I. (2026). SPOT: Selection Power Over Time, version 0.9.2. https://github.com/yacinebenchehida/SPOT-simulator
+> Ben Chehida, Y., Januszczak, I., Broad, G., Paul, A., Price, B., & Barnes, I. (2026). SPOT: Selection Power Over Time, version 1.0.0. https://github.com/yacinebenchehida/SPOT-simulator
 
 ### 1.3 The model in brief
 
