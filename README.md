@@ -1,5 +1,7 @@
 # SPOT: Selection Power Over Time
 
+[![DOI](https://zenodo.org/badge/1428736544.svg)](https://doi.org/10.5281/zenodo.24423881)
+
 SPOT estimates the **power to detect selection at a candidate locus** from allele frequencies sampled at two or more dates: museum specimens and a modern sample, an ancient DNA series, or any time series of population samples. It simulates the population forward in time with selection, genetic drift and, optionally, migration and changes in population size, for haploid, diploid or haplodiploid inheritance. It then samples individuals and passes them through low-coverage sequencing and genotype calling, as in a real study.
 
 Power is measured against a **drift-aware threshold**: the detection threshold is set from simulations without selection that include the drift, sampling and genotyping of the design, not from a conventional standard normal distribution.
@@ -39,7 +41,7 @@ A standard test ignores drift and sets the threshold too low, so it often finds 
 
 Please cite SPOT as:
 
-> Ben Chehida, Y., Januszczak, I., Broad, G., Paul, A., Price, B., & Barnes, I. (2026). SPOT: Selection Power Over Time, version 1.0.0. https://github.com/yacinebenchehida/SPOT-simulator
+> Ben Chehida, Y., Januszczak, I., Broad, G., Paul, A., Price, B., & Barnes, I. (2026). SPOT: Selection Power Over Time, version 1.0.0. Zenodo. https://doi.org/10.5281/zenodo.24423881
 
 ## Licence
 
