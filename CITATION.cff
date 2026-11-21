@@ -11,9 +11,11 @@ authors:
   - family-names: "Januszczak"
     given-names: Inez
     affiliation: "Natural History Museum, London, UK"
+    orcid: "https://orcid.org/0000-0003-3857-9989"
   - family-names: "Broad"
     given-names: Gavin
     affiliation: "Natural History Museum, London, UK"
+    orcid: "https://orcid.org/0000-0001-7223-5333"
   - family-names: "Paul"
     given-names: Alyssa
     affiliation: "Natural History Museum, London, UK"
@@ -21,9 +23,11 @@ authors:
   - family-names: "Price"
     given-names: Ben
     affiliation: "Natural History Museum, London, UK"
+    orcid: "https://orcid.org/0000-0001-5497-4087"
   - family-names: "Barnes"
     given-names: Ian
     affiliation: "Natural History Museum, London, UK"
+    orcid: "https://orcid.org/0000-0001-8322-6918"
 repository-code: "https://github.com/yacinebenchehida/SPOT-simulator"
 url: "https://yacinebenchehida.github.io/SPOT-simulator/"
 license: MIT
