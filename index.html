@@ -895,6 +895,7 @@ function writeUI(){
   $('decline').value=DMAP.from(st.decline); $('mig').value=st.mig; $('pmig').value=String(st.pMig); $('smale').value=st.sMale; $('ksib').value=st.kSib; $('mfrac').value=st.maleFrac;
   $('perfect').checked=st.perfect; $('dh').value=st.depthEarly; $('dm').value=st.depthLast; $('err').value=String(st.err); $('errl').value=String(st.errLast); $('mindp').value=st.minDP; $('calls').value=st.calls; $('dcv').value=String(st.depthCV); $('errdate').checked=Array.isArray(st.errByDate);
   $('alpha').value=String(st.alpha); $('m').value=st.m; $('reps').value=String(st.reps); $('seed').value=st.seed;
+  LIN.forEach(id=>$(id).dataset.w=$(id).value);   // slider positions written from the settings
   labels();
 }
 function labels(){
@@ -935,6 +936,9 @@ function labels(){
   const g=gensOf(st), same=[]; for(let i=1;i<g.length;i++) if(g[i]===g[i-1]) same.push((i)+' and '+(i+1));
   $('tp-note').textContent=same.length?`Points ${same.join(', ')} fall in the same generation, so they sample the same population.`:'';
 }
+/* linear sliders: a loaded value between two slider steps (for example m = 0.001) is kept until the slider itself is moved */
+const LIN=['mig','smale','ksib','mfrac','dh','dm','mindp'];
+function lin(id,key){const el=$(id); if(el.value!==el.dataset.w){st[key]=+el.value; el.dataset.w=el.value;}}
 function readUI(){
   { const nd=$('nedirect').checked;
     if(nd!==st.neDirect){ st.neDirect=nd; if(nd){ st.Nf=st.Nm=nFromNe(st.system,neFor(st)); $('ne').value=NMAP.from(neFor(st)); } $('nf').value=NMAP.from(st.Nf); $('nm').value=NMAP.from(st.Nm); }   // switching on: same Ne, equal numbers of females and males
@@ -958,8 +962,8 @@ function readUI(){
     $('y-hint').textContent=msg;
     if(!msg){const tied=st.onset===st.years[0]&&y[0]!==st.years[0]; st.years=y; st.genTime=gt; $('onset').min=y[0]; $('onset').max=last(y)-1; if(tied) $('onset').value=y[0];} }
   st.onset=Math.min(Math.max(+$('onset').value,st.years[0]),last(st.years)-1);
-  {const a=+$('decline').value; if(a!==DMAP.from(st.decline)) st.decline=+DMAP.to(a).toPrecision(2);} st.mig=+$('mig').value; st.pMig=+$('pmig').value; st.sMale=+$('smale').value; st.kSib=+$('ksib').value; st.maleFrac=+$('mfrac').value;
-  st.perfect=$('perfect').checked; st.depthEarly=+$('dh').value; st.depthLast=+$('dm').value; st.err=+$('err').value; st.errLast=+$('errl').value; st.minDP=+$('mindp').value;
+  {const a=+$('decline').value; if(a!==DMAP.from(st.decline)) st.decline=+DMAP.to(a).toPrecision(2);} lin('mig','mig'); st.pMig=+$('pmig').value; lin('smale','sMale'); lin('ksib','kSib'); lin('mfrac','maleFrac');
+  st.perfect=$('perfect').checked; lin('dh','depthEarly'); lin('dm','depthLast'); st.err=+$('err').value; st.errLast=+$('errl').value; lin('mindp','minDP');
   st.alpha=+$('alpha').value; st.m=Math.max(1,Math.round(+$('m').value||1)); st.reps=+$('reps').value; st.seed=Math.max(1,Math.round(+$('seed').value||1));
   labels();
 }
