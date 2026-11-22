@@ -22,7 +22,12 @@ function makeRng(seed){
     if(l>60){const k=Math.round(l+Math.sqrt(l)*gauss());return k<0?0:k}
     const L=Math.exp(-l);let k=0,p=1;do{k++;p*=u()}while(p>L);return k-1;
   }
-  return {u,gauss,binom,pois};
+  function gamma(a){ // gamma variate with shape a and scale 1 (Marsaglia & Tsang 2000); used only for overdispersed depth
+    if(a<1){const g=gamma(a+1);return g*Math.pow(u(),1/a)}
+    const d=a-1/3, c=1/Math.sqrt(9*d);
+    for(;;){let x,v;do{x=gauss();v=1+c*x}while(v<=0);v=v*v*v;const w=u();if(w<1-0.0331*x*x*x*x||Math.log(w)<0.5*x*x+d*(1-v+Math.log(v)))return d*v}
+  }
+  return {u,gauss,binom,pois,gamma};
 }
 const YEARS=[1935,1955,1975,2025]; // default sampling years; override with P.years (any number of points, >= 2)
 /* years per generation: P.genTime, or 1/P.volt (generations per year) for older parameter sets */
@@ -45,27 +50,33 @@ function simulateRep(P,s,R,keep){
   const x=new Array(K).fill(0), n=new Array(K).fill(0), traj=keep?[]:null, trajM=keep?[]:null;
   let hetTrue=0, hetCalled=0, homTrue=0, homCalled=0, missing=0, sampled=0, hapTot=0, hapOk=0, fixLast=false, fixAt=[];
   const mf=P.maleFrac||0;
-  const callOne=(gt,dep,last)=>{ // returns called genotype or -1 (missing); last: sampled at the last date (error rate P.errLast)
+  const pseudo=P.calls==='pseudo'&&!P.perfect, cp=pseudo?1:2, cv=P.depthCV>0?P.depthCV:0, shape=cv>0?1/(cv*cv):0;
+  /* reads at the locus: Poisson with the mean depth (default); with P.depthCV > 0, each individual first gets its own
+     mean depth from a gamma distribution (mean dep, coefficient of variation P.depthCV): negative binomial read depth */
+  const reads=dep=>cv>0?R.pois(dep*R.gamma(shape)/shape):R.pois(dep);
+  const callOne=(gt,dep,si)=>{ // returns called genotype or -1 (missing); si: index of the sampling date (its error rate)
     sampled++;
     if(P.perfect){ if(gt===1){hetTrue++;hetCalled++} return gt; }
-    const d=R.pois(dep);
+    const d=reads(dep);
     if(d<P.minDP){missing++;return -1}
-    if(gt===1) hetTrue++; else homTrue++;
-    const e=last?P.errLast:P.err, lE=last?P.lEL:P.lE, l1E=last?P.l1EL:P.l1E;
+    const e=P.eD[si], lE=P.lED[si], l1E=P.l1ED[si];
     const q=gt===0?e:gt===1?0.5:1-e;
+    if(pseudo) return R.u()<q?1:0;       // pseudo-haploid call: one read drawn at random, counted as one gene copy
+    if(gt===1) hetTrue++; else homTrue++;
     const k=R.binom(d,q);
     const l0=k*lE+(d-k)*l1E, l1=-d*Math.LN2, l2=k*l1E+(d-k)*lE;
     const c=(l1>=l0&&l1>=l2)?1:(l2>l0?2:0);
     if(gt===1&&c===1) hetCalled++; else if(gt!==1&&c===gt) homCalled++;
     return c;
   };
-  const callHap=(a,dep,last)=>{ // haploid individual or male: returns called allele or -1
+  const callHap=(a,dep,si)=>{ // haploid individual or male: returns called allele or -1
     sampled++;
     if(P.perfect){hapTot++;hapOk++;return a}
-    const d=R.pois(dep);
+    const d=reads(dep);
     if(d<P.minDP){missing++;return -1}
     hapTot++;
-    const e=last?P.errLast:P.err;
+    const e=P.eD[si];
+    if(pseudo){const c=R.u()<(a?1-e:e)?1:0; if(c===a) hapOk++; return c;}   // pseudo-haploid call: one read drawn at random
     const k=R.binom(d,a?1-e:e);
     const c=2*k>d?1:(2*k<d?0:(R.u()<0.5?1:0));
     if(c===a) hapOk++;
@@ -88,13 +99,13 @@ function simulateRep(P,s,R,keep){
       if(last) fixLast=(pfs<=0||pfs>=1)&&(pms<=0||pms>=1); // allele lost or fixed in the population at the last date
       fixAt[si]=pfs>=1&&pms>=1;                                  // favoured allele fixed in the population at this date
       if(hpl){
-        for(let i=0;i<ni;i++){const c=callHap(R.u()<pfs?1:0,dep,last);if(c>=0){x[si]+=c;n[si]+=1}}
+        for(let i=0;i<ni;i++){const c=callHap(R.u()<pfs?1:0,dep,si);if(c>=0){x[si]+=c;n[si]+=1}}
       }else if(k<=1&&!P.famPath){ // unrelated individuals (P.famPath: send k = 1 through the family branch, validation/sibling_path_check.js)
         for(let i=0;i<ni;i++){
           if(mf>0&&R.u()<mf){ // male
-            if(hap){const c=callHap(R.u()<pms?1:0,dep,last);if(c>=0){x[si]+=c;n[si]+=1}}
-            else{const r=R.u();const gt=r<mAA?2:(r<mAA+mAa?1:0);const c=callOne(gt,dep,last);if(c>=0){x[si]+=c;n[si]+=2}}
-          }else{const r=R.u();const gt=r<fAA?2:(r<fAA+fAa?1:0);const c=callOne(gt,dep,last);if(c>=0){x[si]+=c;n[si]+=2}}
+            if(hap){const c=callHap(R.u()<pms?1:0,dep,si);if(c>=0){x[si]+=c;n[si]+=1}}
+            else{const r=R.u();const gt=r<mAA?2:(r<mAA+mAa?1:0);const c=callOne(gt,dep,si);if(c>=0){x[si]+=c;n[si]+=cp}}
+          }else{const r=R.u();const gt=r<fAA?2:(r<fAA+fAa?1:0);const c=callOne(gt,dep,si);if(c>=0){x[si]+=c;n[si]+=cp}}
         }
       }else{
         let left=ni;
@@ -106,8 +117,8 @@ function simulateRep(P,s,R,keep){
           for(let j=0;j<kk;j++){
             const mat=mg===2?1:mg===0?0:(R.u()<0.5?1:0);
             const pat=hap?fa:(fg===2?1:fg===0?0:(R.u()<0.5?1:0));
-            if(hap&&mf>0&&R.u()<mf){const c=callHap(mat,dep,last);if(c>=0){x[si]+=c;n[si]+=1};continue} // son: maternal allele only
-            const c=callOne(mat+pat,dep,last); if(c>=0){x[si]+=c;n[si]+=2}
+            if(hap&&mf>0&&R.u()<mf){const c=callHap(mat,dep,si);if(c>=0){x[si]+=c;n[si]+=1};continue} // son: maternal allele only
+            const c=callOne(mat+pat,dep,si); if(c>=0){x[si]+=c;n[si]+=cp}
           }
         }
       }
@@ -185,6 +196,10 @@ function prep(P){
   /* per-read error rate: P.err at the earlier sampling dates, P.errLast at the last date (same as P.err when not set) */
   if(!(Q.errLast>0)) Q.errLast=Q.err;
   Q.lE=Math.log(Q.err); Q.l1E=Math.log(1-Q.err); Q.lEL=Math.log(Q.errLast); Q.l1EL=Math.log(1-Q.errLast);
+  /* error rate of each sampling date: P.errByDate (one rate per date) when given, otherwise P.err and P.errLast */
+  const K=(Q.years||YEARS).length, byDate=Array.isArray(Q.errByDate)&&Q.errByDate.length===K&&Q.errByDate.every(e=>e>0&&e<0.5);
+  Q.eD=[]; Q.lED=[]; Q.l1ED=[];
+  for(let i=0;i<K;i++){const e=byDate?Q.errByDate[i]:(i===K-1?Q.errLast:Q.err); Q.eD.push(e); Q.lED.push(Math.log(e)); Q.l1ED.push(Math.log(1-e));}
   if(Q.noDrift) Q.N=Infinity; else Q.N=Q.Nf;
   return Q;
 }
