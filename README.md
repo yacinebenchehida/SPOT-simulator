@@ -41,7 +41,7 @@ A standard test ignores drift and sets the threshold too low, so it often finds 
 
 Please cite SPOT as:
 
-> Ben Chehida, Y., Januszczak, I., Broad, G., Paul, A., Price, B., & Barnes, I. (2026). SPOT: Selection Power Over Time, version 1.0.1. Zenodo. https://doi.org/10.5281/zenodo.24423881
+> Ben Chehida, Y., Januszczak, I., Broad, G., Paul, A., Price, B., & Barnes, I. (2026). SPOT: Selection Power Over Time, version 1.1.0. Zenodo. https://doi.org/10.5281/zenodo.24423881
 
 ## Licence
 
