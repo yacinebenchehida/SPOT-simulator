@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use SPOT, please cite it as below."
 title: "SPOT: Selection Power Over Time"
-version: 1.0.1
+version: 1.1.0
 doi: 10.5281/zenodo.24423881
 date-released: 2026-11-22
 authors:
