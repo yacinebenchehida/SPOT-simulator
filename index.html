@@ -817,7 +817,7 @@ const SYS=()=>st.system;
 const MAXP=20, MAXG=1e7, MAXN=1000, MINGT=0.0001;
 const MAXNE=1e8;
 const DEFAULTS={system:'diploid',neByBlock:false,neBlocks:null,genTime:1,Nf:1000,Nm:1000,noDrift:false,p0:0.1,s:0.03,h:0.5,onset:1935,years:[1935,1955,1975,2025],n:[20,20,20,40],perfect:false,depthEarly:10,depthLast:15,err:0.005,errLast:0.005,minDP:3,alpha:0.05,m:1,sMale:1,decline:1,mig:0,pMig:-1,kSib:1,maleFrac:0,reps:1000,seed:1};
-const VERSION='1.0.0';
+const VERSION='1.0.1';
 document.querySelectorAll('.spot-version').forEach(e=>e.textContent=VERSION);
 /* example scenarios: illustrative starting points, not estimates for real species */
 const PRESETS={
@@ -855,9 +855,9 @@ function buildTP(){
 function writeUI(){
   $('tx-hym').setAttribute('aria-pressed',st.system==='haplodiploid'); $('tx-dip').setAttribute('aria-pressed',st.system==='diploid'); $('tx-hap').setAttribute('aria-pressed',st.system==='haploid'); $('neblock').checked=st.neByBlock;
   $('gentime').value=st.genTime; $('nf').value=NMAP.from(st.Nf); $('nm').value=NMAP.from(st.Nm); $('nodrift').checked=st.noDrift;
-  $('p0').value=PMAP.from(st.p0); $('s').value=SMAP.from(st.s); $('h').value=String(st.h); $('onset').value=st.onset;
+  $('p0').value=PMAP.from(st.p0); $('s').value=SMAP.from(st.s); $('h').value=String(st.h);
   buildTP(); $('y-hint').textContent='';
-  $('onset').min=st.years[0]; $('onset').max=last(st.years)-1;
+  $('onset').min=st.years[0]; $('onset').max=last(st.years)-1; $('onset').value=st.onset;   // range first, then the value (a value outside the old range would be clamped)
   $('decline').value=DMAP.from(st.decline); $('mig').value=st.mig; $('pmig').value=String(st.pMig); $('smale').value=st.sMale; $('ksib').value=st.kSib; $('mfrac').value=st.maleFrac;
   $('perfect').checked=st.perfect; $('dh').value=st.depthEarly; $('dm').value=st.depthLast; $('err').value=String(st.err); $('errl').value=String(st.errLast); $('mindp').value=st.minDP;
   $('alpha').value=String(st.alpha); $('m').value=st.m; $('reps').value=String(st.reps); $('seed').value=st.seed;
