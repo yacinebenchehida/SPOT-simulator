@@ -47,7 +47,7 @@ The equations are given, with their references, in "Model details" at the bottom
 - One population, apart from the optional source of migrants: no population structure.
 - Population size is constant, changes exponentially between the first and last points, or is set for each interval between sampling points. There is no random fluctuation.
 - Families have one mother and one father, so there is no multiple paternity within a family.
-- Genotype calling uses a simple per-read error model with a flat prior, with one error rate for the earlier points and one for the last point. Reference bias, mapping quality and damage patterns that depend on the age of each sample are not modelled.
+- Genotype calling uses a simple per-read error model with a flat prior, with one error rate for the earlier points and one for the last point, or optionally one rate per point (which can approximate damage that increases with the age of the samples). Reference bias, mapping quality and allele-specific damage (for example C→T changes) are not modelled.
 - Periods longer than 2,000 generations are simulated with rescaling: accurate within the tested limits, approximate beyond them (flagged on the page).
 - Power is computed for one locus at a time. Testing several candidate loci is handled with the Bonferroni correction (L); genome-wide scans need dedicated methods beyond the scope of SPOT.
 
@@ -78,6 +78,7 @@ This section lists every setting, with its label on the page, its name in the co
 | Years per generation | `genTime` | 1 | Average age of parents when their offspring are born, from 0.0001 (about one hour) to 100 years. The number of generations between the first and last points is (last year − first year) / this value, rounded. Periods longer than 2,000 generations are simulated with rescaling (Section 6, "What happens with very long series?"). |
 | Breeding females per generation (Nf) | `Nf` | 1,000 | Number of females that actually reproduce each generation (haploid system: "Breeding individuals per generation (N)"). This is not a census count of all individuals, and it is not Ne itself (see below). In social insects, it is roughly the number of successful reproductive females, not the number of workers. |
 | Breeding males per generation (Nm) | `Nm` | 1,000 | Number of males that actually reproduce each generation. Raise it relative to Nf to approximate multiple mating by females. Not used in the haploid system. |
+| Enter Ne directly | `neDirect` | off | When ticked, one slider "Effective population size (Ne)" replaces the breeding numbers. SPOT then uses equal numbers of breeding females and males that give this Ne (diploid: Ne/2 of each sex; haplodiploid: Ne/1.5; haploid: N = Ne), shown under the slider. Useful when an estimate of Ne is available rather than numbers of breeders. |
 | No drift (infinite population) | `noDrift` | off | Switches drift off. Only useful to reproduce the usual calculation of power without drift (the "Analytic baseline" scenario, Section 3.6). Leave it off for realistic power. |
 | Set Ne separately for each interval | `neByBlock`, `neBlocks` | off | When ticked, a column "Ne to next" appears in the sampling design. Each value is Ne from that sampling point to the next, which gives simple histories such as a bottleneck between two dates followed by recovery. Breeding females and males are scaled to give exactly that Ne, keeping their ratio. This replaces the breeding numbers and "Ne at the last point relative to the first". |
 | Ne at the last point relative to the first | `decline` | 1 | Exponential change of the breeding numbers, and therefore of Ne, between the first and last sampling years: 1 means a constant size, 0.1 a ten-fold decline, 2 a doubling. |
@@ -119,8 +120,11 @@ For most purposes, Ne is the only thing that matters. If the numbers of each sex
 | Mean depth, earlier points | `depthEarly` | 10 | Mean number of reads at the locus for individuals sampled at every point except the last (1 to 30). The number of reads of each individual is drawn from a Poisson distribution with this mean. |
 | Mean depth, last point | `depthLast` | 15 | The same for the last point, so that older material can have a lower coverage. |
 | Per-read error rate, earlier points | `err` | 0.5% | Probability that a read shows the wrong allele (sequencing error and damage), for every point except the last. |
-| Per-read error rate, last point | `errLast` | 0.5% | The same for the last point. Historical samples often carry more errors, so the earlier points can be given a higher rate. All earlier points share the same rate, whatever their age. |
-| Minimum depth to call a genotype | `minDP` | 3 | Individuals with fewer reads at the locus are left out of the analysis, so at a low mean depth fewer individuals enter the test. |
+| Per-read error rate, last point | `errLast` | 0.5% | The same for the last point. Historical samples often carry more errors, so the earlier points can be given a higher rate. All earlier points share the same rate, whatever their age, unless a rate is set for each point (below). |
+| Minimum depth to call a genotype | `minDP` | 3 | Individuals with fewer reads at the locus are left out of the analysis, so at a low mean depth fewer individuals enter the test. When more than 30% of the sampled individuals are below it, a note above the results says so. |
+| Genotype calls | `calls` | Called genotypes (`genotype`) | **Called genotypes**: a genotype is called for each individual, as described below. **Pseudo-haploid** (`pseudo`): for each individual with at least the minimum depth, one read drawn at random counts as one gene copy, whatever its number of reads, as is common in ancient DNA (usually with a minimum depth of 1). Deeper sequencing then only helps by giving a read to more individuals. |
+| More sequencing options: variation of depth between individuals | `depthCV` | None (0) | By default, the number of reads of each individual follows a Poisson distribution around the mean depth. With a coefficient of variation CV of 0.25, 0.5 or 1, each individual first gets its own mean depth from a gamma distribution (mean = the mean depth, coefficient of variation CV), so that its number of reads follows a negative binomial distribution: some samples are well sequenced, others poorly, and more individuals fall below the minimum depth for the same mean depth. |
+| More sequencing options: per-read error rate for each sampling point | `errByDate` | off (`null`) | When ticked, an "Error" column appears in the sampling design, with one per-read error rate for each point (for example higher for older samples). It replaces the two error rates above. |
 
 Diploid genotypes are called by maximum likelihood among the three genotypes, with a flat prior. At low depth, heterozygotes are often called homozygous because, by chance, only one allele was read (allelic dropout). Haploid individuals are called by the majority of reads, with ties broken at random.
 
@@ -315,6 +319,9 @@ const P = {
   n: [20, 20, 20, 40],                // individuals per date
   depthEarly: 10, depthLast: 15,      // mean depth, earlier dates and last date
   err: 0.005, errLast: 0.005, minDP: 3, // per-read error rates and minimum depth
+  calls: 'genotype',                  // or 'pseudo': one random read per individual (pseudo-haploid calls)
+  depthCV: 0,                         // variation of depth between individuals (0 = Poisson depth)
+  errByDate: null,                    // or one per-read error rate per date, replacing err and errLast
   kSib: 1, maleFrac: 0,               // individuals per family (1 = unrelated); proportion of males sampled
   perfect: false, noDrift: false,     // genotypes from simulated reads; drift on
   neByBlock: false, neBlocks: null,   // or Ne for each interval between dates

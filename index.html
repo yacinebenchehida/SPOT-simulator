@@ -86,6 +86,8 @@ input[type=checkbox]{accent-color:var(--accent);width:16px;height:16px}
 .tp-list{display:grid;gap:6px}
 .tp-row{display:grid;grid-template-columns:1.8em minmax(0,1.2fr) minmax(0,1fr) 30px;gap:6px;align-items:center}
 .tp-ne .tp-row{grid-template-columns:1.6em minmax(0,1.15fr) minmax(0,.9fr) minmax(0,1.1fr) 30px}
+.tp-err .tp-row{grid-template-columns:1.6em minmax(0,1.15fr) minmax(0,.9fr) minmax(0,1fr) 30px}
+.tp-ne.tp-err .tp-row{grid-template-columns:1.5em minmax(0,1.1fr) minmax(0,.85fr) minmax(0,1fr) minmax(0,.95fr) 28px}
 .tp-head{font-size:.68rem;font-family:var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
 .tp-row .idx{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);text-align:center}
 .tp-row button.del{padding:0;width:28px;height:28px;border-radius:50%;line-height:1;font-size:1rem;color:var(--muted)}
@@ -140,6 +142,7 @@ svg text{font-family:var(--f-mono)}
 .status{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
 .note{border:1px solid color-mix(in oklab,var(--warn) 40%,var(--line));background:color-mix(in oklab,var(--warn) 7%,var(--surface));padding:12px 16px;border-radius:var(--r);font-size:.88rem}
 .note[hidden]{display:none}
+details.more{margin-top:6px} details.more summary{cursor:pointer;font-size:.85rem;color:var(--muted)} details.more[hidden]{display:none}
 /* explanation */
 .explain{display:grid;gap:22px}
 .explain>div>h2{margin-top:4px}
@@ -203,6 +206,8 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
     <p class="hint">Average age of parents when their offspring are born: for example 1 for one generation a year, 0.5 for two a year, around 25–30 for humans, and down to 0.0001 (about one hour) for fast-reproducing microbes. Long series are simulated with rescaling (see Method below).</p>
     <label for="nf" id="row-nf"><span class="row"><span id="lab-nf">Breeding females per generation (Nf)</span><output id="o-nf"></output></span><input id="nf" type="range" min="0" max="100" step="1"></label>
     <label for="nm" id="row-nm"><span class="row"><span>Breeding males per generation (Nm)</span><output id="o-nm"></output></span><input id="nm" type="range" min="0" max="100" step="1"></label>
+    <label for="ne" id="row-ne" hidden><span class="row"><span>Effective population size (Ne)</span><output id="o-ne"></output></span><input id="ne" type="range" min="0" max="100" step="1"></label>
+    <label class="check" for="nedirect" id="row-nedirect"><input id="nedirect" type="checkbox"> Enter Ne directly</label>
     <p class="hint" id="ne-hint"></p>
     <label class="check" for="nodrift"><input id="nodrift" type="checkbox"> No drift (infinite population)</label>
     <label for="decline" id="row-decline"><span class="row"><span>Ne at the last point relative to the first</span><output id="o-decline"></output></span><input id="decline" type="range" min="0" max="100" step="1"></label>
@@ -248,6 +253,16 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
     <p class="hint" id="err-hint">Historical samples often carry more errors (DNA damage): set a higher rate for the earlier points if needed.</p>
     <label for="mindp" id="row-mindp"><span class="row"><span>Minimum depth to call a genotype</span><output id="o-mindp"></output></span><input id="mindp" type="range" min="1" max="10" step="1"></label>
     <p class="hint" id="mindp-hint">Individuals with fewer reads at the locus are left out of the analysis, so at a low mean depth fewer individuals enter the test.</p>
+    <label for="calls" id="row-calls">Genotype calls
+      <select id="calls"><option value="genotype">Called genotypes (default)</option><option value="pseudo">Pseudo-haploid (one random read per individual)</option></select></label>
+    <p class="hint" id="calls-hint" hidden>Pseudo-haploid calls, common in ancient DNA: for each individual with at least the minimum depth, one read drawn at random counts as one gene copy, whatever its number of reads. Usually used with a minimum depth of 1.</p>
+    <details class="more" id="row-more"><summary>More sequencing options</summary>
+      <label for="dcv">Variation of depth between individuals
+        <select id="dcv"><option value="0">None: Poisson read depth (default)</option><option value="0.25">Low (CV = 0.25)</option><option value="0.5">Moderate (CV = 0.5)</option><option value="1">High (CV = 1)</option></select></label>
+      <p class="hint">By default, the number of reads of each individual follows a Poisson distribution around the mean depth. Real samples vary more: some are well sequenced, others poorly. With this option, each individual first gets its own mean depth (coefficient of variation CV), so more individuals fall below the minimum depth for the same mean depth.</p>
+      <label class="check" for="errdate"><input id="errdate" type="checkbox"> Set the per-read error rate for each sampling point</label>
+      <p class="hint">When ticked, an "Error" column appears in the sampling design and replaces the two error rates above, for example to give older samples, with more DNA damage, a higher rate.</p>
+    </details>
   </fieldset>
   <fieldset>
     <legend>Test &amp; simulation</legend>
@@ -284,6 +299,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
   <div class="panel-head"><p class="status" id="status">Running…</p><button type="button" id="res-csv">Download results (CSV)</button></div>
   <div class="note" id="rescale-note" hidden></div>
   <div class="note" id="gauss-note" hidden></div>
+  <div class="note" id="miss-note" hidden></div>
 
 
   <section class="panel">
@@ -385,7 +401,7 @@ ol.plain li::marker{color:var(--accent);font-weight:700}
       <ol class="steps">
         <li><b>Simulate.</b> SPOT simulates a population from the first to the last sampling date R times with selection on the favoured allele (selection simulations; R = "Selection simulations", 1,000 by default) and at least 2R times without selection (neutral simulations; more when many loci are tested, so that about 10 neutral simulations lie beyond the threshold). Both start at the same p₀ and share the same Ne, migration and history, so drift (unless switched off) acts on both. With 1,000 selection simulations, power varies by 1.5–2.2 percentage points (one standard deviation) from one run to the next; for a final estimate, we recommend 5,000.</li>
         <li><b>Sample.</b> At each sampling date, the chosen number of individuals is drawn from the population, as groups of siblings if chosen. A diploid individual (diploids, haplodiploid females) carries two gene copies; a haploid individual (haploids, haplodiploid males) carries one.</li>
-        <li><b>Sequence and call genotypes.</b> Each individual receives a number of reads drawn from a Poisson distribution with the mean depth of its date, and each read shows the wrong allele with the per-read error rate of its date (earlier points or last point). Individuals with fewer reads than the minimum depth are left out. Diploid genotypes are called by maximum likelihood<sup>8</sup>, haploid ones by the majority of reads (ties at random).</li>
+        <li><b>Sequence and call genotypes.</b> Each individual receives a number of reads drawn from a Poisson distribution with the mean depth of its date (more variable between individuals if chosen in "More sequencing options"), and each read shows the wrong allele with the per-read error rate of its date (earlier points or last point, or one rate per point). Individuals with fewer reads than the minimum depth are left out. Diploid genotypes are called by maximum likelihood<sup>8</sup>, haploid ones by the majority of reads (ties at random). With pseudo-haploid calls, one read drawn at random counts as one gene copy.</li>
         <li><b>Score.</b> From the called gene copies at each date, SPOT computes for every simulation the score Z (see "The score Z"): how fast the frequency of the favoured allele rises over time, relative to how much it would vary if the random choice of gene copies were the only source of chance. Z close to 0 means no clear change; a large Z means a clear rise.</li>
         <li><b>Set the threshold.</b> In the neutral simulations, the allele is not selected, but Z still varies by chance: drift, the random choice of individuals, siblings in the sample and genotype errors. The drift-aware threshold is the value of Z exceeded by only a proportion α′ of the neutral simulations (α′ = α, the significance level, divided by the number L of candidate loci). A larger Z is then unlikely to arise by chance. Neutral simulations exactly at the threshold count for a fraction, so that this proportion is exactly α′. If too few neutral simulations lie beyond it, the threshold is extrapolated from a normal distribution fitted to the neutral Z values, which can be far off for a rare allele.</li>
         <li><b>Count.</b> Power is the proportion of selection simulations whose Z exceeds the threshold (same rule for values at the threshold). The sampling-only threshold is z<sub>1−α′</sub>, the value exceeded with probability α′ by a standard normal variable (1.645 for α′ = 5%); its false-positive rate is the proportion of neutral simulations above it.</li>
@@ -498,7 +514,12 @@ function makeRng(seed){
     if(l>60){const k=Math.round(l+Math.sqrt(l)*gauss());return k<0?0:k}
     const L=Math.exp(-l);let k=0,p=1;do{k++;p*=u()}while(p>L);return k-1;
   }
-  return {u,gauss,binom,pois};
+  function gamma(a){ // gamma variate with shape a and scale 1 (Marsaglia & Tsang 2000); used only for overdispersed depth
+    if(a<1){const g=gamma(a+1);return g*Math.pow(u(),1/a)}
+    const d=a-1/3, c=1/Math.sqrt(9*d);
+    for(;;){let x,v;do{x=gauss();v=1+c*x}while(v<=0);v=v*v*v;const w=u();if(w<1-0.0331*x*x*x*x||Math.log(w)<0.5*x*x+d*(1-v+Math.log(v)))return d*v}
+  }
+  return {u,gauss,binom,pois,gamma};
 }
 const YEARS=[1935,1955,1975,2025]; // default sampling years; override with P.years (any number of points, >= 2)
 /* years per generation: P.genTime, or 1/P.volt (generations per year) for older parameter sets */
@@ -521,27 +542,33 @@ function simulateRep(P,s,R,keep){
   const x=new Array(K).fill(0), n=new Array(K).fill(0), traj=keep?[]:null, trajM=keep?[]:null;
   let hetTrue=0, hetCalled=0, homTrue=0, homCalled=0, missing=0, sampled=0, hapTot=0, hapOk=0, fixLast=false, fixAt=[];
   const mf=P.maleFrac||0;
-  const callOne=(gt,dep,last)=>{ // returns called genotype or -1 (missing); last: sampled at the last date (error rate P.errLast)
+  const pseudo=P.calls==='pseudo'&&!P.perfect, cp=pseudo?1:2, cv=P.depthCV>0?P.depthCV:0, shape=cv>0?1/(cv*cv):0;
+  /* reads at the locus: Poisson with the mean depth (default); with P.depthCV > 0, each individual first gets its own
+     mean depth from a gamma distribution (mean dep, coefficient of variation P.depthCV): negative binomial read depth */
+  const reads=dep=>cv>0?R.pois(dep*R.gamma(shape)/shape):R.pois(dep);
+  const callOne=(gt,dep,si)=>{ // returns called genotype or -1 (missing); si: index of the sampling date (its error rate)
     sampled++;
     if(P.perfect){ if(gt===1){hetTrue++;hetCalled++} return gt; }
-    const d=R.pois(dep);
+    const d=reads(dep);
     if(d<P.minDP){missing++;return -1}
-    if(gt===1) hetTrue++; else homTrue++;
-    const e=last?P.errLast:P.err, lE=last?P.lEL:P.lE, l1E=last?P.l1EL:P.l1E;
+    const e=P.eD[si], lE=P.lED[si], l1E=P.l1ED[si];
     const q=gt===0?e:gt===1?0.5:1-e;
+    if(pseudo) return R.u()<q?1:0;       // pseudo-haploid call: one read drawn at random, counted as one gene copy
+    if(gt===1) hetTrue++; else homTrue++;
     const k=R.binom(d,q);
     const l0=k*lE+(d-k)*l1E, l1=-d*Math.LN2, l2=k*l1E+(d-k)*lE;
     const c=(l1>=l0&&l1>=l2)?1:(l2>l0?2:0);
     if(gt===1&&c===1) hetCalled++; else if(gt!==1&&c===gt) homCalled++;
     return c;
   };
-  const callHap=(a,dep,last)=>{ // haploid individual or male: returns called allele or -1
+  const callHap=(a,dep,si)=>{ // haploid individual or male: returns called allele or -1
     sampled++;
     if(P.perfect){hapTot++;hapOk++;return a}
-    const d=R.pois(dep);
+    const d=reads(dep);
     if(d<P.minDP){missing++;return -1}
     hapTot++;
-    const e=last?P.errLast:P.err;
+    const e=P.eD[si];
+    if(pseudo){const c=R.u()<(a?1-e:e)?1:0; if(c===a) hapOk++; return c;}   // pseudo-haploid call: one read drawn at random
     const k=R.binom(d,a?1-e:e);
     const c=2*k>d?1:(2*k<d?0:(R.u()<0.5?1:0));
     if(c===a) hapOk++;
@@ -564,13 +591,13 @@ function simulateRep(P,s,R,keep){
       if(last) fixLast=(pfs<=0||pfs>=1)&&(pms<=0||pms>=1); // allele lost or fixed in the population at the last date
       fixAt[si]=pfs>=1&&pms>=1;                                  // favoured allele fixed in the population at this date
       if(hpl){
-        for(let i=0;i<ni;i++){const c=callHap(R.u()<pfs?1:0,dep,last);if(c>=0){x[si]+=c;n[si]+=1}}
+        for(let i=0;i<ni;i++){const c=callHap(R.u()<pfs?1:0,dep,si);if(c>=0){x[si]+=c;n[si]+=1}}
       }else if(k<=1&&!P.famPath){ // unrelated individuals (P.famPath: send k = 1 through the family branch, validation/sibling_path_check.js)
         for(let i=0;i<ni;i++){
           if(mf>0&&R.u()<mf){ // male
-            if(hap){const c=callHap(R.u()<pms?1:0,dep,last);if(c>=0){x[si]+=c;n[si]+=1}}
-            else{const r=R.u();const gt=r<mAA?2:(r<mAA+mAa?1:0);const c=callOne(gt,dep,last);if(c>=0){x[si]+=c;n[si]+=2}}
-          }else{const r=R.u();const gt=r<fAA?2:(r<fAA+fAa?1:0);const c=callOne(gt,dep,last);if(c>=0){x[si]+=c;n[si]+=2}}
+            if(hap){const c=callHap(R.u()<pms?1:0,dep,si);if(c>=0){x[si]+=c;n[si]+=1}}
+            else{const r=R.u();const gt=r<mAA?2:(r<mAA+mAa?1:0);const c=callOne(gt,dep,si);if(c>=0){x[si]+=c;n[si]+=cp}}
+          }else{const r=R.u();const gt=r<fAA?2:(r<fAA+fAa?1:0);const c=callOne(gt,dep,si);if(c>=0){x[si]+=c;n[si]+=cp}}
         }
       }else{
         let left=ni;
@@ -582,8 +609,8 @@ function simulateRep(P,s,R,keep){
           for(let j=0;j<kk;j++){
             const mat=mg===2?1:mg===0?0:(R.u()<0.5?1:0);
             const pat=hap?fa:(fg===2?1:fg===0?0:(R.u()<0.5?1:0));
-            if(hap&&mf>0&&R.u()<mf){const c=callHap(mat,dep,last);if(c>=0){x[si]+=c;n[si]+=1};continue} // son: maternal allele only
-            const c=callOne(mat+pat,dep,last); if(c>=0){x[si]+=c;n[si]+=2}
+            if(hap&&mf>0&&R.u()<mf){const c=callHap(mat,dep,si);if(c>=0){x[si]+=c;n[si]+=1};continue} // son: maternal allele only
+            const c=callOne(mat+pat,dep,si); if(c>=0){x[si]+=c;n[si]+=cp}
           }
         }
       }
@@ -661,6 +688,10 @@ function prep(P){
   /* per-read error rate: P.err at the earlier sampling dates, P.errLast at the last date (same as P.err when not set) */
   if(!(Q.errLast>0)) Q.errLast=Q.err;
   Q.lE=Math.log(Q.err); Q.l1E=Math.log(1-Q.err); Q.lEL=Math.log(Q.errLast); Q.l1EL=Math.log(1-Q.errLast);
+  /* error rate of each sampling date: P.errByDate (one rate per date) when given, otherwise P.err and P.errLast */
+  const K=(Q.years||YEARS).length, byDate=Array.isArray(Q.errByDate)&&Q.errByDate.length===K&&Q.errByDate.every(e=>e>0&&e<0.5);
+  Q.eD=[]; Q.lED=[]; Q.l1ED=[];
+  for(let i=0;i<K;i++){const e=byDate?Q.errByDate[i]:(i===K-1?Q.errLast:Q.err); Q.eD.push(e); Q.lED.push(Math.log(e)); Q.l1ED.push(Math.log(1-e));}
   if(Q.noDrift) Q.N=Infinity; else Q.N=Q.Nf;
   return Q;
 }
@@ -806,6 +837,7 @@ const logMap=(lo,hi)=>({to:v=>lo*Math.pow(hi/lo,v/100), from:x=>Math.round(100*M
 const NMAP=logMap(20,1e8), PMAP=logMap(0.001,0.5), DMAP=logMap(0.01,10), SMAP=logMap(0.0001,0.6);
 const roundN=x=>{const e=Math.pow(10,Math.floor(Math.log10(x))-1);return Math.round(x/e)*e};
 const roundP=x=>x<0.01?+x.toFixed(4):x<0.1?+x.toFixed(3):+x.toFixed(2);
+const nFromNe=(sys,ne)=>Math.max(2,Math.round(sys==='haploid'?ne:sys==='haplodiploid'?ne/1.5:ne/2));   // breeders of each sex giving this Ne, with as many females as males
 const fmtN=x=>Math.round(x).toLocaleString('en-US');                                   // numbers in full: 1,500
 const fmtK=x=>x>=1e4?(x/1000).toFixed(0)+'k':x>=1e3?(x/1000).toFixed(1).replace('.0','')+'k':String(x); // compact, for axis ticks only
 const yearTicks=(a,b,k)=>{const span=b-a, raw=span/k, mag=Math.pow(10,Math.floor(Math.log10(raw))), st_=[1,2,2.5,5,10].map(x=>x*mag).find(x=>span/x<=k)||10*mag; const t=[]; for(let y=Math.ceil(a/st_)*st_;y<=b+1e-9;y+=st_) t.push(Math.round(y)); return t};
@@ -816,7 +848,7 @@ const SYS=()=>st.system;
 
 const MAXP=20, MAXG=1e7, MAXN=1000, MINGT=0.0001;
 const MAXNE=1e8;
-const DEFAULTS={system:'diploid',neByBlock:false,neBlocks:null,genTime:1,Nf:1000,Nm:1000,noDrift:false,p0:0.1,s:0.03,h:0.5,onset:1935,years:[1935,1955,1975,2025],n:[20,20,20,40],perfect:false,depthEarly:10,depthLast:15,err:0.005,errLast:0.005,minDP:3,alpha:0.05,m:1,sMale:1,decline:1,mig:0,pMig:-1,kSib:1,maleFrac:0,reps:1000,seed:1};
+const DEFAULTS={calls:'genotype',depthCV:0,errByDate:null,neDirect:false,system:'diploid',neByBlock:false,neBlocks:null,genTime:1,Nf:1000,Nm:1000,noDrift:false,p0:0.1,s:0.03,h:0.5,onset:1935,years:[1935,1955,1975,2025],n:[20,20,20,40],perfect:false,depthEarly:10,depthLast:15,err:0.005,errLast:0.005,minDP:3,alpha:0.05,m:1,sMale:1,decline:1,mig:0,pMig:-1,kSib:1,maleFrac:0,reps:1000,seed:1};
 const VERSION='1.0.0';
 document.querySelectorAll('.spot-version').forEach(e=>e.textContent=VERSION);
 /* example scenarios: illustrative starting points, not estimates for real species */
@@ -842,29 +874,31 @@ const last=a=>a[a.length-1];
 const nGen=()=>Math.round((last(st.years)-st.years[0])/st.genTime);
 function fixEnds(){const K=st.n.length; if(st.n[0]<1) st.n[0]=1; if(st.n[K-1]<1) st.n[K-1]=1;}
 const HAPL=()=>st.system==='haploid';
+function ensureErr(){if(!Array.isArray(st.errByDate)) return; const K=st.years.length; while(st.errByDate.length<K) st.errByDate.push(last(st.errByDate)); st.errByDate.length=K;}
 function ensureBlocks(){const K=st.years.length, d=Math.max(2,Math.round(neFor(st))); if(!Array.isArray(st.neBlocks)) st.neBlocks=[]; while(st.neBlocks.length<K-1) st.neBlocks.push(st.neBlocks.length?last(st.neBlocks):d); st.neBlocks.length=K-1;}
 function buildTP(){
-  ensureBlocks();
-  const Lst=$('tp-list'), K=st.years.length, nb=st.neByBlock&&!st.noDrift; let h='';
-  Lst.parentElement.classList.toggle('tp-ne',nb);
-  $('tp-head').innerHTML='<span>#</span><span>Year</span><span>Individuals</span>'+(nb?'<span>Ne to next</span>':'')+'<span></span>';
-  st.years.forEach((y,i)=>{h+=`<div class="tp-row"><span class="idx">${i+1}</span><input type="number" step="1" id="y${i}" value="${y}" aria-label="Year of point ${i+1}"><input type="number" min="${i===0||i===K-1?1:0}" max="${MAXN}" step="1" id="n${i}" value="${st.n[i]}" aria-label="Individuals sampled at point ${i+1}">${nb?(i<K-1?`<input type="number" min="2" max="${MAXNE}" step="1" id="ne${i}" value="${st.neBlocks[i]}" aria-label="Ne between point ${i+1} and point ${i+2}">`:'<span class="idx">–</span>'):''}<button type="button" class="del" data-del="${i}" aria-label="Remove point ${i+1}"${K<=2?' disabled':''}>×</button></div>`});
+  ensureBlocks(); ensureErr();
+  const Lst=$('tp-list'), K=st.years.length, nb=st.neByBlock&&!st.noDrift, eb=Array.isArray(st.errByDate)&&!st.perfect; let h='';
+  Lst.parentElement.classList.toggle('tp-ne',nb); Lst.parentElement.classList.toggle('tp-err',eb);
+  $('tp-head').innerHTML='<span>#</span><span>Year</span><span>Individuals</span>'+(nb?'<span>Ne to next</span>':'')+(eb?'<span>Error</span>':'')+'<span></span>';
+  const errSel=i=>`<select id="er${i}" aria-label="Per-read error rate at point ${i+1}">${SNAP.err.map(v=>`<option value="${v}"${v===st.errByDate[i]?' selected':''}>${+(v*100).toFixed(1)}%</option>`).join('')}</select>`;
+  st.years.forEach((y,i)=>{h+=`<div class="tp-row"><span class="idx">${i+1}</span><input type="number" step="1" id="y${i}" value="${y}" aria-label="Year of point ${i+1}"><input type="number" min="${i===0||i===K-1?1:0}" max="${MAXN}" step="1" id="n${i}" value="${st.n[i]}" aria-label="Individuals sampled at point ${i+1}">${nb?(i<K-1?`<input type="number" min="2" max="${MAXNE}" step="1" id="ne${i}" value="${st.neBlocks[i]}" aria-label="Ne between point ${i+1} and point ${i+2}">`:'<span class="idx">–</span>'):''}${eb?errSel(i):''}<button type="button" class="del" data-del="${i}" aria-label="Remove point ${i+1}"${K<=2?' disabled':''}>×</button></div>`});
   Lst.innerHTML=h; $('tp-add').disabled=K>=MAXP;
 }
 
 function writeUI(){
   $('tx-hym').setAttribute('aria-pressed',st.system==='haplodiploid'); $('tx-dip').setAttribute('aria-pressed',st.system==='diploid'); $('tx-hap').setAttribute('aria-pressed',st.system==='haploid'); $('neblock').checked=st.neByBlock;
-  $('gentime').value=st.genTime; $('nf').value=NMAP.from(st.Nf); $('nm').value=NMAP.from(st.Nm); $('nodrift').checked=st.noDrift;
-  $('p0').value=PMAP.from(st.p0); $('s').value=SMAP.from(st.s); $('h').value=String(st.h); $('onset').value=st.onset;
+  $('gentime').value=st.genTime; $('nf').value=NMAP.from(st.Nf); $('nm').value=NMAP.from(st.Nm); $('nedirect').checked=st.neDirect; $('ne').value=NMAP.from(neFor(st)); $('nodrift').checked=st.noDrift;
+  $('p0').value=PMAP.from(st.p0); $('s').value=SMAP.from(st.s); $('h').value=String(st.h);
   buildTP(); $('y-hint').textContent='';
-  $('onset').min=st.years[0]; $('onset').max=last(st.years)-1;
+  $('onset').min=st.years[0]; $('onset').max=last(st.years)-1; $('onset').value=st.onset;   // range first, then the value (a value outside the old range would be clamped)
   $('decline').value=DMAP.from(st.decline); $('mig').value=st.mig; $('pmig').value=String(st.pMig); $('smale').value=st.sMale; $('ksib').value=st.kSib; $('mfrac').value=st.maleFrac;
-  $('perfect').checked=st.perfect; $('dh').value=st.depthEarly; $('dm').value=st.depthLast; $('err').value=String(st.err); $('errl').value=String(st.errLast); $('mindp').value=st.minDP;
+  $('perfect').checked=st.perfect; $('dh').value=st.depthEarly; $('dm').value=st.depthLast; $('err').value=String(st.err); $('errl').value=String(st.errLast); $('mindp').value=st.minDP; $('calls').value=st.calls; $('dcv').value=String(st.depthCV); $('errdate').checked=Array.isArray(st.errByDate);
   $('alpha').value=String(st.alpha); $('m').value=st.m; $('reps').value=String(st.reps); $('seed').value=st.seed;
   labels();
 }
 function labels(){
-  $('o-nf').textContent=fmtN(st.Nf); $('o-nm').textContent=fmtN(st.Nm);
+  $('o-nf').textContent=fmtN(st.Nf); $('o-nm').textContent=fmtN(st.Nm); $('o-ne').textContent=fmtN(Math.round(neFor(st)));
   $('o-p0').textContent=st.p0; $('o-s').textContent=st.s<0.01?String(+st.s.toPrecision(2)):st.s.toFixed(3); $('o-onset').textContent=st.onset;
   $('o-decline').textContent=(st.decline*100<10?(st.decline*100).toFixed(1):Math.round(st.decline*100))+'%'; $('o-mig').textContent=String(+st.mig.toFixed(4)); $('o-smale').textContent=st.sMale.toFixed(2)+'×'; $('o-ksib').textContent=st.kSib; $('o-mfrac').textContent=Math.round(st.maleFrac*100)+'%';
   $('mfrac-hint').innerHTML=st.system==='haplodiploid'?'Haplodiploid: sampled males are haploid and contribute one allele each; females contribute two. 0% = females only.':'Diploid: both sexes carry two alleles. The proportion of males only matters if selection in males differs from females, and it is ignored when more than one individual per family is sampled.';
@@ -874,10 +908,13 @@ function labels(){
   $('plan-h-opt').hidden=$('plan-h-opt').disabled=HAPL(); if(HAPL()&&$('plan-var').value==='h') $('plan-var').value='s';
   /* show only the settings that act with the current choices */
   const dip=st.system==='diploid', drift=!st.noDrift, blocks=drift&&st.neByBlock;
-  ['row-nf','row-nm'].forEach(id=>$(id).hidden=!drift||blocks);
+  ['row-nf','row-nm'].forEach(id=>$(id).hidden=!drift||blocks||st.neDirect);
+  $('row-ne').hidden=!drift||blocks||!st.neDirect; $('row-nedirect').hidden=!drift||blocks;
   $('row-decline').hidden=!drift||blocks; $('row-neblock').hidden=$('neblock-hint').hidden=!drift;
   $('row-pmig').hidden=!(st.mig>0);
-  ['row-dh','row-dm','row-err','row-errl','err-hint','row-mindp','mindp-hint'].forEach(id=>$(id).hidden=st.perfect);
+  ['row-dh','row-dm','row-err','row-errl','err-hint','row-mindp','mindp-hint','row-calls','row-more'].forEach(id=>$(id).hidden=st.perfect);
+  if(Array.isArray(st.errByDate)) ['row-err','row-errl','err-hint'].forEach(id=>$(id).hidden=true);   // rates set in the sampling design
+  $('calls-hint').hidden=st.perfect||st.calls!=='pseudo';
   $('lab-nf').textContent=HAPL()?'Breeding individuals per generation (N)':'Breeding females per generation (Nf)';
   ['row-h','row-smale','row-ksib','ksib-hint'].forEach(id=>$(id).hidden=HAPL());
   if(HAPL()) $('row-nm').hidden=true;
@@ -892,16 +929,23 @@ function labels(){
   const ne=neFor(st), ne2=neFor({system:st.system,Nf:st.Nf*st.decline,Nm:st.Nm*st.decline});
   const form=st.system==='haploid'?'haploid: Ne = N':st.system==='haplodiploid'?'haplodiploid: 9NfNm/(4Nm+2Nf)':'diploid: 4NfNm/(Nf+Nm)';
   $('ne-hint').textContent=st.noDrift?'Drift switched off: the population is infinite; only sampling, relatedness and genotype calls add chance.':(st.neByBlock?`Ne set separately for each interval (column "Ne to next" of the sampling design): ${st.neBlocks.map(v=>fmtN(v)).join(' → ')}. ${nGen().toLocaleString()} generations from ${st.years[0]} to ${last(st.years)}.`:`Effective population size Ne ≈ ${fmtN(Math.round(ne))}${st.decline!==1?' at the first point → '+fmtN(Math.round(ne2))+' at the last':''} (${form}). ${nGen().toLocaleString()} generations from ${st.years[0]} to ${last(st.years)}.`);
+  if(st.neDirect&&!st.noDrift&&!st.neByBlock) $('ne-hint').textContent+=HAPL()?` Simulated with ${fmtN(st.Nf)} breeding individuals per generation.`:` Simulated with ${fmtN(st.Nf)} breeding females and ${fmtN(st.Nm)} breeding males per generation.`;   // Ne entered directly: show the breeders used
   const tot=st.n.reduce((a,b)=>a+b,0), hapM=st.system==='haplodiploid'?st.maleFrac:0, al=Math.round(tot*(HAPL()?1:2-hapM));
   $('n-hint').textContent=`${st.n.length} time points, ${tot} individuals ≈ ${al} gene copies sampled (before the depth filter)${HAPL()?' (one per haploid individual)':hapM>0?' (haploid males count once)':''}.${st.n.length>2?' Set an intermediate point to 0 to leave it out.':''}`;
   const g=gensOf(st), same=[]; for(let i=1;i<g.length;i++) if(g[i]===g[i-1]) same.push((i)+' and '+(i+1));
   $('tp-note').textContent=same.length?`Points ${same.join(', ')} fall in the same generation, so they sample the same population.`:'';
 }
 function readUI(){
-  {const a=+$('nf').value,b=+$('nm').value; if(a!==NMAP.from(st.Nf)) st.Nf=roundN(NMAP.to(a)); if(b!==NMAP.from(st.Nm)) st.Nm=roundN(NMAP.to(b));} {const nd=$('nodrift').checked; if(nd!==st.noDrift){st.noDrift=nd; buildTP();}}  // the Ne column only shows with drift
+  { const nd=$('nedirect').checked;
+    if(nd!==st.neDirect){ st.neDirect=nd; if(nd){ st.Nf=st.Nm=nFromNe(st.system,neFor(st)); $('ne').value=NMAP.from(neFor(st)); } $('nf').value=NMAP.from(st.Nf); $('nm').value=NMAP.from(st.Nm); }   // switching on: same Ne, equal numbers of females and males
+    else if(nd){ const a=+$('ne').value; if(a!==NMAP.from(neFor(st))){ st.Nf=st.Nm=nFromNe(st.system,roundN(NMAP.to(a))); $('nf').value=NMAP.from(st.Nf); $('nm').value=NMAP.from(st.Nm); } }   // Ne slider moved
+    else {const a=+$('nf').value,b=+$('nm').value; if(a!==NMAP.from(st.Nf)) st.Nf=roundN(NMAP.to(a)); if(b!==NMAP.from(st.Nm)) st.Nm=roundN(NMAP.to(b));} } {const nd=$('nodrift').checked; if(nd!==st.noDrift){st.noDrift=nd; buildTP();}}  // the Ne column only shows with drift
   {const a=+$('p0').value; if(a!==PMAP.from(st.p0)) st.p0=roundP(PMAP.to(a));} {const a=+$('s').value; if(a!==SMAP.from(st.s)) st.s=+SMAP.to(a).toPrecision(2);} st.h=+$('h').value;
   { const nb=$('neblock').checked; if(nb!==st.neByBlock){st.neByBlock=nb; ensureBlocks(); if(nb&&st.neBlocks.every(v=>v===st.neBlocks[0])) st.neBlocks=st.neBlocks.map(()=>Math.max(2,Math.round(neFor(st)))); buildTP();} }
   if(document.querySelectorAll('#tp-list .tp-row').length!==st.years.length) buildTP();
+  st.calls=$('calls').value==='pseudo'?'pseudo':'genotype'; st.depthCV=+$('dcv').value;
+  { const ed=$('errdate').checked; if(ed!==Array.isArray(st.errByDate)){ st.errByDate=ed?st.years.map((_,i)=>i===st.years.length-1?st.errLast:st.err):null; buildTP(); } }   // per-date error rates start from the two current rates
+  if(Array.isArray(st.errByDate)) st.errByDate=st.errByDate.map((v,i)=>{const x=+($('er'+i)||{}).value; return x>0?x:v});
   if(st.neByBlock) st.neBlocks=st.neBlocks.map((v,i)=>{const x=Math.round(+($('ne'+i)||{}).value); return Number.isFinite(x)&&x>=2?Math.min(MAXNE,x):v});
   const K=st.years.length;
   st.n=st.n.map((_,i)=>Math.max(i===0||i===K-1?1:0,Math.min(MAXN,Math.round(+$('n'+i).value||0))));
@@ -925,13 +969,13 @@ function schedule(){clearTimeout(tmr);$('status').textContent='Running…';$('re
 const typed=t=>t.matches('input')&&(t.type==='number'||t.type==='text'); // boxes where a value is typed
 document.querySelector('.params').addEventListener('input',e=>{const t=e.target; if(t.matches('input,select')&&t.type!=='file'&&!typed(t)){readUI();schedule()}}); // sliders, menus, tick boxes: at once
 document.querySelector('.params').addEventListener('change',e=>{if(typed(e.target)){readUI();schedule()}}); // typed values: on Enter or when leaving the box
-$('tp-list').addEventListener('click',e=>{const b=e.target.closest('[data-del]'); if(!b||st.years.length<=2) return; const i=+b.dataset.del, K0=st.years.length; ensureBlocks(); st.neBlocks.splice(i===0?0:(i===K0-1?K0-2:i),1); st.years.splice(i,1); st.n.splice(i,1); fixEnds(); writeUI(); schedule();});
+$('tp-list').addEventListener('click',e=>{const b=e.target.closest('[data-del]'); if(!b||st.years.length<=2) return; const i=+b.dataset.del, K0=st.years.length; ensureBlocks(); st.neBlocks.splice(i===0?0:(i===K0-1?K0-2:i),1); if(Array.isArray(st.errByDate)) st.errByDate.splice(i,1); st.years.splice(i,1); st.n.splice(i,1); fixEnds(); writeUI(); schedule();});
 $('tp-add').onclick=()=>{ if(st.years.length>=MAXP) return; const K=st.years.length, gap=Math.max(1,st.years[K-1]-st.years[K-2]); const y=st.years[K-1]+gap;
   if((y-st.years[0])/st.genTime>MAXG){$('y-hint').textContent=`Adding a point at ${y} would exceed ${MAXG.toLocaleString()} generations. Edit the years first.`;return}
-  ensureBlocks(); st.neBlocks.push(last(st.neBlocks)); st.years.push(y); st.n.push(st.n[K-1]); writeUI(); schedule(); const inp=$('y'+K); if(inp) inp.focus(); };
-$('tx-hym').onclick=()=>{st.system='haplodiploid';writeUI();schedule()};
-$('tx-dip').onclick=()=>{st.system='diploid';writeUI();schedule()};
-$('tx-hap').onclick=()=>{st.system='haploid';writeUI();schedule()};
+  ensureBlocks(); st.neBlocks.push(last(st.neBlocks)); if(Array.isArray(st.errByDate)) st.errByDate.push(last(st.errByDate)); st.years.push(y); st.n.push(st.n[K-1]); writeUI(); schedule(); const inp=$('y'+K); if(inp) inp.focus(); };
+$('tx-hym').onclick=()=>{const ne=neFor(st); st.system='haplodiploid'; if(st.neDirect) st.Nf=st.Nm=nFromNe(st.system,ne); writeUI();schedule()};
+$('tx-dip').onclick=()=>{const ne=neFor(st); st.system='diploid'; if(st.neDirect) st.Nf=st.Nm=nFromNe(st.system,ne); writeUI();schedule()};
+$('tx-hap').onclick=()=>{const ne=neFor(st); st.system='haploid'; if(st.neDirect) st.Nf=st.Nm=nFromNe(st.system,ne); writeUI();schedule()};
 document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{st=JSON.parse(JSON.stringify(PRESETS[b.dataset.preset]));$('preset-hint').textContent=PRESET_INFO[b.dataset.preset];writeUI();schedule()});
 $('st-trend').onclick=()=>{stat='trend';$('st-trend').setAttribute('aria-pressed',true);$('st-two').setAttribute('aria-pressed',false);if(lastRes)drawDist(lastRes)};
 $('st-two').onclick=()=>{stat='two';$('st-two').setAttribute('aria-pressed',true);$('st-trend').setAttribute('aria-pressed',false);if(lastRes)drawDist(lastRes)};
@@ -983,10 +1027,13 @@ function render(r,ms,snap){
   const onlyHap=isNaN(r.hetAcc)&&!isNaN(r.hapAcc);
   if(onlyHap) $('t-het').textContent=pct(r.hapAcc);
   $('t-het-lab').textContent=st.perfect?'Genotypes called correctly (perfect genotypes)':(onlyHap?`${HAPL()?'Haploid genotypes':'Haploid males'} called correctly (among individuals that pass the depth filter); ${pct(r.missRate)} of sampled individuals below the minimum depth`:`Heterozygous individuals called heterozygous; homozygous individuals called correctly: ${pctS2(r.homAcc)}${!isNaN(r.hapAcc)?`; haploid males called correctly: ${pctS2(r.hapAcc)}`:''}; ${pct(r.missRate)} of sampled individuals below the minimum depth`);
+  if(!st.perfect&&st.calls==='pseudo'&&!HAPL()){ $('t-het').textContent='–'; $('t-het-lab').textContent=`Pseudo-haploid calls: one read per individual, no genotype called; ${pct(r.missRate)} of sampled individuals below the minimum depth`; }
   const pctile=(100*(1-r.alphaAdj)); const pcs=+pctile.toPrecision(Math.max(3,Math.ceil(-Math.log10(r.alphaAdj))+2));
   $('status').textContent=`Computed in ${ms} ms from ${st.reps.toLocaleString()} selection simulations and ${r.nNeutral.toLocaleString()} neutral simulations`+(r.lambda>1?`; ${r.genReal.toLocaleString()} generations simulated as ${r.genSim.toLocaleString()} (each simulated generation stands for ${r.lambda} real ones)`:'')+'.';
   { const gn=$('gauss-note'); const g=r.trend.method!=='empirical'||r.two.method!=='empirical'; gn.hidden=!g;
     if(g) gn.innerHTML=`<b>Unreliable threshold.</b> With α′ = α/L = ${+r.alphaAdj.toPrecision(2)}, even ${r.nNeutral.toLocaleString()} neutral simulations leave too few beyond the threshold, so it is extrapolated with a normal fit. For a rare allele or a test with few distinct scores this can be far off, and the power shown can be much too high or too low. Use fewer candidate loci or a larger significance level to obtain a reliable value.`; }
+  { const mn=$('miss-note'); const many=!st.perfect&&r.missRate>0.3; mn.hidden=!many;   // warning when many sampled individuals get no genotype
+    if(many) mn.innerHTML=`<b>Many individuals left out.</b> ${pct(r.missRate)} of the sampled individuals have fewer reads than the minimum depth (${st.minDP} ${st.minDP>1?'reads':'read'}), so they get no genotype and are left out of the test. Lower the minimum depth or increase the mean depth to keep more of them.`; }
   $('rescale-note').hidden=!r.rescaleOutside;
   if(r.rescaleOutside) $('rescale-note').innerHTML=`<b>Approximate result.</b> The sampling period spans ${r.genReal.toLocaleString()} generations. To keep the page fast, each simulated generation stands for ${r.lambda} real ones, which is beyond the range checked against full simulations (strong selection or small breeding numbers). Treat this power as indicative.`;
   const causes=[]; if(!st.noDrift) causes.push('drift'); if(!HAPL()&&st.kSib>1) causes.push('siblings sampled together'); if(!st.perfect&&(Math.min(st.depthEarly,st.depthLast)<6||st.depthEarly!==st.depthLast)) causes.push('genotype calls at low or unequal depth');
@@ -1171,6 +1218,7 @@ function applySettings(o){ // returns null if applied, or an error message
   const s=JSON.parse(JSON.stringify(DEFAULTS)), num=v=>typeof v==='number'&&isFinite(v), nums=v=>Array.isArray(v)&&v.every(num);
   for(const k in DEFAULTS){ if(!(k in o)) continue; const d=DEFAULTS[k], v=o[k];
     if(k==='neBlocks'){ if(v===null||(nums(v)&&v.every(x=>x>=2))) s[k]=v&&v.map(x=>Math.min(MAXNE,Math.round(x))); }
+    else if(k==='errByDate'){ if(v===null||(nums(v)&&v.every(x=>x>0&&x<0.5))) s[k]=v&&v.map(x=>SNAP.err.reduce((p,q)=>Math.abs(q-x)<Math.abs(p-x)?q:p)); }
     else if(Array.isArray(d)){ if(nums(v)) s[k]=v.slice(); }
     else if(typeof d===typeof v&&(typeof v!=='number'||isFinite(v))) s[k]=v; }
   if(!('genTime' in o)&&num(o.volt)&&o.volt>0) s.genTime=1/o.volt;  // older files used generations per year
@@ -1185,6 +1233,7 @@ function applySettings(o){ // returns null if applied, or an error message
   const G=(s.years[K-1]-s.years[0])/s.genTime; if(Math.round(G)<1||G>MAXG) return `The sampling period must span 1 to ${MAXG.toLocaleString()} generations.`;
   s.n=s.n.map((v,i)=>Math.max(i===0||i===K-1?1:0,Math.min(MAXN,Math.round(v))));
   if(s.neBlocks&&s.neBlocks.length!==K-1) s.neBlocks=null; if(!s.neBlocks) s.neByBlock=false;
+  if(s.errByDate&&s.errByDate.length!==K) s.errByDate=null; if(s.calls!=='pseudo') s.calls='genotype'; s.depthCV=[0,0.25,0.5,1].reduce((p,q)=>Math.abs(q-s.depthCV)<Math.abs(p-s.depthCV)?q:p);
   s.onset=Math.min(Math.max(Math.round(s.onset),s.years[0]),s.years[K-1]-1);
   st=s; writeUI(); schedule(); return null;
 }

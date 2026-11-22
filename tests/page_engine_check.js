@@ -1,7 +1,8 @@
 //////////////////////////////////////////////////////////////////////////////////////
 // Test: the application gives the same numbers as sim.js, in a real browser        //
 //                                                                                  //
-// For each example scenario of the application, the test reads the exact numbers   //
+// For each example scenario of the application (and with the optional settings), //
+// the test reads the exact numbers                                                 //
 // the page computes (its CSV export and its saved settings) and compares them with //
 // sim.js run on the same settings.                                                 //
 //                                                                                  //
@@ -45,11 +46,19 @@ const S = require(path.resolve(process.argv[3] || 'sim.js'));   // The simulatio
   };
 
   const rows = [];                           // One results line per example scenario
-  for (const pre of ['defaults', 'mammal', 'human', 'pathogen', 'large', 'analytic']) {   // Loop over the example scenarios
-    // Load the scenario and wait for the results
-    await pg.click(`[data-preset="${pre}"]`);
+  // Example scenarios, then the optional settings (version 1.1) applied to one of them
+  const set = (id, v) => pg.$eval('#' + id, (e, v) => { if (e.type === 'checkbox') e.checked = v; else e.value = v; e.dispatchEvent(new Event('input', {bubbles: true})); }, v);
+  const SCEN = ['defaults', 'mammal', 'human', 'pathogen', 'large', 'analytic'].map(p => [p, p, null]).concat([
+    ['human + pseudo-haploid calls', 'human', async () => set('calls', 'pseudo')],
+    ['human + variable depth (CV 0.5)', 'human', async () => set('dcv', '0.5')],
+    ['defaults + error rate per point', 'defaults', async () => { await set('errdate', true); await pg.waitForTimeout(200); await set('er0', '0.05'); }],
+    ['defaults + Ne entered directly', 'defaults', async () => { await set('nedirect', true); await pg.waitForTimeout(200); await set('ne', '40'); }]]);
+  for (const [pre, preset, apply] of SCEN) {   // Loop over the scenarios
+    // Load the scenario, apply the optional settings and wait for the results
+    await pg.click(`[data-preset="${preset}"]`);
     await pg.waitForTimeout(400);
     await idle();
+    if (apply) { await apply(); await pg.waitForTimeout(400); await idle(); }
 
     // Read the settings and the results of the page
     const st = JSON.parse(await grab('save-settings')).settings;   // Settings saved by the page
