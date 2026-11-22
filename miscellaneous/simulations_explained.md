@@ -479,6 +479,7 @@ Only beyond that maximum does the tool fall back on a shortcut: it fits a bell c
 - Haplodiploid: **Ne = 9·Nf·Nm / (4·Nm + 2·Nf)**. With N of each, Ne = 1.5N. Males carry only one copy, so they contribute fewer gene copies to the next generation and the population drifts more for the same head count.
 - Haploid: **Ne = N**, the number of breeding individuals. Each individual passes on one copy, and neutral diversity is lost at a rate of 1/N per generation.
 - A very skewed breeding sex ratio reduces Ne strongly: drift is dominated by the rarer sex.
+- With "Enter Ne directly", the user gives Ne and SPOT uses equal numbers of breeding females and males that give this Ne (Ne/2 of each sex in diploids, Ne/1.5 in haplodiploids, N = Ne in haploids).
 
 ### 11.6 Heterozygosity loss: anchoring Ne with real data
 
@@ -528,6 +529,12 @@ Setting selection in males to 0 (a trait not expressed in males) removes this ad
 | 20× | 99.9% | 0% | 66% |
 
 Haploid males have no heterozygotes, so their calls are essentially always correct; but low depth still drops the same share of individuals. Above about 6–10×, more depth no longer changes power: drift and sample size are then the limits.
+
+**Options ("Genotype calls" and "More sequencing options").**
+
+- *Pseudo-haploid calls*, common in ancient DNA: for each individual with at least the minimum depth, one read is drawn at random and counts as one gene copy. A heterozygote then gives one allele at random instead of two called alleles, so each individual carries less information, and extra depth only helps by giving a read to individuals that had none. In the human ancient DNA example of the paper, power was 6–12 points lower than with called genotypes and rose little with depth.
+- *Variation of depth between individuals*: by default, the number of reads is Poisson around the mean depth. With a coefficient of variation CV, each individual first gets its own mean depth (gamma distribution), so the number of reads is negative binomial: at the same mean depth, more individuals fall below the minimum depth. At a mean depth of 2×, the share of individuals with no read goes from 14% (Poisson) to 20% (CV = 0.5) and 33% (CV = 1).
+- *Per-read error rate for each sampling point*: one error rate per date instead of one for the earlier points and one for the last, for example to give the oldest samples, with the most DNA damage, the highest rate.
 
 ### 11.9 Related individuals (siblings)
 

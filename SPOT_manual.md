@@ -91,7 +91,7 @@ This section lists every setting, with its label on the page, its name in the co
 - diploid: **Ne = 4·Nf·Nm / (Nf + Nm)**; with equal numbers N of each sex, Ne = 2 N;
 - haploid: **Ne = N**.
 
-For most purposes, Ne is the only thing that matters. If the numbers of each sex are unknown, keep Nf = Nm and treat the pair as a single dial for Ne.
+For most purposes, Ne is the only thing that matters. If the numbers of each sex are unknown, keep Nf = Nm and treat the pair as a single dial for Ne, or tick "Enter Ne directly" and enter Ne itself.
 
 ### 3.2 Selection
 
@@ -226,8 +226,8 @@ The tile "Genetic diversity expected to be lost between the first and the last p
 | **Power · trend test across all sampling points, drift-aware threshold** | Main result: the proportion of selection simulations whose score Z, computed from all sampling points, exceeds the drift-aware threshold. Below it, the same for the first-versus-last test. A note appears when, in more than half of the neutral simulations, drift has lost or fixed the allele by the last point. |
 | Power · trend test, sampling-only threshold | Power with the fixed threshold of a standard test that ignores drift (1.645 for α′ = 5%), and the false-positive rate of that threshold: the proportion of neutral simulations it calls "selected". A warning appears when this threshold overstates power by 5 points or more. |
 | Genetic diversity expected to be lost between the first and the last point | Average over neutral loci, from Ne (formula in "Model details" in the application). With migration, the value with migration is shown next to the value without it. |
-| Effective population size Ne | Computed from the breeding numbers (first → last point if the population changes), or the lowest and highest values when Ne is set for each interval. |
-| Heterozygotes called correctly | Proportion of true heterozygotes called heterozygous (haploid system: gene copies called correctly), with the proportion of homozygotes called correctly and of sampled individuals below the minimum depth. |
+| Effective population size Ne | Computed from the breeding numbers (first → last point if the population changes), or the lowest and highest values when Ne is set for each interval. When Ne is entered directly, the breeding numbers used are shown under the slider. |
+| Heterozygotes called correctly | With pseudo-haploid calls, no genotype is called, so this tile shows "–" for diploid individuals, with the proportion of sampled individuals below the minimum depth. Otherwise: proportion of true heterozygotes called heterozygous (haploid system: gene copies called correctly), with the proportion of homozygotes called correctly and of sampled individuals below the minimum depth. |
 
 **Charts**
 
@@ -251,6 +251,7 @@ The tile "Genetic diversity expected to be lost between the first and the last p
 - *Allele lost or fixed by drift:* shown when drift has lost or fixed the allele by the last date in more than half of the neutral simulations; little variation is then left to test.
 - *Hollow markers in the parameter power curve:* too few neutral simulations for the chosen α′, so the threshold was taken from a normal distribution fitted to the neutral values; these points can be far off.
 - *Rescaling:* very long series are simulated with rescaling; results outside the tested limits are flagged as approximate.
+- *Many individuals left out:* more than 30% of the sampled individuals have fewer reads than the minimum depth and receive no genotype; lowering the minimum depth or increasing the mean depth keeps more of them.
 
 ---
 
